@@ -1,0 +1,421 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AGMSystem.master.cs" Inherits="AGMSystem.AGMSystem" %>
+
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Comarsoft | Event Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets2/images/favicon.ico">
+
+    <!-- Layout config Js -->
+    <script src="assets2/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="assets2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets2/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets2/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+    <%-- swal --%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script type="text/javascript">
+
+        function success(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.success(msg, "Success");
+
+            return false;
+
+        }
+
+
+        function error(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.error(msg, "Error");
+
+            return false;
+
+        }
+
+        function warning(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.warning(msg, "Warning");
+
+            return false;
+
+        }
+
+
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+
+ <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+ 
+
+    
+    <%-- end swal --%>
+
+
+
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <%--<header id="page-topbar">--%>
+        <%--<div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex">              
+            </div>            
+        </div>
+    </div>--%>
+        <%--</header>--%>
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="Dashboard.aspx" runat="server" id="lg" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="Dashboard.aspx" runat="server" id="ln" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="horizontal">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="Dashboard.aspx" runat="server" id="ds"
+                                aria-expanded="false" aria-controls="sidebarAuth">
+                                <i class="mdi mdi-monitor-dashboard"></i><span data-key="t-authentication">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="mdi mdi-account-group"></i><span data-key="t-dashboards">Membership</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarDashboards">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="Membership/MemberCreation.aspx" runat="server" id="mc" class="nav-link" data-key="t-crm">Creation </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Membership/MemberEnquiries.aspx" runat="server" id="me" class="nav-link" data-key="t-analytics">Member Enquiries
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Membership/CompanyEnquiries.aspx" runat="server" id="ce" class="nav-link" data-key="t-analytics">Company Enquiries
+                                        </a>
+                                    </li>
+                                     <%--<li class="nav-item">
+                                        <a href="Membership/MembershipCompanyMapping.aspx" runat="server" id="A1" class="nav-link" data-key="t-crm">Members Company Mapping </a>
+                                    </li>--%>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- end Dashboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarApps">
+                                <i class="mdi mdi-file-cabinet"></i><span data-key="t-apps">Projects</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarApps">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="Projects/ProjectCreation.aspx" runat="server" id="pc" class="nav-link" data-key="t-calendar">Creation </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Projects/ProjectEnquiries.aspx" runat="server" id="pe" class="nav-link" data-key="t-chat">Project Enquiries </a>
+                                    </li>
+                                                                          <%--  <li class="nav-item">
+                                            <a href="ProjectMembershipEnquiries.aspc" class="nav-link" data-key="t-mailbox"> Projects Membership Enquiries</a>
+                                        </li>--%>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarLayouts">
+                                <i class="mdi mdi-calendar-clock"></i><span data-key="t-layouts">Events</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarLayouts">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="Events/AGMEvent.aspx" runat="server" id="db"  class="nav-link"
+                                            data-key="t-horizontal">Event Creation</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Events/Enquiries.aspx" runat="server" id="em" class="nav-link"
+                                            data-key="t-two-column">Events Enquiries</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Events/LogisticsManagement.aspx" runat="server" id="el"  class="nav-link"
+                                            data-key="t-detached">Logistics Management</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- end Dashboard Menu -->
+
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarAuth" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarAuth">
+                                <i class="mdi mdi-account-plus"></i><span data-key="t-authentication">Registration</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarAuth">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="Registration/PortalRregistration.aspx" runat="server" id="pr" class="nav-link" data-key="t-signin">Attendee RSVP
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="Registration/RsvpList.aspx" runat="server" id="rl" class="nav-link" data-key="t-signup">Payment Confirmation
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Registration/CheckIn.aspx" runat="server" id="ci" class="nav-link" data-key="t-signup">Check In
+                                        </a>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarPages" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarPages">
+                                <i class="mdi mdi-human-male-board-poll"></i><span data-key="t-pages">AGM</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarPages">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="AGM/CreateAGM.aspx" runat="server" id="ca" class="nav-link" data-key="t-starter">Create AGM </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="AGM/Resolutions.aspx" runat="server" id="rs" class="nav-link" data-key="t-starter">Resolutions </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="AGM/Voting.aspx" runat="server" id="vt" class="nav-link" data-key="t-profile">Voting
+                                        </a>
+                                    </li>
+                                    <%--<li class="nav-item">
+                                        <a href="AGM/AGMResults.aspx" runat="server" id="ar" class="nav-link" data-key="t-profile">Results
+                                        </a>
+                                    </li>--%>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="communication/CommunicationsCenter.aspx" runat="server" id="co"
+                                aria-expanded="false" aria-controls="sidebarAuth">
+                                <i class="mdi mdi-logout"></i><span data-key="t-authentication">Communications</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="AGMLogin.aspx" runat="server" id="A2"
+                                aria-expanded="false" aria-controls="sidebarAuth">
+                                <i class="mdi mdi-logout"></i><span data-key="t-authentication">Logout</span>
+                            </a>
+                        </li>
+                        <%--<li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarAdvanceUI" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarAdvanceUI">
+                                <i class="mdi mdi-chart-multiple"></i><span data-key="t-advance-ui">Reports</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarAdvanceUI">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="advance-ui-sweetalerts.html" class="nav-link" data-key="t-sweet-alerts">Membership</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="advance-ui-nestable.html" class="nav-link" data-key="t-nestable-list">Projects</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="advance-ui-scrollbar.html" class="nav-link"
+                                            data-key="t-scrollbar">Project Membership</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="advance-ui-animation.html" class="nav-link"
+                                            data-key="t-animation">Events schedule</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="advance-ui-animation.html" class="nav-link"
+                                            data-key="t-animation">Check-in Statistics</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="advance-ui-animation.html" class="nav-link"
+                                            data-key="t-animation">Resolutions</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>--%>
+
+
+
+
+
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <form id="form1" runat="server">
+                        <div>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </form>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>
+                            © Comarton.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Designed & Developed by Comarsoft
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <script src="libs/bootstrap/js/common.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets2/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets2/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets2/libs/node-waves/waves.min.js"></script>
+    <script src="assets2/libs/feather-icons/feather.min.js"></script>
+    <script src="assets2/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets2/js/plugins.js"></script>
+    <script src="assets2/libs/apexcharts/apexcharts.min.js"></script>
+    <!-- Vector map-->
+    <script src="assets2/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="assets2/libs/jsvectormap/maps/world-merc.js"></script>
+
+    <!--Swiper slider js-->
+    <script src="assets2/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="assets2/js/pages/dashboard-ecommerce.init.js"></script>
+
+
+    <!-- App js -->
+    <script src="assets2/js/app.js"></script>
+</body>
+
+</html>
