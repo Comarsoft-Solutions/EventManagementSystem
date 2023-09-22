@@ -94,30 +94,30 @@ namespace AGMSystem
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    AGMQueries enq = new AGMQueries("cn", 1);
-            //    DataSet ds = enq.getEnquiriesByFilterSearch(txtFnameSearch.Text, txtLnameSearch.Text);
+            try
+            {
+                AGMEvents enq = new AGMEvents("cn", 1);
+                DataSet ds = enq.getEnquiriesByFilterSearch(txtFnameSearch.Text);
 
-            //    if (ds != null)
-            //    {
-            //        grdEnquiries.DataSource = ds;
-            //        grdEnquiries.DataBind();
-            //    }
-            //    else
-            //    {
-            //        grdEnquiries.DataSource = null;
-            //        grdEnquiries.DataBind();
-            //        msgbox("No queries found for search parameters ");
-            //    }
+                if (ds != null)
+                {
+                    grdEnquiries.DataSource = ds;
+                    grdEnquiries.DataBind();
+                }
+                else
+                {
+                    grdEnquiries.DataSource = null;
+                    grdEnquiries.DataBind();
+                    msgbox("No events found for search parameters ");
+                }
 
 
-            //}
-            //catch (Exception cc)
-            //{
+            }
+            catch (Exception cc)
+            {
 
-            //    msgbox(cc.Message);
-            //}
+                msgbox(cc.Message);
+            }
 
         }
 

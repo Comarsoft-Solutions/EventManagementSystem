@@ -345,6 +345,31 @@ namespace AGMSystem
             }
         }
 
+
+        public DataSet getEnquiriesByFilterSearch(string eventNames = "")
+        {
+            string str = "";
+
+            if (eventNames.Length > 0 )
+            {
+
+                str = "select * from AGMEvents where firstName like '%" + eventNames + "%' ";
+
+            }
+            if (eventNames.Length <= 0 )
+            {
+                GetEnquiries();
+            }
+
+            return ReturnDs(str);
+        }
+        public virtual DataSet GetEnquiries()
+        {
+            string cmd = "select * from AGMEvents ";
+            return db.ExecuteDataSet(CommandType.Text, cmd);
+
+        }
+
         #region get Event 
         public DataSet GetEventName()
         {
