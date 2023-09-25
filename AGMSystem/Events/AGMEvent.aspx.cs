@@ -108,15 +108,15 @@ namespace AGMSystem
                     eve.StatusID = true;
                     eve.AttendanceFee = double.Parse(txtAttendanceFee.Text);
                     eve.Venue=TxtVenue.Text;
-                    if (RadioInvitation.Checked)
-                    {
-                        eve.AttendeeSettings = true;
-                    }
-                    if (RadioOpen.Checked) 
-                    {
-                        eve.AttendeeSettings= false;
-                        AmberAlert("Are you sure you want event to be open. Press Ok to Continue");
-                    }
+                    //if (RadioInvitation.Checked)
+                    //{
+                    //    eve.AttendeeSettings = true;
+                    //}
+                    //if (RadioOpen.Checked) 
+                    //{
+                    //    eve.AttendeeSettings= false;
+                    //    AmberAlert("Are you sure you want event to be open. Press Ok to Continue");
+                    //}
                     if (eve.Save())
                     {
                         SuccessAlert("Event details saved");
@@ -167,14 +167,14 @@ namespace AGMSystem
                         ag.StatusID = true;
                         ag.AttendanceFee = double.Parse(txtAttendanceFee.Text);
                         ag.Venue = TxtVenue.Text;
-                        if (RadioInvitation.Checked)
-                        {
-                            ag.AttendeeSettings = true;
-                        }
-                        else
-                        {
-                            ag.AttendeeSettings = false;
-                        }
+                        //if (RadioInvitation.Checked)
+                        //{
+                        //    ag.AttendeeSettings = true;
+                        //}
+                        //else
+                        //{
+                        //    ag.AttendeeSettings = false;
+                        //}
                         if (ag.Save())
                         {
                             txtID.Value = ag.ID.ToString();
@@ -379,10 +379,10 @@ namespace AGMSystem
                     }
                 }
                 //}
-                Accomodation ac = new Accomodation("cn", 1);
-                if (ac.getSavedAccomodation(int.Parse(txtID.Value)) != null)
+                Logistics ac = new Logistics("cn", 1);
+                if (ac.getSavedAccoAndTrans(int.Parse(txtID.Value)) != null)
                 {
-                    gridAccomodation.DataSource = ac.getSavedAccomodation(int.Parse(txtID.Value));
+                    gridAccomodation.DataSource = ac.getSavedAccoAndTrans(int.Parse(txtID.Value));
                     gridAccomodation.DataBind();
                 }
                 else
@@ -493,11 +493,11 @@ namespace AGMSystem
 
         protected void RadioOpen_CheckedChanged(object sender, EventArgs e)
         {
-            if (RadioOpen.Checked)
-            {
+            //if (RadioOpen.Checked)
+            //{
                 
-                AmberAlert("Are you sure you want event to be open. Press Ok to Continue");
-            }
+            //    AmberAlert("Are you sure you want event to be open. Press Ok to Continue");
+            //}
         }
 
         protected void CheckEventAvailability()
@@ -513,14 +513,14 @@ namespace AGMSystem
                 txtStartDate.Text = row["StartDate"].ToString();
                 TxtVenue.Text = row["Venue"].ToString();
                 txtAttendanceFee.Text = row["AttendanceFee"].ToString();
-                if (bool.Parse(row["AttendeeSettings"].ToString()) == true)
-                {
-                    _ = RadioInvitation.Checked;
-                }
-                else
-                {
-                    _ = RadioOpen.Checked;
-                }
+                //if (bool.Parse(row["AttendeeSettings"].ToString()) == true)
+                //{
+                //    _ = RadioInvitation.Checked;
+                //}
+                //else
+                //{
+                //    _ = RadioOpen.Checked;
+                //}
             }
         }
 

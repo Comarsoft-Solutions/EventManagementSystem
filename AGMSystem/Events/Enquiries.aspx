@@ -47,7 +47,7 @@
                     Style="border-collapse: collapse !important"
                     AllowPaging="True" AllowSorting="True" PageSize="10" OnRowCommand="grdEnquiries_RowCommand">
                     <Columns>
-                        <asp:BoundField DataField="EventName" HeaderText="First Name"></asp:BoundField>
+                        <asp:BoundField DataField="EventName" HeaderText="Event Name"></asp:BoundField>
                         <asp:BoundField DataField="StartDate" HeaderText="Start Date"></asp:BoundField>
                         <asp:BoundField DataField="EndDate" HeaderText="End Date"></asp:BoundField>
                         <asp:BoundField DataField="AttendanceFee" HeaderText="Fee(US$)"></asp:BoundField>

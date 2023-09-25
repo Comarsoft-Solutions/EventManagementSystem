@@ -53,7 +53,11 @@ namespace AGMSystem.models
 
         #region methods
 
-
+        public DataSet getSavedAccoAndTrans(int eventID)
+        {
+            string str = "SELECT ID, Name,EventID,Capacity,Available from AGM_Accomodation where EventID =" + eventID + " union SELECT ID, Name,EventID,Capacity,Available from AGM_Transport where EventID =" + eventID + "  order by ID desc  ";
+            return ReturnDs(str);
+        }
         public DataSet GetLogisticsType()
         {
             string str = "select * from AGM_LogisticsType";

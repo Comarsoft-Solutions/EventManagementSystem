@@ -195,7 +195,7 @@ namespace AGMSystem
         }
 
         public DataSet getAllEvents() {
-            string str = "select * from AGMEvents";
+            string str = "select ID,EventName,format(StartDate,'dd/MM/yyyy') as StartDate, format(EndDate,'dd/MM/yyyy')as EndDate,AttendanceFee from AGMEvents";
             return ReturnDs(str);
         }
 

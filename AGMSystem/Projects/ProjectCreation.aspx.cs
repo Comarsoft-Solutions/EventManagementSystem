@@ -49,6 +49,12 @@ namespace AGMSystem
                     {
 
                         proj.MaturityDate = Convert.ToDateTime(txtMaturity.Text);
+
+                        
+                    }
+                    if (DateTime.Parse(txtMaturity.Text)< DateTime.Parse(txtStartDate.Text))
+                    {
+                        AmberAlert("Enter Valid End Date");
                     }
                     else
                     {

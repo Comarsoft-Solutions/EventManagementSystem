@@ -78,24 +78,6 @@ namespace AGMSystem
         protected global::System.Web.UI.WebControls.TextBox txtAttendanceFee;
 
         /// <summary>
-        /// RadioOpen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioOpen;
-
-        /// <summary>
-        /// RadioInvitation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioInvitation;
-
-        /// <summary>
         /// txtSaveEvemt control.
         /// </summary>
         /// <remarks>

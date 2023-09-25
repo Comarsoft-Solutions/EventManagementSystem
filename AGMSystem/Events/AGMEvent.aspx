@@ -33,12 +33,6 @@
                         <label for="Event Venue" class="form-label">Event Venue <span class="text-danger">*</span></label>
                         <asp:TextBox ID="TxtVenue" CssClass="form-control" placeholder="Venue " runat="server"></asp:TextBox>
                     </div>
-
-                    <%--<div class="input-group text-center">
-                                    <asp:RequiredFieldValidator Display="Dynamic" ID="categorynameValidator" runat="server"
-                                        ErrorMessage="Field is required" ControlToValidate="txtEventname"
-                                        Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    </div>--%>
                 </div>
             </div>
             <%-- Start Date --%>
@@ -65,7 +59,7 @@
                 <asp:TextBox ID="txtAttendanceFee" TextMode="Number" CssClass="form-control" placeholder="300" runat="server"></asp:TextBox>
 
             </div>
-            <div class="col-6">
+        <%--    <div class="col-6">
                 <div class="col-4">
                     <div class="mb-3">
                         <div>
@@ -89,12 +83,8 @@
 
                         </div>
                     </div>
-                    <%--<asp:RadioButtonList ID="rbAttendeeSettings" runat="server" RepeatDirection="Horizontal" GroupName="Options">
-                    <asp:ListItem Value="false">Open</asp:ListItem>
-                    <asp:ListItem Value="true">By Invitation</asp:ListItem>
-                </asp:RadioButtonList>--%>
                 </div>
-            </div>
+            </div>--%>
             
     <div class=" col-2 text-end">
         
@@ -105,7 +95,7 @@
            
         <%-- Projects --%>
         <hr class="md-5"/>
-        <div class="mb-4"> <label for="LogisticsType" class="form-label">Projects Section <span class="text-danger"></span></label></div>
+        <div class="mb-4"> <label for="Projects" class="form-label">Projects Section <span class="text-danger"></span></label></div>
      
         <div class="row row-cols-2">
             <div class="col-6 mb-3">
@@ -208,12 +198,6 @@
                 </div>
             </div>
             <!--end col-->
-          <%--  <div class="col-2">
-                <div class="mb-3">
-                    <label for="price" class="form-label">Unit Price</label>
-                    <asp:TextBox ID="txtPrice" TextMode="Number" CssClass="form-control" placeholder="300" runat="server"></asp:TextBox>
-                </div>
-            </div>--%>
             <!--end col-->
             <div class="col-1">
                 <div class="text-end">
