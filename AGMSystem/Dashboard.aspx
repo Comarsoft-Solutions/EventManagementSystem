@@ -111,12 +111,12 @@
                     <asp:BoundField DataField="StartDate" HeaderText="Start Date"></asp:BoundField>
                     <asp:BoundField DataField="EndDate" HeaderText="End Date"></asp:BoundField>
                     <asp:BoundField DataField="AttendanceFee" HeaderText="Attendance Fee"></asp:BoundField>
-                    <asp:TemplateField HeaderText="View">
+                 <%--   <asp:TemplateField HeaderText="View">
                         <ItemTemplate>
                           
                             <asp:LinkButton ID="Attach" runat="server" ForeColor="Green" CssClass="mdi mdi-eye" CommandArgument='<%#Eval("ID")%>' CommandName="attachRecord"></asp:LinkButton>
                         </ItemTemplate>
-                    </asp:TemplateField>
+                    </asp:TemplateField>--%>
                    
                 </Columns>
             </asp:GridView>

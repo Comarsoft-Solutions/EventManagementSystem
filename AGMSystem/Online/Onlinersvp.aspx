@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/AGMSystem.Master" AutoEventWireup="true" CodeBehind="PortalRegistration.aspx.cs" Inherits="AGMSystem.Registration1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OnlinePages.Master" AutoEventWireup="true" CodeBehind="Onlinersvp.aspx.cs" Inherits="AGMSystem.Online.Onlinersvp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+
+        <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <h4 class="mb-sm-0">Registration</h4>
@@ -200,8 +200,8 @@
                                         <asp:BoundField Visible="false" DataField="ID" HeaderText="Transport ID"></asp:BoundField>
                                         <asp:BoundField DataField="FirstName" HeaderText="First Name "></asp:BoundField>
                                         <asp:BoundField DataField="LastName" HeaderText="Last Name"></asp:BoundField>
-                                        <asp:BoundField DataField="TshirtSize" HeaderText="T-shirt Size"></asp:BoundField>
-                                        <asp:BoundField DataField="Golf" HeaderText="Golf "></asp:BoundField>
+                                        <asp:BoundField DataField="PensionFund" HeaderText="Fund"></asp:BoundField>
+                                        <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
                                         
                                     </Columns>
                                 </asp:GridView>

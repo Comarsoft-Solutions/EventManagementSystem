@@ -264,7 +264,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "select lc.Price,lc.Combo,* from RegistrationMembers r left join Logistics_Combos lc on r.EventID=lc.ID  where r.EventID="+eventID+" and RsvpStatus=1 and PaymentStatus is null";
+                string str = "select lc.Price,lc.Combo,r.TShirtSize,case r.Golf when 1 then'Yes' else'No' end as Golf,* from RegistrationMembers r left join Logistics_Combos lc on r.EventID=lc.ID  where r.EventID=" + eventID + " and RsvpStatus=1 and PaymentStatus is null";
                 return ReturnDs(str);
             }
             catch (Exception ex)

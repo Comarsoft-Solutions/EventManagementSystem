@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OnlinePages.master.cs" Inherits="AGMSystem.OnlinePages" %>
+
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Comarsoft | Event Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets2/images/favicon.ico">
+
+    <!-- Layout config Js -->
+    <script src="assets2/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="assets2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets2/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets2/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets2/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+    <%-- swal --%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script type="text/javascript">
+
+        function success(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.success(msg, "Success");
+
+            return false;
+
+        }
+
+
+        function error(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.error(msg, "Error");
+
+            return false;
+
+        }
+
+        function warning(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.warning(msg, "Warning");
+
+            return false;
+
+        }
+
+
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+
+ <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+ 
+
+    
+    <%-- end swal --%>
+
+
+
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <%--<header id="page-topbar">--%>
+        <%--<div class="layout-width">
+        <div class="navbar-header">
+            <div class="d-flex">              
+            </div>            
+        </div>
+    </div>--%>
+        <%--</header>--%>
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <!-- Dark Logo-->
+                <a href="Dashboard.aspx" runat="server" id="lg" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                </a>
+                <!-- Light Logo-->
+                <a href="Dashboard.aspx" runat="server" id="ln" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo.png" alt="" height="60">
+                    </span>
+                </a>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
+            </div>
+
+            
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <form id="form1" runat="server">
+                        <div>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </form>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>
+                            © Comarton.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Designed & Developed by Comarsoft
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <script src="libs/bootstrap/js/common.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets2/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets2/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets2/libs/node-waves/waves.min.js"></script>
+    <script src="assets2/libs/feather-icons/feather.min.js"></script>
+    <script src="assets2/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets2/js/plugins.js"></script>
+    <script src="assets2/libs/apexcharts/apexcharts.min.js"></script>
+    <!-- Vector map-->
+    <script src="assets2/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="assets2/libs/jsvectormap/maps/world-merc.js"></script>
+
+    <!--Swiper slider js-->
+    <script src="assets2/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="assets2/js/pages/dashboard-ecommerce.init.js"></script>
+
+
+    <!-- App js -->
+    <script src="assets2/js/app.js"></script>
+</body>
+
+</html>

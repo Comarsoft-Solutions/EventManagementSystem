@@ -7,7 +7,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Portal Registration</title>
+        <title>Comarsoft | Event Management System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -55,7 +55,7 @@
                             <div class="text-center mt-sm-5 mb-4 text-white-50">
                                 <div>
                                     <a href="PortalLogin.aspx" class="d-inline-block auth-logo">
-                                        <img src="~/../img/logo.png" alt="" height="50">
+                                        <img src="assets/images/logo.png" alt="ZAPF">
                                     </a>
                                 </div>
                             </div>

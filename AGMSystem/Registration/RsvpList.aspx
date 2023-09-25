@@ -60,8 +60,8 @@
                        <asp:BoundField Visible="false" DataField="ID" HeaderText="Transport ID"></asp:BoundField>
                                         <asp:BoundField DataField="FirstName" HeaderText="First Name "></asp:BoundField>
                                         <asp:BoundField DataField="LastName" HeaderText="Last Name"></asp:BoundField>
-                                        <asp:BoundField DataField="Combo" HeaderText="Combo"></asp:BoundField>
-                                        <asp:BoundField DataField="Price" HeaderText="Price(USD)"></asp:BoundField>
+                                        <asp:BoundField DataField="TshirtSize" HeaderText="T-shirt Size"></asp:BoundField>
+                                        <asp:BoundField DataField="Golf" HeaderText="Golf"></asp:BoundField>
                         <asp:TemplateField HeaderText="Confirm">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="mdi mdi-check-bold" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>

@@ -96,9 +96,11 @@ namespace AGMSystem
         {
             try
             {
-                if (btnFinish.Text == "Update Event")
+                //CheckEventAvailability();
+                AGMEvents eve = new AGMEvents("cn", 1);
+                if (int.Parse(txtID.Value ) == eve.ID)
                 {
-                    AGMEvents eve = new AGMEvents("cn", 1);
+                    
                     eve.ID = int.Parse(txtID.Value);
                     eve.EventName = txtEventname.Text;
                     eve.StartDate = txtStartDate.Text;
@@ -145,9 +147,13 @@ namespace AGMSystem
                             AmberAlert("Enter Valid Date");
 
                         }
+
                         if (DateTime.TryParse(txtEndDate.Text, out DateTime dte))
                         {
-
+                            if (DateTime.Parse(txtEndDate.Text)< DateTime.Parse(txtStartDate.Text))
+                            {
+                                AmberAlert("Enter Valid End Date");
+                            }
                         }
                         else
                         {
@@ -160,6 +166,7 @@ namespace AGMSystem
                         ag.EndDate = txtEndDate.Text;
                         ag.StatusID = true;
                         ag.AttendanceFee = double.Parse(txtAttendanceFee.Text);
+                        ag.Venue = TxtVenue.Text;
                         if (RadioInvitation.Checked)
                         {
                             ag.AttendeeSettings = true;
@@ -493,7 +500,7 @@ namespace AGMSystem
             }
         }
 
-        protected void txtEventname_TextChanged(object sender, EventArgs e)
+        protected void CheckEventAvailability()
         {
             AGMEvents eve = new AGMEvents("cn", 1);
 
@@ -512,9 +519,14 @@ namespace AGMSystem
                 }
                 else
                 {
-                   _ = RadioOpen.Checked;
+                    _ = RadioOpen.Checked;
                 }
             }
+        }
+
+        protected void txtEventname_TextChanged(object sender, EventArgs e)
+        {
+            CheckEventAvailability();
 
         }
     }
