@@ -119,16 +119,16 @@ namespace AGMSystem.communication
 
                 SmtpClient Client = new SmtpClient()
                 {
-                    Credentials = new NetworkCredential("training@zapf.co.zw", "Fuq97442"),
+                    Credentials = new NetworkCredential("comarsoft@gmail.com", "nyjysutradnvkyic"),
                     Port = 587,
-                    Host = "smtp.office365.com",
+                    Host = "smtp.gmail.com",
                     EnableSsl = true,
                 };
 
              
 
                 MailMessage Message = new MailMessage();
-                Message.From = new MailAddress("training@zapf.co.zw", "ZAPF");
+                Message.From = new MailAddress("comarsoft@gmail.com", "ZAPF");
                 Message.To.Add(recepientEmail);
                 Message.Subject = subject;
                 Message.IsBodyHtml = true;
