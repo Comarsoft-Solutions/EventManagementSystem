@@ -245,6 +245,8 @@ namespace AGMSystem
             return ReturnDs(str);
         }
 
+        
+
         public DataSet getEnquiriesBySearch(string firstname = "", string lastname = "", string company =""  ) 
         {
             string str = "";

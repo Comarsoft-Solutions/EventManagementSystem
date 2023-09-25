@@ -28,7 +28,7 @@
                 <asp:TextBox ID="txtFnameSearch" placeholder="Firstname" CssClass="form-control" runat="server"></asp:TextBox>
             </td>
             <td colspan="2"><asp:TextBox ID="txtLnameSearch" placeholder="Lastname" CssClass="form-control" runat="server"></asp:TextBox></td>
-            <td colspan="2"><asp:TextBox ID="txtCompanySearch" placeholder="Comapany" CssClass="form-control" runat="server"></asp:TextBox></td>
+            <td colspan="2"><asp:TextBox ID="txtCompanySearch" placeholder="Company" CssClass="form-control" runat="server"></asp:TextBox></td>
          
             <td colspan="2"></td>
             <td colspan="2">
@@ -55,8 +55,8 @@
                         <asp:BoundField Visible="false" DataField="ID" HeaderText="Transport ID"></asp:BoundField>
                                         <asp:BoundField DataField="FirstName" HeaderText="First Name "></asp:BoundField>
                                         <asp:BoundField DataField="LastName" HeaderText="Last Name"></asp:BoundField>
-                                        <asp:BoundField DataField="Company" HeaderText="Company"></asp:BoundField>
-                                        <asp:BoundField DataField="Designation" HeaderText="Designation"></asp:BoundField>
+                                        <asp:BoundField DataField="PensionFund" HeaderText="Company"></asp:BoundField>
+                                        <asp:BoundField DataField="TshirtSize" HeaderText="T-shirt Size"></asp:BoundField>
                         <asp:TemplateField HeaderText="Confirm">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="mdi mdi-check-bold" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>

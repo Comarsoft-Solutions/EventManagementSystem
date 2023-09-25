@@ -25,11 +25,45 @@ namespace AGMSystem
                 txtCompanyID.Value = "0";
                 getCompanies();
                 GetRegType();
+                GetDesignations();
                 ClearAlert();
                 //GetDesignation();
             }
 
         }
+
+        private void GetDesignations()
+        {
+            try
+            {
+                Registration des = new Registration("cn", 1);
+                DataSet ds = des.getDesignation();
+                if (ds !=null)
+                {
+                    ListItem li = new ListItem("Select Designation", "0");
+                    txtDesignation.DataSource = ds;
+                    txtDesignation.DataValueField = "ID";
+                    txtDesignation.DataTextField = "Designation";
+                    txtDesignation.DataBind();
+                    txtDesignation.Items.Insert(0, li);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No Designations Found", "0");
+                    txtDesignation.Items.Clear();
+                    txtDesignation.DataSource = null;
+                    txtDesignation.DataBind();
+                    txtDesignation.Items.Insert(0, li);
+                }
+              
+            }
+            catch (Exception exx)
+            {
+
+                RedAlert(exx.Message);
+            }
+        }
+
         protected void ClearAlert()
         {
             pnlDanger.Visible = false;
@@ -72,10 +106,6 @@ namespace AGMSystem
         #endregion
         
 
-        private void GetDesignation()
-        {
-            throw new NotImplementedException();
-        }
 
         protected void ClearControls()
         {

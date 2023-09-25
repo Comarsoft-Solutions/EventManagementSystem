@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data;
+﻿using Microsoft.Ajax.Utilities;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
+using static Microsoft.IO.RecyclableMemoryStreamManager;
 
 namespace AGMSystem.models
 {
@@ -274,6 +276,45 @@ namespace AGMSystem.models
             }
             
         }
+        public DataSet GetRSVPSList(int eventID,string names = "", string surname = "", string pension = "")
+        {
+            try
+            {
+                string str = "";
+                if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
+                {
+                    str = "select * from RegistrationMembers where FirstName like '%" + names + "%'";
+                }
+                if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
+                {
+                    str = "select * from RegistrationMembers where LastName like '%" + surname + "%'";
+                }
+                if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
+                {
+                    str = "select * from RegistrationMembers where PensionFund like '%" + pension + "%'";
+                }
+                if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
+                {
+                    str = "select * from RegistrationMembers where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'";
+                }
+                if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
+                {
+                    str = "select * from RegistrationMembers where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'";
+                }
+                if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
+                {
+                    GetCheckin( eventID);
+                }
+                return ReturnDs(str);
+            }
+            catch (Exception x)
+            {
+                Msgflg = x.Message;
+                return null;
+            }
+        }
+
+
         public DataSet GetCheckin(int eventID)
         {
             string str = "select * from RegistrationMembers where EventID=" + eventID+ " and RsvpStatus=1 and PaymentStatus = 1 and Checkin is null";

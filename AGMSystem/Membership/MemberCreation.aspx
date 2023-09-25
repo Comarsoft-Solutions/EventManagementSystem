@@ -121,10 +121,7 @@
             <div class="mb-3">
                 <label for="ForminputState" class="form-label">Designation </label>
                 <asp:DropDownList runat="server" ID="txtDesignation" CssClass="form-control dropdown">
-                    <asp:ListItem Text="Principal Officer" />
-                    <asp:ListItem Text="Fund Administrator" />
-                    <asp:ListItem Text="Personal Assistant to the PO" />
-                    <asp:ListItem Text="Member" />
+                
                 </asp:DropDownList>
 
             </div>

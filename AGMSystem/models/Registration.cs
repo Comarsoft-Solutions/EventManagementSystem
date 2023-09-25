@@ -183,6 +183,20 @@ namespace AGMSystem
 
         #region "Methods"
 
+        public DataSet getDesignation()
+        {
+            try
+            {
+                string s = "Select * from Designation";
+                return ReturnDs(s);
+            }
+            catch (Exception x)
+            {
+
+                Msgflg = x.Message;
+                return null;
+            }
+        }
         protected DataSet ReturnDsNew(string str )
         {
             try
