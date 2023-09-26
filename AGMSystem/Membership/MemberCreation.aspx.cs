@@ -235,14 +235,14 @@ namespace AGMSystem
                     reg.PensionFund = txtPensionFund.Text;
                     reg.MemberAddress = txtMemAddress.Text;
                     reg.Tshirt = txtTshirt.Text;
-                    if (chkGolf.Checked)
-                    {
-                        reg.Golf = true;
-                    }
-                    else
-                    {
-                        reg.Golf= false;
-                    }
+                    //if (chkGolf.Checked)
+                    //{
+                    //    reg.Golf = true;
+                    //}
+                    //else
+                    //{
+                    //    reg.Golf= false;
+                    //}
 
                     if (txtRegType.Text.Contains("Individual"))
                     {
