@@ -29,7 +29,7 @@
     <div class="mb-3">
 
         <label for="old ID Number" class="form-label">Old ID Number <span class="text-danger">*</span></label>
-        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="Dr Malcolm Munyaradzi Machi" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" ></asp:TextBox>
+        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="Eng Malcolm Munyaradzi Machi" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" ></asp:TextBox>
     </div>
 </div>
                 <div class="column">
@@ -118,11 +118,27 @@
     </div>
 
 
-    <%-- Query --%>
-    <div class="mb-3">
-        <label for="Query" class="form-label">Query <span class="text-danger"></span></label>
-        <asp:TextBox ID="txtQuery" CssClass="form-control" placeholder="Query" runat="server" TextMode="MultiLine"></asp:TextBox>
-    </div>
+   
+    <div class="row">   
+          <%-- Query --%>
+  <div class="mb-3 column">
+      <label for="Query" class="form-label">Query <span class="text-danger"></span></label>
+      <asp:TextBox ID="txtQuery" CssClass="form-control" placeholder="Query" runat="server" TextMode="MultiLine"></asp:TextBox>
+  </div>
+        <%-- Golf --%>
+                <div class="col-2">
+    <div class="mb-1 mt-5 margin-right-0">
+        <label for="address" class="form-label">Are You Playing Golf? </label>
+            </div>
+</div>
+<div class="col-1">
+    <div class="mb-2 mt-5 m-1">
+        <asp:CheckBox ID="chkGolf" runat="server" class="form-label"/>
+            </div>
+</div>
+        <%-- end Golf --%>
+  
+</div> 
 
        
     <div class="col-12 mb-3">

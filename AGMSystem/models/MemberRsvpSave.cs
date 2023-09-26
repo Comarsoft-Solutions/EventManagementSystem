@@ -320,14 +320,14 @@ namespace AGMSystem.models
             string str = "select * from RegistrationMembers where EventID=" + eventID+ " and RsvpStatus=1 and PaymentStatus = 1 and Checkin is null";
             return ReturnDs(str);
         }
-        public DataSet UpdateRegMember(int logisticsCombo, bool rsvpStatus, string nationalID, int eventID, string tshirt)
+        public DataSet UpdateRegMember(bool golf, string newID,int logisticsCombo, bool rsvpStatus, string nationalID, int eventID, string tshirt)
         {
-            string str = "Update RegistrationMembers set RsvpStatus='" + rsvpStatus + "',EventID=" + eventID + ",LogisticsCombo=" + logisticsCombo + ",TShirtSize='"+ tshirt + "' WHERE NationalID ='" + nationalID + "'";
+            string str = "Update RegistrationMembers set Golf="+golf+", NationalID='"+ newID + "', RsvpStatus='" + rsvpStatus + "',EventID=" + eventID + ",LogisticsCombo=" + logisticsCombo + ",TShirtSize='"+ tshirt + "' WHERE NationalID ='" + nationalID + "'";
             return ReturnDs(str);
         }
-        public DataSet UpdateRegMemberWithoutCombos( bool rsvpStatus, string nationalID, int eventID, string tshirt)
+        public DataSet UpdateRegMemberWithoutCombos(bool golf,string newID, bool rsvpStatus, string nationalID, int eventID, string tshirt)
         {
-            string str = "Update RegistrationMembers set RsvpStatus='" + rsvpStatus + "',EventID=" + eventID + ",TShirtSize='"+ tshirt + "' WHERE NationalID ='" + nationalID + "'";
+            string str = "Update RegistrationMembers set Golf="+golf+", NationalID='"+ newID + "', RsvpStatus='" + rsvpStatus + "',EventID=" + eventID + ",TShirtSize='"+ tshirt + "' WHERE NationalID ='" + nationalID + "'";
             return ReturnDs(str);
         }
         public DataSet getMemberID(string nationalID)

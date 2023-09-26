@@ -447,7 +447,7 @@ namespace AGMSystem
             db.AddInParameter(cmd, "@Tshirt", DbType.String, mTshirt);
             db.AddInParameter(cmd, "@PensionFund", DbType.String, mPensionFund);
             db.AddInParameter(cmd, "@MemberAddress", DbType.String, mMemberAddress);
-            db.AddInParameter(cmd, "@Golf", DbType.Boolean, mGolf);
+            //db.AddInParameter(cmd, "@Golf", DbType.Boolean, mGolf);
 
         }
 

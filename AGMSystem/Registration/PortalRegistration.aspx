@@ -25,11 +25,18 @@
         <asp:HiddenField ID="txtEventID" runat="server" />
         <asp:HiddenField ID="txtQueryID" runat="server" />
         <asp:HiddenField ID="txtMemberID" runat="server" />
-        <div class="column">
+               <div class="column">
     <div class="mb-3">
 
-        <label for="ID Number" class="form-label">ID Number <span class="text-danger">*</span></label>
-        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="ID-Number" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" on></asp:TextBox>
+        <label for="old ID Number" class="form-label">Old ID Number <span class="text-danger">*</span></label>
+        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="Eng Malcolm Munyaradzi Machi" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" ></asp:TextBox>
+    </div>
+</div>
+                <div class="column">
+    <div class="mb-3">
+
+        <label for="new ID Number" class="form-label">New ID Number <span class="text-danger">*</span></label>
+        <asp:TextBox ID="txtNewID" CssClass="form-control" placeholder="633333333X63" runat="server"  ></asp:TextBox>
     </div>
 </div>
         <div class="column">
@@ -40,9 +47,7 @@
             </div>
          
         </div>
-</div>
-
-    <div class="row">
+        
         <div class="column">
             <%-- last Name --%>
             <div class="mb-3">
@@ -50,15 +55,9 @@
                 <asp:TextBox ID="txtLastName" CssClass="form-control" placeholder="Surname" runat="server"></asp:TextBox>
             </div>
         </div>
-        <div class="column">
-           <div class="mb-3">
-     <label for="tshirt size" class="form-label">Tshirt Size <span class="text-danger">*</span></label>
-     <asp:TextBox ID="txtTshirtSize" CssClass="form-control" placeholder="XXL" runat="server"></asp:TextBox>
- </div>
-        </div>
+</div>
 
-    </div>
-
+    
 
 
     <div class="row">
@@ -90,11 +89,18 @@
             <div class="mb-3">
                 <label for="Category" class="form-label">Designation <span class="text-danger">*</span></label>
                 <asp:DropDownList runat="server" ID="txtCategory" CssClass="form-control dropdown">
-                   
+                    
                 </asp:DropDownList>
             </div>
 
         </div>
+       <div class="column">
+          <div class="mb-3">
+    <label for="tshirt size" class="form-label">Tshirt Size <span class="text-danger">*</span></label>
+    <asp:TextBox ID="txtTshirtSize" CssClass="form-control" placeholder="XXL" runat="server"></asp:TextBox>
+</div>
+       </div>
+
 
         <div class="column">
             <%-- Company --%>
@@ -102,14 +108,6 @@
                 <label for="Company" class="form-label">Company <span class="text-danger">*</span></label>
                 <asp:TextBox ID="txtCompany" CssClass="form-control" placeholder="Company" runat="server"></asp:TextBox>
             </div>
-        </div>
-        <div class="column">
-            <%-- Company --%>
-            <div class="mb-3">
-                <label for="memType" class="form-label">Membership Type <span class="text-danger">*</span></label>
-                <asp:TextBox ID="txtMembershipType" CssClass="form-control" placeholder="Company" runat="server"></asp:TextBox>
-            </div>
-
         </div>
         <div class="col-6">
                                     <label>Attachment POP</label>
@@ -119,13 +117,26 @@
 
     </div>
 
-
-    <%-- Query --%>
-    <div class="mb-3">
-        <label for="Query" class="form-label">Query <span class="text-danger"></span></label>
-        <asp:TextBox ID="txtQuery" CssClass="form-control" placeholder="Query" runat="server" TextMode="MultiLine"></asp:TextBox>
-    </div>
-
+    <div class="row">   
+          <%-- Query --%>
+  <div class="mb-3 column">
+      <label for="Query" class="form-label">Query <span class="text-danger"></span></label>
+      <asp:TextBox ID="txtQuery" CssClass="form-control" placeholder="Query" runat="server" TextMode="MultiLine"></asp:TextBox>
+  </div>
+        <%-- Golf --%>
+                <div class="col-2">
+    <div class="mb-1 mt-5 margin-right-0">
+        <label for="address" class="form-label">Are You Playing Golf? </label>
+            </div>
+</div>
+<div class="col-1">
+    <div class="mb-2 mt-5 m-1">
+        <asp:CheckBox ID="chkGolf" runat="server" class="form-label"/>
+            </div>
+</div>
+        <%-- end Golf --%>
+  
+</div> 
        
     <div class="col-12 mb-3">
                     <div class="form-group row gutters">

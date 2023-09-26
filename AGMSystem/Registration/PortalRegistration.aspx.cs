@@ -261,22 +261,23 @@ namespace AGMSystem
             //Response.Redirect("RSVPList");
             try
             {
+                bool Golf = false;
+                if (chkGolf.Checked)
+                {
+                    Golf = true;
+                }
+                else
+                {
+                    Golf = false;
+                }
 
                 MemberRsvpSave vs = new MemberRsvpSave("cn", 1);
 
-                vs.UpdateRegMemberWithoutCombos(true,txtNatID.Text,int.Parse(txtEvents.SelectedValue),txtTshirtSize.Text);
+                vs.UpdateRegMemberWithoutCombos(Golf,txtNewID.Text,true,txtNatID.Text,int.Parse(txtEvents.SelectedValue),txtTshirtSize.Text);
                 if (txtQuery.Text.Length > 3)
                 {
                     SaveQuery();
                 }
-
-                //DataSet ds = vs.getMemberID(txtNatID.Text);
-                //string ID = "1";
-                //if (ds!=null)
-                //{
-                //    DataRow dt = ds.Tables[0].Rows[0];
-                //    ID = dt["Id"].ToString();
-                //}
 
 
                 GetRegisteredMembers();
@@ -323,7 +324,7 @@ namespace AGMSystem
                 txtPhoneNumber.Text = row["PhoneNumber"].ToString();
                 txtCategory.Text = row["Designation"].ToString();
                 txtCompany.Text = row["Company"].ToString();
-                txtMembershipType.Text = row["MembershipType"].ToString();
+                //txtMembershipType.Text = row["MembershipType"].ToString();
                 txtQuery.Text = query.Query;
                 txtQueryID.Value = query.ID.ToString();
                 txtMemberID.Value = row["ID"].ToString();
@@ -436,9 +437,18 @@ namespace AGMSystem
                 //int index = int.Parse(e.CommandArgument.ToString());
                 try
                 {
+                    bool Golf = false;
+                    if (chkGolf.Checked)
+                    {
+                        Golf = true;
+                    }
+                    else
+                    {
+                        Golf = false;
+                    }
                     MemberRsvpSave vs = new MemberRsvpSave("cn", 1);
 
-                    vs.UpdateRegMember(int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue),txtTshirtSize.Text);
+                    vs.UpdateRegMember(Golf,txtNewID.Text,int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue),txtTshirtSize.Text);
                     vs.UpdateAccomodation(int.Parse(txtEvents.SelectedValue), int.Parse(accomodationID), int.Parse(combocapacity));
                     vs.UpdateTransport(int.Parse(txtEvents.SelectedValue), int.Parse(transportID), int.Parse(combocapacity));
                     ClearForm();

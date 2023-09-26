@@ -116,7 +116,6 @@
             </div>
         </div>
         <!--end col-->
-        <!--end col-->
         <div class="col-6">
             <div class="mb-3">
                 <label for="ForminputState" class="form-label">Designation </label>
@@ -153,7 +152,7 @@
 
     </div>
 </div>
-                <div class="col-2">
+         <%--       <div class="col-2">
     <div class="mb-1 margin-right-0">
         <label for="address" class="form-label">Are You Playing Golf? </label>
             </div>
@@ -162,7 +161,7 @@
     <div class="mb-2 mt-1 m-1">
         <asp:CheckBox ID="chkGolf" runat="server" class="form-label"/>
             </div>
-</div>
+</div>--%>
         <!--end col-->
     </div>
     </asp:Panel>
@@ -185,26 +184,12 @@
         </div>
         
         <!--end col-->
-        <%--<div class="col-6">
-            <div class="mb-3">
-                <label for="phonenumberInput" class="form-label">Phone Number</label>
-                <asp:TextBox ID="txtPhone" placeholder="236776339832" TextMode="Phone" CssClass="form-control" runat="server"></asp:TextBox>
-            </div>
-        </div>--%>
-        <!--end col-->
         <div class="col-6">
             <div class="mb-3">
                 <label for="city" class="form-label">City</label>
                 <asp:TextBox ID="txtCity" placeholder="Harare" CssClass="form-control" runat="server" ></asp:TextBox>
             </div>
         </div>
-        <!--end col-->
-        <%--<div class="col-6">
-            <div class="mb-3">
-                <label for="zip" class="form-label">Zip Code</label>
-                <asp:TextBox ID="txtZip" placeholder="00263" CssClass="form-control" runat="server" ></asp:TextBox>
-            </div>
-        </div>--%>
         
         <!--end col-->
        

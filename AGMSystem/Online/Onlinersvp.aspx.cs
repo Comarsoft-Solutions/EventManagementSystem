@@ -72,15 +72,7 @@ namespace AGMSystem.Online
         }
         #region alerts
 
-        public void msgbox(string strMessage)
-        {
-            string strScript = "<script language=JavaScript>";
-            strScript += "window.alert(\"" + strMessage + "\");";
-            strScript += "</script>";
-            System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
-            lbl.Text = strScript;
-            Page.Controls.Add(lbl);
-        }
+      
         protected void RedAlert(string MsgFlg)
         {
             // lblComms.Text = "An Error occured: " + MsgFlg;
@@ -251,22 +243,23 @@ namespace AGMSystem.Online
             //Response.Redirect("RSVPList");
             try
             {
-
+                bool Golf = false;
+                if (chkGolf.Checked)
+                {
+                     Golf = true;
+                }
+                else
+                {
+                     Golf = false;
+                }
                 MemberRsvpSave vs = new MemberRsvpSave("cn", 1);
 
-                vs.UpdateRegMemberWithoutCombos(true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
+                vs.UpdateRegMemberWithoutCombos(Golf,txtNewID.Text,true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
                 if (txtQuery.Text.Length > 3)
                 {
                     SaveQuery();
                 }
 
-                //DataSet ds = vs.getMemberID(txtNatID.Text);
-                //string ID = "1";
-                //if (ds!=null)
-                //{
-                //    DataRow dt = ds.Tables[0].Rows[0];
-                //    ID = dt["Id"].ToString();
-                //}
 
 
                 GetRegisteredMembers();
@@ -406,8 +399,6 @@ namespace AGMSystem.Online
             gridAccomodation.Visible = true;
         }
 
-
-
         protected void gridAccomodation_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
@@ -426,9 +417,18 @@ namespace AGMSystem.Online
                 //int index = int.Parse(e.CommandArgument.ToString());
                 try
                 {
+                    bool Golf = false;
+                    if (chkGolf.Checked)
+                    {
+                        Golf = true;
+                    }
+                    else
+                    {
+                        Golf = false;
+                    }
                     MemberRsvpSave vs = new MemberRsvpSave("cn", 1);
 
-                    vs.UpdateRegMember(int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
+                    vs.UpdateRegMember(Golf,txtNewID.Text,int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
                     vs.UpdateAccomodation(int.Parse(txtEvents.SelectedValue), int.Parse(accomodationID), int.Parse(combocapacity));
                     vs.UpdateTransport(int.Parse(txtEvents.SelectedValue), int.Parse(transportID), int.Parse(combocapacity));
                     ClearForm();
