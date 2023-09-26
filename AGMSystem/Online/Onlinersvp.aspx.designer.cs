@@ -60,6 +60,15 @@ namespace AGMSystem.Online
         protected global::System.Web.UI.WebControls.TextBox txtNatID;
 
         /// <summary>
+        /// txtNewID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewID;
+
+        /// <summary>
         /// txtFirstname control.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace AGMSystem.Online
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
-
-        /// <summary>
-        /// txtTshirtSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTshirtSize;
 
         /// <summary>
         /// txtPhoneNumber control.
@@ -114,6 +114,15 @@ namespace AGMSystem.Online
         protected global::System.Web.UI.WebControls.DropDownList txtCategory;
 
         /// <summary>
+        /// txtTshirtSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTshirtSize;
+
+        /// <summary>
         /// txtCompany control.
         /// </summary>
         /// <remarks>
@@ -121,15 +130,6 @@ namespace AGMSystem.Online
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCompany;
-
-        /// <summary>
-        /// txtMembershipType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMembershipType;
 
         /// <summary>
         /// flRsvpUpload control.

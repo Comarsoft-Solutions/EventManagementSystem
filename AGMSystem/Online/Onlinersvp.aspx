@@ -28,8 +28,15 @@
         <div class="column">
     <div class="mb-3">
 
-        <label for="ID Number" class="form-label">ID Number <span class="text-danger">*</span></label>
-        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="ID-Number" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" on></asp:TextBox>
+        <label for="old ID Number" class="form-label">Old ID Number <span class="text-danger">*</span></label>
+        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="Dr Malcolm Munyaradzi Machi" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" ></asp:TextBox>
+    </div>
+</div>
+                <div class="column">
+    <div class="mb-3">
+
+        <label for="new ID Number" class="form-label">New ID Number <span class="text-danger">*</span></label>
+        <asp:TextBox ID="txtNewID" CssClass="form-control" placeholder="633333333X63" runat="server"  ></asp:TextBox>
     </div>
 </div>
         <div class="column">
@@ -40,9 +47,7 @@
             </div>
          
         </div>
-</div>
-
-    <div class="row">
+        
         <div class="column">
             <%-- last Name --%>
             <div class="mb-3">
@@ -50,15 +55,9 @@
                 <asp:TextBox ID="txtLastName" CssClass="form-control" placeholder="Surname" runat="server"></asp:TextBox>
             </div>
         </div>
-        <div class="column">
-           <div class="mb-3">
-     <label for="tshirt size" class="form-label">Tshirt Size <span class="text-danger">*</span></label>
-     <asp:TextBox ID="txtTshirtSize" CssClass="form-control" placeholder="XXL" runat="server"></asp:TextBox>
- </div>
-        </div>
+</div>
 
-    </div>
-
+    
 
 
     <div class="row">
@@ -90,18 +89,18 @@
             <div class="mb-3">
                 <label for="Category" class="form-label">Designation <span class="text-danger">*</span></label>
                 <asp:DropDownList runat="server" ID="txtCategory" CssClass="form-control dropdown">
-                    <asp:ListItem Text="Member" />
-                    <asp:ListItem Text="Pensioner" />
-                    <asp:ListItem Text="Actuaries" />
-                    <asp:ListItem Text="Trustees" />
-                    <asp:ListItem Text="Asset Manager" />
-                    <asp:ListItem Text="Fund Administrator" />
-                    <asp:ListItem Text="Risk Analyser" />
-                    <asp:ListItem Text="Other" />
+                    
                 </asp:DropDownList>
             </div>
 
         </div>
+       <div class="column">
+          <div class="mb-3">
+    <label for="tshirt size" class="form-label">Tshirt Size <span class="text-danger">*</span></label>
+    <asp:TextBox ID="txtTshirtSize" CssClass="form-control" placeholder="XXL" runat="server"></asp:TextBox>
+</div>
+       </div>
+
 
         <div class="column">
             <%-- Company --%>
@@ -109,14 +108,6 @@
                 <label for="Company" class="form-label">Company <span class="text-danger">*</span></label>
                 <asp:TextBox ID="txtCompany" CssClass="form-control" placeholder="Company" runat="server"></asp:TextBox>
             </div>
-        </div>
-        <div class="column">
-            <%-- Company --%>
-            <div class="mb-3">
-                <label for="memType" class="form-label">Membership Type <span class="text-danger">*</span></label>
-                <asp:TextBox ID="txtMembershipType" CssClass="form-control" placeholder="Company" runat="server"></asp:TextBox>
-            </div>
-
         </div>
         <div class="col-6">
                                     <label>Attachment POP</label>

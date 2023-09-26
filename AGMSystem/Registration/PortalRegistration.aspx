@@ -90,14 +90,7 @@
             <div class="mb-3">
                 <label for="Category" class="form-label">Designation <span class="text-danger">*</span></label>
                 <asp:DropDownList runat="server" ID="txtCategory" CssClass="form-control dropdown">
-                    <asp:ListItem Text="Member" />
-                    <asp:ListItem Text="Pensioner" />
-                    <asp:ListItem Text="Actuaries" />
-                    <asp:ListItem Text="Trustees" />
-                    <asp:ListItem Text="Asset Manager" />
-                    <asp:ListItem Text="Fund Administrator" />
-                    <asp:ListItem Text="Risk Analyser" />
-                    <asp:ListItem Text="Other" />
+                   
                 </asp:DropDownList>
             </div>
 

@@ -29,11 +29,13 @@ namespace AGMSystem
                 txtEventID.Value = "0";
                 txtQueryID.Value = "0";
                 pnlConfirmed.Visible = false;
+                GetDesignations();
                 if (Request.QueryString["EventID"] != null)
                 {
                     txtEventID.Value = Request.QueryString["EventID"].ToString();
 
                     getEvents();
+
                     Session["EventID"] = txtEventID.Value;
 
                 }
@@ -111,6 +113,39 @@ namespace AGMSystem
             {
 
                 RedAlert(a.Message);
+            }
+        }
+
+
+        private void GetDesignations()
+        {
+            try
+            {
+                Registration des = new Registration("cn", 1);
+                DataSet ds = des.getDesignation();
+                if (ds != null)
+                {
+                    ListItem li = new ListItem("Select Designation", "0");
+                    txtCategory.DataSource = ds;
+                    txtCategory.DataValueField = "ID";
+                    txtCategory.DataTextField = "Designation";
+                    txtCategory.DataBind();
+                    txtCategory.Items.Insert(0, li);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No Designations Found", "0");
+                    txtCategory.Items.Clear();
+                    txtCategory.DataSource = null;
+                    txtCategory.DataBind();
+                    txtCategory.Items.Insert(0, li);
+                }
+
+            }
+            catch (Exception exx)
+            {
+
+                RedAlert(exx.Message);
             }
         }
 

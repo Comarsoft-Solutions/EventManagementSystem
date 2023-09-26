@@ -23,6 +23,7 @@ namespace AGMSystem.Online
                 txtEventID.Value = "0";
                 txtQueryID.Value = "0";
                 pnlConfirmed.Visible = false;
+                GetDesignations();
                 if (Request.QueryString["EventID"] != null)
                 {
                     txtEventID.Value = Request.QueryString["EventID"].ToString();
@@ -36,6 +37,37 @@ namespace AGMSystem.Online
                     getEvents();
                 }
 
+            }
+        }
+        private void GetDesignations()
+        {
+            try
+            {
+                Registration des = new Registration("cn", 1);
+                DataSet ds = des.getDesignation();
+                if (ds != null)
+                {
+                    ListItem li = new ListItem("Select Designation", "0");
+                    txtCategory.DataSource = ds;
+                    txtCategory.DataValueField = "ID";
+                    txtCategory.DataTextField = "Designation";
+                    txtCategory.DataBind();
+                    txtCategory.Items.Insert(0, li);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No Designations Found", "0");
+                    txtCategory.Items.Clear();
+                    txtCategory.DataSource = null;
+                    txtCategory.DataBind();
+                    txtCategory.Items.Insert(0, li);
+                }
+
+            }
+            catch (Exception exx)
+            {
+
+                RedAlert(exx.Message);
             }
         }
         #region alerts
@@ -281,7 +313,7 @@ namespace AGMSystem.Online
                 txtPhoneNumber.Text = row["PhoneNumber"].ToString();
                 txtCategory.Text = row["Designation"].ToString();
                 txtCompany.Text = row["Company"].ToString();
-                txtMembershipType.Text = row["MembershipType"].ToString();
+                //txtMembershipType.Text = row["MembershipType"].ToString();
                 txtQuery.Text = query.Query;
                 txtQueryID.Value = query.ID.ToString();
                 txtMemberID.Value = row["ID"].ToString();
