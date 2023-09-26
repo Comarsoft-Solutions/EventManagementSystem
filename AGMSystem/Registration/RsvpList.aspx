@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AGMSystem.Master" AutoEventWireup="true" CodeBehind="RsvpList.aspx.cs" Inherits="AGMSystem.RsvpList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AGMSystem.Master" AutoEventWireup="true" CodeBehind="RsvpList.aspx.cs" Inherits="AGMSystem.RsvpList" EnableEventValidation = "false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
          <div class="row">
@@ -48,7 +48,7 @@
       <div class="form-group row gutters">
 
         <div class="form-group row gutters col-12">
-
+            <div class="row col-2"  > <asp:Button visible="false" ID="btnExport" OnClick="btnExport_Click" CssClass="btn btn-success" runat="server" Text="Export to Excel" />  </div>
             <div class="col-sm-12 align-content-center">
                 <asp:GridView ID="grdPaymentConfirmation" Width="100%" runat="server"
                     AutoGenerateColumns="False" AutoGenerateSelectButton="false" OnPageIndexChanging="grdPaymentConfirmation_PageIndexChanging"

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +22,7 @@ namespace AGMSystem
 
             }
         }
+        #region alerts
 
         public void msgbox(string strMessage)
         {
@@ -30,7 +33,25 @@ namespace AGMSystem
             lbl.Text = strScript;
             Page.Controls.Add(lbl);
         }
+        protected void RedAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
 
+        }
+
+        protected void WarningAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
+
+        }
+
+        protected void SuccessAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        
         private void getSavedRSVPList()
         {
             
@@ -42,18 +63,20 @@ namespace AGMSystem
                 {
                     grdPaymentConfirmation.DataSource = c;
                     grdPaymentConfirmation.DataBind();
+                    btnExport.Visible = true;
                 }
                 else
                 {
                     grdPaymentConfirmation.DataSource = null;
                     grdPaymentConfirmation.DataBind();
                     msgbox("No One RSVP'd");
+                    btnExport.Visible = false;
                 }
             }
             catch (Exception c)
             {
 
-                msgbox(c.Message);
+                RedAlert(c.Message);
             }
         }
         private void getEvents()
@@ -84,7 +107,7 @@ namespace AGMSystem
             catch (Exception a)
             {
 
-                msgbox(a.Message);
+                RedAlert(a.Message);
             }
         }
 
@@ -108,13 +131,13 @@ namespace AGMSystem
                     int index = int.Parse(e.CommandArgument.ToString());
                     MemberRsvpSave rs = new MemberRsvpSave("cn", 1);
                     rs.updateRsvp(index, true);
-                    msgbox("Member Payment Status Updated");
+                    SuccessAlert("Member Payment Status Updated");
                     getSavedRSVPList();
                 }
                 catch (Exception xc)
                 {
 
-                    msgbox(xc.Message);
+                    RedAlert(xc.Message);
                 }
             }
             
@@ -125,6 +148,60 @@ namespace AGMSystem
 
             getSavedRSVPList();
             grdPaymentConfirmation.Visible = true;
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            return;
+        }
+
+        protected void btnExport_Click(object sender, EventArgs e)
+        {
+            string filename = $"Assets_{DateTime.Now.Minute}.xls";
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=" + filename + "");
+            Response.Charset = "";
+            Response.ContentType = "application/vnd.ms-excel";
+            using (StringWriter sw = new StringWriter())
+            {
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+                //To Export all pages
+                grdPaymentConfirmation.AllowPaging = false;
+                getSavedRSVPList();
+
+                grdPaymentConfirmation.HeaderRow.BackColor = Color.White;
+                foreach (TableCell cell in grdPaymentConfirmation.HeaderRow.Cells)
+                {
+                    cell.BackColor = grdPaymentConfirmation.HeaderStyle.BackColor;
+                }
+                foreach (GridViewRow row in grdPaymentConfirmation.Rows)
+                {
+                    row.BackColor = Color.White;
+                    foreach (TableCell cell in row.Cells)
+                    {
+                        if (row.RowIndex % 2 == 0)
+                        {
+                            cell.BackColor = grdPaymentConfirmation.AlternatingRowStyle.BackColor;
+                        }
+                        else
+                        {
+                            cell.BackColor = grdPaymentConfirmation.RowStyle.BackColor;
+                        }
+                        cell.CssClass = "textmode";
+                    }
+                }
+
+                grdPaymentConfirmation.RenderControl(hw);
+
+                //style to format numbers to string
+                string style = @"<style> .textmode { } </style>";
+                Response.Write(style);
+                Response.Output.Write(sw.ToString());
+                Response.Flush();
+                Response.End();
+            }
         }
     }
 }

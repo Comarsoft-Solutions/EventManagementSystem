@@ -124,19 +124,19 @@
                 <!-- Dark Logo-->
                 <a href="Dashboard.aspx" runat="server" id="lg" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="assets/images/logo.png" alt="" height="60">
+                        <img src="assets/images/logo.png" alt="ZAPF">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="" height="60">
+                        <img src="assets/images/logo.png" alt="ZAPF">
                     </span>
                 </a>
                 <!-- Light Logo-->
                 <a href="Dashboard.aspx" runat="server" id="ln" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="assets/images/logo.png" alt="" height="60">
+                        <img src="assets/images/logo.png" alt="ZAPF">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="" height="60">
+                        <img src="assets/images/logo.png" alt="ZAPF">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
