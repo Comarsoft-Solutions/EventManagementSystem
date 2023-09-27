@@ -7,209 +7,227 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AGMSystem
+namespace AGMSystem.Membership
 {
 
 
-    public partial class AGMSystem
+    public partial class BulkUploads
     {
 
         /// <summary>
-        /// lg control.
+        /// txtID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lg;
+        protected global::System.Web.UI.WebControls.HiddenField txtID;
 
         /// <summary>
-        /// ln control.
+        /// txtSystemRef control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ln;
+        protected global::System.Web.UI.WebControls.HiddenField txtSystemRef;
 
         /// <summary>
-        /// ds control.
+        /// txtFundID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ds;
+        protected global::System.Web.UI.WebControls.HiddenField txtFundID;
 
         /// <summary>
-        /// mc control.
+        /// txtViewType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor mc;
+        protected global::System.Web.UI.WebControls.HiddenField txtViewType;
 
         /// <summary>
-        /// bu control.
+        /// txtbatchID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor bu;
+        protected global::System.Web.UI.WebControls.HiddenField txtbatchID;
 
         /// <summary>
-        /// me control.
+        /// txtRegNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor me;
+        protected global::System.Web.UI.WebControls.HiddenField txtRegNo;
 
         /// <summary>
-        /// ce control.
+        /// txtFilenames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ce;
+        protected global::System.Web.UI.WebControls.HiddenField txtFilenames;
 
         /// <summary>
-        /// pc control.
+        /// contentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor pc;
+        protected global::System.Web.UI.WebControls.HiddenField contentType;
 
         /// <summary>
-        /// pe control.
+        /// HiddenField1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor pe;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
 
         /// <summary>
-        /// db control.
+        /// pnlComms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor db;
+        protected global::System.Web.UI.WebControls.Panel pnlComms;
 
         /// <summary>
-        /// em control.
+        /// lblComms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor em;
+        protected global::System.Web.UI.WebControls.Label lblComms;
 
         /// <summary>
-        /// el control.
+        /// txtMemberID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor el;
+        protected global::System.Web.UI.WebControls.HiddenField txtMemberID;
 
         /// <summary>
-        /// pr control.
+        /// lblCurrentMembers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor pr;
+        protected global::System.Web.UI.WebControls.Label lblCurrentMembers;
 
         /// <summary>
-        /// rl control.
+        /// lblFailedUploads control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor rl;
+        protected global::System.Web.UI.WebControls.Label lblFailedUploads;
 
         /// <summary>
-        /// ci control.
+        /// flContributionsUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ci;
+        protected global::System.Web.UI.WebControls.FileUpload flContributionsUpload;
 
         /// <summary>
-        /// ca control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ca;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// rs control.
+        /// lstWrkSheets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor rs;
+        protected global::System.Web.UI.WebControls.ListBox lstWrkSheets;
 
         /// <summary>
-        /// vt control.
+        /// lblWrkSheetPrompt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor vt;
+        protected global::System.Web.UI.WebControls.Label lblWrkSheetPrompt;
 
         /// <summary>
-        /// co control.
+        /// txtFilePath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor co;
+        protected global::System.Web.UI.WebControls.TextBox txtFilePath;
 
         /// <summary>
-        /// A2 control.
+        /// txtFileName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
+        protected global::System.Web.UI.WebControls.TextBox txtFileName;
 
         /// <summary>
-        /// form1 control.
+        /// btnProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btnProcess;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// btnDiscard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button btnDiscard;
+
+        /// <summary>
+        /// grdClientsView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdClientsView;
+
+        /// <summary>
+        /// grdUploadError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdUploadError;
     }
 }

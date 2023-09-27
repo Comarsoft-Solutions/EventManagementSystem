@@ -513,6 +513,7 @@
     <Content Include="Membership\assets2\libs\simplebar\simplebar.min.js" />
     <Content Include="Membership\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="Membership\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="Membership\BulkUploads.aspx" />
     <Content Include="Membership\CompanyEnquiries.aspx" />
     <Content Include="Membership\MembershipCompanyMapping.aspx" />
     <Content Include="Online\assets2\css\app.min.css" />
@@ -978,6 +979,13 @@
     <Compile Include="communication\CommunicationsCenter.aspx.designer.cs">
       <DependentUpon>CommunicationsCenter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Membership\BulkUploads.aspx.cs">
+      <DependentUpon>BulkUploads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Membership\BulkUploads.aspx.designer.cs">
+      <DependentUpon>BulkUploads.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Membership\CompanyEnquiries.aspx.cs">
       <DependentUpon>CompanyEnquiries.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1000,6 +1008,7 @@
     <Compile Include="models\ErrorsLog.cs" />
     <Compile Include="models\logins.cs" />
     <Compile Include="models\Logistics.cs" />
+    <Compile Include="models\LookUp.cs" />
     <Compile Include="models\MemberRsvpSave.cs" />
     <Compile Include="models\MembershipCompaniesMapping.cs" />
     <Compile Include="models\ResolutionSave.cs" />
@@ -1236,6 +1245,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="data\" />
+    <Folder Include="FileUploads\" />
     <Folder Include="MasterPages\" />
   </ItemGroup>
   <ItemGroup>

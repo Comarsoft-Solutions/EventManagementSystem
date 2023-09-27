@@ -80,26 +80,18 @@ namespace AGMSystem
         #region alerts
         protected void RedAlert(string MsgFlg)
         {
-            // lblComms.Text = "An Error occured: " + MsgFlg;
-            // pnlComms.BackColor = System.Drawing.Color.Red;
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
-
 
         }
 
         protected void WarningAlert(string MsgFlg)
         {
-            // lblComms.Text = "Warning: " + MsgFlg;
-            // pnlComms.BackColor = System.Drawing.Color.Orange;
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
-
 
         }
 
         protected void SuccessAlert(string MsgFlg)
         {
-            //lblComms.Text = "Success: " + MsgFlg;
-            //pnlComms.BackColor = System.Drawing.Color.Green;
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
 
         }

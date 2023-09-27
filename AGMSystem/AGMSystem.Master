@@ -30,6 +30,7 @@
          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <%-- Alerts --%>
     <script type="text/javascript">
 
         function success(msg) {
@@ -89,6 +90,7 @@
 
 
     </script>
+    <%-- Alerts --%>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
@@ -109,14 +111,6 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <%--<header id="page-topbar">--%>
-        <%--<div class="layout-width">
-        <div class="navbar-header">
-            <div class="d-flex">              
-            </div>            
-        </div>
-    </div>--%>
-        <%--</header>--%>
         <!-- ========== App Menu ========== -->
         <div class="app-menu navbar-menu">
             <!-- LOGO -->
@@ -167,6 +161,9 @@
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="Membership/MemberCreation.aspx" runat="server" id="mc" class="nav-link" data-key="t-crm">Creation </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Membership/BulkUploads.aspx" runat="server" id="bu" class="nav-link" data-key="t-crm">Bulk Creation </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="Membership/MemberEnquiries.aspx" runat="server" id="me" class="nav-link" data-key="t-analytics">Member Enquiries
