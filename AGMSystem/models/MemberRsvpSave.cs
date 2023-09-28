@@ -327,7 +327,7 @@ namespace AGMSystem.models
         }
         public DataSet UpdateRegMemberWithoutCombos(bool golf,string newID, bool rsvpStatus, string nationalID, int eventID, string tshirt)
         {
-            string str = "Update RegistrationMembers set Golf="+golf+", NationalID='"+ newID + "', RsvpStatus='" + rsvpStatus + "',EventID=" + eventID + ",TShirtSize='"+ tshirt + "' WHERE NationalID ='" + nationalID + "'";
+            string str = "Update RegistrationMembers set Golf='"+golf+"', NationalID='"+ newID + "', RsvpStatus='" + rsvpStatus + "',EventID=" + eventID + ",TShirtSize='"+ tshirt + "' WHERE NationalID ='" + nationalID + "'";
             return ReturnDs(str);
         }
         public DataSet getMemberID(string nationalID)

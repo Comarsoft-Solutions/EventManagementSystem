@@ -79,7 +79,7 @@
                           </tr>
                           <tr>
 
-                              <td colspan="2">Sheet:</td>
+                              <td colspan="2">Select Sheet:</td>
                               <td colspan="4">
                                   <asp:ListBox ID="lstWrkSheets" OnSelectedIndexChanged="lstWrkSheets_SelectedIndexChanged" CssClass="form-control list-group" AutoPostBack="true" runat="server"></asp:ListBox>
                               </td>

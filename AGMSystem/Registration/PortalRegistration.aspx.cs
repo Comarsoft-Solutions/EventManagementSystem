@@ -49,19 +49,8 @@ namespace AGMSystem
 
         #region alerts
 
-        public void msgbox(string strMessage)
-        {
-            string strScript = "<script language=JavaScript>";
-            strScript += "window.alert(\"" + strMessage + "\");";
-            strScript += "</script>";
-            System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
-            lbl.Text = strScript;
-            Page.Controls.Add(lbl);
-        }
         protected void RedAlert(string MsgFlg)
         {
-            // lblComms.Text = "An Error occured: " + MsgFlg;
-            // pnlComms.BackColor = System.Drawing.Color.Red;
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
 
 
@@ -69,8 +58,6 @@ namespace AGMSystem
 
         protected void WarningAlert(string MsgFlg)
         {
-            // lblComms.Text = "Warning: " + MsgFlg;
-            // pnlComms.BackColor = System.Drawing.Color.Orange;
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
 
 
@@ -78,8 +65,6 @@ namespace AGMSystem
 
         protected void SuccessAlert(string MsgFlg)
         {
-            //lblComms.Text = "Success: " + MsgFlg;
-            //pnlComms.BackColor = System.Drawing.Color.Green;
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
 
         }
@@ -221,7 +206,7 @@ namespace AGMSystem
                     txtLastName.Text = reg.LastName;
                     txtEmail.Text = reg.Email;
                     txtPhoneNumber.Text = reg.PhoneNumber;
-                    txtCategory.Text = reg.Designation;
+                    //txtCategory.Text = reg.Designation;
                     txtCompany.Text = reg.Company;
 
 
@@ -248,7 +233,7 @@ namespace AGMSystem
             txtLastName.Text = "";
             txtEmail.Text = "";
             txtPhoneNumber.Text = "";
-            txtCategory.Text = "";
+            //txtCategory.Text = "";
             txtCompany.Text = "";
             txtQuery.Text = string.Empty;
             txtNatID.Text = string.Empty;
@@ -257,7 +242,7 @@ namespace AGMSystem
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            //UploadFile();
+            UploadFile();
             //Response.Redirect("RSVPList");
             try
             {
@@ -322,8 +307,8 @@ namespace AGMSystem
                 txtLastName.Text = row["LastName"].ToString();
                 txtEmail.Text = row["Email"].ToString();
                 txtPhoneNumber.Text = row["PhoneNumber"].ToString();
-                txtCategory.Text = row["Designation"].ToString();
-                txtCompany.Text = row["Company"].ToString();
+                //txtCategory.Text = row["Designation"].ToString();
+                txtCompany.Text = row["PensionFund"].ToString();
                 //txtMembershipType.Text = row["MembershipType"].ToString();
                 txtQuery.Text = query.Query;
                 txtQueryID.Value = query.ID.ToString();
@@ -358,17 +343,24 @@ namespace AGMSystem
                             string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
                             using (SqlConnection con = new SqlConnection(constr))
                             {
-                                string query = "insert into MemberRSVP(ProofOfPayment) values (@ProofOfPayment)";
+                                string query = "insert into MemberRSVP([FirstName],[LastName],[PhoneNumber],[Email],[Company],[Designation],[RSVPStatus],[ProofOfPayment]) values (@FirstName,@LastName,@PhoneNumber,@Email,@Company,@Designation,@RSVPStatus,@ProofOfPayment)";
                                 using (SqlCommand cmd = new SqlCommand(query))
                                 {
                                     cmd.Connection = con;
+                                    cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = txtFirstname.Text;
+                                    cmd.Parameters.Add("@Lastname", SqlDbType.NVarChar).Value = txtLastName.Text;
+                                    cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar).Value = txtPhoneNumber.Text;
+                                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtEmail.Text;
+                                    cmd.Parameters.Add("@Company", SqlDbType.NVarChar).Value = txtCompany.Text;
+                                    cmd.Parameters.Add("@Designation", SqlDbType.NVarChar).Value = txtCategory.SelectedItem.Text;
+                                    cmd.Parameters.Add("@RSVPStatus", SqlDbType.NVarChar).Value = 1;
                                     cmd.Parameters.Add("@ProofOfPayment", SqlDbType.VarBinary).Value = bytes;
 
                                     con.Open();
                                     cmd.ExecuteNonQuery();
                                     con.Close();
-                                    SuccessAlert("member RSVP Successfully");
-                                    GetLogisticsCombos();
+                                    //SuccessAlert("member RSVP Successfully");
+                                    //GetLogisticsCombos();
                                 }
                             }
                         }
@@ -376,7 +368,7 @@ namespace AGMSystem
                 }
                 else
                 {
-                    WarningAlert("No file Selected");
+                    return;
                 }
             }
             catch (Exception cv)
