@@ -105,15 +105,6 @@ namespace AGMSystem.communication
         protected global::System.Web.UI.WebControls.TextBox txtHeader;
 
         /// <summary>
-        /// txtMessageBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMessageBody;
-
-        /// <summary>
         /// cboFormatType control.
         /// </summary>
         /// <remarks>
@@ -123,6 +114,33 @@ namespace AGMSystem.communication
         protected global::System.Web.UI.WebControls.DropDownList cboFormatType;
 
         /// <summary>
+        /// mess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow mess;
+
+        /// <summary>
+        /// txtMessageBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMessageBody;
+
+        /// <summary>
+        /// tempp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tempp;
+
+        /// <summary>
         /// cboHtmlTemplate control.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,15 @@ namespace AGMSystem.communication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboHtmlTemplate;
+
+        /// <summary>
+        /// flRsvpUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flRsvpUpload;
 
         /// <summary>
         /// btnSave control.

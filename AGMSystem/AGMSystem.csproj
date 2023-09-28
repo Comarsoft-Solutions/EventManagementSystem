@@ -1245,6 +1245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="communication\Attachments\" />
     <Folder Include="data\" />
     <Folder Include="FileUploads\" />
     <Folder Include="MasterPages\" />

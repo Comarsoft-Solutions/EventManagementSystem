@@ -31,6 +31,12 @@ namespace AGMSystem.models
         }
         #endregion
         #region methods
+
+        public DataSet GetFilePath(int id)
+        {
+            string str = "Select FilePath from EmailAttachments where BroadcastMessagesListID="+id+";";
+            return ReturnDs(str);
+        }
         public DataSet GetUploads(bool ProcessID, long Batch)
         {
             string str = "select * from ClientsFileUpload where ProcessStatusID='" + ProcessID + "' and UploadBatchID='" + Batch + "'";

@@ -69,6 +69,8 @@ namespace AGMSystem
 
         }
         #endregion
+
+        #region methods
         private void getEvents()
         {
 
@@ -324,7 +326,6 @@ namespace AGMSystem
 
         }
 
-
         protected void UploadFile()
         {
             try
@@ -409,8 +410,6 @@ namespace AGMSystem
             gridAccomodation.Visible = true;
         }
 
-
-
         protected void gridAccomodation_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
@@ -454,8 +453,8 @@ namespace AGMSystem
                 
             }
         }
+        #endregion
 
-       
     }
-    
+
 }

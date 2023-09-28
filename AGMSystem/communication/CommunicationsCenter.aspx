@@ -52,23 +52,33 @@
                                                                 <asp:TextBox ID="txtHeader" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
-                                                        <tr>
+                                                          
+                                                           <tr runat="server" visible="true">
+       <td colspan="2">Format Type:</td>
+       <td colspan="8">
+           <asp:DropDownList ID="cboFormatType" CssClass="form-control dropdown-list" AutoPostBack="true" OnSelectedIndexChanged="cboFormatType_SelectedIndexChanged" runat="server"></asp:DropDownList></td>
+   </tr>
+                                                        <tr id="mess" runat="server" visible="false">
                                                             <td colspan="2">Message Body:</td>
                                                             <td colspan="8">
-                                                                <asp:TextBox ID="txtMessageBody" TextMode="MultiLine" Width="100%" Height="100px" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMessageBody" TextMode="MultiLine" Width="100%"  runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
-                                                        <tr runat="server" visible="false">
-                                                            <td colspan="2">Format Type:</td>
-                                                            <td colspan="8">
-                                                                <asp:DropDownList ID="cboFormatType" CssClass="form-control dropdown-list" runat="server"></asp:DropDownList></td>
-                                                        </tr>
-                                                        <tr runat="server" visible="true">
+                                                     
+                                                        <tr id="tempp" runat="server" visible="false">
                                                             <td colspan="2">Template:</td>
                                                             <td colspan="8">
                                                                 <asp:DropDownList ID="cboHtmlTemplate" CssClass="form-control dropdown-list" runat="server"></asp:DropDownList>
                                                             </td>
-                                                        </tr>
+                                                        </tr>    <%-- file --%>
+<tr class="col-6">
+    <td colspan="2">Attachments</td>
+    <td colspan="8">
+        <asp:FileUpload ID="flRsvpUpload" AllowMultiple="true" EnableViewState="true" CssClass="form-control fa-upload" runat="server" />
+
+    </td>
+
+</tr>
                                                         <tr>
                                                             <td colspan="10"><hr /></td>
                                                         </tr>

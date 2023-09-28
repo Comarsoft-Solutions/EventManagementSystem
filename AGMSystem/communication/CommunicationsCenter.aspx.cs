@@ -9,6 +9,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AGMSystem.models;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.Services.Description;
 
 namespace AGMSystem.communication
 {
@@ -41,6 +44,78 @@ namespace AGMSystem.communication
         }
 
 
+       
+        #region alerts
+        protected void RedAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
+
+        }
+
+        protected void WarningAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
+
+        }
+
+        protected void SuccessAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+
+        #region methods
+
+        protected void UploadFile( int ID, string filename, string filePath)
+        {
+            try
+            {
+                if (flRsvpUpload.HasFile)
+                {
+
+                                       
+                    string contentType = flRsvpUpload.PostedFile.ContentType;
+
+                    using (Stream fs = flRsvpUpload.PostedFile.InputStream)
+                    {
+                        using (BinaryReader br = new BinaryReader(fs))
+                        {
+                            byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                            string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+                            using (SqlConnection con = new SqlConnection(constr))
+                            {
+                                string query = "insert into EmailAttachments([BroadcastMessagesListID],[FileName],[FilePath]) values(@BroadcastMessagesListID,@FileName,@FilePath)";
+                                using (SqlCommand cmd = new SqlCommand(query))
+                                {
+                                    cmd.Connection = con;
+                                    cmd.Parameters.Add("@BroadcastMessagesListID", SqlDbType.Int).Value = ID;
+                                    cmd.Parameters.Add("@FileName", SqlDbType.NVarChar).Value = filename;
+                                    //cmd.Parameters.Add("@CreatedBy", SqlDbType.NVarChar).Value = txtPhoneNumber.Text;
+                                    cmd.Parameters.Add("@FilePath", SqlDbType.NVarChar).Value = filePath;
+                                    //cmd.Parameters.Add("@Attachments", SqlDbType.VarBinary).Value = bytes;
+
+                                    con.Open();
+                                    cmd.ExecuteNonQuery();
+                                    con.Close();
+                                    //SuccessAlert("member RSVP Successfully");
+                                    //GetLogisticsCombos();
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception cv)
+            {
+
+                RedAlert(cv.Message);
+            }
+        }
         protected void getMessageTypes()
         {
             try
@@ -68,28 +143,6 @@ namespace AGMSystem.communication
                 RedAlert(ex.Message);
             }
         }
-       
-        #region alerts
-        protected void RedAlert(string MsgFlg)
-        {
-            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
-
-        }
-
-        protected void WarningAlert(string MsgFlg)
-        {
-            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
-
-        }
-
-        protected void SuccessAlert(string MsgFlg)
-        {
-            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
-
-        }
-        #endregion
-
-
         private string PopulateBody()
         {
             string body = string.Empty;
@@ -105,11 +158,7 @@ namespace AGMSystem.communication
             return body;
 
 
-
-
         }
-
-
 
         private void SendHtmlFormattedEmail(string recepientEmail, string subject, string body, string MessageBody, int MemberId)
         {
@@ -136,22 +185,53 @@ namespace AGMSystem.communication
                 Message.Subject = subject;
                 Message.IsBodyHtml = true;
 
+                //files
+                //foreach (HttpPostedFile postedFile in flRsvpUpload.PostedFiles)
+                //{
+                //    if (postedFile.ContentLength > 0)
+                //    {
+                //        string fileName = Path.GetFileName(postedFile.FileName);
+                //        string filePath = Server.MapPath("~/Attachments/" + fileName); // Save to a folder
+                //        postedFile.SaveAs(filePath);
+
+                //        // Insert file information into the database
+                //        UploadFile(int.Parse(txtID.Value), fileName, filePath);
+
+                //        // Attach the file to the email
+                //        Message.Attachments.Add(new Attachment(filePath));
+                //    }
+                //}
+
+                LookUp fl = new LookUp("cn", 1);
+                DataSet ds = fl.GetFilePath(int.Parse(txtID.Value));
+                if (ds!=null)
+                {
+                    foreach (DataRow item in ds.Tables[0].Rows)
+                    {
+                        string filePath = item["FilePath"].ToString();
+                        Message.Attachments.Add(new Attachment(filePath));
+                    }
+                }
 
 
                 //// Set the HTML body of the email
-                //body = $@"<html>
-                //    <body>
 
-                //        <p>Good Day,</p>
-                //        <p>{MessageBody}</p>
-                //        <p>Click Link to register,{AccessLink}</p>
-                //        <p>Choose the event and enter your Identity Number to register.</p>
-                //        <p>Regards,</p>
-                //        <p>Comarton Consultants </p>
-                //    </body>
-                //</html>";
+                if (cboFormatType.SelectedValue == "1")
+                {
+                    body = $@"<html>
+                    <body>
 
-                body = PopulateBody();
+                        <p>Good Day,</p><br>
+                        <p>{MessageBody}</p>
+                        <p>Regards,</p>
+                        <p>ZAPF </p>
+                    </body>
+                </html>";
+                }
+                else
+                {
+                    body = PopulateBody();
+                }
 
                 // Create an alternate view with the HTML body
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body, null, "text/html");
@@ -187,8 +267,6 @@ namespace AGMSystem.communication
             cboHtmlTemplate.DataBind();
             cboHtmlTemplate.Items.Insert(0, new ListItem("Select a message template", "0"));
         }
-
-        
 
         protected void lnkPersonalandPaymentDetails_Click(object sender, EventArgs e)
         {
@@ -227,6 +305,7 @@ namespace AGMSystem.communication
         {
             try
             {
+               
                 if (cboMessageType.SelectedValue == "0")
                 {
                     RedAlert("Please select a valid broadcast message type");
@@ -248,13 +327,6 @@ namespace AGMSystem.communication
                         return;
                     }
                 }
-                //if (cboMessageType.SelectedItem.Text.Contains("SMS"))
-                //{
-
-                //    {
-                //        Response.Redirect(string.Format("../HTMLTemplates/SendSMS?FundID={0}", txtFundID.Value));
-                //    }
-                //}
                 BroadcastMessagesList b = new BroadcastMessagesList("cn", 1);
                 b.ID = int.Parse(txtID.Value);
                 b.StatusID = 1;
@@ -263,6 +335,22 @@ namespace AGMSystem.communication
                 if (b.Save())
                 {
                     txtID.Value = b.ID.ToString();
+                    foreach (HttpPostedFile postedFile in flRsvpUpload.PostedFiles)
+                    {
+                        if (postedFile.ContentLength > 0)
+                        {
+                            string fileName = Path.GetFileName(postedFile.FileName);
+                            string filePath = Server.MapPath("~/Communication/Attachments/" + fileName); // Save to a folder
+                            postedFile.SaveAs(filePath);
+
+                            // Insert file information into the database
+                            UploadFile(int.Parse(txtID.Value), fileName, filePath);
+
+                            // Attach the file to the email
+                            //Message.Attachments.Add(new Attachment(filePath));
+                        }
+                    }
+                    //UploadFile(int.Parse(txtID.Value));
                     //We get all pensioners not yet assigned to the created list
                     getUnassignedContactstoTheMessage(int.Parse(txtID.Value));
                     getassignedContactstoTheMessage(int.Parse(txtID.Value));
@@ -381,8 +469,8 @@ namespace AGMSystem.communication
                 {
                     foreach (DataRow rw in b.getBroadCastContactDetails(int.Parse(txtID.Value)).Tables[0].Rows)
                     {
-                        string msgbdy = PopulateBody();
-                        //string msgbdy = "";
+                      //  string msgbdy = PopulateBody();
+                        string msgbdy ="";
                         SendHtmlFormattedEmail(rw["Email"].ToString(), txtHeader.Text, msgbdy, txtMessageBody.Text, int.Parse(rw["MemberID"].ToString()));
 
                     }
@@ -411,6 +499,21 @@ namespace AGMSystem.communication
         protected void lnkreports_Click(object sender, EventArgs e)
         {
             Response.Redirect("CommunicationReports?FundID=" + txtFundID.Value + "");
+        }
+        #endregion
+
+        protected void cboFormatType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboFormatType.SelectedValue == "1")
+            {
+                mess.Visible = true;
+                tempp.Visible = false;
+            }
+            else
+            {
+                tempp.Visible = true;
+                mess.Visible = false;
+            }
         }
     }
 }

@@ -39,37 +39,6 @@ namespace AGMSystem.Online
 
             }
         }
-        private void GetDesignations()
-        {
-            try
-            {
-                Registration des = new Registration("cn", 1);
-                DataSet ds = des.getDesignation();
-                if (ds != null)
-                {
-                    ListItem li = new ListItem("Select Designation", "0");
-                    txtCategory.DataSource = ds;
-                    txtCategory.DataValueField = "ID";
-                    txtCategory.DataTextField = "Designation";
-                    txtCategory.DataBind();
-                    txtCategory.Items.Insert(0, li);
-                }
-                else
-                {
-                    ListItem li = new ListItem("No Designations Found", "0");
-                    txtCategory.Items.Clear();
-                    txtCategory.DataSource = null;
-                    txtCategory.DataBind();
-                    txtCategory.Items.Insert(0, li);
-                }
-
-            }
-            catch (Exception exx)
-            {
-
-                RedAlert(exx.Message);
-            }
-        }
         #region alerts
 
       
@@ -99,6 +68,8 @@ namespace AGMSystem.Online
 
         }
         #endregion
+
+        #region methods
         private void getEvents()
         {
 
@@ -128,6 +99,39 @@ namespace AGMSystem.Online
             {
 
                 RedAlert(a.Message);
+            }
+        }
+
+
+        private void GetDesignations()
+        {
+            try
+            {
+                Registration des = new Registration("cn", 1);
+                DataSet ds = des.getDesignation();
+                if (ds != null)
+                {
+                    ListItem li = new ListItem("Select Designation", "0");
+                    txtCategory.DataSource = ds;
+                    txtCategory.DataValueField = "ID";
+                    txtCategory.DataTextField = "Designation";
+                    txtCategory.DataBind();
+                    txtCategory.Items.Insert(0, li);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No Designations Found", "0");
+                    txtCategory.Items.Clear();
+                    txtCategory.DataSource = null;
+                    txtCategory.DataBind();
+                    txtCategory.Items.Insert(0, li);
+                }
+
+            }
+            catch (Exception exx)
+            {
+
+                RedAlert(exx.Message);
             }
         }
 
@@ -203,7 +207,7 @@ namespace AGMSystem.Online
                     txtLastName.Text = reg.LastName;
                     txtEmail.Text = reg.Email;
                     txtPhoneNumber.Text = reg.PhoneNumber;
-                    txtCategory.Text = reg.Designation;
+                    //txtCategory.Text = reg.Designation;
                     txtCompany.Text = reg.Company;
 
 
@@ -230,7 +234,7 @@ namespace AGMSystem.Online
             txtLastName.Text = "";
             txtEmail.Text = "";
             txtPhoneNumber.Text = "";
-            txtCategory.Text = "";
+            //txtCategory.Text = "";
             txtCompany.Text = "";
             txtQuery.Text = string.Empty;
             txtNatID.Text = string.Empty;
@@ -246,20 +250,20 @@ namespace AGMSystem.Online
                 bool Golf = false;
                 if (chkGolf.Checked)
                 {
-                     Golf = true;
+                    Golf = true;
                 }
                 else
                 {
-                     Golf = false;
+                    Golf = false;
                 }
+
                 MemberRsvpSave vs = new MemberRsvpSave("cn", 1);
 
-                vs.UpdateRegMemberWithoutCombos(Golf,txtNewID.Text,true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
+                vs.UpdateRegMemberWithoutCombos(Golf, txtNewID.Text, true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
                 if (txtQuery.Text.Length > 3)
                 {
                     SaveQuery();
                 }
-
 
 
                 GetRegisteredMembers();
@@ -304,8 +308,8 @@ namespace AGMSystem.Online
                 txtLastName.Text = row["LastName"].ToString();
                 txtEmail.Text = row["Email"].ToString();
                 txtPhoneNumber.Text = row["PhoneNumber"].ToString();
-                txtCategory.Text = row["Designation"].ToString();
-                txtCompany.Text = row["Company"].ToString();
+                //txtCategory.Text = row["Designation"].ToString();
+                txtCompany.Text = row["PensionFund"].ToString();
                 //txtMembershipType.Text = row["MembershipType"].ToString();
                 txtQuery.Text = query.Query;
                 txtQueryID.Value = query.ID.ToString();
@@ -320,7 +324,6 @@ namespace AGMSystem.Online
             }
 
         }
-
 
         protected void UploadFile()
         {
@@ -435,7 +438,7 @@ namespace AGMSystem.Online
                     }
                     MemberRsvpSave vs = new MemberRsvpSave("cn", 1);
 
-                    vs.UpdateRegMember(Golf,txtNewID.Text,int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
+                    vs.UpdateRegMember(Golf, txtNewID.Text, int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue), txtTshirtSize.Text);
                     vs.UpdateAccomodation(int.Parse(txtEvents.SelectedValue), int.Parse(accomodationID), int.Parse(combocapacity));
                     vs.UpdateTransport(int.Parse(txtEvents.SelectedValue), int.Parse(transportID), int.Parse(combocapacity));
                     ClearForm();
@@ -449,6 +452,6 @@ namespace AGMSystem.Online
 
             }
         }
-
+        #endregion
     }
 }

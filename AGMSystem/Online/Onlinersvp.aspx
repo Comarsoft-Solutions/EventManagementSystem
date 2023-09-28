@@ -94,6 +94,7 @@
             </div>
 
         </div>
+        <%-- tshirt --%>
        <div class="column">
           <div class="mb-3">
     <label for="tshirt size" class="form-label">Tshirt Size <span class="text-danger">*</span></label>
@@ -109,6 +110,7 @@
                 <asp:TextBox ID="txtCompany" CssClass="form-control" placeholder="Company" runat="server"></asp:TextBox>
             </div>
         </div>
+        <%-- file --%>
         <div class="col-6">
                                     <label>Attachment POP</label>
                                     <asp:FileUpload ID="flRsvpUpload" CssClass="form-control fa-upload" runat="server" />
