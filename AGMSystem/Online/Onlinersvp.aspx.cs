@@ -239,7 +239,7 @@ namespace AGMSystem.Online
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            //UploadFile();
+            UploadFile();
             //Response.Redirect("RSVPList");
             try
             {
@@ -340,17 +340,24 @@ namespace AGMSystem.Online
                             string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
                             using (SqlConnection con = new SqlConnection(constr))
                             {
-                                string query = "insert into MemberRSVP(ProofOfPayment) values (@ProofOfPayment)";
+                                string query = "insert into MemberRSVP([FirstName],[LastName],[PhoneNumber],[Email],[Company],[Designation],[RSVPStatus],[ProofOfPayment]) values (@FirstName,@LastName,@PhoneNumber,@Email,@Company,@Designation,@RSVPStatus,@ProofOfPayment)";
                                 using (SqlCommand cmd = new SqlCommand(query))
                                 {
                                     cmd.Connection = con;
+                                    cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = txtFirstname.Text;
+                                    cmd.Parameters.Add("@Lastname", SqlDbType.NVarChar).Value = txtLastName.Text;
+                                    cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar).Value = txtPhoneNumber.Text;
+                                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = txtEmail.Text;
+                                    cmd.Parameters.Add("@Company", SqlDbType.NVarChar).Value = txtCompany.Text;
+                                    cmd.Parameters.Add("@Designation", SqlDbType.NVarChar).Value = txtCategory.SelectedItem.Text;
+                                    cmd.Parameters.Add("@RSVPStatus", SqlDbType.NVarChar).Value = 1;
                                     cmd.Parameters.Add("@ProofOfPayment", SqlDbType.VarBinary).Value = bytes;
 
                                     con.Open();
                                     cmd.ExecuteNonQuery();
                                     con.Close();
-                                    SuccessAlert("member RSVP Successfully");
-                                    GetLogisticsCombos();
+                                    //SuccessAlert("member RSVP Successfully");
+                                    //GetLogisticsCombos();
                                 }
                             }
                         }
@@ -358,7 +365,7 @@ namespace AGMSystem.Online
                 }
                 else
                 {
-                    WarningAlert("No file Selected");
+                    return;
                 }
             }
             catch (Exception cv)
