@@ -183,6 +183,68 @@ namespace AGMSystem
 
         #region "Methods"
 
+        public DataSet GetMembersBySearch(string firstname="",string lastname="",string nationalID="")
+        {
+            
+            try
+            {
+                string str = "";
+
+                if (firstname.Length>0 && lastname.Length<=0 && nationalID.Length<=0)
+                {
+                    str = "SELECT * from RegistraionMembers where FirstName like '%"+firstname+"%'";
+                }
+                if (firstname.Length<=0 && lastname.Length>0 && nationalID.Length<=0)
+                {
+                    str = "SELECT * from RegistraionMembers where LastName like '%"+lastname+"%'";
+                }
+                if (firstname.Length<=0 && lastname.Length<=0 && nationalID.Length>0)
+                {
+                    str = "SELECT * from RegistraionMembers where FirstName like '%"+nationalID+"%'";
+                }
+                if (firstname.Length>0 && lastname.Length>0 && nationalID.Length<=0)
+                {
+                    str = "SELECT * from RegistraionMembers where FirstName like '%"+firstname+"%' and LastName like '%"+lastname+"%'";
+                }
+                if (firstname.Length>0 && lastname.Length>0 && nationalID.Length>0)
+                {
+                    str = "SELECT * from RegistraionMembers where FirstName like '%"+firstname+"%' and LastName like '%"+lastname+ "%' and NationalID like '%"+nationalID+"%'";
+                }
+               return ReturnDs(str);
+            }
+            catch (Exception ex)
+            {
+
+                Msgflg=ex.Message;
+                return null;
+            }
+        }
+
+        public DataSet GetPrintOptions()
+        {
+            String str = "SELECT * from PrintOptions";
+            return ReturnDs(str);
+        }
+        public DataSet GetMembersByCompany(string company="")
+        {
+            
+            try
+            {
+                string str = "";
+
+                if (company.Length>0)
+                {
+                    str = "SELECT * from RegistraionMembers where PensionFund like '%"+company+"%'";
+                }
+               return ReturnDs(str);
+            }
+            catch (Exception ex)
+            {
+
+                Msgflg=ex.Message;
+                return null;
+            }
+        }
         public DataSet getDesignation()
         {
             try

@@ -66,14 +66,14 @@ namespace AGMSystem
 
         protected void ClearAlert()
         {
-            pnlDanger.Visible = false;
-            lblDanger.Text = "";
+            //pnlDanger.Visible = false;
+            //lblDanger.Text = "";
 
-            pnlSuccess.Visible = false;
-            lblSuccess.Text = "";
+            //pnlSuccess.Visible = false;
+            //lblSuccess.Text = "";
 
-            pnlWarning.Visible = false;
-            lblWarning.Text = "";
+            //pnlWarning.Visible = false;
+            //lblWarning.Text = "";
         }
         
 

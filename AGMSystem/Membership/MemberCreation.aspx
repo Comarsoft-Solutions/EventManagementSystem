@@ -18,50 +18,7 @@
      <asp:HiddenField ID="txtEventID" runat="server" />
         <asp:HiddenField ID="txtQueryID" runat="server" />
         <asp:HiddenField ID="txtMemberID" runat="server" />
-    <div class="row">
-                            <asp:Panel ID="pnlSuccess" runat="server">
-                                <div class="col-md-12">
-                                    <div class="alert alert-success alert-icon-block alert-dismissible" role="alert">
-                                        <div class="alert-icon">
-                                            <span class="icon-checkmark-circle" />
-                                        </div>
-                                        <strong>Success!</strong>
-                                        <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span class="fa fa-times" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </asp:Panel>
-                            <asp:Panel ID="pnlWarning" runat="server">
-                                <div class="col-md-12">
-                                    <div class="alert alert-warning alert-icon-block alert-dismissible" role="alert">
-                                        <div class="alert-icon">
-                                            <span class="icon-chart-bars" />
-                                        </div>
-                                        <strong>Warning!</strong>
-                                        <asp:Label ID="lblWarning" runat="server" Text=""></asp:Label>.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span class="fa fa-times" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </asp:Panel>
-                            <asp:Panel ID="pnlDanger" runat="server">
-                                <div class="col-md-12">
-                                    <div class="alert alert-danger alert-icon-block alert-dismissible" role="alert">
-                                        <div class="alert-icon">
-                                            <span class="icon-menu-circle" />
-                                        </div>
-                                        <strong>Danger!</strong>
-                                        <asp:Label ID="lblDanger" runat="server" Text=""></asp:Label>.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span class="fa fa-times" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </asp:Panel>
-                        </div>
+   
         <div class="col-6">
             <div class="mb-3">
                 <label for="RegType" class="form-label">Select Registration Type</label>

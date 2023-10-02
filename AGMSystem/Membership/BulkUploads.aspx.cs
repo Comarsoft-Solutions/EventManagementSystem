@@ -87,6 +87,81 @@ namespace AGMSystem.Membership
                 RedAlert(ex.Message);
             }
         }
+        //protected void UploadFile()
+        //{
+        //    try
+        //    {
+        //        dsuld.Clear();
+        //        pnlComms.BackColor = System.Drawing.Color.Transparent;
+        //        lblComms.Text = "";
+        //        if ((flContributionsUpload.HasFile))
+        //        {
+        //            //Upload and save the file
+        //            string csvPath = Server.MapPath("~/FileUploads/") + Path.GetFileName(flContributionsUpload.PostedFile.FileName);
+        //            string finename = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
+        //            txtFileName.Text = finename;
+        //            flContributionsUpload.SaveAs(csvPath);
+
+        //            string filePath = "FileUploads/" + finename;
+
+
+
+        //            txtFilenames.Value = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
+        //            contentType.Value = flContributionsUpload.PostedFile.ContentType;
+        //            HiddenField1.Value = flContributionsUpload.PostedFile.InputStream.ToString();
+        //            SaveDocument();
+
+        //            //save in UploadsTable 
+        //            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+        //            //Dim stream As FileStream = File.Open(csvPath, FileMode.Open, FileAccess.Read)
+        //            txtFilePath.Text = csvPath;
+        //            ExcelPackage pckage = new ExcelPackage(new FileInfo(csvPath));
+        //            //ExcelWorksheet wksheets = default(ExcelWorksheet);
+        //            List<string> wkBks = new List<string>();
+        //            foreach (ExcelWorksheet wksheets in pckage.Workbook.Worksheets)
+        //            {
+        //                wkBks.Add(wksheets.Name);
+        //            }
+        //            lstWrkSheets.DataSource = wkBks;
+        //            lstWrkSheets.DataBind();
+        //            if ((lstWrkSheets.Items.Count > 0))
+        //            {
+        //                SuccessAlert("File recorded, select a worksheet to continue");
+        //            }
+        //            else
+        //            {
+        //                RedAlert("There was a problem reading the worksheets of the file");
+        //                return;
+        //            }
+
+
+        //            if (lstWrkSheets.Items.Count >= 1)
+        //            {
+        //                lstWrkSheets.Visible = true;
+        //                lblWrkSheetPrompt.Visible = true;
+        //            }
+        //            else
+        //            {
+        //                lblWrkSheetPrompt.Visible = false;
+        //                lstWrkSheets.Visible = false;
+        //            }
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            WarningAlert("Please select a file for upload");
+        //            return;
+        //        }
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        RedAlert(ex.Message);
+        //        return;
+        //    }
+        //}
+
         protected void UploadFile()
         {
             try
@@ -96,118 +171,109 @@ namespace AGMSystem.Membership
                 lblComms.Text = "";
                 if ((flContributionsUpload.HasFile))
                 {
-                    //Upload and save the file
-                    string csvPath = Server.MapPath("~/FileUploads/") + Path.GetFileName(flContributionsUpload.PostedFile.FileName);
-                    string finename = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
-                    txtFileName.Text = finename;
-                    flContributionsUpload.SaveAs(csvPath);
-
-                    string filePath = "FileUploads/" + finename;
-
-
-
-                    txtFilenames.Value = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
-                    contentType.Value = flContributionsUpload.PostedFile.ContentType;
-                    HiddenField1.Value = flContributionsUpload.PostedFile.InputStream.ToString();
-                    SaveDocument();
-
-                    //save in UploadsTable 
-                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-                    //Dim stream As FileStream = File.Open(csvPath, FileMode.Open, FileAccess.Read)
-                    txtFilePath.Text = csvPath;
-                    ExcelPackage pckage = new ExcelPackage(new FileInfo(csvPath));
-                    //ExcelWorksheet wksheets = default(ExcelWorksheet);
-                    List<string> wkBks = new List<string>();
-                    foreach (ExcelWorksheet wksheets in pckage.Workbook.Worksheets)
-                    {
-                        wkBks.Add(wksheets.Name);
-                    }
-                    lstWrkSheets.DataSource = wkBks;
-                    lstWrkSheets.DataBind();
-                    if ((lstWrkSheets.Items.Count > 0))
-                    {
-                        SuccessAlert("File recorded, select a worksheet to continue");
-                    }
-                    else
-                    {
-                        RedAlert("There was a problem reading the worksheets of the file");
-                        return;
-                    }
-
-
-                    if (lstWrkSheets.Items.Count >= 1)
-                    {
-                        lstWrkSheets.Visible = true;
-                        lblWrkSheetPrompt.Visible = true;
-                    }
-                    else
-                    {
-                        lblWrkSheetPrompt.Visible = false;
-                        lstWrkSheets.Visible = false;
-                    }
-                    return;
                 }
                 else
                 {
-                    WarningAlert("Please select a file for upload");
+                    lblComms.Text = "Please select a file for upload";
+                    pnlComms.BackColor = System.Drawing.Color.Red;
                     return;
                 }
 
+                //Upload and save the file
+                string csvPath = Server.MapPath("~/FileUploads/") + Path.GetFileName(flContributionsUpload.PostedFile.FileName);
+                string finename = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
+                txtFileName.Text = finename;
+                flContributionsUpload.SaveAs(csvPath);
 
-            }
-            catch (Exception ex)
-            {
-                RedAlert(ex.Message);
-                return;
-            }
-        }
-
-        private void SaveDocument()
-        {
-            try
-            {
-                //if (txtDateOfUpload.Text == "")
-                //{
-                //    txtDateOfUpload.Text = DateTime.Today.ToString();
-                //}
-                using (Stream fs = flContributionsUpload.PostedFile.InputStream)
+                string filePath = "FileUploads/" + finename;
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                //Dim stream As FileStream = File.Open(csvPath, FileMode.Open, FileAccess.Read)
+                txtFilePath.Text = csvPath;
+                ExcelPackage pckage = new ExcelPackage(new FileInfo(csvPath));
+                //ExcelWorksheet wksheets = default(ExcelWorksheet);
+                List<string> wkBks = new List<string>();
+                foreach (ExcelWorksheet wksheets in pckage.Workbook.Worksheets)
                 {
-                    using (BinaryReader br = new BinaryReader(fs))
-                    {
-                        byte[] bytes = br.ReadBytes((Int32)fs.Length);
-                        string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                        using (SqlConnection con = new SqlConnection(constr))
-                        {
-
-                            string query = "insert into [FileUploads] values (@Name,@ContentType,@Data,@UploadReason,@DateCreated,@UploadedBy,@CompanyID,@FundID)";
-                            using (SqlCommand cmd = new SqlCommand(query))
-                            {
-                                cmd.Connection = con;
-                                cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = txtFilenames.Value;
-                                cmd.Parameters.Add("@ContentType", SqlDbType.VarChar).Value = contentType.Value;
-                                cmd.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
-                                //cmd.Parameters.Add("@MemberID", SqlDbType.Int).Value = txtMemberID.Value;
-                                cmd.Parameters.Add("@UploadReason", SqlDbType.VarChar).Value = "New Entrant";
-                                cmd.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = DateTime.Now;
-                                cmd.Parameters.Add("@UploadedBy", SqlDbType.Int).Value = int.Parse(Session["userid"].ToString());
-                                //cmd.Parameters.Add("@CompanyID", SqlDbType.Int).Value = int.Parse(cboCompany.SelectedValue);
-                                cmd.Parameters.Add("@FundID", SqlDbType.Int).Value = int.Parse(txtFundID.Value);
-                                con.Open();
-                                cmd.ExecuteNonQuery();
-                                con.Close();
-
-                            }
-                        }
-                    }
+                    wkBks.Add(wksheets.Name);
                 }
+                lstWrkSheets.DataSource = wkBks;
+                lstWrkSheets.DataBind();
+                if ((lstWrkSheets.Items.Count > 0))
+                {
+                    //lblComms.Text = "File Uploaded, select a worksheet to continue";
+                    //lblComms.Text = "select a worksheet to continue";
+                    //pnlComms.BackColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    RedAlert("There was a problem reading the worksheets of the file");
+                }
+
+
+                if (lstWrkSheets.Items.Count >= 1)
+                {
+                    lstWrkSheets.Visible = true;
+                    lblWrkSheetPrompt.Visible = true;
+                }
+                else
+                {
+                    lblWrkSheetPrompt.Visible = false;
+                    lstWrkSheets.Visible = false;
+                }
+                return;
             }
             catch (Exception ex)
             {
-
-                RedAlert(ex.Message);
-                return;
+                lblComms.Text = ex.Message;
+                pnlComms.BackColor = System.Drawing.Color.Red;
             }
         }
+        //private void SaveDocument()
+        //{
+        //    try
+        //    {
+        //        //if (txtDateOfUpload.Text == "")
+        //        //{
+        //        //    txtDateOfUpload.Text = DateTime.Today.ToString();
+        //        //}
+        //        using (Stream fs = flContributionsUpload.PostedFile.InputStream)
+        //        {
+        //            using (BinaryReader br = new BinaryReader(fs))
+        //            {
+        //                byte[] bytes = br.ReadBytes((Int32)fs.Length);
+        //                string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+        //                using (SqlConnection con = new SqlConnection(constr))
+        //                {
+
+        //                    string query = "insert into [FileUploads] values (@Name,@ContentType,@Data,@UploadReason,@DateCreated,@UploadedBy,@CompanyID,@FundID)";
+        //                    using (SqlCommand cmd = new SqlCommand(query))
+        //                    {
+        //                        cmd.Connection = con;
+        //                        cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = txtFilenames.Value;
+        //                        cmd.Parameters.Add("@ContentType", SqlDbType.VarChar).Value = contentType.Value;
+        //                        cmd.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
+        //                        //cmd.Parameters.Add("@MemberID", SqlDbType.Int).Value = txtMemberID.Value;
+        //                        cmd.Parameters.Add("@UploadReason", SqlDbType.VarChar).Value = "New Entrant";
+        //                        cmd.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = DateTime.Now;
+        //                        cmd.Parameters.Add("@UploadedBy", SqlDbType.Int).Value = int.Parse(Session["userid"].ToString());
+        //                        //cmd.Parameters.Add("@CompanyID", SqlDbType.Int).Value = int.Parse(cboCompany.SelectedValue);
+        //                        cmd.Parameters.Add("@FundID", SqlDbType.Int).Value = int.Parse(txtFundID.Value);
+        //                        con.Open();
+        //                        cmd.ExecuteNonQuery();
+        //                        con.Close();
+
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        RedAlert(ex.Message);
+        //        return;
+        //    }
+        //}s
 
         protected void lstWrkSheets_SelectedIndexChanged(object sender, EventArgs e)
         {

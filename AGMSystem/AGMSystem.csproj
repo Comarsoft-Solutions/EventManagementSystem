@@ -132,6 +132,12 @@
     <Reference Include="Microsoft.AspNet.FriendlyUrls">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -516,6 +522,67 @@
     <Content Include="Membership\BulkUploads.aspx" />
     <Content Include="Membership\CompanyEnquiries.aspx" />
     <Content Include="Membership\MembershipCompanyMapping.aspx" />
+    <Content Include="Nametags\assets2\css\app.min.css" />
+    <Content Include="Nametags\assets2\css\bootstrap.min.css" />
+    <Content Include="Nametags\assets2\css\custom.min.css" />
+    <Content Include="Nametags\assets2\css\icons.min.css" />
+    <Content Include="Nametags\assets2\images\brands\bitbucket.png" />
+    <Content Include="Nametags\assets2\images\brands\dribbble.png" />
+    <Content Include="Nametags\assets2\images\brands\dropbox.png" />
+    <Content Include="Nametags\assets2\images\brands\github.png" />
+    <Content Include="Nametags\assets2\images\brands\mail_chimp.png" />
+    <Content Include="Nametags\assets2\images\brands\slack.png" />
+    <Content Include="Nametags\assets2\images\ComartonLogo.png" />
+    <Content Include="Nametags\assets2\images\companies\img-1.png" />
+    <Content Include="Nametags\assets2\images\companies\img-2.png" />
+    <Content Include="Nametags\assets2\images\companies\img-3.png" />
+    <Content Include="Nametags\assets2\images\companies\img-5.png" />
+    <Content Include="Nametags\assets2\images\companies\img-8.png" />
+    <Content Include="Nametags\assets2\images\favicon.ico" />
+    <Content Include="Nametags\assets2\images\flags\china.svg" />
+    <Content Include="Nametags\assets2\images\flags\french.svg" />
+    <Content Include="Nametags\assets2\images\flags\germany.svg" />
+    <Content Include="Nametags\assets2\images\flags\italy.svg" />
+    <Content Include="Nametags\assets2\images\flags\russia.svg" />
+    <Content Include="Nametags\assets2\images\flags\spain.svg" />
+    <Content Include="Nametags\assets2\images\flags\us.svg" />
+    <Content Include="Nametags\assets2\images\giftbox.png" />
+    <Content Include="Nametags\assets2\images\logo-dark.png" />
+    <Content Include="Nametags\assets2\images\logo-light.png" />
+    <Content Include="Nametags\assets2\images\logo-sm.png" />
+    <Content Include="Nametags\assets2\images\products\img-1.png" />
+    <Content Include="Nametags\assets2\images\products\img-10.png" />
+    <Content Include="Nametags\assets2\images\products\img-2.png" />
+    <Content Include="Nametags\assets2\images\products\img-3.png" />
+    <Content Include="Nametags\assets2\images\products\img-4.png" />
+    <Content Include="Nametags\assets2\images\products\img-5.png" />
+    <Content Include="Nametags\assets2\images\products\img-6.png" />
+    <Content Include="Nametags\assets2\images\products\img-8.png" />
+    <Content Include="Nametags\assets2\images\svg\bell.svg" />
+    <Content Include="Nametags\assets2\images\users\avatar-1.jpg" />
+    <Content Include="Nametags\assets2\images\users\avatar-2.jpg" />
+    <Content Include="Nametags\assets2\images\users\avatar-3.jpg" />
+    <Content Include="Nametags\assets2\images\users\avatar-4.jpg" />
+    <Content Include="Nametags\assets2\images\users\avatar-5.jpg" />
+    <Content Include="Nametags\assets2\images\users\avatar-6.jpg" />
+    <Content Include="Nametags\assets2\images\users\avatar-8.jpg" />
+    <Content Include="Nametags\assets2\js\app.js" />
+    <Content Include="Nametags\assets2\js\layout.js" />
+    <Content Include="Nametags\assets2\js\pages\dashboard-ecommerce.init.js" />
+    <Content Include="Nametags\assets2\js\pages\plugins\lord-icon-2.1.0.js" />
+    <Content Include="Nametags\assets2\js\plugins.js" />
+    <Content Include="Nametags\assets2\libs\apexcharts\apexcharts.min.js" />
+    <Content Include="Nametags\assets2\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Nametags\assets2\libs\feather-icons\feather.min.js" />
+    <Content Include="Nametags\assets2\libs\jsvectormap\css\jsvectormap.min.css" />
+    <Content Include="Nametags\assets2\libs\jsvectormap\js\jsvectormap.min.js" />
+    <Content Include="Nametags\assets2\libs\jsvectormap\maps\world-merc.js" />
+    <Content Include="Nametags\assets2\libs\node-waves\waves.min.js" />
+    <Content Include="Nametags\assets2\libs\simplebar\simplebar.min.js" />
+    <Content Include="Nametags\assets2\libs\swiper\swiper-bundle.min.css" />
+    <Content Include="Nametags\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="Nametags\EventTemplates.aspx" />
+    <Content Include="Nametags\NameTagPrinting.aspx" />
     <Content Include="Online\assets2\css\app.min.css" />
     <Content Include="Online\assets2\css\bootstrap.min.css" />
     <Content Include="Online\assets2\css\custom.min.css" />
@@ -923,6 +990,10 @@
     <Content Include="Online\assets2\fonts\materialdesignicons-webfont.eot" />
     <Content Include="Online\assets2\fonts\materialdesignicons-webfont.woff" />
     <Content Include="Online\assets2\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont-1.eot" />
+    <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1013,6 +1084,20 @@
     <Compile Include="models\MembershipCompaniesMapping.cs" />
     <Compile Include="models\ResolutionSave.cs" />
     <Compile Include="models\RSVP.cs" />
+    <Compile Include="Nametags\EventTemplates.aspx.cs">
+      <DependentUpon>EventTemplates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nametags\EventTemplates.aspx.designer.cs">
+      <DependentUpon>EventTemplates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Nametags\NameTagPrinting.aspx.cs">
+      <DependentUpon>NameTagPrinting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nametags\NameTagPrinting.aspx.designer.cs">
+      <DependentUpon>NameTagPrinting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OnlinePages.Master.cs">
       <DependentUpon>OnlinePages.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,0 +1,31 @@
+
+/*# sourceMappingURL=custom.min.css.map */
+.column {
+    float: left;
+    width: 50%;
+}
+/ Clear floats after the columns /
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/*<style >
+.my-div {
+    align-content: center;
+    padding-left: 10px;
+}
+
+</style >*/
+
+/*<div class="col-lg-8 my-div" >
+<!-- Your content here -->
+</div >
+*/
