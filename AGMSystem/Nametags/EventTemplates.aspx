@@ -7,8 +7,8 @@
 
                            <div class="page-title-right">
                                <ol class="breadcrumb m-0">
-                                   <li class="breadcrumb-item"><a href="javascript: void(0);">Registration</a></li>
-                                   <li class="breadcrumb-item active">Payment Confirmation</li>
+                                   <li class="breadcrumb-item"><a href="javascript: void(0);">Events</a></li>
+                                   <li class="breadcrumb-item active">Event Templates</li>
                                </ol>
                            </div>
 
@@ -22,19 +22,19 @@
     <asp:DropDownList ID="txtEvents" OnTextChanged="txtEvents_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server" ></asp:DropDownList>
 </div>
 
-     <asp:HiddenField ID="txtCompanyID" runat="server" />
+     <asp:HiddenField ID="EventID" runat="server" />
  <div class="col" >
      <div class="col-6">
          <div class="mb-3">
              <label for="CompanyName" class="form-label">Event Theme</label>
-             <asp:TextBox ID="txtCompanyReg" placeholder="Event Theme" CssClass="form-control" runat="server"></asp:TextBox>
+             <asp:TextBox ID="txtEventTheme" placeholder="Event Theme" CssClass="form-control" runat="server"></asp:TextBox>
          </div>
      </div>
      <!--end col-->
      <div class="col-6">
          <div class="mb-3">
              <label for="Address" class="form-label">Sponsor</label>
-             <asp:TextBox ID="txtAddress" placeholder="Sponsor" CssClass="form-control" runat="server"></asp:TextBox>
+             <asp:TextBox ID="txtSponsor" placeholder="Sponsor" CssClass="form-control" runat="server"></asp:TextBox>
          </div>
      </div>
      

@@ -24,31 +24,31 @@ namespace AGMSystem.Nametags
         protected global::System.Web.UI.WebControls.DropDownList txtEvents;
 
         /// <summary>
-        /// txtCompanyID control.
+        /// EventID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtCompanyID;
+        protected global::System.Web.UI.WebControls.HiddenField EventID;
 
         /// <summary>
-        /// txtCompanyReg control.
+        /// txtEventTheme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompanyReg;
+        protected global::System.Web.UI.WebControls.TextBox txtEventTheme;
 
         /// <summary>
-        /// txtAddress control.
+        /// txtSponsor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtSponsor;
 
         /// <summary>
         /// btnSave control.

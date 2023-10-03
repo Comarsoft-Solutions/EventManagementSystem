@@ -198,6 +198,11 @@ namespace AGMSystem
             string str = "select ID,EventName,format(StartDate,'dd/MM/yyyy') as StartDate, format(EndDate,'dd/MM/yyyy')as EndDate,AttendanceFee from AGMEvents";
             return ReturnDs(str);
         }
+        public DataSet updateEvent(string theme, string sponsor, int eventID) 
+        {
+            string str = "Update AGMEvents set Theme = '"+theme+"', Sponsor= '"+sponsor+"' where ID="+eventID+"";
+            return ReturnDs(str);
+        }
 
         public virtual DataSet GetAGMEvents(long ID)
         {

@@ -98,7 +98,8 @@ namespace AGMSystem.Nametags
         {
             if (cboPrintOptions.SelectedItem.Value == "1")
             {
-                GetMembers();
+                GetRegistration();
+
             }
             if (cboPrintOptions.SelectedItem.Value == "2")
             {
@@ -113,6 +114,23 @@ namespace AGMSystem.Nametags
             {
                 pnlMemberSearch.Visible= true;
                 pnlCompanySearch.Visible = false;
+            }
+        }
+
+        private void GetRegistration()
+        {
+            Registration reg = new Registration("cn",1);
+            DataSet ds = reg.GetRegistration();
+            if (ds!=null)
+            {
+                grdMembers.DataSource = ds;
+                grdMembers.DataBind();
+            }
+            else
+            {
+                grdMembers.DataSource= null;
+                grdMembers.DataBind();
+                WarningAlert("No Members");
             }
         }
 

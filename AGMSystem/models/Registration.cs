@@ -832,34 +832,19 @@ namespace AGMSystem
 
         }
 
-        //public DataSet GetAllMembers()
-        //{
-        //    try
-        //    {
-        //        string str = "Select * from RegistrationMembers where ID not in (select MemberID from AGM_Project_Members )";
-        //        return ReturnDs(str);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        Msgflg = ex.Message;
-        //        return null;
-        //    }
-        //}
-        //public DataSet GetSomeMembers(int projectID)
-        //{
-        //    try
-        //    {
-        //        string str = "Select * from RegistrationMembers where ID in (select MemberID from AGM_Project_Members where ProjectID =" + projectID + " )";
-        //        return ReturnDs(str);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        Msgflg = ex.Message;
-        //        return null;
-        //    }
-        //}
+        public DataSet GetRegMembers()
+        {
+            try
+            {
+                string str = "Select * from RegistrationMembers";
+                return ReturnDs(str);
+            }
+            catch (Exception xc)
+            {
+                Msgflg = xc.Message;
+                throw;
+            }
+        }
 
         public virtual System.Data.DataSet GetRegistredCompanies()
         {

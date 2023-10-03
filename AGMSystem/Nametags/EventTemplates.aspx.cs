@@ -57,7 +57,7 @@ namespace AGMSystem.Nametags
         protected void txtEvents_TextChanged(object sender, EventArgs e)
         {
 
-            getSavedRSVPList();
+            EventID.Value = txtEvents.SelectedItem.ToString();
         }
 
         #region alerts
@@ -79,36 +79,21 @@ namespace AGMSystem.Nametags
 
         }
         #endregion
-        private void getSavedRSVPList()
+        
+        protected void btnSave_Click(object sender, EventArgs e)
         {
-
             try
             {
-                MemberRsvpSave r = new MemberRsvpSave("cn", 1);
-                DataSet c = r.GetRsvps(int.Parse(txtEvents.SelectedValue));
-                if (c != null)
-                {
-                    //grdPaymentConfirmation.DataSource = c;
-                    //grdPaymentConfirmation.DataBind();
-                    //btnExport.Visible = true;
-                }
-                else
-                {
-                //    grdPaymentConfirmation.DataSource = null;
-                //    grdPaymentConfirmation.DataBind();
-                //    WarningAlert("No One RSVP'd");
-                //    btnExport.Visible = false;
-                }
+                AGMEvents eve = new AGMEvents("cn", 1);
+                eve.updateEvent(txtEventTheme.Text, txtSponsor.Text, int.Parse(EventID.Value));
             }
             catch (Exception c)
             {
 
-                RedAlert(c.Message);
+                WarningAlert(c.Message);
             }
-        }
+            
 
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
 
         }
     }
