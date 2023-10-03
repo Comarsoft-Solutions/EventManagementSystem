@@ -220,6 +220,14 @@
                                         <a href="Events/LogisticsManagement.aspx" runat="server" id="el"  class="nav-link"
                                             data-key="t-detached">Logistics Management</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="NameTags/EventTemplates.aspx" runat="server" id="et"  class="nav-link"
+                                            data-key="t-detached">Event Templates</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="NameTags/NameTagPrinting.aspx" runat="server" id="ntp"  class="nav-link"
+                                            data-key="t-detached">Name Tag Printing </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

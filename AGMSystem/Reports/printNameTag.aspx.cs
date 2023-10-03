@@ -29,7 +29,7 @@ namespace AGMSystem.Reports
             else
             {
                 ReportDocument doc = (ReportDocument)Session["nameTags"];
-                InvoiceViewer.ReportSource = doc;
+                NameTagView.ReportSource = doc;
             }
         }
 
@@ -69,9 +69,9 @@ namespace AGMSystem.Reports
             //myParameterField.CurrentValues.Add(myDiscreteValue);
             //myParameterFields.Add(myParameterField);
 
-            InvoiceViewer.ReportSource = myReport;
-            //InvoiceViewer.ParameterFieldInfo = myParameterFields;
-            InvoiceViewer.ToolPanelView = CrystalDecisions.Web.ToolPanelViewType.None;
+            NameTagView.ReportSource = myReport;
+            //NameTagView.ParameterFieldInfo = myParameterFields;
+            NameTagView.ToolPanelView = CrystalDecisions.Web.ToolPanelViewType.None;
 
             Session["nameTags"] = myReport;
         }

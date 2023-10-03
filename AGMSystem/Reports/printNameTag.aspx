@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <CR:CrystalReportViewer ID="InvoiceViewer" runat="server" AutoDataBind="true" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" ReuseParameterValuesOnRefresh="True" />
+            <CR:CrystalReportViewer ID="NameTagView" runat="server" AutoDataBind="true" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" ReuseParameterValuesOnRefresh="True" />
         </div>
     </form>
 </body>

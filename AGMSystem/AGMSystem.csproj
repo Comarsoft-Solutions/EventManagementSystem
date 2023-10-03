@@ -1007,7 +1007,7 @@
     <Content Include="Datasets\NameTags.xss">
       <DependentUpon>NameTags.xsd</DependentUpon>
     </Content>
-    <Content Include="Reports\AllMembersNametag.rpt" />
+    <Content Include="Reports\AllMembersNameTag.rpt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -123,6 +123,24 @@ namespace AGMSystem
         protected global::System.Web.UI.HtmlControls.HtmlAnchor el;
 
         /// <summary>
+        /// et control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor et;
+
+        /// <summary>
+        /// ntp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ntp;
+
+        /// <summary>
         /// pr control.
         /// </summary>
         /// <remarks>

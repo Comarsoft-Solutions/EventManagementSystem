@@ -221,31 +221,31 @@ namespace AGMSystem.communication
                     body = $@"<html>
                     <body>
 
-                        <p>Good Day,</p>
+                        <p>Dear Member,</p>
                         <p>{MessageBody}</p>
                         <p>Regards,</p>
                         <p>ZAPF </p>
                     </body>
                       <footer>
                         <footer>
-        <div class = ""row"">
-            <div class = ""column"">
-                <img src = ""https://zapf.co.zw/assets/images/logo.png"">
-            </div>
-            <div class = ""column"">
-                <p class = ""details"" >
+                            <div class = ""row"">
+                                <div class = ""column"">
+                                    <img src = ""https://zapf.co.zw/assets/images/logo.png"">
+                                </div>
+                                <div class = ""column"">
+                                    <p class = ""details"" >
 
-                    Zimbabwe Association of Pension Funds (ZAPF)<br> 
-                    3 Penn Place Close<br>
-                    Strathaven<br>
-                    Harare<br>
-                    +263 242 333341<br>
-                    +263 774 000 040 / 715 000 040 / 776 174 138<br>
-            </div>
+                                        Zimbabwe Association of Pension Funds (ZAPF)<br> 
+                                        3 Penn Place Close<br>
+                                        Strathaven<br>
+                                        Harare<br>
+                                        +263 242 333341<br>
+                                        +263 774 000 040 / 715 000 040 / 776 174 138<br>
+                                </div>
             
-        </div>
+                            </div>
         
-    </footer>
+                        </footer>
                         </footer>
                 </html>";
                 }
