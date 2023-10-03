@@ -904,6 +904,7 @@
     <Content Include="Projects\ProjectMembership.aspx" />
     <Content Include="AGM\Resolutions.aspx" />
     <Content Include="Registration\RsvpList.aspx" />
+    <Content Include="Reports\printNameTag.aspx" />
     <Content Include="Reports\view-quotation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -994,6 +995,19 @@
     <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont.eot" />
     <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont.woff" />
     <Content Include="Nametags\assets2\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Reports\nametag.rpt" />
+    <Content Include="Datasets\NameTags.xsc">
+      <DependentUpon>NameTags.xsd</DependentUpon>
+    </Content>
+    <None Include="Datasets\NameTags.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NameTags.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Datasets\NameTags.xss">
+      <DependentUpon>NameTags.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\AllMembersNametag.rpt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1049,6 +1063,11 @@
     </Compile>
     <Compile Include="communication\CommunicationsCenter.aspx.designer.cs">
       <DependentUpon>CommunicationsCenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\NameTags.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NameTags.xsd</DependentUpon>
     </Compile>
     <Compile Include="Membership\BulkUploads.aspx.cs">
       <DependentUpon>BulkUploads.aspx</DependentUpon>
@@ -1291,6 +1310,13 @@
     </Compile>
     <Compile Include="Registration\RsvpList.aspx.designer.cs">
       <DependentUpon>RsvpList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\printNameTag.aspx.cs">
+      <DependentUpon>printNameTag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\printNameTag.aspx.designer.cs">
+      <DependentUpon>printNameTag.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\view-quotation.aspx.cs">
       <DependentUpon>view-quotation.aspx</DependentUpon>

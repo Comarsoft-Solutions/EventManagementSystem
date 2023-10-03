@@ -11,9 +11,18 @@ namespace AGMSystem.Nametags
 {
     public partial class NameTagPrinting : System.Web.UI.Page
     {
+        DataSet allMemmbers = new DataSet();
+        DataSet companyMembers = new DataSet();
+        DataSet singleMember = new DataSet();
+        DataSet rsvpMembers = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
+            MaintainScrollPositionOnPostBack = true;
+            if (!IsPostBack)
+            {
+                GetPrintOptions();
 
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -40,10 +49,10 @@ namespace AGMSystem.Nametags
             try
             {
                 MemberRsvpSave r = new MemberRsvpSave("cn", 1);
-                DataSet c = r.GetRsvps(int.Parse(cboPrintOptions.SelectedValue));
-                if (c != null)
+                rsvpMembers = r.GetRsvps(int.Parse(cboPrintOptions.SelectedValue));
+                if (rsvpMembers != null)
                 {
-                    grdMembers.DataSource = c;
+                    grdMembers.DataSource = rsvpMembers;
                     grdMembers.DataBind();
                 }
                 else
@@ -120,10 +129,10 @@ namespace AGMSystem.Nametags
         private void GetRegistration()
         {
             Registration reg = new Registration("cn",1);
-            DataSet ds = reg.GetRegistration();
-            if (ds!=null)
+            allMemmbers = reg.GetMembership();
+            if (allMemmbers != null)
             {
-                grdMembers.DataSource = ds;
+                grdMembers.DataSource = allMemmbers;
                 grdMembers.DataBind();
             }
             else
@@ -147,10 +156,10 @@ namespace AGMSystem.Nametags
         protected void btnMemberSearch_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration("cn", 1);
-            DataSet ds = reg.GetMembersBySearch(txtFnameSearch.Text, txtLnameSearch.Text, txtNatID.Text);
-            if (ds!=null)
+            singleMember = reg.GetMembersBySearch(txtFnameSearch.Text, txtLnameSearch.Text, txtNatID.Text);
+            if (singleMember != null)
             {
-                grdMembers.DataSource = ds;
+                grdMembers.DataSource = singleMember;
                 grdMembers.DataBind();
             }
             else
@@ -164,10 +173,10 @@ namespace AGMSystem.Nametags
         protected void btnCompanySearch_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration("cn", 1);
-            DataSet ds = reg.GetMembersByCompany(txtCompanySearch.Text);
-            if (ds != null)
+            companyMembers = reg.GetMembersByCompany(txtCompanySearch.Text);
+            if (companyMembers != null)
             {
-                grdMembers.DataSource = ds;
+                grdMembers.DataSource = companyMembers;
                 grdMembers.DataBind();
             }
             else
@@ -175,6 +184,75 @@ namespace AGMSystem.Nametags
                 grdMembers.DataSource = null;
                 grdMembers.DataBind();
                 WarningAlert("Nothing found for these parameters");
+            }
+        }
+
+        protected void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (allMemmbers != null)
+                {
+                    //foreach (DataRow item in allMemmbers.Tables[0].Rows)
+                    //{
+                        
+                    //}
+                    string Type = "AllMembers";
+
+                    string strscript = null;
+                    strscript = "<script langauage=JavaScript>";
+                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    strscript += "</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
+                }
+                if (rsvpMembers != null)
+                {
+                    //foreach (DataRow item in rsvpMembers.Tables[0].Rows)
+                    //{
+
+                    //}
+                    string Type = "RSVP";
+
+                    string strscript = null;
+                    strscript = "<script langauage=JavaScript>";
+                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    strscript += "</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
+                }
+                if (companyMembers != null)
+                {
+                    //foreach (DataRow item in companyMembers.Tables[0].Rows)
+                    //{
+
+
+                    //}
+                    string Type = "companyMembers";
+                    string strscript = null;
+                    strscript = "<script langauage=JavaScript>";
+                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    strscript += "</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
+                }
+                if (singleMember != null)
+                {
+                    //foreach (DataRow item in singleMember.Tables[0].Rows)
+                    //{
+                        
+                        
+                    //}
+                    string Type = "singleMember";
+
+                    string strscript = null;
+                    strscript = "<script langauage=JavaScript>";
+                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    strscript += "</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
+                }
+            }
+            catch (Exception xc)
+            {
+
+                RedAlert(xc.Message);
             }
         }
     }

@@ -192,23 +192,23 @@ namespace AGMSystem
 
                 if (firstname.Length>0 && lastname.Length<=0 && nationalID.Length<=0)
                 {
-                    str = "SELECT * from RegistraionMembers where FirstName like '%"+firstname+"%'";
+                    str = "SELECT * from RegistrationMembers where FirstName like '%"+firstname+"%'";
                 }
                 if (firstname.Length<=0 && lastname.Length>0 && nationalID.Length<=0)
                 {
-                    str = "SELECT * from RegistraionMembers where LastName like '%"+lastname+"%'";
+                    str = "SELECT * from RegistrationMembers where LastName like '%"+lastname+"%'";
                 }
                 if (firstname.Length<=0 && lastname.Length<=0 && nationalID.Length>0)
                 {
-                    str = "SELECT * from RegistraionMembers where FirstName like '%"+nationalID+"%'";
+                    str = "SELECT * from RegistrationMembers where FirstName like '%"+nationalID+"%'";
                 }
                 if (firstname.Length>0 && lastname.Length>0 && nationalID.Length<=0)
                 {
-                    str = "SELECT * from RegistraionMembers where FirstName like '%"+firstname+"%' and LastName like '%"+lastname+"%'";
+                    str = "SELECT * from RegistrationMembers where FirstName like '%"+firstname+"%' and LastName like '%"+lastname+"%'";
                 }
                 if (firstname.Length>0 && lastname.Length>0 && nationalID.Length>0)
                 {
-                    str = "SELECT * from RegistraionMembers where FirstName like '%"+firstname+"%' and LastName like '%"+lastname+ "%' and NationalID like '%"+nationalID+"%'";
+                    str = "SELECT * from RegistrationMembers where FirstName like '%"+firstname+"%' and LastName like '%"+lastname+ "%' and NationalID like '%"+nationalID+"%'";
                 }
                return ReturnDs(str);
             }
@@ -234,7 +234,7 @@ namespace AGMSystem
 
                 if (company.Length>0)
                 {
-                    str = "SELECT * from RegistraionMembers where PensionFund like '%"+company+"%'";
+                    str = "SELECT * from RegistrationMembers where PensionFund like '%" + company+"%'";
                 }
                return ReturnDs(str);
             }
@@ -315,6 +315,11 @@ namespace AGMSystem
         public DataSet  GetRegInfo(string mNationalID)
         {
             string sql = "select * from RegistrationMembers  WHERE NationalID = '" + mNationalID+"'";
+            return ReturnDs(sql);
+        }
+        public DataSet  GetMembership()
+        {
+            string sql = "select * from RegistrationMembers ";
             return ReturnDs(sql);
         }
         protected DataSet ReturnDs(string str)
