@@ -265,7 +265,7 @@ namespace AGMSystem.models
             try
             {
                 //string str = "select m.ID,m.LastName + '' +m.FirstName as Pensioner ,EmailAddress,f.RegName from Member m inner join FUND f on f.RegNo = m.RegNo where EmailAddress like '%@%' and m.ID not in (select distinct(PensionNo) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + " ) order by m.ID,f.RegName";
-                string str = "select pp.Id,pp.LastName + ' ' + pp.FirstName + ' ' + pp.Email as Member ,pp.Email from MemberRSVP pp  where Email like '%@%' and pp.Id not in (select distinct(MemberID) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + " ) order by pp.Id ";
+                string str = "select pp.Id,pp.LastName + ' ' + pp.FirstName + ' ' + pp.Email as Member ,pp.Email from RegistrationMembers pp  where Email like '%@%' and pp.Id not in (select distinct(MemberID) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + " ) and NationalID in(select FullName from MemberRSVP) order by pp.Id ";
                 return ReturnDs(str);
             }
             catch (Exception ex)
@@ -307,7 +307,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "select pp.Id,pp.LastName + ' ' + pp.FirstName + ' ' + pp.Email as Member ,pp.Email from MemberRSVP pp  where Email like '%@%' and pp.Id in (select distinct(MemberID) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + ") order by pp.Id ";
+                string str = "select pp.Id,pp.LastName + ' ' + pp.FirstName + ' ' + pp.Email as Member ,pp.Email from RegistrationMembers pp  where Email like '%@%' and pp.Id in (select distinct(MemberID) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + ") and NationalID in(select FullName from MemberRSVP) order by pp.Id ";
                 return ReturnDs(str);
 
             }

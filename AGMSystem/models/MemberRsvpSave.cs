@@ -366,23 +366,23 @@ namespace AGMSystem.models
                 string str = "";
                 if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
                 {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%'";
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and eventID="+eventID+"";
                 }
                 if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
                 {
-                    str = "select * from MemberRSVP where LastName like '%" + surname + "%'";
+                    str = "select * from MemberRSVP where LastName like '%" + surname + "%'and eventID="+eventID+"";
                 }
                 if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
                 {
-                    str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'";
+                    str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'and eventID="+eventID+"";
                 }
                 if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
                 {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'";
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'and eventID="+eventID+"";
                 }
                 if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
                 {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'";
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'and eventID="+eventID+"";
                 }
                 if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
                 {

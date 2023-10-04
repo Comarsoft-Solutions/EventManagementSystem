@@ -119,7 +119,28 @@ namespace AGMSystem
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            try
+            {
+                MemberRsvpSave reg = new MemberRsvpSave("cn", 1);
+                DataSet ds = reg.GetRSVPSList(int.Parse(txtEventID.Value), txtFnameSearch.Text, txtLnameSearch.Text, txtCompanySearch.Text);
+                if (ds != null)
+                {
+                    grdPaymentConfirmation.DataSource = ds;
+                    grdPaymentConfirmation.DataBind();
+                }
+                else
+                {
+                    grdPaymentConfirmation = null;
+                    grdPaymentConfirmation.DataBind();
+                    WarningAlert("Nothing found for those search values");
+                }
 
+            }
+            catch (Exception x)
+            {
+                WarningAlert(x.Message);
+                throw;
+            }
         }
 
         protected void grdPaymentConfirmation_RowCommand(object sender, GridViewCommandEventArgs e)
