@@ -21,7 +21,7 @@ namespace AGMSystem.Nametags
             if (!IsPostBack)
             {
                 GetPrintOptions();
-
+                getEvents();
             }
         }
         #region alerts
@@ -44,6 +44,37 @@ namespace AGMSystem.Nametags
         }
         #endregion
 
+        private void getEvents()
+        {
+
+            try
+            {
+                AGMEvents agm = new AGMEvents("cn", 1);
+                DataSet ds = agm.getAllEvents();
+                if (ds != null)
+                {
+                    ListItem listItem = new ListItem("Select Event", "0");
+                    cboEvents.DataSource = ds;
+                    cboEvents.DataValueField = "ID";
+                    cboEvents.DataTextField = "EventName";
+                    cboEvents.DataBind();
+                    cboEvents.Items.Insert(0, listItem);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No AGMS found", "0");
+                    cboEvents.Items.Clear();
+                    cboEvents.DataSource = null;
+                    cboEvents.DataBind();
+                    cboEvents.Items.Insert(0, li);
+                }
+            }
+            catch (Exception a)
+            {
+
+                RedAlert(a.Message);
+            }
+        }
         protected void GetMembers()
         {
             try
@@ -108,20 +139,26 @@ namespace AGMSystem.Nametags
             if (cboPrintOptions.SelectedItem.Value == "1")
             {
                 GetRegistration();
-
+                pnlEvents.Visible = false;
+                pnlCompanySearch.Visible = false;
+                pnlMemberSearch.Visible = false;
             }
             if (cboPrintOptions.SelectedItem.Value == "2")
             {
-                GetMembers();
+                pnlEvents.Visible = true;
+                pnlCompanySearch.Visible = false;
+                pnlMemberSearch.Visible = false;
             }
             if (cboPrintOptions.SelectedItem.Value == "3")
             {
                 pnlCompanySearch.Visible = true;
+                pnlEvents.Visible = true;
                 pnlMemberSearch.Visible = false;
             }
             if (cboPrintOptions.SelectedItem.Value == "4")
             {
                 pnlMemberSearch.Visible= true;
+                pnlEvents.Visible = true;
                 pnlCompanySearch.Visible = false;
             }
         }
@@ -191,7 +228,7 @@ namespace AGMSystem.Nametags
         {
             try
             {
-                if (allMemmbers != null)
+                if (cboPrintOptions.SelectedItem.Value == "1")
                 {
                     //foreach (DataRow item in allMemmbers.Tables[0].Rows)
                     //{
@@ -205,7 +242,7 @@ namespace AGMSystem.Nametags
                     strscript += "</script>";
                     ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
                 }
-                if (rsvpMembers != null)
+                if (cboPrintOptions.SelectedItem.Value == "2")
                 {
                     //foreach (DataRow item in rsvpMembers.Tables[0].Rows)
                     //{
@@ -215,11 +252,11 @@ namespace AGMSystem.Nametags
 
                     string strscript = null;
                     strscript = "<script langauage=JavaScript>";
-                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "&eventID="+cboEvents.SelectedItem.Value+"');";
                     strscript += "</script>";
                     ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
                 }
-                if (companyMembers != null)
+                if (cboPrintOptions.SelectedItem.Value == "3")
                 {
                     //foreach (DataRow item in companyMembers.Tables[0].Rows)
                     //{
@@ -233,7 +270,7 @@ namespace AGMSystem.Nametags
                     strscript += "</script>";
                     ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
                 }
-                if (singleMember != null)
+                if (cboPrintOptions.SelectedItem.Value == "4")
                 {
                     //foreach (DataRow item in singleMember.Tables[0].Rows)
                     //{
@@ -254,6 +291,35 @@ namespace AGMSystem.Nametags
 
                 RedAlert(xc.Message);
             }
+        }
+        private void getSavedRSVPList()
+        {
+
+            try
+            {
+                MemberRsvpSave r = new MemberRsvpSave("cn", 1);
+                DataSet c = r.GetRsvps(int.Parse(cboEvents.SelectedValue));
+                if (c != null)
+                {
+                    grdMembers.DataSource = c;
+                    grdMembers.DataBind();
+                }
+                else
+                {
+                    grdMembers.DataSource = null;
+                    grdMembers.DataBind();
+                    WarningAlert("No One RSVP'd");
+                }
+            }
+            catch (Exception c)
+            {
+
+                RedAlert(c.Message);
+            }
+        }
+        protected void cboEvents_TextChanged(object sender, EventArgs e)
+        {
+            getSavedRSVPList();
         }
     }
 }

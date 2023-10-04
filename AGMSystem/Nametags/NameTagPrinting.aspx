@@ -21,7 +21,12 @@
     <label for=" Resolution" class="form-label">Select Print Option <span class="text-danger"></span></label>
     <asp:DropDownList ID="cboPrintOptions" OnTextChanged="cboPrintOptions_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server" ></asp:DropDownList>
 </div>
-
+    <asp:Panel ID="pnlEvents" Visible="false" runat="server">
+                                                 <div class="mb-3 col-6">
+    <label for=" Resolution" class="form-label">Select Event <span class="text-danger"></span></label>
+    <asp:DropDownList ID="cboEvents" OnTextChanged="cboEvents_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server" ></asp:DropDownList>
+</div>
+    </asp:Panel>
     <asp:Panel ID="pnlCompanySearch" Visible="false" runat="server">
          <table style="width: 100%">
 

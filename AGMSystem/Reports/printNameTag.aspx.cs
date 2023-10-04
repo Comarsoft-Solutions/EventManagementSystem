@@ -15,6 +15,7 @@ namespace AGMSystem.Reports
         CrystalDecisions.CrystalReports.Engine.FieldObject a;
         CrystalDecisions.CrystalReports.Engine.TextObject b;
         string ID = "";
+        string eventID = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,6 +24,10 @@ namespace AGMSystem.Reports
                 if (Request.QueryString["ID"] != null)
                 {
                     ID = Request.QueryString["ID"].ToString();
+                }
+                if (Request.QueryString["eventID"] != null)
+                {
+                    eventID = Request.QueryString["eventID"].ToString();
                 }
                 ReportView(ID);
             }
@@ -40,10 +45,51 @@ namespace AGMSystem.Reports
             if (ID == "AllMembers")
             {
                 myReport.Load(Server.MapPath(@"../Reports/AllMembersNametag.rpt"));
+                //myReport.Load(Server.MapPath(@"../Reports/nametag.rpt"));
+                string servername = ConfigurationManager.AppSettings["servername"].ToString();
+                string ReportPass = ConfigurationManager.AppSettings["ReportPass"].ToString();
+                string DBName = ConfigurationManager.AppSettings["DBName"].ToString();
+                string DbUser = ConfigurationManager.AppSettings["DbUser"].ToString();
+
+                myReport.SetDatabaseLogon(DbUser, ReportPass, servername, DBName);
+                //CrystalDecisions.Shared.ParameterFields myParameterFields = new CrystalDecisions.Shared.ParameterFields();
+                //CrystalDecisions.Shared.ParameterField myParameterField = new CrystalDecisions.Shared.ParameterField();
+                //CrystalDecisions.Shared.ParameterDiscreteValue myDiscreteValue = new CrystalDecisions.Shared.ParameterDiscreteValue();
+                //myParameterField.ParameterFieldName = "MemberID";
+                //myDiscreteValue.Value = ID;
+                //myParameterField.CurrentValues.Add(myDiscreteValue);
+                //myParameterFields.Add(myParameterField);
+
+                NameTagView.ReportSource = myReport;
+                //NameTagView.ParameterFieldInfo = myParameterFields;
+                NameTagView.ToolPanelView = CrystalDecisions.Web.ToolPanelViewType.None;
+
+                Session["nameTags"] = myReport;
             }
             if (ID == "RSVP")
             {
-                myReport.Load(Server.MapPath(@"../Reports/nametag.rpt"));
+                myReport.Load(Server.MapPath(@"../Reports/RSVPMembersNameTag.rpt"));
+              
+                //myReport.Load(Server.MapPath(@"../Reports/nametag.rpt"));
+                string servername = ConfigurationManager.AppSettings["servername"].ToString();
+                string ReportPass = ConfigurationManager.AppSettings["ReportPass"].ToString();
+                string DBName = ConfigurationManager.AppSettings["DBName"].ToString();
+                string DbUser = ConfigurationManager.AppSettings["DbUser"].ToString();
+
+                myReport.SetDatabaseLogon(DbUser, ReportPass, servername, DBName);
+                CrystalDecisions.Shared.ParameterFields myParameterFields = new CrystalDecisions.Shared.ParameterFields();
+                CrystalDecisions.Shared.ParameterField myParameterField = new CrystalDecisions.Shared.ParameterField();
+                CrystalDecisions.Shared.ParameterDiscreteValue myDiscreteValue = new CrystalDecisions.Shared.ParameterDiscreteValue();
+                myParameterField.ParameterFieldName = "eventID";
+                myDiscreteValue.Value = eventID;
+                myParameterField.CurrentValues.Add(myDiscreteValue);
+                myParameterFields.Add(myParameterField);
+
+                NameTagView.ReportSource = myReport;
+                NameTagView.ParameterFieldInfo = myParameterFields;
+                NameTagView.ToolPanelView = CrystalDecisions.Web.ToolPanelViewType.None;
+
+                Session["nameTags"] = myReport;
             }
             if (ID == "companyMembers")
             {
@@ -54,26 +100,7 @@ namespace AGMSystem.Reports
                 myReport.Load(Server.MapPath(@"../Reports/nametag.rpt"));
             }
 
-            //myReport.Load(Server.MapPath(@"../Reports/nametag.rpt"));
-            string servername = ConfigurationManager.AppSettings["servername"].ToString();
-            string ReportPass = ConfigurationManager.AppSettings["ReportPass"].ToString();
-            string DBName = ConfigurationManager.AppSettings["DBName"].ToString();
-            string DbUser = ConfigurationManager.AppSettings["DbUser"].ToString();
-
-            myReport.SetDatabaseLogon(DbUser, ReportPass, servername, DBName);
-            //CrystalDecisions.Shared.ParameterFields myParameterFields = new CrystalDecisions.Shared.ParameterFields();
-            //CrystalDecisions.Shared.ParameterField myParameterField = new CrystalDecisions.Shared.ParameterField();
-            //CrystalDecisions.Shared.ParameterDiscreteValue myDiscreteValue = new CrystalDecisions.Shared.ParameterDiscreteValue();
-            //myParameterField.ParameterFieldName = "MemberID";
-            //myDiscreteValue.Value = ID;
-            //myParameterField.CurrentValues.Add(myDiscreteValue);
-            //myParameterFields.Add(myParameterField);
-
-            NameTagView.ReportSource = myReport;
-            //NameTagView.ParameterFieldInfo = myParameterFields;
-            NameTagView.ToolPanelView = CrystalDecisions.Web.ToolPanelViewType.None;
-
-            Session["nameTags"] = myReport;
+          
         }
     }
 }
