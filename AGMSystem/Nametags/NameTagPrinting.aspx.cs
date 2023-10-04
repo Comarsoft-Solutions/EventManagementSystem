@@ -266,7 +266,7 @@ namespace AGMSystem.Nametags
                     string Type = "companyMembers";
                     string strscript = null;
                     strscript = "<script langauage=JavaScript>";
-                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "&company="+txtCompanySearch.Text+"');";
                     strscript += "</script>";
                     ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
                 }
