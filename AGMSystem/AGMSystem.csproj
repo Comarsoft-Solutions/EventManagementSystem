@@ -643,6 +643,7 @@
     <Content Include="Online\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="Online\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="Online\Onlinersvp.aspx" />
+    <Content Include="Online\TransportAndAccomodation.aspx" />
     <Content Include="Projects\assets2\css\app.min.css" />
     <Content Include="Projects\assets2\css\bootstrap.min.css" />
     <Content Include="Projects\assets2\css\custom.min.css" />
@@ -1132,6 +1133,13 @@
     </Compile>
     <Compile Include="Online\Onlinersvp.aspx.designer.cs">
       <DependentUpon>Onlinersvp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Online\TransportAndAccomodation.aspx.cs">
+      <DependentUpon>TransportAndAccomodation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Online\TransportAndAccomodation.aspx.designer.cs">
+      <DependentUpon>TransportAndAccomodation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Projects\ProjectMembershipEnquiries.aspx.cs">
       <DependentUpon>ProjectMembershipEnquiries.aspx</DependentUpon>

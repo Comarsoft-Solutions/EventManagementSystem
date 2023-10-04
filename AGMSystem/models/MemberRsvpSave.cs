@@ -313,7 +313,11 @@ namespace AGMSystem.models
                 return null;
             }
         }
-
+        public DataSet GetAccomodationAndTransportInfo(string mNationalID)
+        {
+            string sql = "select * from MemberRSVP  WHERE FullName = '" + mNationalID + "'";
+            return ReturnDs(sql);
+        }
 
         public DataSet GetCheckin(int eventID)
         {
