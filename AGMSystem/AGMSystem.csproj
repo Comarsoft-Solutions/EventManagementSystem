@@ -1010,7 +1010,7 @@
     <Content Include="Reports\AllMembersNameTag.rpt" />
     <Content Include="Reports\RSVPMembersNameTag.rpt" />
     <Content Include="Reports\ByCompanyNameTag.rpt" />
-    <Content Include="Reports\SimgleMemberNameTag.rpt" />
+    <Content Include="Reports\SingleMemberNameTag.rpt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

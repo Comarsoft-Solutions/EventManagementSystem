@@ -171,16 +171,16 @@ namespace AGMSystem.communication
 
                 SmtpClient Client = new SmtpClient()
                 {
-                    Credentials = new NetworkCredential("training@zapf.co.zw", "Fuq97442"),
+                    Credentials = new NetworkCredential("enquiries@comarsoft.co.zw", "cive15Um"),
                     Port = 587,
-                    Host = "smtp.office365.com",
+                    Host = "mail.comarsoft.co.zw",
                     EnableSsl = true,
                 };
 
              
 
                 MailMessage Message = new MailMessage();
-                Message.From = new MailAddress("training@zapf.co.zw", "ZAPF");
+                Message.From = new MailAddress("enquiries@comarsoft.co.zw", "ZAPF");
                 Message.To.Add(recepientEmail);
                 Message.Subject = subject;
                 Message.IsBodyHtml = true;
@@ -258,9 +258,17 @@ namespace AGMSystem.communication
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body, null, "text/html");
 
                 Message.AlternateViews.Add(htmlView);
+                try
+                {
 
-                Client.Send(Message);
+                    Client.Send(Message);
                 SuccessAlert("Message sent");
+                }
+                catch (Exception e)
+                {
+
+                    WarningAlert(e.Message);
+                }
 
                 BroadcastMessagesList bc = new BroadcastMessagesList("cn", 1);
                 if (bc.UpdateEmailListStatus(int.Parse(txtID.Value), MemberId))

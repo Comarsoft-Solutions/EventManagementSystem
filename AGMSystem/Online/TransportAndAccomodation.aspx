@@ -4,10 +4,10 @@
             <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Registration</h4>
+                                    <h4 class="mb-sm-0">Transport And Accomodation Confirmations</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Registration</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Confirmations</a></li>
                                             <li class="breadcrumb-item active">Transport And Accomodation</li>
                                         </ol>
                                     </div>

@@ -142,24 +142,28 @@ namespace AGMSystem.Nametags
                 pnlEvents.Visible = false;
                 pnlCompanySearch.Visible = false;
                 pnlMemberSearch.Visible = false;
+                grdMemberSearch.Visible = false;
             }
             if (cboPrintOptions.SelectedItem.Value == "2")
             {
                 pnlEvents.Visible = true;
                 pnlCompanySearch.Visible = false;
                 pnlMemberSearch.Visible = false;
+                grdMemberSearch.Visible = false;
             }
             if (cboPrintOptions.SelectedItem.Value == "3")
             {
                 pnlCompanySearch.Visible = true;
                 pnlEvents.Visible = true;
                 pnlMemberSearch.Visible = false;
+                grdMemberSearch.Visible = false;
             }
             if (cboPrintOptions.SelectedItem.Value == "4")
             {
                 pnlMemberSearch.Visible= true;
                 pnlEvents.Visible = true;
                 pnlCompanySearch.Visible = false;
+                grdMembers.Visible = false;
             }
         }
 
@@ -277,13 +281,13 @@ namespace AGMSystem.Nametags
                         
                         
                     //}
-                    string Type = "singleMember";
+                    //string Type = "singleMember";
 
-                    string strscript = null;
-                    strscript = "<script langauage=JavaScript>";
-                    strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
-                    strscript += "</script>";
-                    ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
+                    //string strscript = null;
+                    //strscript = "<script langauage=JavaScript>";
+                    //strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "');";
+                    //strscript += "</script>";
+                    //ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
                 }
             }
             catch (Exception xc)
@@ -320,6 +324,28 @@ namespace AGMSystem.Nametags
         protected void cboEvents_TextChanged(object sender, EventArgs e)
         {
             getSavedRSVPList();
+        }
+
+        protected void grdMemberSearch_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void grdMemberSearch_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "selectRecord")
+            {
+                btnPrint.Visible = false;
+                string memberID = e.CommandArgument.ToString();
+
+                string Type = "singleMember";
+
+                string strscript = null;
+                strscript = "<script langauage=JavaScript>";
+                strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "& memberID="+ memberID + "');";
+                strscript += "</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
+            }
         }
     }
 }
