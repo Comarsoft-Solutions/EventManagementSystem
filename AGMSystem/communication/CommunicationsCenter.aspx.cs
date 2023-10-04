@@ -171,16 +171,16 @@ namespace AGMSystem.communication
 
                 SmtpClient Client = new SmtpClient()
                 {
-                    Credentials = new NetworkCredential("enquiries@comarsoft.co.zw", "cive15Um"),
+                    Credentials = new NetworkCredential("training@zapf.co.zw", "Fuq97442"),
                     Port = 587,
-                    Host = "mail.comarsoft.co.zw",
+                    Host = "training@zapf.co.zw",
                     EnableSsl = true,
                 };
 
              
 
                 MailMessage Message = new MailMessage();
-                Message.From = new MailAddress("enquiries@comarsoft.co.zw", "ZAPF");
+                Message.From = new MailAddress("training@zapf.co.zw", "ZAPF");
                 Message.To.Add(recepientEmail);
                 Message.Subject = subject;
                 Message.IsBodyHtml = true;

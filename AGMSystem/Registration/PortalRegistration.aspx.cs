@@ -108,7 +108,7 @@ namespace AGMSystem
         {
             try
             {
-                Registration des = new Registration("cn", 1);
+                RegistrationSave des = new RegistrationSave("cn", 1);
                 DataSet ds = des.getDesignation();
                 if (ds != null)
                 {
@@ -201,7 +201,7 @@ namespace AGMSystem
         {
             try
             {
-                Registration reg = new Registration("cn", 1);
+                RegistrationSave reg = new RegistrationSave("cn", 1);
                 if (reg.GetRegistration() != null)
                 {
                     txtFirstname.Text = reg.FirstName;
@@ -294,7 +294,7 @@ namespace AGMSystem
             
             AGMQueries query = new AGMQueries("cn", 1);
 
-            Registration reg = new Registration("cn", 1);
+            RegistrationSave reg = new RegistrationSave("cn", 1);
 
             
             DataSet ds = reg.GetRegInfo(natID);

@@ -904,6 +904,7 @@
     <Content Include="Projects\ProjectEnquiries.aspx" />
     <Content Include="Projects\ProjectMembership.aspx" />
     <Content Include="AGM\Resolutions.aspx" />
+    <Content Include="Registration\RsvpEdit.aspx" />
     <Content Include="Registration\RsvpList.aspx" />
     <Content Include="Reports\printNameTag.aspx" />
     <Content Include="Reports\view-quotation.aspx" />
@@ -1306,13 +1307,20 @@
     <Compile Include="Registration\PortalRegistration.aspx.designer.cs">
       <DependentUpon>PortalRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="models\Registration.cs" />
+    <Compile Include="models\RegistrationSave.cs" />
     <Compile Include="AGM\Resolutions.aspx.cs">
       <DependentUpon>Resolutions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AGM\Resolutions.aspx.designer.cs">
       <DependentUpon>Resolutions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration\RsvpEdit.aspx.cs">
+      <DependentUpon>RsvpEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration\RsvpEdit.aspx.designer.cs">
+      <DependentUpon>RsvpEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration\RsvpList.aspx.cs">
       <DependentUpon>RsvpList.aspx</DependentUpon>

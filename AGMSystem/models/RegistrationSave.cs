@@ -9,7 +9,7 @@ using System.Web;
 
 namespace AGMSystem
 {
-    public class Registration
+    public class RegistrationSave
     {
 
         #region "Variables"
@@ -171,7 +171,7 @@ namespace AGMSystem
         #region "Constructors"
 
 
-        public Registration(string ConnectionName, long ObjectUserID)
+        public RegistrationSave(string ConnectionName, long ObjectUserID)
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;

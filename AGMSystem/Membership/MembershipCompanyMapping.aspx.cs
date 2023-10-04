@@ -43,7 +43,7 @@ namespace AGMSystem.Membership
         {
             try
             {
-                Registration r = new Registration("cn", 1);
+                RegistrationSave r = new RegistrationSave("cn", 1);
                 MembershipCompaniesMapping re = new MembershipCompaniesMapping("cn", 1);
                 if (r.Retrieve (ID))
                 {

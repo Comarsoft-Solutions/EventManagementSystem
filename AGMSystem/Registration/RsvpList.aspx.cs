@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -140,7 +141,18 @@ namespace AGMSystem
                     RedAlert(xc.Message);
                 }
             }
-            
+            if (e.CommandName == "deleteRecord")
+            {
+                int memberId = int.Parse(e.CommandArgument.ToString());
+                MemberRsvpSave mem = new MemberRsvpSave("cn",1);
+                mem.DeleteRecord(memberId);
+                getSavedRSVPList();
+            }
+            if (e.CommandName == "editRecord")
+            {
+                int memberID = int.Parse(e.CommandArgument.ToString());
+                Response.Redirect(string.Format("RsvpEdit?MemberID=" + memberID, memberID), false);
+            }
         }
 
         protected void txtEvents_TextChanged(object sender, EventArgs e)

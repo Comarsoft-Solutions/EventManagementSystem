@@ -35,7 +35,7 @@ namespace AGMSystem
 
         private void GetAllMembers()
         {
-            Registration mem = new Registration("cn",1);
+            RegistrationSave mem = new RegistrationSave("cn",1);
             if (mem.GetAllMembers(int.Parse(txtProjectID.Value)) != null)
             {
                 grdProjectMembership.DataSource = mem.GetAllMembers(int.Parse(txtProjectID.Value));

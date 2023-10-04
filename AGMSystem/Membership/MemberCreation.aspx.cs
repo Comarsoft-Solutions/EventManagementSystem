@@ -36,7 +36,7 @@ namespace AGMSystem
         {
             try
             {
-                Registration des = new Registration("cn", 1);
+                RegistrationSave des = new RegistrationSave("cn", 1);
                 DataSet ds = des.getDesignation();
                 if (ds !=null)
                 {
@@ -212,7 +212,7 @@ namespace AGMSystem
                 try
                 {
 
-                    Registration reg = new Registration("cn", 1);
+                    RegistrationSave reg = new RegistrationSave("cn", 1);
                     reg.EventID = int.Parse(txtEventID.Value);
                     reg.Id = int.Parse(txtMemberID.Value);
                     reg.NationalID = txtNationalID.Text;
@@ -321,7 +321,7 @@ namespace AGMSystem
 
         private void CheckForMember()
         {
-            Registration reg = new Registration("cn", 1);
+            RegistrationSave reg = new RegistrationSave("cn", 1);
 
             DataSet ds = reg.GetRegInfo(txtNationalID.Text);
 

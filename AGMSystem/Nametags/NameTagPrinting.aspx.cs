@@ -104,7 +104,7 @@ namespace AGMSystem.Nametags
         {
             try
             {
-                Registration reg = new Registration("cn", 1);
+                RegistrationSave reg = new RegistrationSave("cn", 1);
 
                 DataSet ds = reg.GetPrintOptions();
                 if (ds != null)
@@ -169,7 +169,7 @@ namespace AGMSystem.Nametags
 
         private void GetRegistration()
         {
-            Registration reg = new Registration("cn",1);
+            RegistrationSave reg = new RegistrationSave("cn",1);
             allMemmbers = reg.GetMembership();
             if (allMemmbers != null)
             {
@@ -196,7 +196,7 @@ namespace AGMSystem.Nametags
 
         protected void btnMemberSearch_Click(object sender, EventArgs e)
         {
-            Registration reg = new Registration("cn", 1);
+            RegistrationSave reg = new RegistrationSave("cn", 1);
             singleMember = reg.GetMembersBySearch(txtFnameSearch.Text, txtLnameSearch.Text, txtNatID.Text);
             if (singleMember != null)
             {
@@ -213,7 +213,7 @@ namespace AGMSystem.Nametags
 
         protected void btnCompanySearch_Click(object sender, EventArgs e)
         {
-            Registration reg = new Registration("cn", 1);
+            RegistrationSave reg = new RegistrationSave("cn", 1);
             companyMembers = reg.GetMembersByCompany(txtCompanySearch.Text);
             if (companyMembers != null)
             {
