@@ -247,11 +247,11 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="Registration/RsvpList.aspx" runat="server" id="rl" class="nav-link" data-key="t-signup">Payment Confirmation
+                                        <a href="Registration/RsvpList.aspx" runat="server" id="rl" class="nav-link" data-key="t-signup">Check In
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="Registration/CheckIn.aspx" runat="server" id="ci" class="nav-link" data-key="t-signup">Check In
+                                        <a href="Registration/CheckIn.aspx" runat="server" id="ci" class="nav-link" data-key="t-signup">Check In Enquiries
                                         </a>
                                     </li>
 

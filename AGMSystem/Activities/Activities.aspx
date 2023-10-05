@@ -19,26 +19,6 @@
     
      
                                      <div class="table-responsive table-card">
-        <%--<table style="width: 100%">
-
-        <tr>
-            <td colspan="12">
-                <asp:HiddenField ID="txtEventID" runat="server" />
-            </td>
-        </tr>
-                                                     <tr>
-            <td colspan="2">
-                <asp:TextBox ID="txtFnameSearch" placeholder="Firstname" CssClass="form-control" runat="server"></asp:TextBox>
-            </td>
-            <td colspan="2"><asp:TextBox ID="txtLnameSearch" placeholder="Lastname" CssClass="form-control" runat="server"></asp:TextBox></td>
-            <td colspan="2"><asp:TextBox ID="txtCompanySearch" placeholder="Company" CssClass="form-control" runat="server"></asp:TextBox></td>
-         
-            <td colspan="2"></td>
-            <td colspan="2">
-                <asp:Button ID="btnSearch" OnClick="btnSearch_Click" CssClass="btn btn-primary" runat="server" Text="Filter Search" />
-            </td>
-        </tr>
-                                                     </table>--%>
                                          <div class="mb-3">
             <label for=" Events" class="form-label">Select Event <span class="text-danger"></span></label>
             <asp:DropDownList ID="txtEvents" OnTextChanged="txtEvents_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server" ></asp:DropDownList>
@@ -79,17 +59,15 @@
                     AllowPaging="True" AllowSorting="True" PageSize="10" OnRowCommand="grdPaymentConfirmation_RowCommand">
                     <Columns>
                        <asp:BoundField Visible="false" DataField="ID" HeaderText="Transport ID"></asp:BoundField>
-                                        <asp:BoundField DataField="FirstName" HeaderText="First Name "></asp:BoundField>
-                                        <asp:BoundField DataField="LastName" HeaderText="Last Name"></asp:BoundField>
-                                        <asp:BoundField DataField="Company" HeaderText="Company"></asp:BoundField>
-                                        <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
-                        <asp:TemplateField HeaderText="Confirm">
+                                        <asp:BoundField DataField="Name" HeaderText="Avtivity Name "></asp:BoundField>
+                                        <asp:BoundField DataField="StartDate" HeaderText="Date"></asp:BoundField>
+                       <%-- <asp:TemplateField HeaderText="Confirm">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Select" runat="server" ForeColor="blue" CssClass="mdi mdi-check-bold" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="Green" CssClass="mdi mdi-pencil" CommandArgument='<%#Eval("ID")%>' CommandName="editRecord"></asp:LinkButton>
                                 <asp:LinkButton ID="Delete" runat="server" ForeColor="Red" CssClass="mdi mdi-delete" CommandArgument='<%#Eval("ID")%>' CommandName="deleteRecord"></asp:LinkButton>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                     </Columns>
                 </asp:GridView>
             </div>

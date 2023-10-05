@@ -55,16 +55,16 @@
                         <asp:BoundField Visible="false" DataField="ID" HeaderText="Transport ID"></asp:BoundField>
                                         <asp:BoundField DataField="FirstName" HeaderText="First Name "></asp:BoundField>
                                         <asp:BoundField DataField="LastName" HeaderText="Last Name"></asp:BoundField>
-                                        <asp:BoundField DataField="PensionFund" HeaderText="Company"></asp:BoundField>
-                                        <asp:BoundField DataField="TshirtSize" HeaderText="T-shirt Size"></asp:BoundField>
-                        <asp:TemplateField HeaderText="Confirm">
+                                        <asp:BoundField DataField="Company" HeaderText="Company"></asp:BoundField>
+                                        <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
+                      <%--  <asp:TemplateField HeaderText="Confirm">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="mdi mdi-check-bold" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
-                               <%-- <asp:LinkButton ID="View" runat="server" ForeColor="green" CssClass="mdi mdi-eye" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
+                                <asp:LinkButton ID="View" runat="server" ForeColor="green" CssClass="mdi mdi-eye" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
                                 <asp:LinkButton ID="Delete" runat="server" ForeColor="Red" CssClass="mdi mdi-delete" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
-                                <asp:LinkButton ID="Attach" runat="server" ForeColor="Black" CssClass="mdi mdi-attachment" CommandArgument='<%#Eval("ID")%>' CommandName="attachRecord"></asp:LinkButton>--%>
+                                <asp:LinkButton ID="Attach" runat="server" ForeColor="Black" CssClass="mdi mdi-attachment" CommandArgument='<%#Eval("ID")%>' CommandName="attachRecord"></asp:LinkButton>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                     </Columns>
                 </asp:GridView>
             </div>

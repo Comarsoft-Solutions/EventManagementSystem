@@ -30,7 +30,7 @@ namespace AGMSystem
                 DataSet ds = agm.getAllEvents();
                 if (ds != null)
                 {
-                    ListItem listItem = new ListItem("Select AGM", "0");
+                    ListItem listItem = new ListItem("Select Event", "0");
                     txtEvents.DataSource = ds;
                     txtEvents.DataValueField = "ID";
                     txtEvents.DataTextField = "EventName";
@@ -77,7 +77,7 @@ namespace AGMSystem
                 {
                     grdCheckin.DataSource = null;
                     grdCheckin.DataBind();
-                    msgbox("No One To Checkin");
+                    msgbox("Noone In Checkin");
                 }
             }
             catch (Exception c)
@@ -120,7 +120,7 @@ namespace AGMSystem
             try
             {
                 MemberRsvpSave reg = new MemberRsvpSave("cn",1);
-                DataSet ds = reg.GetRSVPSList(int.Parse(txtEventID.Value),txtFnameSearch.Text, txtLnameSearch.Text, txtCompanySearch.Text);
+                DataSet ds = reg.GetCheckin(int.Parse(txtEvents.SelectedItem.Value),txtFnameSearch.Text, txtLnameSearch.Text, txtCompanySearch.Text);
                 if (ds!=null)
                 {
                     grdCheckin.DataSource = ds;

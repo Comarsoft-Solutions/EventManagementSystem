@@ -298,7 +298,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "select * from MemberRSVP  where EventID=" + eventID + "";
+                string str = "select * from MemberRSVP  where EventID=" + eventID + " AND (PaymentStatus IS NULL OR PaymentStatus =0)";
                 return ReturnDs(str);
             }
             catch (Exception ex)
@@ -366,23 +366,60 @@ namespace AGMSystem.models
                 string str = "";
                 if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
                 {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and eventID="+eventID+"";
+                    str = "select * from MemberRSVP where FirstName like '%"+names+"%' and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
                 }
                 if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
                 {
-                    str = "select * from MemberRSVP where LastName like '%" + surname + "%'and eventID="+eventID+"";
+                    str = "select * from MemberRSVP where LastName like '%" + surname + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
                 }
                 if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
                 {
-                    str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'and eventID="+eventID+"";
+                    str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
                 }
                 if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
                 {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'and eventID="+eventID+"";
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
                 }
                 if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
                 {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'and eventID="+eventID+"";
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
+                }
+                if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
+                {
+                    GetCheckin( eventID);
+                }
+                return ReturnDs(str);
+            }
+            catch (Exception x)
+            {
+                Msgflg = x.Message;
+                return null;
+            }
+        }
+        public DataSet GetCheckin(int eventID,string names = "", string surname = "", string pension = "")
+        {
+            try
+            {
+                string str = "";
+                if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
+                {
+                    str = "select * from MemberRSVP where FirstName like '%"+names+"%' and eventID="+eventID+ " and PaymentStatus=1";
+                }
+                if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
+                {
+                    str = "select * from MemberRSVP where LastName like '%" + surname + "%'and eventID="+eventID+ " and PaymentStatus=1";
+                }
+                if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
+                {
+                    str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'and eventID="+eventID+ " and PaymentStatus=1";
+                }
+                if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
+                {
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'and eventID="+eventID+ " and PaymentStatus=1";
+                }
+                if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
+                {
+                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'and eventID="+eventID+ " and PaymentStatus=1";
                 }
                 if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
                 {
@@ -404,7 +441,7 @@ namespace AGMSystem.models
 
         public DataSet GetCheckin(int eventID)
         {
-            string str = "select * from RegistrationMembers where EventID=" + eventID+ " and RsvpStatus=1 and PaymentStatus = 1 and Checkin is null";
+            string str = "select * from MemberRSVP where EventID=" + eventID+ " and RsvpStatus=1 and PaymentStatus = 1 ";
             return ReturnDs(str);
         }
         public DataSet UpdateRegMember(bool golf, string newID,int logisticsCombo, bool rsvpStatus, string nationalID, int eventID, string tshirt)
@@ -456,7 +493,7 @@ namespace AGMSystem.models
         {
             using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
-                string query = "Update RegistrationMembers set PaymentStatus='" + paymentStatus + "' WHERE ID ='"+ id+"'";
+                string query = "Update MemberRSVP set PaymentStatus='" + paymentStatus + "' WHERE ID ='"+ id+"'";
                 using (SqlCommand cmd = new SqlCommand(query, myConnection))
                 {
                     myConnection.Open();

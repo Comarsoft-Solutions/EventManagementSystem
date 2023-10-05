@@ -98,7 +98,7 @@ namespace AGMSystem
                 }
                 else
                 {
-                    ListItem li = new ListItem("No AGMS found", "0");
+                    ListItem li = new ListItem("No Events found", "0");
                     txtEvents.Items.Clear();
                     txtEvents.DataSource = null;
                     txtEvents.DataBind();
@@ -114,7 +114,46 @@ namespace AGMSystem
 
         protected void grdPaymentConfirmation_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            grdPaymentConfirmation.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
+        }
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                MemberRsvpSave r = new MemberRsvpSave("cn", 1);
+                DataSet c = r.GetRsvps(int.Parse(txtEvents.SelectedValue));
+                if (c != null)
+                {
+                    int maxPageIndex = grdPaymentConfirmation.PageCount - 1;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        if (maxPageIndex >= 0)
+                        {
+                            // Navigate to the last available page
+                            page = maxPageIndex;
+                        }
+                        else
+                        {
+                            // No data available, reset to the first page
+                            page = 0;
+                        }
+                    }
+                    grdPaymentConfirmation.DataSource = c;
+                    grdPaymentConfirmation.PageIndex = page;
+                    grdPaymentConfirmation.DataBind();
+                }
+                else
+                {
+                    grdPaymentConfirmation.DataSource = null;
+                    grdPaymentConfirmation.DataBind();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                WarningAlert("An error occured");
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -122,7 +161,7 @@ namespace AGMSystem
             try
             {
                 MemberRsvpSave reg = new MemberRsvpSave("cn", 1);
-                DataSet ds = reg.GetRSVPSList(int.Parse(txtEventID.Value), txtFnameSearch.Text, txtLnameSearch.Text, txtCompanySearch.Text);
+                DataSet ds = reg.GetRSVPSList(int.Parse(txtEvents.SelectedItem.Value), txtFnameSearch.Text, txtLnameSearch.Text, txtCompanySearch.Text);
                 if (ds != null)
                 {
                     grdPaymentConfirmation.DataSource = ds;
@@ -130,7 +169,7 @@ namespace AGMSystem
                 }
                 else
                 {
-                    grdPaymentConfirmation = null;
+                    grdPaymentConfirmation.DataSource = null;
                     grdPaymentConfirmation.DataBind();
                     WarningAlert("Nothing found for those search values");
                 }
@@ -153,7 +192,7 @@ namespace AGMSystem
                     int index = int.Parse(e.CommandArgument.ToString());
                     MemberRsvpSave rs = new MemberRsvpSave("cn", 1);
                     rs.updateRsvp(index, true);
-                    SuccessAlert("Member Payment Status Updated");
+                    SuccessAlert("Check-in Successful");
                     getSavedRSVPList();
                 }
                 catch (Exception xc)

@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Activities\ActivityTracking.aspx" />
     <Content Include="Activities\assets2\css\app.min.css" />
     <Content Include="Activities\assets2\css\bootstrap.min.css" />
     <Content Include="Activities\assets2\css\custom.min.css" />
@@ -1111,6 +1112,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\ActivityTracking.aspx.cs">
+      <DependentUpon>ActivityTracking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activities\ActivityTracking.aspx.designer.cs">
+      <DependentUpon>ActivityTracking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AGM\AGMResults.aspx.cs">
       <DependentUpon>AGMResults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
