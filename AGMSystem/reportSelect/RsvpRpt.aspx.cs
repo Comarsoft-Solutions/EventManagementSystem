@@ -81,7 +81,7 @@ namespace AGMSystem.reportSelect
         }
         protected void txtEvents_TextChanged(object sender, EventArgs e)
         {
-            string Type = "checkIn";
+            string Type = "rsvp";
             string strscript = null;
             strscript = "<script langauage=JavaScript>";
             strscript += "window.open('../Reports/EventReports.aspx?type=" + Type + "&eventID=" + txtEvents.SelectedItem.Value + "');";
