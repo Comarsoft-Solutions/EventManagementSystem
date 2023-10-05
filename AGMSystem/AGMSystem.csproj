@@ -146,6 +146,65 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Activities\assets2\css\app.min.css" />
+    <Content Include="Activities\assets2\css\bootstrap.min.css" />
+    <Content Include="Activities\assets2\css\custom.min.css" />
+    <Content Include="Activities\assets2\css\icons.min.css" />
+    <Content Include="Activities\assets2\images\brands\bitbucket.png" />
+    <Content Include="Activities\assets2\images\brands\dribbble.png" />
+    <Content Include="Activities\assets2\images\brands\dropbox.png" />
+    <Content Include="Activities\assets2\images\brands\github.png" />
+    <Content Include="Activities\assets2\images\brands\mail_chimp.png" />
+    <Content Include="Activities\assets2\images\brands\slack.png" />
+    <Content Include="Activities\assets2\images\ComartonLogo.png" />
+    <Content Include="Activities\assets2\images\companies\img-1.png" />
+    <Content Include="Activities\assets2\images\companies\img-2.png" />
+    <Content Include="Activities\assets2\images\companies\img-3.png" />
+    <Content Include="Activities\assets2\images\companies\img-5.png" />
+    <Content Include="Activities\assets2\images\companies\img-8.png" />
+    <Content Include="Activities\assets2\images\favicon.ico" />
+    <Content Include="Activities\assets2\images\flags\china.svg" />
+    <Content Include="Activities\assets2\images\flags\french.svg" />
+    <Content Include="Activities\assets2\images\flags\germany.svg" />
+    <Content Include="Activities\assets2\images\flags\italy.svg" />
+    <Content Include="Activities\assets2\images\flags\russia.svg" />
+    <Content Include="Activities\assets2\images\flags\spain.svg" />
+    <Content Include="Activities\assets2\images\flags\us.svg" />
+    <Content Include="Activities\assets2\images\giftbox.png" />
+    <Content Include="Activities\assets2\images\logo-dark.png" />
+    <Content Include="Activities\assets2\images\logo-light.png" />
+    <Content Include="Activities\assets2\images\logo-sm.png" />
+    <Content Include="Activities\assets2\images\products\img-1.png" />
+    <Content Include="Activities\assets2\images\products\img-10.png" />
+    <Content Include="Activities\assets2\images\products\img-2.png" />
+    <Content Include="Activities\assets2\images\products\img-3.png" />
+    <Content Include="Activities\assets2\images\products\img-4.png" />
+    <Content Include="Activities\assets2\images\products\img-5.png" />
+    <Content Include="Activities\assets2\images\products\img-6.png" />
+    <Content Include="Activities\assets2\images\products\img-8.png" />
+    <Content Include="Activities\assets2\images\svg\bell.svg" />
+    <Content Include="Activities\assets2\images\users\avatar-1.jpg" />
+    <Content Include="Activities\assets2\images\users\avatar-2.jpg" />
+    <Content Include="Activities\assets2\images\users\avatar-3.jpg" />
+    <Content Include="Activities\assets2\images\users\avatar-4.jpg" />
+    <Content Include="Activities\assets2\images\users\avatar-5.jpg" />
+    <Content Include="Activities\assets2\images\users\avatar-6.jpg" />
+    <Content Include="Activities\assets2\images\users\avatar-8.jpg" />
+    <Content Include="Activities\assets2\js\app.js" />
+    <Content Include="Activities\assets2\js\layout.js" />
+    <Content Include="Activities\assets2\js\pages\dashboard-ecommerce.init.js" />
+    <Content Include="Activities\assets2\js\pages\plugins\lord-icon-2.1.0.js" />
+    <Content Include="Activities\assets2\js\plugins.js" />
+    <Content Include="Activities\assets2\libs\apexcharts\apexcharts.min.js" />
+    <Content Include="Activities\assets2\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Activities\assets2\libs\feather-icons\feather.min.js" />
+    <Content Include="Activities\assets2\libs\jsvectormap\css\jsvectormap.min.css" />
+    <Content Include="Activities\assets2\libs\jsvectormap\js\jsvectormap.min.js" />
+    <Content Include="Activities\assets2\libs\jsvectormap\maps\world-merc.js" />
+    <Content Include="Activities\assets2\libs\node-waves\waves.min.js" />
+    <Content Include="Activities\assets2\libs\simplebar\simplebar.min.js" />
+    <Content Include="Activities\assets2\libs\swiper\swiper-bundle.min.css" />
+    <Content Include="Activities\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="AGM\assets2\css\app.min.css" />
     <Content Include="AGM\assets2\css\bootstrap.min.css" />
     <Content Include="AGM\assets2\css\custom.min.css" />
@@ -267,7 +326,7 @@
     <Content Include="communication\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="communication\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="communication\CommunicationsCenter.aspx" />
-    <Content Include="Events\Activities.aspx" />
+    <Content Include="Activities\Activities.aspx" />
     <Content Include="Events\AGMEvent.aspx" />
     <Content Include="AGMLogin.aspx" />
     <Content Include="AGM\AGMResults.aspx" />
@@ -1001,6 +1060,10 @@
     <Content Include="Datasets\NameTags.xsc">
       <DependentUpon>NameTags.xsd</DependentUpon>
     </Content>
+    <Content Include="Activities\assets2\fonts\materialdesignicons-webfont-1.eot" />
+    <Content Include="Activities\assets2\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Activities\assets2\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Activities\assets2\fonts\materialdesignicons-webfont.woff2" />
     <None Include="Datasets\NameTags.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -1074,11 +1137,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NameTags.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Events\Activities.aspx.cs">
+    <Compile Include="Activities\Activities.aspx.cs">
       <DependentUpon>Activities.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Events\Activities.aspx.designer.cs">
+    <Compile Include="Activities\Activities.aspx.designer.cs">
       <DependentUpon>Activities.aspx</DependentUpon>
     </Compile>
     <Compile Include="Membership\BulkUploads.aspx.cs">

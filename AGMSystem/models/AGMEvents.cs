@@ -451,7 +451,7 @@ namespace AGMSystem
     }
 
 
-    public class Activities
+    public class ActivitiesSave
     {
         #region vars
 
@@ -480,7 +480,7 @@ namespace AGMSystem
         #region "Constructors"
 
 
-        public Activities(string ConnectionName, long ObjectUserID)
+        public ActivitiesSave(string ConnectionName, long ObjectUserID)
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;
@@ -537,9 +537,9 @@ namespace AGMSystem
         }
 
 
-        public DataSet getSavedEvents()
+        public DataSet getSavedActivities( int eventID)
         {
-            string str = "SELECT  ID ,EventName,convert(varchar(12),StartDate,110) as StartDate,convert(varchar(12),EndDate,110) as EndDate,case StatusID when 0 then 'Closed' else 'Open' end as EventStatus from AGMEvents order by ID desc";
+            string str = "SELECT * from Activities where eventID="+eventID+"";
             return ReturnDs(str);
         }
         public DataSet getSavedEventID(string eventName)

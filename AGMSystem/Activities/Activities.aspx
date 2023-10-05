@@ -43,9 +43,29 @@
             <label for=" Events" class="form-label">Select Event <span class="text-danger"></span></label>
             <asp:DropDownList ID="txtEvents" OnTextChanged="txtEvents_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server" ></asp:DropDownList>
         </div>
+  <div class="col-6">
+      <%-- name --%>
+      <div class="mb-3">
+          <label for="First Name" class="form-label">First Name <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtName" CssClass="form-control" placeholder="Name" runat="server"></asp:TextBox>
+      </div>
+   
+  </div>
+  
+  <div class="col-6">
+      <%-- Start Date  --%>
+      <div class="mb-3">
+          <label for="Last Name" class="form-label">Last Name <span class="text-danger">*</span></label>
+          <asp:TextBox ID="txtStartDate" CssClass="form-control" placeholder="Surname" runat="server" TextMode="Date"></asp:TextBox>
+      </div>
+  </div>
 
+         
+        <div class="mt-4">
 
+        <asp:Button ID="btnSave" Width="100%" OnClick="btnSave_Click" CssClass="btn btn-success" runat="server" Text="Create" Style="left: 0px; top: 0px" />
 
+    </div>
       <div class="form-group row gutters">
 
         <div class="form-group row gutters col-12">
