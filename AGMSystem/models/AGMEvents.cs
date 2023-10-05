@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace AGMSystem
 {
@@ -446,6 +447,155 @@ namespace AGMSystem
 
         #endregion
 
+        #endregion
+    }
+
+
+    public class Activities
+    {
+        #region vars
+
+        protected string mStartDate;
+        protected int mID;
+        protected int mEventID;
+        protected Database db;
+        protected string mConnectionName;
+        protected long mObjectUserID;
+        protected string mMsgFlg;
+        protected string mName;
+
+        #endregion
+
+        #region props
+        public int ID 
+        {
+            get { return mID; }
+            set { mID = value; } 
+        }
+        public string Name { get { return mName; } set { mName = value; } }
+        public string StartDate { get { return mStartDate; } set { mStartDate = value; } }
+        public int EventID { get { return mEventID; } set { mEventID = value; } }
+        #endregion
+
+        #region "Constructors"
+
+
+        public Activities(string ConnectionName, long ObjectUserID)
+        {
+            mObjectUserID = ObjectUserID;
+            mConnectionName = ConnectionName;
+            db = new DatabaseProviderFactory().Create(ConnectionName);
+
+        }
+
+        #endregion
+
+        #region methods
+
+        #region "Save"
+
+
+        public virtual void GenerateSaveParameters(ref Database db, ref System.Data.Common.DbCommand cmd)
+        {
+            db.AddInParameter(cmd, "@ID", DbType.Int32, mID);
+            db.AddInParameter(cmd, "@EventID", DbType.Int32, mEventID);
+            db.AddInParameter(cmd, "@StartDate", DbType.String, mStartDate);
+            db.AddInParameter(cmd, "@Name", DbType.String, mName);
+
+        }
+
+        public virtual bool Save()
+        {
+
+            System.Data.Common.DbCommand cmd = db.GetStoredProcCommand("sp_Save_Activity");
+
+            GenerateSaveParameters(ref db, ref cmd);
+
+
+            try
+            {
+                DataSet ds = db.ExecuteDataSet(cmd);
+
+
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    mID = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+
+                }
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                mMsgFlg = ex.Message;
+                return false;
+
+            }
+
+        }
+
+
+        public DataSet getSavedEvents()
+        {
+            string str = "SELECT  ID ,EventName,convert(varchar(12),StartDate,110) as StartDate,convert(varchar(12),EndDate,110) as EndDate,case StatusID when 0 then 'Closed' else 'Open' end as EventStatus from AGMEvents order by ID desc";
+            return ReturnDs(str);
+        }
+        public DataSet getSavedEventID(string eventName)
+        {
+            string str = "SELECT top 1 ID from AGMEvents where EventName like '%" + eventName + "%'order by ID desc";
+            return ReturnDs(str);
+        }
+
+        protected DataSet ReturnDs(string str)
+        {
+            try
+            {
+
+                DataSet ds = db.ExecuteDataSet(CommandType.Text, str);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    return ds;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+
+            {
+                return null;
+            }
+        }
+
+
+        public DataSet getEnquiriesByFilterSearch(string eventNames = "")
+        {
+            string str = "";
+
+            if (eventNames.Length > 0)
+            {
+
+                str = "select * from AGMEvents where firstName like '%" + eventNames + "%' ";
+
+            }
+            if (eventNames.Length <= 0)
+            {
+                GetEnquiries();
+            }
+
+            return ReturnDs(str);
+        }
+        public virtual DataSet GetEnquiries()
+        {
+            string cmd = "select * from AGMEvents ";
+            return db.ExecuteDataSet(CommandType.Text, cmd);
+
+        }
+
+        #endregion
         #endregion
     }
 }

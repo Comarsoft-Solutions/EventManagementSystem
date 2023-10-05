@@ -267,6 +267,7 @@
     <Content Include="communication\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="communication\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="communication\CommunicationsCenter.aspx" />
+    <Content Include="Events\Activities.aspx" />
     <Content Include="Events\AGMEvent.aspx" />
     <Content Include="AGMLogin.aspx" />
     <Content Include="AGM\AGMResults.aspx" />
@@ -1072,6 +1073,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NameTags.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Events\Activities.aspx.cs">
+      <DependentUpon>Activities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\Activities.aspx.designer.cs">
+      <DependentUpon>Activities.aspx</DependentUpon>
     </Compile>
     <Compile Include="Membership\BulkUploads.aspx.cs">
       <DependentUpon>BulkUploads.aspx</DependentUpon>
