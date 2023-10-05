@@ -142,7 +142,6 @@ namespace AGMSystem
         }
 
        
-
         protected void txtEvents_TextChanged(object sender, EventArgs e)
         {
 
@@ -173,7 +172,46 @@ namespace AGMSystem
 
         protected void grdCheckin_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            grdCheckin.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
+        }
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                MemberRsvpSave r = new MemberRsvpSave("cn", 1);
+                DataSet c = r.GetCheckin(int.Parse(txtEvents.SelectedValue));
+                if (c != null)
+                {
+                    int maxPageIndex = grdCheckin.PageCount - 1;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        if (maxPageIndex >= 0)
+                        {
+                            // Navigate to the last available page
+                            page = maxPageIndex;
+                        }
+                        else
+                        {
+                            // No data available, reset to the first page
+                            page = 0;
+                        }
+                    }
+                    grdCheckin.DataSource = c;
+                    grdCheckin.PageIndex = page;
+                    grdCheckin.DataBind();
+                }
+                else
+                {
+                    grdCheckin.DataSource = null;
+                    grdCheckin.DataBind();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                WarningAlert("An error occured");
+            }
         }
     }
 }

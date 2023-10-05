@@ -172,6 +172,7 @@ namespace AGMSystem
                     grdPaymentConfirmation.DataSource = null;
                     grdPaymentConfirmation.DataBind();
                     WarningAlert("Nothing found for those search values");
+                    btnExport.Visible = false;
                 }
 
             }

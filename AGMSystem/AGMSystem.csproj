@@ -967,8 +967,69 @@
     <Content Include="AGM\Resolutions.aspx" />
     <Content Include="Registration\RsvpEdit.aspx" />
     <Content Include="Registration\RsvpList.aspx" />
+    <Content Include="reportSelect\assets2\css\app.min.css" />
+    <Content Include="reportSelect\assets2\css\bootstrap.min.css" />
+    <Content Include="reportSelect\assets2\css\custom.min.css" />
+    <Content Include="reportSelect\assets2\css\icons.min.css" />
+    <Content Include="reportSelect\assets2\images\brands\bitbucket.png" />
+    <Content Include="reportSelect\assets2\images\brands\dribbble.png" />
+    <Content Include="reportSelect\assets2\images\brands\dropbox.png" />
+    <Content Include="reportSelect\assets2\images\brands\github.png" />
+    <Content Include="reportSelect\assets2\images\brands\mail_chimp.png" />
+    <Content Include="reportSelect\assets2\images\brands\slack.png" />
+    <Content Include="reportSelect\assets2\images\ComartonLogo.png" />
+    <Content Include="reportSelect\assets2\images\companies\img-1.png" />
+    <Content Include="reportSelect\assets2\images\companies\img-2.png" />
+    <Content Include="reportSelect\assets2\images\companies\img-3.png" />
+    <Content Include="reportSelect\assets2\images\companies\img-5.png" />
+    <Content Include="reportSelect\assets2\images\companies\img-8.png" />
+    <Content Include="reportSelect\assets2\images\favicon.ico" />
+    <Content Include="reportSelect\assets2\images\flags\china.svg" />
+    <Content Include="reportSelect\assets2\images\flags\french.svg" />
+    <Content Include="reportSelect\assets2\images\flags\germany.svg" />
+    <Content Include="reportSelect\assets2\images\flags\italy.svg" />
+    <Content Include="reportSelect\assets2\images\flags\russia.svg" />
+    <Content Include="reportSelect\assets2\images\flags\spain.svg" />
+    <Content Include="reportSelect\assets2\images\flags\us.svg" />
+    <Content Include="reportSelect\assets2\images\giftbox.png" />
+    <Content Include="reportSelect\assets2\images\logo-dark.png" />
+    <Content Include="reportSelect\assets2\images\logo-light.png" />
+    <Content Include="reportSelect\assets2\images\logo-sm.png" />
+    <Content Include="reportSelect\assets2\images\products\img-1.png" />
+    <Content Include="reportSelect\assets2\images\products\img-10.png" />
+    <Content Include="reportSelect\assets2\images\products\img-2.png" />
+    <Content Include="reportSelect\assets2\images\products\img-3.png" />
+    <Content Include="reportSelect\assets2\images\products\img-4.png" />
+    <Content Include="reportSelect\assets2\images\products\img-5.png" />
+    <Content Include="reportSelect\assets2\images\products\img-6.png" />
+    <Content Include="reportSelect\assets2\images\products\img-8.png" />
+    <Content Include="reportSelect\assets2\images\svg\bell.svg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-1.jpg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-2.jpg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-3.jpg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-4.jpg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-5.jpg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-6.jpg" />
+    <Content Include="reportSelect\assets2\images\users\avatar-8.jpg" />
+    <Content Include="reportSelect\assets2\js\app.js" />
+    <Content Include="reportSelect\assets2\js\layout.js" />
+    <Content Include="reportSelect\assets2\js\pages\dashboard-ecommerce.init.js" />
+    <Content Include="reportSelect\assets2\js\pages\plugins\lord-icon-2.1.0.js" />
+    <Content Include="reportSelect\assets2\js\plugins.js" />
+    <Content Include="reportSelect\assets2\libs\apexcharts\apexcharts.min.js" />
+    <Content Include="reportSelect\assets2\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="reportSelect\assets2\libs\feather-icons\feather.min.js" />
+    <Content Include="reportSelect\assets2\libs\jsvectormap\css\jsvectormap.min.css" />
+    <Content Include="reportSelect\assets2\libs\jsvectormap\js\jsvectormap.min.js" />
+    <Content Include="reportSelect\assets2\libs\jsvectormap\maps\world-merc.js" />
+    <Content Include="reportSelect\assets2\libs\node-waves\waves.min.js" />
+    <Content Include="reportSelect\assets2\libs\simplebar\simplebar.min.js" />
+    <Content Include="reportSelect\assets2\libs\swiper\swiper-bundle.min.css" />
+    <Content Include="reportSelect\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="reportSelect\CheckInRpt.aspx" />
     <Content Include="Reports\printNameTag.aspx" />
     <Content Include="Reports\view-quotation.aspx" />
+    <Content Include="Reports\EventReports.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -1077,6 +1138,11 @@
     <Content Include="Reports\RSVPMembersNameTag.rpt" />
     <Content Include="Reports\ByCompanyNameTag.rpt" />
     <Content Include="Reports\SingleMemberNameTag.rpt" />
+    <Content Include="Reports\EventCheckIn.rpt" />
+    <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont-1.eot" />
+    <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1408,6 +1474,13 @@
     <Compile Include="Registration\RsvpList.aspx.designer.cs">
       <DependentUpon>RsvpList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="reportSelect\CheckInRpt.aspx.cs">
+      <DependentUpon>CheckInRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportSelect\CheckInRpt.aspx.designer.cs">
+      <DependentUpon>CheckInRpt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\printNameTag.aspx.cs">
       <DependentUpon>printNameTag.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1421,6 +1494,13 @@
     </Compile>
     <Compile Include="Reports\view-quotation.aspx.designer.cs">
       <DependentUpon>view-quotation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EventReports.aspx.cs">
+      <DependentUpon>EventReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EventReports.aspx.designer.cs">
+      <DependentUpon>EventReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
