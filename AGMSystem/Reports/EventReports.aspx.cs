@@ -70,6 +70,30 @@ namespace AGMSystem.Reports
 
                 Session["reports"] = myReport;
             }
+            if (type == "rsvp")
+            {
+                myReport.Load(Server.MapPath(@"../Reports/EventRSVPRpt.rpt"));
+
+                string servername = ConfigurationManager.AppSettings["servername"].ToString();
+                string ReportPass = ConfigurationManager.AppSettings["ReportPass"].ToString();
+                string DBName = ConfigurationManager.AppSettings["DBName"].ToString();
+                string DbUser = ConfigurationManager.AppSettings["DbUser"].ToString();
+
+                myReport.SetDatabaseLogon(DbUser, ReportPass, servername, DBName);
+                CrystalDecisions.Shared.ParameterFields myParameterFields = new CrystalDecisions.Shared.ParameterFields();
+                CrystalDecisions.Shared.ParameterField myParameterField = new CrystalDecisions.Shared.ParameterField();
+                CrystalDecisions.Shared.ParameterDiscreteValue myDiscreteValue = new CrystalDecisions.Shared.ParameterDiscreteValue();
+                myParameterField.ParameterFieldName = "eventID";
+                myDiscreteValue.Value = eventID;
+                myParameterField.CurrentValues.Add(myDiscreteValue);
+                myParameterFields.Add(myParameterField);
+
+                NameTagView.ReportSource = myReport;
+                NameTagView.ParameterFieldInfo = myParameterFields;
+                NameTagView.ToolPanelView = CrystalDecisions.Web.ToolPanelViewType.None;
+
+                Session["reports"] = myReport;
+            }
 
 
         }

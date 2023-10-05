@@ -1,14 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AGMSystem.Master" AutoEventWireup="true" CodeBehind="CheckInRpt.aspx.cs" Inherits="AGMSystem.reportSelect.CheckInRpt" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AGMSystem.Master" AutoEventWireup="true" CodeBehind="RsvpRpt.aspx.cs" Inherits="AGMSystem.reportSelect.RsvpRpt" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
              <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0"> CheckIn Report</h4>
+                            <h4 class="mb-sm-0"> RSVP Report</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Events</a></li>
-                                    <li class="breadcrumb-item active">Checkin Report</li>
+                                    <li class="breadcrumb-item active">RSVP Report</li>
                                 </ol>
                             </div>
 

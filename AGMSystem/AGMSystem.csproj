@@ -1027,6 +1027,7 @@
     <Content Include="reportSelect\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="reportSelect\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="reportSelect\CheckInRpt.aspx" />
+    <Content Include="reportSelect\RsvpRpt.aspx" />
     <Content Include="Reports\printNameTag.aspx" />
     <Content Include="Reports\view-quotation.aspx" />
     <Content Include="Reports\EventReports.aspx" />
@@ -1143,6 +1144,7 @@
     <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.eot" />
     <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.woff" />
     <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Reports\EventRSVPRpt.rpt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1480,6 +1482,13 @@
     </Compile>
     <Compile Include="reportSelect\CheckInRpt.aspx.designer.cs">
       <DependentUpon>CheckInRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportSelect\RsvpRpt.aspx.cs">
+      <DependentUpon>RsvpRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportSelect\RsvpRpt.aspx.designer.cs">
+      <DependentUpon>RsvpRpt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\printNameTag.aspx.cs">
       <DependentUpon>printNameTag.aspx</DependentUpon>

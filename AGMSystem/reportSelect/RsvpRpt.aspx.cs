@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace AGMSystem.reportSelect
 {
-    public partial class CheckInRpt : System.Web.UI.Page
+    public partial class RsvpRpt : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,6 +18,7 @@ namespace AGMSystem.reportSelect
                 getEvents();
             }
         }
+
         #region alerts
 
         public void msgbox(string strMessage)

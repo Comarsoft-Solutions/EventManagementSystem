@@ -286,6 +286,43 @@
                                 </ul>
                             </div>
                         </li>
+                         <li class="nav-item">
+     <a class="nav-link menu-link" href="#sidebarAdvanceUI" data-bs-toggle="collapse" role="button"
+         aria-expanded="false" aria-controls="sidebarAdvanceUI">
+         <i class="mdi mdi-chart-multiple"></i><span data-key="t-advance-ui">Reports</span>
+     </a>
+     <div class="collapse menu-dropdown" id="sidebarAdvanceUI">
+         <ul class="nav nav-sm flex-column">
+             <li class="nav-item">
+                 <a href="reportSelect/CheckInRpt.aspx" runat="server" id="chi" class="nav-link" data-key="t-sweet-alerts">CheckIn</a>
+             </li>
+             <li class="nav-item">
+                 <a href="reportSelect/RsvpRpt.aspx" runat="server" id="rsvp" class="nav-link" data-key="t-sweet-alerts">RSVP</a>
+             </li>
+            <%-- <li class="nav-item">
+                 <a href="advance-ui-nestable.html" class="nav-link" data-key="t-nestable-list">Projects</a>
+             </li>
+             <li class="nav-item">
+                 <a href="advance-ui-scrollbar.html" class="nav-link"
+                     data-key="t-scrollbar">Project Membership</a>
+             </li>
+             <li class="nav-item">
+                 <a href="advance-ui-animation.html" class="nav-link"
+                     data-key="t-animation">Events schedule</a>
+             </li>
+
+             <li class="nav-item">
+                 <a href="advance-ui-animation.html" class="nav-link"
+                     data-key="t-animation">Check-in Statistics</a>
+             </li>
+
+             <li class="nav-item">
+                 <a href="advance-ui-animation.html" class="nav-link"
+                     data-key="t-animation">Resolutions</a>
+             </li>--%>
+         </ul>
+     </div>
+ </li>
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="communication/CommunicationsCenter.aspx" runat="server" id="co"
                                 aria-expanded="false" aria-controls="sidebarAuth">
@@ -298,40 +335,7 @@
                                 <i class="mdi mdi-logout"></i><span data-key="t-authentication">Logout</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarAdvanceUI" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="sidebarAdvanceUI">
-                                <i class="mdi mdi-chart-multiple"></i><span data-key="t-advance-ui">Reports</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="sidebarAdvanceUI">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="reportSelect/CheckInRpt.aspx" runat="server" id="chi" class="nav-link" data-key="t-sweet-alerts">CheckIn</a>
-                                    </li>
-                                   <%-- <li class="nav-item">
-                                        <a href="advance-ui-nestable.html" class="nav-link" data-key="t-nestable-list">Projects</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="advance-ui-scrollbar.html" class="nav-link"
-                                            data-key="t-scrollbar">Project Membership</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="advance-ui-animation.html" class="nav-link"
-                                            data-key="t-animation">Events schedule</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="advance-ui-animation.html" class="nav-link"
-                                            data-key="t-animation">Check-in Statistics</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="advance-ui-animation.html" class="nav-link"
-                                            data-key="t-animation">Resolutions</a>
-                                    </li>--%>
-                                </ul>
-                            </div>
-                        </li>
+                       
 
 
 

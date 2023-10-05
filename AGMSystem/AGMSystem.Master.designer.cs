@@ -195,6 +195,24 @@ namespace AGMSystem
         protected global::System.Web.UI.HtmlControls.HtmlAnchor vt;
 
         /// <summary>
+        /// chi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor chi;
+
+        /// <summary>
+        /// rsvp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor rsvp;
+
+        /// <summary>
         /// co control.
         /// </summary>
         /// <remarks>
@@ -211,15 +229,6 @@ namespace AGMSystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
-
-        /// <summary>
-        /// chi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor chi;
 
         /// <summary>
         /// form1 control.
