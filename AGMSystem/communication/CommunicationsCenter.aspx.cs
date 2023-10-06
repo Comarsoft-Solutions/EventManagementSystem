@@ -173,7 +173,7 @@ namespace AGMSystem.communication
                 {
                     Credentials = new NetworkCredential("training@zapf.co.zw", "Fuq97442"),
                     Port = 587,
-                    Host = "training@zapf.co.zw",
+                    Host = "smtp.office365.com",
                     EnableSsl = true,
                 };
 

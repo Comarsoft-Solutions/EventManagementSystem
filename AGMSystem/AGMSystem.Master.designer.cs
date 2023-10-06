@@ -195,6 +195,24 @@ namespace AGMSystem
         protected global::System.Web.UI.HtmlControls.HtmlAnchor vt;
 
         /// <summary>
+        /// acr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor acr;
+
+        /// <summary>
+        /// act control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor act;
+
+        /// <summary>
         /// chi control.
         /// </summary>
         /// <remarks>
@@ -220,6 +238,15 @@ namespace AGMSystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor co;
+
+        /// <summary>
+        /// qa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor qa;
 
         /// <summary>
         /// A2 control.

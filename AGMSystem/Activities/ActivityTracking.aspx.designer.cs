@@ -15,6 +15,15 @@ namespace AGMSystem.Activities
     {
 
         /// <summary>
+        /// txtActivityID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtActivityID;
+
+        /// <summary>
         /// txtEvents control.
         /// </summary>
         /// <remarks>
@@ -22,15 +31,6 @@ namespace AGMSystem.Activities
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList txtEvents;
-
-        /// <summary>
-        /// txtActivities control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtActivities;
 
         /// <summary>
         /// pnlActivities control.
@@ -94,5 +94,14 @@ namespace AGMSystem.Activities
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdd;
+
+        /// <summary>
+        /// grdActivityTracking control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdActivityTracking;
     }
 }

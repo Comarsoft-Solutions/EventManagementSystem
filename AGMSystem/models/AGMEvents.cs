@@ -492,6 +492,12 @@ namespace AGMSystem
 
         #region methods
 
+     
+        public DataSet getActivityDetails(int id)
+        {
+            String str = "select * from Activities where ID=" + id + "";
+            return ReturnDs(str);
+        }
         #region "Save"
 
 
@@ -539,7 +545,7 @@ namespace AGMSystem
 
         public DataSet getSavedActivities( int eventID)
         {
-            string str = "SELECT * from Activities where eventID="+eventID+"";
+            string str = "SELECT * from Activities where StartDate = format(GETDATE(),'yyyy/MM/dd') and eventID=" + eventID+"";
             return ReturnDs(str);
         }
         public DataSet getSavedEventID(string eventName)
@@ -596,6 +602,114 @@ namespace AGMSystem
         }
 
         #endregion
+        #endregion
+    }
+
+    public class Activitytracking
+    {
+        #region constructor
+        public Activitytracking(string connectionName, long objectUserID)
+        {
+            mObjectUserID = objectUserID;
+            mConnectionName = connectionName;
+            db = new DatabaseProviderFactory().Create(connectionName);
+        }
+        #endregion
+        #region vars
+
+        protected int mID;
+        protected int mEventID;
+        protected int mActivityID;
+        protected Database db;
+        protected string mConnectionName;
+        protected long mObjectUserID;
+        protected string mMsgFlg;
+        protected string mMemberCode;
+        #endregion
+
+        #region props
+        public int ID
+        {
+            get { return mID; }
+            set { mID = value; }
+        }
+        public string MemberCode { get { return mMemberCode; } set { mMemberCode = value; } }
+        public int ActivityID { get { return mActivityID; } set { mActivityID = value; } }
+        public int EventID { get { return mEventID; } set { mEventID = value; } }
+        #endregion
+
+        #region methods
+        public virtual void GenerateSaveParameters(ref Database db, ref System.Data.Common.DbCommand cmd)
+        {
+            db.AddInParameter(cmd, "@ID", DbType.Int32, mID);
+            db.AddInParameter(cmd, "@EventID", DbType.Int32, mEventID);
+            db.AddInParameter(cmd, "@ActivityID", DbType.Int32, mActivityID);
+            db.AddInParameter(cmd, "@MemberCode", DbType.String, mMemberCode);
+
+        }
+
+        protected DataSet ReturnDs(string str)
+        {
+            try
+            {
+
+                DataSet ds = db.ExecuteDataSet(CommandType.Text, str);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    return ds;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+
+            {
+                return null;
+            }
+        }
+        public virtual bool Save()
+        {
+
+            System.Data.Common.DbCommand cmd = db.GetStoredProcCommand("sp_Save_ActivityTracking");
+
+            GenerateSaveParameters(ref db, ref cmd);
+
+
+            try
+            {
+                DataSet ds = db.ExecuteDataSet(cmd);
+
+
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    mID = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+
+                }
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                mMsgFlg = ex.Message;
+                return false;
+
+            }
+
+        }
+        public DataSet CheckMemberInActivity(string fullName, int activityID, int eventID)
+        {
+            string str = "Select * from ActivityTracking where MemberCode='" + fullName + "' and Activity = " + activityID + " and EventId =" + eventID + ";";
+            return ReturnDs(str);
+        }
+        public DataSet getSavedActivityTracking(int eventID,int activityTracking)
+        {
+            string str = "SELECT ID,FirstName, LastName, PensionFund from RegistrationMembers where NationalID in (select MemberCode from ActivityTracking where ActivityID=" + activityTracking+" and eventID=" + eventID + ")";
+            return ReturnDs(str);
+        }
         #endregion
     }
 }

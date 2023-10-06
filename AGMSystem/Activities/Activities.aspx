@@ -43,20 +43,20 @@
          
         <div class="mt-4">
 
-        <asp:Button ID="btnSave" Width="100%" OnClick="btnSave_Click" CssClass="btn btn-success" runat="server" Text="Create" Style="left: 0px; top: 0px" />
+        <asp:Button ID="btnSave" Width="50%" OnClick="btnSave_Click" CssClass="btn btn-success" runat="server" Text="Create" Style="left: 0px; top: 0px" />
 
     </div>
       <div class="form-group row gutters">
 
         <div class="form-group row gutters col-12">
-            <div class="row col-2"  > <asp:Button visible="false" ID="btnExport" OnClick="btnExport_Click" CssClass="btn btn-success" runat="server" Text="Export to Excel" />  </div>
+            <%--<div class="row col-2"  > <asp:Button visible="false" ID="btnExport" OnClick="btnExport_Click" CssClass="btn btn-success" runat="server" Text="Export to Excel" />  </div>--%>
             <div class="col-sm-12 align-content-center">
                 <asp:GridView ID="grdActivities" Width="100%" runat="server"
-                    AutoGenerateColumns="False" AutoGenerateSelectButton="false" OnPageIndexChanging="grdPaymentConfirmation_PageIndexChanging"
+                    AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
                     DataKeyNames="ID"
                     CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                     Style="border-collapse: collapse !important"
-                    AllowPaging="True" AllowSorting="True" PageSize="10" OnRowCommand="grdPaymentConfirmation_RowCommand">
+                    AllowPaging="True" AllowSorting="True" PageSize="10" OnRowCommand="grdActivities_RowCommand">
                     <Columns>
                        <asp:BoundField Visible="false" DataField="ID" HeaderText="Transport ID"></asp:BoundField>
                                         <asp:BoundField DataField="Name" HeaderText="Avtivity Name "></asp:BoundField>

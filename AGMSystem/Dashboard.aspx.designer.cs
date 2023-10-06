@@ -51,6 +51,33 @@ namespace AGMSystem
         protected global::System.Web.UI.WebControls.Label lblOpenProjects;
 
         /// <summary>
+        /// pnlOnGoing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlOnGoing;
+
+        /// <summary>
+        /// grdOngoingEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdOngoingEvents;
+
+        /// <summary>
+        /// pnlUpcomming control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlUpcomming;
+
+        /// <summary>
         /// grdEvents control.
         /// </summary>
         /// <remarks>

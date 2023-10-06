@@ -18,6 +18,7 @@ namespace AGMSystem
             {
                 GetStatistics();
                 GetEvents();
+                GetOngoingEvents();
             }
         }
 
@@ -62,6 +63,27 @@ namespace AGMSystem
             }
         }
 
+        private void GetOngoingEvents()
+        {
+            RSVP eg = new RSVP("cn", 1);
+            DataSet eve = eg.GetOngoingEvents();
+
+            if (eve != null)
+            {
+                grdOngoingEvents.DataSource = eve;
+                grdOngoingEvents.DataBind();
+                pnlOnGoing.Visible = true;
+            }
+            else
+            {
+                grdOngoingEvents.DataSource = null;
+                grdOngoingEvents.DataBind();
+                pnlOnGoing.Visible = false;
+                ////msgbox("There are no members");
+
+            }
+
+        }
         private void GetEvents()
         {
             RSVP eg = new RSVP("cn", 1);
@@ -71,11 +93,13 @@ namespace AGMSystem
             {
                 grdEvents.DataSource = eve;
                 grdEvents.DataBind();
+                pnlUpcomming.Visible = true;
             }
             else
             {
                 grdEvents.DataSource = null;
                 grdEvents.DataBind();
+                pnlUpcomming.Visible = false;
                 ////msgbox("There are no members");
 
             }
@@ -90,6 +114,11 @@ namespace AGMSystem
         protected void grdEvents_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
 
+        }
+
+        protected void grdOngoingEvents_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            
         }
     }
 }

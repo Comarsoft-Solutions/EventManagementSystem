@@ -137,5 +137,10 @@ namespace AGMSystem.Events
 
         }
         #endregion
+
+        protected void grdActivities_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
     }
 }

@@ -61,11 +61,14 @@ namespace AGMSystem.Activities
                 {
                     grdActivities.DataSource = ds;
                     grdActivities.DataBind();
+                    pnlActivities.Visible = true;
                 }
                 else
                 {
                     grdActivities.DataSource = null;
                     grdActivities.DataBind();
+                    pnlActivities.Visible = false;
+                    AmberAlert("No Activities Found");
 
                 }
 
@@ -78,7 +81,41 @@ namespace AGMSystem.Activities
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            Activitytracking reg = new Activitytracking("cn", 1);
+            DataSet ds = reg.CheckMemberInActivity(txtBarcode.Text, int.Parse(txtActivityID.Value),int.Parse(txtEvents.SelectedItem.Value));
+            if (ds!=null && ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
+            {
+                AmberAlert(txtBarcode.Text+" Already Added");
+            }
+            else
+            {
+                reg.ID = 0;
+                reg.ActivityID = int.Parse(txtActivityID.Value);
+                reg.EventID = int.Parse(txtEvents.SelectedItem.Value);
+                reg.MemberCode = txtBarcode.Text;
+                if (reg.Save())
+                {
+                    SuccessAlert(txtBarcode.Text+" Added Successfully");
+                    GetActivityTracking();
 
+                }
+            }
+        }
+
+        private void GetActivityTracking()
+        {
+            Activitytracking ac = new Activitytracking("cn",1);
+            DataSet ds = ac.getSavedActivityTracking(int.Parse(txtEvents.SelectedItem.Value), int.Parse(txtActivityID.Value));
+            if (ds!=null)
+            {
+                grdActivityTracking.DataSource = ds;
+                grdActivityTracking.DataBind();
+            }
+            else
+            {
+                grdActivityTracking.DataSource= null;
+                grdActivityTracking.DataBind();
+            }
         }
 
         #region alerts
@@ -127,6 +164,35 @@ namespace AGMSystem.Activities
         }
 
         protected void grdActivities_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int activityID = int.Parse(e.CommandArgument.ToString());
+            txtActivityID.Value = activityID.ToString();
+            ActivitiesSave act = new ActivitiesSave("cn", 1);
+            DataSet ds = act.getActivityDetails(activityID);
+            if (ds!=null)
+            {
+                DataRow item = ds.Tables[0].Rows[0];
+                txtActivity.Text = item["Name"].ToString();
+                txtDate.Text = item["StartDate"].ToString();
+                pnltracking.Visible = true;
+                pnlActivities.Visible = false;
+
+            }
+            GetActivityTracking();
+
+        }
+
+        protected void txtEvents_TextChanged(object sender, EventArgs e)
+        {
+            getActivities();
+        }
+
+        protected void grdActivityTracking_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void grdActivityTracking_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
         }

@@ -32,6 +32,9 @@ namespace AGMSystem
             vt.Attributes["href"] = (string.Format("AGM/Voting"));
             chi.Attributes["href"] = (string.Format("reportSelect/CheckInRpt.aspx"));
             rsvp.Attributes["href"] = (string.Format("reportSelect/RsvpRpt.aspx"));
+            qa.Attributes["href"] = (string.Format("QnAs/QnASubmissions.aspx"));
+            acr.Attributes["href"] = (string.Format("Activities/Activities.aspx"));
+            act.Attributes["href"] = (string.Format("Activities/ActivityTracking.aspx"));
             //pn.Attributes["href"] = (string.Format("Enquiries?FundID={0}", Session["EventID"]));
 
         }

@@ -81,10 +81,64 @@
     </div>
     <!-- end row -->
 
-
+    <asp:Panel ID="pnlOnGoing" Visible ="false" runat="server">
     <div class="row">
         <div class="col-xl-12">
-            <div class="card">
+            <div class="card" >
+                <div class="card-header align-items-center d-flex">
+                    <h4 class="card-title mb-0 flex-grow-1">OnGoing Events</h4>
+                    
+                </div>
+                <!-- end card header -->
+
+                <div class="card-body">
+                    <div class="table-responsive table-card">
+                        
+                               <div class="form-group row gutters">
+
+    <div class="form-group row gutters col-12">
+
+        <div class="col-sm-12 align-content-center">
+            <asp:GridView ID="grdOngoingEvents" Width="100%" runat="server"
+                AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
+                DataKeyNames="ID"
+                CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
+                Style="border-collapse: collapse !important"
+                AllowPaging="True" AllowSorting="True" PageSize="10" >
+                <Columns>
+                    <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
+                    <asp:BoundField DataField="EventName" HeaderText="Event Name"></asp:BoundField>
+                    <asp:BoundField DataField="StartDate" HeaderText="Start Date"></asp:BoundField>
+                    <asp:BoundField DataField="EndDate" HeaderText="End Date"></asp:BoundField>
+                    <asp:BoundField DataField="AttendanceFee" HeaderText="Attendance Fee"></asp:BoundField>
+                 
+                   
+                </Columns>
+            </asp:GridView>
+        </div>
+    </div>
+
+</div>
+                           
+                        <!-- end table -->
+                    </div>
+                    <!-- end table responsive -->
+                </div>
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+        <!-- end col -->
+
+    </div>
+    <!-- end row -->
+
+    </asp:Panel>
+    <asp:Panel ID="pnlUpcomming" runat="server">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card" ">
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">Upcoming Events</h4>
                     
@@ -138,4 +192,6 @@
 
     </div>
     <!-- end row -->
+
+    </asp:Panel>
 </asp:Content>

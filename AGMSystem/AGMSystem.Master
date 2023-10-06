@@ -287,6 +287,22 @@
                             </div>
                         </li>
                          <li class="nav-item">
+     <a class="nav-link menu-link" href="#sidebarActivities" data-bs-toggle="collapse" role="button"
+         aria-expanded="false" aria-controls="sidebarActivities">
+         <i class="mdi mdi-map-marker-distance"></i><span data-key="t-advance-ui">Activities</span>
+     </a>
+     <div class="collapse menu-dropdown" id="sidebarActivities">
+         <ul class="nav nav-sm flex-column">
+             <li class="nav-item">
+                 <a href="Activities/Activities.aspx" runat="server" id="acr" class="nav-link" data-key="t-sweet-alerts">Activity Creation</a>
+             </li>
+             <li class="nav-item">
+                 <a href="Activities/ActivityTracking.aspx" runat="server" id="act" class="nav-link" data-key="t-sweet-alerts">Activity Tracking</a>
+             </li>
+         </ul>
+     </div>
+ </li>
+                         <li class="nav-item">
      <a class="nav-link menu-link" href="#sidebarAdvanceUI" data-bs-toggle="collapse" role="button"
          aria-expanded="false" aria-controls="sidebarAdvanceUI">
          <i class="mdi mdi-chart-multiple"></i><span data-key="t-advance-ui">Reports</span>
@@ -326,7 +342,13 @@
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="communication/CommunicationsCenter.aspx" runat="server" id="co"
                                 aria-expanded="false" aria-controls="sidebarAuth">
-                                <i class="mdi mdi-logout"></i><span data-key="t-authentication">Communications</span>
+                                <i class="mdi mdi-email"></i><span data-key="t-authentication">Communications</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="QnAs/QnASubmissions.aspx" runat="server" id="qa"
+                                aria-expanded="false" aria-controls="sidebarAuth">
+                                <i class="mdi mdi-chat-question"></i><span data-key="t-authentication">Question and Answers</span>
                             </a>
                         </li>
                         <li class="nav-item">

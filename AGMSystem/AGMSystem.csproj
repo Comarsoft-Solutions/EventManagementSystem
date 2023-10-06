@@ -765,6 +765,67 @@
     <Content Include="Projects\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="Projects\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="Projects\ProjectMembershipEnquiries.aspx" />
+    <Content Include="QnAs\assets2\css\app.min.css" />
+    <Content Include="QnAs\assets2\css\bootstrap.min.css" />
+    <Content Include="QnAs\assets2\css\custom.min.css" />
+    <Content Include="QnAs\assets2\css\icons.min.css" />
+    <Content Include="QnAs\assets2\images\brands\bitbucket.png" />
+    <Content Include="QnAs\assets2\images\brands\dribbble.png" />
+    <Content Include="QnAs\assets2\images\brands\dropbox.png" />
+    <Content Include="QnAs\assets2\images\brands\github.png" />
+    <Content Include="QnAs\assets2\images\brands\mail_chimp.png" />
+    <Content Include="QnAs\assets2\images\brands\slack.png" />
+    <Content Include="QnAs\assets2\images\ComartonLogo.png" />
+    <Content Include="QnAs\assets2\images\companies\img-1.png" />
+    <Content Include="QnAs\assets2\images\companies\img-2.png" />
+    <Content Include="QnAs\assets2\images\companies\img-3.png" />
+    <Content Include="QnAs\assets2\images\companies\img-5.png" />
+    <Content Include="QnAs\assets2\images\companies\img-8.png" />
+    <Content Include="QnAs\assets2\images\favicon.ico" />
+    <Content Include="QnAs\assets2\images\flags\china.svg" />
+    <Content Include="QnAs\assets2\images\flags\french.svg" />
+    <Content Include="QnAs\assets2\images\flags\germany.svg" />
+    <Content Include="QnAs\assets2\images\flags\italy.svg" />
+    <Content Include="QnAs\assets2\images\flags\russia.svg" />
+    <Content Include="QnAs\assets2\images\flags\spain.svg" />
+    <Content Include="QnAs\assets2\images\flags\us.svg" />
+    <Content Include="QnAs\assets2\images\giftbox.png" />
+    <Content Include="QnAs\assets2\images\logo-dark.png" />
+    <Content Include="QnAs\assets2\images\logo-light.png" />
+    <Content Include="QnAs\assets2\images\logo-sm.png" />
+    <Content Include="QnAs\assets2\images\products\img-1.png" />
+    <Content Include="QnAs\assets2\images\products\img-10.png" />
+    <Content Include="QnAs\assets2\images\products\img-2.png" />
+    <Content Include="QnAs\assets2\images\products\img-3.png" />
+    <Content Include="QnAs\assets2\images\products\img-4.png" />
+    <Content Include="QnAs\assets2\images\products\img-5.png" />
+    <Content Include="QnAs\assets2\images\products\img-6.png" />
+    <Content Include="QnAs\assets2\images\products\img-8.png" />
+    <Content Include="QnAs\assets2\images\svg\bell.svg" />
+    <Content Include="QnAs\assets2\images\users\avatar-1.jpg" />
+    <Content Include="QnAs\assets2\images\users\avatar-2.jpg" />
+    <Content Include="QnAs\assets2\images\users\avatar-3.jpg" />
+    <Content Include="QnAs\assets2\images\users\avatar-4.jpg" />
+    <Content Include="QnAs\assets2\images\users\avatar-5.jpg" />
+    <Content Include="QnAs\assets2\images\users\avatar-6.jpg" />
+    <Content Include="QnAs\assets2\images\users\avatar-8.jpg" />
+    <Content Include="QnAs\assets2\js\app.js" />
+    <Content Include="QnAs\assets2\js\layout.js" />
+    <Content Include="QnAs\assets2\js\pages\dashboard-ecommerce.init.js" />
+    <Content Include="QnAs\assets2\js\pages\plugins\lord-icon-2.1.0.js" />
+    <Content Include="QnAs\assets2\js\plugins.js" />
+    <Content Include="QnAs\assets2\libs\apexcharts\apexcharts.min.js" />
+    <Content Include="QnAs\assets2\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="QnAs\assets2\libs\feather-icons\feather.min.js" />
+    <Content Include="QnAs\assets2\libs\jsvectormap\css\jsvectormap.min.css" />
+    <Content Include="QnAs\assets2\libs\jsvectormap\js\jsvectormap.min.js" />
+    <Content Include="QnAs\assets2\libs\jsvectormap\maps\world-merc.js" />
+    <Content Include="QnAs\assets2\libs\node-waves\waves.min.js" />
+    <Content Include="QnAs\assets2\libs\simplebar\simplebar.min.js" />
+    <Content Include="QnAs\assets2\libs\swiper\swiper-bundle.min.css" />
+    <Content Include="QnAs\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="QnAs\QnASubmissions.aspx" />
+    <Content Include="QnAs\QuestionLog.aspx" />
     <Content Include="Registration\assets2\css\app.min.css" />
     <Content Include="Registration\assets2\css\bootstrap.min.css" />
     <Content Include="Registration\assets2\css\custom.min.css" />
@@ -1145,6 +1206,10 @@
     <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.woff" />
     <Content Include="reportSelect\assets2\fonts\materialdesignicons-webfont.woff2" />
     <Content Include="Reports\EventRSVPRpt.rpt" />
+    <Content Include="QnAs\assets2\fonts\materialdesignicons-webfont-1.eot" />
+    <Content Include="QnAs\assets2\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="QnAs\assets2\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="QnAs\assets2\fonts\materialdesignicons-webfont.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1252,6 +1317,8 @@
     <Compile Include="models\LookUp.cs" />
     <Compile Include="models\MemberRsvpSave.cs" />
     <Compile Include="models\MembershipCompaniesMapping.cs" />
+    <Compile Include="models\QnAPariicipants.cs" />
+    <Compile Include="models\QnAQuestions.cs" />
     <Compile Include="models\ResolutionSave.cs" />
     <Compile Include="models\RSVP.cs" />
     <Compile Include="Nametags\EventTemplates.aspx.cs">
@@ -1295,6 +1362,20 @@
     </Compile>
     <Compile Include="Projects\ProjectMembershipEnquiries.aspx.designer.cs">
       <DependentUpon>ProjectMembershipEnquiries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QnAs\QnASubmissions.aspx.cs">
+      <DependentUpon>QnASubmissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QnAs\QnASubmissions.aspx.designer.cs">
+      <DependentUpon>QnASubmissions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QnAs\QuestionLog.aspx.cs">
+      <DependentUpon>QuestionLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QnAs\QuestionLog.aspx.designer.cs">
+      <DependentUpon>QuestionLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration\CheckIn.aspx.cs">
       <DependentUpon>CheckIn.aspx</DependentUpon>
