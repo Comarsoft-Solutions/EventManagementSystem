@@ -8,11 +8,15 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ZXing;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace AGMSystem
@@ -422,7 +426,17 @@ namespace AGMSystem
                                 
                 string id = parameters[0];
                 string accomodationID = parameters[1];
-                string transportID = parameters[2];
+
+                string transportID ="0";
+                if (transportID != null && transportID == "")
+                {
+                    transportID= parameters[2];
+                }
+                else
+                {
+
+                    transportID = "0";
+                }
                 string combocapacity = parameters[3];
 
                 //int index = int.Parse(e.CommandArgument.ToString());
@@ -442,6 +456,7 @@ namespace AGMSystem
                     vs.UpdateRegMember(Golf,txtNewID.Text,int.Parse(id), true, txtNatID.Text, int.Parse(txtEvents.SelectedValue),txtTshirtSize.Text);
                     vs.UpdateAccomodation(int.Parse(txtEvents.SelectedValue), int.Parse(accomodationID), int.Parse(combocapacity));
                     vs.UpdateTransport(int.Parse(txtEvents.SelectedValue), int.Parse(transportID), int.Parse(combocapacity));
+                    GenerateQR();
                     ClearForm();
 
                 }
@@ -452,6 +467,111 @@ namespace AGMSystem
                 }
                 
             }
+        }
+
+        private void GenerateQR()
+        {
+            string imagePath = Server.MapPath("~/assets2/images/logo.png");
+
+            //string assetData = $"{txtAssetName.Text},{txtAssetNumber.Text},{txtPurchaseDate.Text},{txtPrice.Text},{drpAssetType.SelectedItem.Text}";
+            string assetData = txtNatID.Text;
+
+            // Generate the QR code with an overlay image
+            Bitmap qrCodeWithImage = GenerateQRCodeWithImage(assetData, imagePath);
+
+            // Convert the QR code image to a byte array
+            byte[] qrCodeByteArray;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                qrCodeWithImage.Save(stream, ImageFormat.Jpeg);
+                qrCodeByteArray = stream.ToArray();
+            }
+
+            try
+            {
+                MemberRsvpSave mem = new MemberRsvpSave("cn", 1);
+
+                mem.FirstName = txtFirstname.Text;
+                mem.LastName = txtLastName.Text;
+                mem.Company = txtCompany.Text;
+                mem.Designation = "Member";
+                mem.RsvpStatus = true;
+                mem.NationalID = txtNatID.Text;
+                mem.QRCode = qrCodeByteArray;
+
+                if (mem.Save())
+                {
+                    SuccessAlert("Success");
+                }
+                else
+                {
+                    WarningAlert("failure");
+                }
+            }
+            catch (Exception x)
+            {
+
+                WarningAlert(x.Message);
+            }
+            
+
+
+            //string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            //SqlConnection sqlCon = null;
+            //using (sqlCon = new SqlConnection(constr))
+            //{
+            //    sqlCon.Open();
+            //    SqlCommand sql_cmnd = new SqlCommand("sp_Save_MemberRSVP", sqlCon);
+            //    sql_cmnd.CommandType = CommandType.StoredProcedure;
+            //    sql_cmnd.Parameters.AddWithValue("@QRCode", SqlDbType.VarBinary).Value = qrCodeByteArray;
+            //    sql_cmnd.ExecuteNonQuery();
+            //    sqlCon.Close();
+
+
+
+
+            //    SuccessAlert("alert('asset added successfully');window.location ='./view-asset';");
+
+
+
+            //}
+
+        }
+        public Bitmap GenerateQRCodeWithImage(string assetData, string imagePath)
+        {
+
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+
+            // Generate the QR code with a larger size (e.g., 200x200 pixels)
+            int qrCodeSize = 200;
+            Bitmap qrCodeBitmap = barcodeWriter.Write(assetData);
+            qrCodeBitmap = new Bitmap(qrCodeBitmap, new Size(qrCodeSize, qrCodeSize));
+
+            // Load the overlay image
+            Bitmap overlayImage = new Bitmap(imagePath);
+
+            // Calculate the position to place the overlay image at the center of the QR code
+            int xPos = (qrCodeBitmap.Width - overlayImage.Width) / 2;
+            int yPos = (qrCodeBitmap.Height - overlayImage.Height) / 2;
+
+            // Create a graphics object to merge the images
+            using (Graphics graphics = Graphics.FromImage(qrCodeBitmap))
+            {
+                // Draw the QR code on the graphics object
+                graphics.DrawImage(qrCodeBitmap, 0, 0);
+
+                // Resize and draw the overlay image at the calculated position
+                int overlayWidth = 50; // Adjust the size of the overlay image as needed
+                int overlayHeight = 50;
+                overlayImage = new Bitmap(overlayImage, new Size(overlayWidth, overlayHeight));
+                graphics.DrawImage(overlayImage, xPos, yPos, overlayWidth, overlayHeight);
+            }
+
+            return qrCodeBitmap;
+
+
+
         }
         #endregion
 

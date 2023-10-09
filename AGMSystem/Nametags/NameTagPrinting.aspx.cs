@@ -217,13 +217,13 @@ namespace AGMSystem.Nametags
             companyMembers = reg.GetMembersByCompany(txtCompanySearch.Text);
             if (companyMembers != null)
             {
-                grdMembers.DataSource = companyMembers;
-                grdMembers.DataBind();
+                grdMemberSearch.DataSource = companyMembers;
+                grdMemberSearch.DataBind();
             }
             else
             {
-                grdMembers.DataSource = null;
-                grdMembers.DataBind();
+                grdMemberSearch.DataSource = null;
+                grdMemberSearch.DataBind();
                 WarningAlert("Nothing found for these parameters");
             }
         }

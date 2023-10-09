@@ -20,6 +20,7 @@ namespace AGMSystem.models
         protected long mObjectUserID;
         protected string mMsgFlg;
         protected int mID;
+        protected int mCompanyID;
         protected long mEventID;
         protected long mRegTypeID;
         protected string mDateAdded;
@@ -34,7 +35,12 @@ namespace AGMSystem.models
         protected string mMemberType;
         protected int mLogisticsCombo;
         protected bool mRsvpStatus;
+        protected string mRsvpDate;
+        protected string mAccomodation;
+        protected string mTransport;
+        protected byte[] mQRCode;
         protected bool mPaymentStatus;
+
 
 
         #endregion
@@ -42,12 +48,23 @@ namespace AGMSystem.models
         #region properties
         public string MemberType { get { return mMemberType; } set { mMemberType = value; } }
         public bool RsvpStatus { get { return mRsvpStatus; } set { mRsvpStatus = value; } }
+        public string RsvpDate { get { return mRsvpDate; } set { mRsvpDate = value; } }
+        public string Accomodation { get { return mAccomodation; } set { mAccomodation = value; } }
+        public string Designation { get { return mDesignation; } set { mDesignation = value; } }
+        public string NationalID { get { return mNationalID; } set { mNationalID = value; } }
+        public string Transport { get { return mTransport; } set { mTransport = value; } }
         public bool PaymentStatus { get { return mPaymentStatus; } set { mPaymentStatus = value; } }
         public int LogisticsCombo { get { return mLogisticsCombo; } set { mLogisticsCombo = value; } }
+        public byte[] QRCode { get { return mQRCode; } set { mQRCode = value; } }
         public int ID
         {
             get { return mID; }
             set { mID = value; }
+        }
+        public int CompanyID
+        {
+            get { return mCompanyID; }
+            set { mCompanyID = value; }
         }
         public Database Database
         {
@@ -544,19 +561,23 @@ namespace AGMSystem.models
 
 
             mID = ((object)rw["ID"] == DBNull.Value) ? 0 : int.Parse(rw["ID"].ToString());
-            mEventID = ((object)rw["EventID"] == DBNull.Value) ? 0 : int.Parse(rw["EventID"].ToString());
-            mRegTypeID = ((object)rw["RegTypeID"] == DBNull.Value) ? 0 : int.Parse(rw["RegTypeID"].ToString());
-            mDateAdded = ((object)rw["DateAdded"] == DBNull.Value) ? "" : rw["DateAdded"].ToString();
-            mIsApproved = ((object)rw["IsApproved"] == DBNull.Value) ? false : bool.Parse(rw["IsApproved"].ToString());
             mFirstName = ((object)rw["FirstName"] == DBNull.Value) ? "" : rw["FirstName"].ToString();
             mLastName = ((object)rw["LastName"] == DBNull.Value) ? "" : rw["LastName"].ToString();
             mCompany = ((object)rw["Company"] == DBNull.Value) ? "" : rw["Company"].ToString();
             mDesignation = ((object)rw["Designation"] == DBNull.Value) ? "" : rw["Designation"].ToString();
+            mRsvpStatus = ((object)rw["mRsvpStatus"] == DBNull.Value) ? false : bool.Parse(rw["mRsvpStatus"].ToString());
+            mRsvpDate = ((object)rw["mRsvpDate"] == DBNull.Value) ? "" : rw["mRsvpDate"].ToString(); 
             mPhoneNumber = ((object)rw["PhoneNumber"] == DBNull.Value) ? "" : rw["PhoneNumber"].ToString();
             mEmail = ((object)rw["Email"] == DBNull.Value) ? "" : rw["Email"].ToString();
-            mNationalID = ((object)rw["NationalID"] == DBNull.Value) ? "" : rw["NationalID"].ToString();
+            mEventID = ((object)rw["EventID"] == DBNull.Value) ? 0 : int.Parse(rw["EventID"].ToString());
             mMemberType = ((object)rw["MembershipType"] == DBNull.Value) ? "" : rw["MembershipType"].ToString();
-            //mCompanyID = ((object)rw["CompanyID"] == DBNull.Value) ? 0 : int.Parse(rw["CompanyID"].ToString());
+            mCompanyID = ((object)rw["CompanyID"] == DBNull.Value) ? 0 : int.Parse(rw["CompanyID"].ToString());
+            mPaymentStatus = ((object)rw["PaymentStatus"] == DBNull.Value) ? false : bool.Parse(rw["PaymentStatus"].ToString());
+            mAccomodation = ((object)rw["Accomodation"] == DBNull.Value) ? "" : rw["Accomodation"].ToString();
+            mTransport = ((object)rw["Transport"] == DBNull.Value) ? "" : rw["Transport"].ToString();
+            mLogisticsCombo = ((object)rw["LogisticsCombo"] == DBNull.Value) ? 0 : int.Parse(rw["LogisticsCombo"].ToString());
+            //mQRCode = ((object)rw["mQRCode"] == DBNull.Value) ? null : byte[].Parse(rw["QRCode"].ToString());
+            mNationalID = ((object)rw["FullName"] == DBNull.Value) ? "" : rw["FullName"].ToString();
 
         }
 
@@ -566,20 +587,24 @@ namespace AGMSystem.models
 
         public virtual void GenerateSaveParameters(ref Database db, ref System.Data.Common.DbCommand cmd)
         {
-            db.AddInParameter(cmd, "@Id", DbType.Int32, mID);
-            db.AddInParameter(cmd, "@EventID", DbType.Int32, mEventID);
-            db.AddInParameter(cmd, "@RegTypeID", DbType.Int32, mRegTypeID);
-            db.AddInParameter(cmd, "@DateAdded", DbType.String, mDateAdded);
-            db.AddInParameter(cmd, "@IsApproved", DbType.Boolean, mIsApproved);
+            db.AddInParameter(cmd, "@ID ", DbType.Int32, mID);
             db.AddInParameter(cmd, "@FirstName", DbType.String, mFirstName);
             db.AddInParameter(cmd, "@LastName", DbType.String, mLastName);
             db.AddInParameter(cmd, "@Company", DbType.String, mCompany);
-            //db.AddInParameter(cmd, "@CompanyID", DbType.Int32, mCompanyID);
             db.AddInParameter(cmd, "@Designation", DbType.String, mDesignation);
+            db.AddInParameter(cmd, "@RsvpStatus", DbType.Boolean, mRsvpStatus);
+            db.AddInParameter(cmd, "@RsvpDate", DbType.String, mRsvpDate);
             db.AddInParameter(cmd, "@PhoneNumber", DbType.String, mPhoneNumber);
             db.AddInParameter(cmd, "@Email", DbType.String, mEmail);
+            db.AddInParameter(cmd, "@EventID", DbType.Int32, mEventID);
+            db.AddInParameter(cmd, "@MembershipType", DbType.String, mMemberType);
+            db.AddInParameter(cmd, "@CompanyID", DbType.Int32, mCompanyID);
+            db.AddInParameter(cmd, "@PaymentStatus", DbType.Boolean, mPaymentStatus);
+            db.AddInParameter(cmd, "@Accomodation", DbType.String, mAccomodation);
+            db.AddInParameter(cmd, "@Transport", DbType.String, mTransport);
+            db.AddInParameter(cmd, "@LogisticsCombo", DbType.Int32, mLogisticsCombo);
+            db.AddInParameter(cmd, "@QRCode", DbType.Binary, mQRCode);
             db.AddInParameter(cmd, "@NationalID", DbType.String, mNationalID);
-            db.AddInParameter(cmd, "@MemberType", DbType.String, mMemberType);
 
         }
 
