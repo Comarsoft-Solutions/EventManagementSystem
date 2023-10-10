@@ -31,7 +31,31 @@ namespace AGMSystem.models
         }
         #endregion
         #region methods
-
+        public DataSet GetRatings()
+        {
+            string str = "Select * from PresentationRating";
+            return ReturnDs(str);
+        }
+        public DataSet InsertPresenterEvaluation(int memberID, int questionID, int ratingID, string comment, int eventID)
+        {
+            string str = "insert into PresentationEvaluation(MemberID,QuestionID,RatingID,Comment,EventID) values("+ memberID + ","+ questionID + ","+ ratingID + ",'"+ comment + "',"+ eventID + ")";
+            return ReturnDs(str);
+        }
+        public DataSet InsertEventEvaluation(int memberID, int questionID, string response, int eventID)
+        {
+            string str = "insert into EventEvaluation(MemberID,QuestionID,RatingID,Response) values(" + memberID + ","+ questionID + ",'"+ response + "',"+ eventID + ")";
+            return ReturnDs(str);
+        }
+        public DataSet GetPresenterQuestions()
+        {
+            string str = "Select * from PresentationQuestions";
+            return ReturnDs(str);
+        }
+        public DataSet GetEventQuestions()
+        {
+            string str = "Select * from EventQuestions";
+            return ReturnDs(str);
+        }
         public DataSet GetFilePath(int id)
         {
             string str = "Select FilePath from EmailAttachments where BroadcastMessagesListID="+id+";";

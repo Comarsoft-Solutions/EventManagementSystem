@@ -15,22 +15,40 @@ namespace AGMSystem.Events
     {
 
         /// <summary>
-        /// txtID control.
+        /// txtMemberID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtID;
+        protected global::System.Web.UI.WebControls.HiddenField txtMemberID;
 
         /// <summary>
-        /// txtStatusID control.
+        /// txtname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtStatusID;
+        protected global::System.Web.UI.WebControls.HiddenField txtname;
+
+        /// <summary>
+        /// txtEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtEvents;
+
+        /// <summary>
+        /// pnlEventDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlEventDetails;
 
         /// <summary>
         /// txtEventName control.
@@ -60,49 +78,67 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.TextBox txtOrganiser;
 
         /// <summary>
-        /// txtRating control.
+        /// txtFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRating;
+        protected global::System.Web.UI.WebControls.TextBox txtFullName;
 
         /// <summary>
-        /// txtDescription control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// txtImprovement control.
+        /// txt1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImprovement;
+        protected global::System.Web.UI.WebControls.TextBox txt1;
 
         /// <summary>
-        /// txtProblems control.
+        /// txt2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProblems;
+        protected global::System.Web.UI.WebControls.TextBox txt2;
 
         /// <summary>
-        /// txtDifferent control.
+        /// txt3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDifferent;
+        protected global::System.Web.UI.WebControls.TextBox txt3;
+
+        /// <summary>
+        /// txt4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt4;
+
+        /// <summary>
+        /// txt5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt5;
 
         /// <summary>
         /// btnSubmit control.

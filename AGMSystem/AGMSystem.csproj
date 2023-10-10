@@ -522,6 +522,7 @@
     <Content Include="Events\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="Events\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="Events\EventEvaluation.aspx" />
+    <Content Include="Events\PresentationEvaluation.aspx" />
     <Content Include="Membership\assets2\css\app.min.css" />
     <Content Include="Membership\assets2\css\bootstrap.min.css" />
     <Content Include="Membership\assets2\css\custom.min.css" />
@@ -1293,6 +1294,13 @@
     <Compile Include="Events\EventEvaluation.aspx.designer.cs">
       <DependentUpon>EventEvaluation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Events\PresentationEvaluation.aspx.cs">
+      <DependentUpon>PresentationEvaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\PresentationEvaluation.aspx.designer.cs">
+      <DependentUpon>PresentationEvaluation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Membership\BulkUploads.aspx.cs">
       <DependentUpon>BulkUploads.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1325,6 +1333,7 @@
     <Compile Include="models\LookUp.cs" />
     <Compile Include="models\MemberRsvpSave.cs" />
     <Compile Include="models\MembershipCompaniesMapping.cs" />
+    <Compile Include="models\PresenterSave.cs" />
     <Compile Include="models\QnAPariicipants.cs" />
     <Compile Include="models\QnAQuestions.cs" />
     <Compile Include="models\ResolutionSave.cs" />

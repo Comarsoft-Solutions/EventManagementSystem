@@ -377,9 +377,9 @@ namespace AGMSystem
         }
 
         #region get Event 
-        public DataSet GetEventName()
+        public DataSet GetEventName(int eventID)
         {
-            string Sql = "Select top 1* from AGMEvents where StatusID = 1";
+            string Sql = "Select * from AGMEvents where ID = "+eventID+"";
             return ReturnDs(Sql);
         }
 
