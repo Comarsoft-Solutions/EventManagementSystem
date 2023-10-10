@@ -143,6 +143,7 @@ namespace AGMSystem.Nametags
                 pnlCompanySearch.Visible = false;
                 pnlMemberSearch.Visible = false;
                 grdMemberSearch.Visible = false;
+                grdMembers.Visible = true;
             }
             if (cboPrintOptions.SelectedItem.Value == "2")
             {
@@ -175,6 +176,7 @@ namespace AGMSystem.Nametags
             {
                 grdMembers.DataSource = allMemmbers;
                 grdMembers.DataBind();
+                pnlmembers.Visible = true;
             }
             else
             {
@@ -200,13 +202,14 @@ namespace AGMSystem.Nametags
             singleMember = reg.GetMembersBySearch(txtFnameSearch.Text, txtLnameSearch.Text, txtNatID.Text);
             if (singleMember != null)
             {
-                grdMembers.DataSource = singleMember;
-                grdMembers.DataBind();
+                grdMemberSearch.DataSource = singleMember;
+                grdMemberSearch.DataBind();
+                pnlMemberSearchResults.Visible = true;
             }
             else
             {
-                grdMembers.DataSource = null;
-                grdMembers.DataBind();
+                grdMemberSearch.DataSource = null;
+                grdMemberSearch.DataBind();
                 WarningAlert("Nothing found for these parameters");
             }
         }
@@ -217,13 +220,13 @@ namespace AGMSystem.Nametags
             companyMembers = reg.GetMembersByCompany(txtCompanySearch.Text);
             if (companyMembers != null)
             {
-                grdMemberSearch.DataSource = companyMembers;
-                grdMemberSearch.DataBind();
+                grdMembers.DataSource = companyMembers;
+                grdMembers.DataBind();
             }
             else
             {
-                grdMemberSearch.DataSource = null;
-                grdMemberSearch.DataBind();
+                grdMembers.DataSource = null;
+                grdMembers.DataBind();
                 WarningAlert("Nothing found for these parameters");
             }
         }
@@ -342,7 +345,7 @@ namespace AGMSystem.Nametags
 
                 string strscript = null;
                 strscript = "<script langauage=JavaScript>";
-                strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "& memberID="+ memberID + "');";
+                strscript += "window.open('../Reports/printNameTag.aspx?ID=" + Type + "&memberID="+memberID+"');";
                 strscript += "</script>";
                 ClientScript.RegisterStartupScript(this.GetType(), "newwin", strscript);
             }

@@ -132,6 +132,15 @@ namespace AGMSystem.Nametags
         protected global::System.Web.UI.WebControls.Button btnMemberSearch;
 
         /// <summary>
+        /// pnlmembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlmembers;
+
+        /// <summary>
         /// grdMembers control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace AGMSystem.Nametags
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdMembers;
+
+        /// <summary>
+        /// pnlMemberSearchResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMemberSearchResults;
 
         /// <summary>
         /// grdMemberSearch control.

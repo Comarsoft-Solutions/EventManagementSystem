@@ -702,7 +702,7 @@ namespace AGMSystem
         }
         public DataSet CheckMemberInActivity(string fullName, int activityID, int eventID)
         {
-            string str = "Select * from ActivityTracking where MemberCode='" + fullName + "' and Activity = " + activityID + " and EventId =" + eventID + ";";
+            string str = "Select * from ActivityTracking where MemberCode='" + fullName + "' and ActivityID = " + activityID + " and EventId =" + eventID + ";";
             return ReturnDs(str);
         }
         public DataSet getSavedActivityTracking(int eventID,int activityTracking)

@@ -521,6 +521,7 @@
     <Content Include="Events\assets2\libs\simplebar\simplebar.min.js" />
     <Content Include="Events\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="Events\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="Events\EventEvaluation.aspx" />
     <Content Include="Membership\assets2\css\app.min.css" />
     <Content Include="Membership\assets2\css\bootstrap.min.css" />
     <Content Include="Membership\assets2\css\custom.min.css" />
@@ -1284,6 +1285,13 @@
     </Compile>
     <Compile Include="Activities\Activities.aspx.designer.cs">
       <DependentUpon>Activities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventEvaluation.aspx.cs">
+      <DependentUpon>EventEvaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventEvaluation.aspx.designer.cs">
+      <DependentUpon>EventEvaluation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Membership\BulkUploads.aspx.cs">
       <DependentUpon>BulkUploads.aspx</DependentUpon>
