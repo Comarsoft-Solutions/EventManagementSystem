@@ -36,6 +36,11 @@ namespace AGMSystem.models
             string str = "Select * from PresentationRating";
             return ReturnDs(str);
         }
+        public DataSet GetEventEvaluations(int eventID)
+        {
+            string str = "select r.ID,FirstName,LastName,PensionFund,Email,PhoneNumber from RegistrationMembers r  where id in(select memberID from EventEvaluation where EventID=" + eventID + ") ";
+            return ReturnDs(str);
+        }
         public DataSet InsertPresenterEvaluation(int memberID, int questionID, int ratingID, string comment, int eventID)
         {
             string str = "insert into PresentationEvaluation(MemberID,QuestionID,RatingID,Comment,EventID) values("+ memberID + ","+ questionID + ","+ ratingID + ",'"+ comment + "',"+ eventID + ")";
@@ -43,7 +48,7 @@ namespace AGMSystem.models
         }
         public DataSet InsertEventEvaluation(int memberID, int questionID, string response, int eventID)
         {
-            string str = "insert into EventEvaluation(MemberID,QuestionID,RatingID,Response) values(" + memberID + ","+ questionID + ",'"+ response + "',"+ eventID + ")";
+            string str = "insert into EventEvaluation(MemberID,QuestionID,Response,EventID) values(" + memberID + ","+ questionID + ",'"+ response + "',"+ eventID + ")";
             return ReturnDs(str);
         }
         public DataSet GetPresenterQuestions()

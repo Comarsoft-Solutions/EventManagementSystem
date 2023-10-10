@@ -6,11 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 namespace AGMSystem.Events
 {
-    public partial class EventEvaluation : System.Web.UI.Page
+    public partial class EventEvaluationsEnquiries : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -68,7 +67,7 @@ namespace AGMSystem.Events
                 }
                 else
                 {
-                    ListItem li = new ListItem("No Events found", "0");
+                    ListItem li = new ListItem("No AGMS found", "0");
                     txtEvents.Items.Clear();
                     txtEvents.DataSource = null;
                     txtEvents.DataBind();
@@ -81,81 +80,27 @@ namespace AGMSystem.Events
                 RedAlert(a.Message);
             }
         }
-        protected void btnSearch_Click(object sender, EventArgs e)
+
+        protected void grdEvaluations_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            RegistrationSave reg = new RegistrationSave("cn", 1);
-            DataSet ds = reg.GetRegInfo(txtFullName.Text);
-            if (ds != null)
-            {
-                DataRow rw = ds.Tables[0].Rows[0];
-                txtMemberID.Value = rw["ID"].ToString();
-                txtname.Value = rw["FirstName"].ToString();
-                SuccessAlert(txtname.Value + "Found");
-            }
-            else
-            {
-                AmberAlert("Not Found");
-            }
-        }
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            LookUp lk = new LookUp("cn", 1);
-            DataSet ds = lk.GetEventQuestions();
-            int qn = 0;
-            string comment = "";
-            foreach (DataRow ds2 in ds.Tables[0].Rows)
-            {
-                qn = int.Parse(ds2["ID"].ToString());
-                if (qn == 1)
-                {
-                    comment = txt1.Text;
-                }
-                if (qn == 2)
-                {
-                    comment = txt2.Text;
-                }
-                if (qn == 3)
-                {
-                    comment = txt3.Text;
-                }
-                if (qn == 4)
-                {
-                    comment = txt4.Text;
-                }
-                if (qn == 5)
-                {
-                    comment = txt5.Text;
-                }
 
-                try
-                {
-                    //insert
-                    lk.InsertEventEvaluation(int.Parse(txtMemberID.Value), qn, comment, int.Parse(txtEvents.SelectedValue));
-                    SuccessAlert("Responses Submitted");
-                }
-                catch (Exception x)
-                {
-
-                    RedAlert(x.Message);
-                }
-
-            }
         }
 
         protected void txtEvents_TextChanged(object sender, EventArgs e)
         {
-            AGMEvents eve = new AGMEvents("cn", 1);
-            DataSet ds = eve.GetEventName(int.Parse(txtEvents.SelectedValue));
+            LookUp lk = new LookUp("cn", 1);
+            DataSet ds = lk.GetEventEvaluations(int.Parse(txtEvents.SelectedValue));
+
             if (ds != null)
             {
-                DataRow rw = ds.Tables[0].Rows[0];
-                pnlEventDetails.Visible = true;
-                txtEventName.Text = rw["EventName"].ToString();
-                txtDate.Text= rw["StartDate"].ToString() + " to " + rw["EndDate"].ToString();
+                grdEvaluations.DataSource = ds;
+                grdEvaluations.DataBind();
             }
             else
             {
-                AmberAlert("Oops");
+                grdEvaluations.DataSource= null;
+                grdEvaluations.DataBind();
+                AmberAlert("Noone has submitted evaluations ");
             }
         }
     }

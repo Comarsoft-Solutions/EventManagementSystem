@@ -228,6 +228,10 @@
                                         <a href="NameTags/NameTagPrinting.aspx" runat="server" id="ntp"  class="nav-link"
                                             data-key="t-detached">Name Tag Printing </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="Events/EventEvaluations.aspx" runat="server" id="ee"  class="nav-link"
+                                            data-key="t-detached">Evaluations </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

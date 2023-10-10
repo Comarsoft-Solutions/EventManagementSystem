@@ -35,6 +35,7 @@ namespace AGMSystem
             qa.Attributes["href"] = (string.Format("QnAs/QnASubmissions.aspx"));
             acr.Attributes["href"] = (string.Format("Activities/Activities.aspx"));
             act.Attributes["href"] = (string.Format("Activities/ActivityTracking.aspx"));
+            ee.Attributes["href"] = (string.Format("Events/EventEvaluationsEnquiries.aspx"));
             //pn.Attributes["href"] = (string.Format("Enquiries?FundID={0}", Session["EventID"]));
 
         }
