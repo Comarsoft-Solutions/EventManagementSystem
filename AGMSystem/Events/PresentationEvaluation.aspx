@@ -16,10 +16,7 @@
  </div>
  <asp:HiddenField ID="txtMemberID" runat="server" />
  <asp:HiddenField ID="txtname" runat="server" />
-                                     <div class="mb-3">
-    <label for=" Events" class="form-label">Select Event <span class="text-danger"></span></label>
-    <asp:DropDownList ID="txtEvents"  CssClass="form-control" runat="server" ></asp:DropDownList>
-</div>
+ <asp:HiddenField ID="txtEventID" runat="server" />
     <asp:Panel ID="Panel1" Visible =" false" runat="server">
                                      <div class="mb-3">
     <label for=" Events" class="form-label">Select Presenter <span class="text-danger"></span></label>

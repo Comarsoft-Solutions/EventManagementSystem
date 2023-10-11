@@ -143,14 +143,14 @@ namespace AGMSystem.communication
                 RedAlert(ex.Message);
             }
         }
-        private string PopulateBody()
+        private string PopulateBody(int MemberID)
         {
             string body = string.Empty;
             using (StreamReader reader = new StreamReader(Server.MapPath("~/communication/Templates/" + cboHtmlTemplate.SelectedItem.Text)))
             {
                 body = reader.ReadToEnd();
             }
-            //body = body.Replace("{Pensioner}", Pensioner);
+            body = body.Replace("{MemberID}", MemberID.ToString());
             //body = body.Replace("{PensionNo}", PensionNo.ToString());
             //body = body.Replace("{Subject}", Subject);
             //body = body.Replace("{Fund}", Fund);
@@ -251,7 +251,7 @@ namespace AGMSystem.communication
                 }
                 else
                 {
-                    body = PopulateBody();
+                    body = PopulateBody(MemberId);
                 }
 
                 // Create an alternate view with the HTML body

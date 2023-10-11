@@ -15,11 +15,9 @@
     </div>
     <asp:HiddenField ID="txtMemberID" runat="server" />
     <asp:HiddenField ID="txtname" runat="server" />
+    <asp:HiddenField ID="txtEventID" runat="server" />
     
-                                         <div class="mb-3">
-    <label for=" Events" class="form-label">Select Event <span class="text-danger"></span></label>
-    <asp:DropDownList ID="txtEvents" AutoPostBack="true" OnTextChanged="txtEvents_TextChanged" CssClass="form-control" runat="server" ></asp:DropDownList>
-</div>
+                                         
     
       <asp:Panel ID="pnlEventDetails" Visible="false" runat="server">
           <div class="row row-cols-3">
@@ -37,23 +35,7 @@
     </div>
               </div>
     </asp:Panel>
-        <%-- member search  --%>
-  <div class="row row-cols-2">
-
-    <div class="col-6">
-    <div class="mb-3">
-        <label for="Full Name" class="form-label">Full Name <span class="text-danger">*</span></label>
-        <asp:TextBox ID="txtFullName" CssClass="form-control" placeholder="Full Name" runat="server" ></asp:TextBox>
-    </div>
-</div>
-
        
-      <div class=" col-4 mb-3 mt-4">
-
-      <asp:Button ID="btnSearch" Width="50%" OnClick="btnSearch_Click" CssClass="btn btn-success" runat="server" Text="Search" Style="left: 0px; top: 0px" />
-
-  </div>
-      </div>
     <div class="mb-3">
         <label for="organiser" class="form-label">1.	Rate the success of the event (1: not successful: 10 very successful)</label>
         <asp:TextBox ID="txt1" placeholder="9" CssClass="form-control" runat="server"></asp:TextBox>

@@ -379,7 +379,7 @@ namespace AGMSystem
         #region get Event 
         public DataSet GetEventName(int eventID)
         {
-            string Sql = "Select * from AGMEvents where ID = "+eventID+"";
+            string Sql = "Select ID,EventName,format(StartDate,'dd/MM/yyyy')as StartDate, format(EndDate,'dd/MM/yyyy')as EndDate from AGMEvents where ID = " + eventID+"";
             return ReturnDs(Sql);
         }
 

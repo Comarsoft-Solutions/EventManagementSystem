@@ -16,8 +16,25 @@ namespace AGMSystem.Events
             MaintainScrollPositionOnPostBack = true;
             if (!IsPostBack)
             {
+                if (Request.QueryString["memberID"] !=null)
+                {
+                    txtMemberID.Value = Request.QueryString["memberID"].ToString();
+                }
+                else
+                {
+                    txtMemberID.Value = "0";
+                }
+                if (Request.QueryString["eventID"]!=null)
+                {
+                    txtEventID.Value = Request.QueryString["eventID"].ToString();
+                }
+                else
+                {
+                    txtMemberID.Value="0";
+                }
                 GetRatings();
-                getEvents();
+                //getEvents();
+                GetMemberDetails();
             }
         }
         #region alerts
@@ -50,37 +67,37 @@ namespace AGMSystem.Events
         }
         #endregion
 
-        private void getEvents()
-        {
+        //private void getEvents()
+        //{
 
-            try
-            {
-                AGMEvents agm = new AGMEvents("cn", 1);
-                DataSet ds = agm.getAllEvents();
-                if (ds != null)
-                {
-                    ListItem listItem = new ListItem("Select Event", "0");
-                    txtEvents.DataSource = ds;
-                    txtEvents.DataValueField = "ID";
-                    txtEvents.DataTextField = "EventName";
-                    txtEvents.DataBind();
-                    txtEvents.Items.Insert(0, listItem);
-                }
-                else
-                {
-                    ListItem li = new ListItem("No AGMS found", "0");
-                    txtEvents.Items.Clear();
-                    txtEvents.DataSource = null;
-                    txtEvents.DataBind();
-                    txtEvents.Items.Insert(0, li);
-                }
-            }
-            catch (Exception a)
-            {
+        //    try
+        //    {
+        //        AGMEvents agm = new AGMEvents("cn", 1);
+        //        DataSet ds = agm.getAllEvents();
+        //        if (ds != null)
+        //        {
+        //            ListItem listItem = new ListItem("Select Event", "0");
+        //            txtEvents.DataSource = ds;
+        //            txtEvents.DataValueField = "ID";
+        //            txtEvents.DataTextField = "EventName";
+        //            txtEvents.DataBind();
+        //            txtEvents.Items.Insert(0, listItem);
+        //        }
+        //        else
+        //        {
+        //            ListItem li = new ListItem("No AGMS found", "0");
+        //            txtEvents.Items.Clear();
+        //            txtEvents.DataSource = null;
+        //            txtEvents.DataBind();
+        //            txtEvents.Items.Insert(0, li);
+        //        }
+        //    }
+        //    catch (Exception a)
+        //    {
 
-                RedAlert(a.Message);
-            }
-        }
+        //        RedAlert(a.Message);
+        //    }
+        //}
         private void GetRatings()
         {
             LookUp lk = new LookUp("cn",1);
@@ -202,6 +219,7 @@ namespace AGMSystem.Events
             int qn = 0;
             int Rating = 0;
             string comment = "";
+            //insert
             foreach (DataRow ds2 in ds.Tables[0].Rows)
             {
                 qn = int.Parse(ds2["ID"].ToString());
@@ -253,8 +271,8 @@ namespace AGMSystem.Events
 
                 try
                 {
-                    //insert
-                    lk.InsertPresenterEvaluation(int.Parse(txtMemberID.Value), qn, Rating, comment,int.Parse(txtEvents.SelectedValue));
+                    
+                    lk.InsertPresenterEvaluation(int.Parse(txtMemberID.Value), qn, Rating, comment,int.Parse(txtEventID.Value));
                     SuccessAlert("Responses Submitted");
                 }
                 catch (Exception x)
@@ -263,25 +281,49 @@ namespace AGMSystem.Events
                     RedAlert(x.Message);
                 }
 
-            }   
-            
+            }
+            ClearForm();
         }
 
+        private void ClearForm()
+        {
+            txt1.Text=string.Empty;
+            txt2.Text=string.Empty;
+            txt3.Text=string.Empty;
+            txt4.Text=string.Empty;
+            txt5.Text=string.Empty;
+            txt6.Text=string.Empty;
+            txt7.Text=string.Empty;
+            txt8.Text=string.Empty;
+            txt9.Text=string.Empty;
+            cbo1.SelectedIndex = 0;
+            cbo2.SelectedIndex = 0;
+            cbo3.SelectedIndex = 0;
+            cbo4.SelectedIndex = 0;
+            cbo5.SelectedIndex = 0;
+            cbo6.SelectedIndex = 0;
+            cbo7.SelectedIndex = 0;
+            cbo8.SelectedIndex = 0;
+            cbo9.SelectedIndex = 0;
+        }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            GetMemberDetails();
+        }
+
+        private void GetMemberDetails()
+        {
             RegistrationSave reg = new RegistrationSave("cn", 1);
-            DataSet ds = reg.GetRegInfo(txtFullName.Text);
-            if (ds!=null)
+            //DataSet ds = reg.GetRegInfo(txtFullName.Text);
+            if (reg.Retrieve(int.Parse(txtMemberID.Value)))
             {
-                DataRow rw = ds.Tables[0].Rows[0];
-                txtMemberID.Value = rw["ID"].ToString();
-                txtname.Value = rw["FirstName"].ToString();
-                SuccessAlert(txtname.Value + "Found");
+                txtname.Value = reg.FirstName;
+                SuccessAlert(txtname.Value + " Found");
             }
             else
             {
-                AmberAlert("Not Found");
+                AmberAlert("Member Not Found");
             }
         }
 

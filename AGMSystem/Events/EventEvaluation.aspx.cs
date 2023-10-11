@@ -17,7 +17,24 @@ namespace AGMSystem.Events
             MaintainScrollPositionOnPostBack = true;
             if (!IsPostBack)
             {
-                getEvents();
+                if (Request.QueryString["eventID"]!=null)
+                {
+                    txtEventID.Value = Request.QueryString["EventID"];
+                }
+                else
+                {
+                    txtEventID.Value = "0";
+                }
+                if (Request.QueryString["memberID"]!=null)
+                {
+                    txtMemberID.Value = Request.QueryString["memberID"];
+                }
+                else
+                {
+                    txtMemberID.Value="0";
+                }
+                getRegInfo();
+                GetEventName();
             }
         }
         #region alerts
@@ -50,102 +67,142 @@ namespace AGMSystem.Events
         }
         #endregion
 
-        private void getEvents()
-        {
+        //private void getEvents()
+        //{
 
-            try
-            {
-                AGMEvents agm = new AGMEvents("cn", 1);
-                DataSet ds = agm.getAllEvents();
-                if (ds != null)
-                {
-                    ListItem listItem = new ListItem("Select Event", "0");
-                    txtEvents.DataSource = ds;
-                    txtEvents.DataValueField = "ID";
-                    txtEvents.DataTextField = "EventName";
-                    txtEvents.DataBind();
-                    txtEvents.Items.Insert(0, listItem);
-                }
-                else
-                {
-                    ListItem li = new ListItem("No Events found", "0");
-                    txtEvents.Items.Clear();
-                    txtEvents.DataSource = null;
-                    txtEvents.DataBind();
-                    txtEvents.Items.Insert(0, li);
-                }
-            }
-            catch (Exception a)
-            {
+        //    try
+        //    {
+        //        AGMEvents agm = new AGMEvents("cn", 1);
+        //        DataSet ds = agm.getAllEvents();
+        //        if (ds != null)
+        //        {
+        //            ListItem listItem = new ListItem("Select Event", "0");
+        //            txtEvents.DataSource = ds;
+        //            txtEvents.DataValueField = "ID";
+        //            txtEvents.DataTextField = "EventName";
+        //            txtEvents.DataBind();
+        //            txtEvents.Items.Insert(0, listItem);
+        //        }
+        //        else
+        //        {
+        //            ListItem li = new ListItem("No Events found", "0");
+        //            txtEvents.Items.Clear();
+        //            txtEvents.DataSource = null;
+        //            txtEvents.DataBind();
+        //            txtEvents.Items.Insert(0, li);
+        //        }
+        //    }
+        //    catch (Exception a)
+        //    {
 
-                RedAlert(a.Message);
-            }
-        }
-        protected void btnSearch_Click(object sender, EventArgs e)
+        //        RedAlert(a.Message);
+        //    }
+        //}
+        //protected void btnSearch_Click(object sender, EventArgs e)
+        //{
+        //    RegistrationSave reg = new RegistrationSave("cn", 1);
+        //    DataSet ds = reg.GetRegInfo(txtFullName.Text);
+        //    if (ds != null)
+        //    {
+        //        DataRow rw = ds.Tables[0].Rows[0];
+        //        txtMemberID.Value = rw["ID"].ToString();
+        //        txtname.Value = rw["FirstName"].ToString();
+        //        SuccessAlert(txtname.Value + "Found");
+        //    }
+        //    else
+        //    {
+        //        AmberAlert("Not Found");
+        //    }
+        //}
+        protected void getRegInfo()
         {
             RegistrationSave reg = new RegistrationSave("cn", 1);
-            DataSet ds = reg.GetRegInfo(txtFullName.Text);
-            if (ds != null)
+            if (reg.Retrieve(int.Parse(txtMemberID.Value)))
             {
-                DataRow rw = ds.Tables[0].Rows[0];
-                txtMemberID.Value = rw["ID"].ToString();
-                txtname.Value = rw["FirstName"].ToString();
-                SuccessAlert(txtname.Value + "Found");
+                txtname.Value = reg.FirstName;
             }
             else
             {
-                AmberAlert("Not Found");
+                AmberAlert("Member Not Found");
             }
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             LookUp lk = new LookUp("cn", 1);
             DataSet ds = lk.GetEventQuestions();
-            int qn = 0;
-            string comment = "";
-            foreach (DataRow ds2 in ds.Tables[0].Rows)
+            DataSet da = lk.CheckEventValidations(int.Parse(txtEventID.Value), int.Parse(txtMemberID.Value));
+            if (da==null)
             {
-                qn = int.Parse(ds2["ID"].ToString());
-                if (qn == 1)
+                int qn = 0;
+                string comment = "";
+                foreach (DataRow ds2 in ds.Tables[0].Rows)
                 {
-                    comment = txt1.Text;
-                }
-                if (qn == 2)
-                {
-                    comment = txt2.Text;
-                }
-                if (qn == 3)
-                {
-                    comment = txt3.Text;
-                }
-                if (qn == 4)
-                {
-                    comment = txt4.Text;
-                }
-                if (qn == 5)
-                {
-                    comment = txt5.Text;
-                }
+                    qn = int.Parse(ds2["ID"].ToString());
+                    if (qn == 1)
+                    {
+                        comment = txt1.Text;
+                    }
+                    if (qn == 2)
+                    {
+                        comment = txt2.Text;
+                    }
+                    if (qn == 3)
+                    {
+                        comment = txt3.Text;
+                    }
+                    if (qn == 4)
+                    {
+                        comment = txt4.Text;
+                    }
+                    if (qn == 5)
+                    {
+                        comment = txt5.Text;
+                    }
 
-                try
-                {
-                    //insert
-                    lk.InsertEventEvaluation(int.Parse(txtMemberID.Value), qn, comment, int.Parse(txtEvents.SelectedValue));
-                    SuccessAlert("Responses Submitted");
-                }
-                catch (Exception x)
-                {
+                    try
+                    {
+                        //insert
+                        lk.InsertEventEvaluation(int.Parse(txtMemberID.Value), qn, comment, int.Parse(txtEventID.Value));
+                        SuccessAlert("Responses Submitted");
+                    }
+                    catch (Exception x)
+                    {
+                        ClearForm();
+                        RedAlert(x.Message);
+                    }
 
-                    RedAlert(x.Message);
                 }
-
             }
+            else
+            {
+                AmberAlert("Already Answered");
+            }
+            
+
+            Session["memberID"] = txtMemberID.Value;
+            Session["eventID"] = txtEventID.Value;
+            Response.Redirect("PresentationEvaluation?eventID=" + txtEventID.Value + "&memberID=" + txtMemberID.Value + "");
+
+            ClearForm();
         }
 
-        protected void txtEvents_TextChanged(object sender, EventArgs e)
+        private void ClearForm()
+        {
+            txt1.Text = string.Empty;
+            txt2.Text = string.Empty;
+            txt3.Text = string.Empty;
+            txt4.Text = string.Empty;
+            txt5.Text = string.Empty;
+            txtEventName.Text = string.Empty;
+            txtDate.Text = string.Empty;
+            txtOrganiser.Text = string.Empty;
+            //txtFullName.Text = string.Empty;
+        }
+
+        protected void GetEventName()
         {
             AGMEvents eve = new AGMEvents("cn", 1);
-            DataSet ds = eve.GetEventName(int.Parse(txtEvents.SelectedValue));
+            DataSet ds = eve.GetEventName(int.Parse(txtEventID.Value));
             if (ds != null)
             {
                 DataRow rw = ds.Tables[0].Rows[0];

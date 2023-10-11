@@ -31,6 +31,22 @@ namespace AGMSystem.models
         }
         #endregion
         #region methods
+
+
+        public DataSet CheckEventValidations(int eventID, int memberID)
+        {
+            try
+            {
+                string str = "Select * from EventEvaluation where eventID=" + eventID + " and MemberID=" + memberID + "";
+                return ReturnDs(str);
+
+            }
+            catch (Exception b)
+            {
+                MsgFlg = b.Message;
+                return null;
+            }
+        }
         public DataSet GetRatings()
         {
             string str = "Select * from PresentationRating";

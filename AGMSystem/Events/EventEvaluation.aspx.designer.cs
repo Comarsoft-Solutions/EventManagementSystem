@@ -33,13 +33,13 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.HiddenField txtname;
 
         /// <summary>
-        /// txtEvents control.
+        /// txtEventID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtEvents;
+        protected global::System.Web.UI.WebControls.HiddenField txtEventID;
 
         /// <summary>
         /// pnlEventDetails control.
@@ -76,24 +76,6 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOrganiser;
-
-        /// <summary>
-        /// txtFullName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFullName;
-
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
         /// txt1 control.
