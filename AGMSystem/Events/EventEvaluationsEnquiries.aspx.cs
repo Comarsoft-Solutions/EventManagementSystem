@@ -83,7 +83,14 @@ namespace AGMSystem.Events
 
         protected void grdEvaluations_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            
+            string memberID = e.CommandArgument.ToString();
+            if (e.CommandName=="selectRecord")
+            {
+                Session["memberID"] = memberID;
+                Response.Redirect("MemberEvaluations?memberID=" + memberID);
 
+            }
         }
 
         protected void txtEvents_TextChanged(object sender, EventArgs e)

@@ -39,7 +39,7 @@
                                         <asp:BoundField DataField="PensionFund" HeaderText="Company"></asp:BoundField>
                                         <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
                                         <asp:BoundField DataField="Email" HeaderText="Email "></asp:BoundField>
-                        <asp:TemplateField HeaderText="Confirm">
+                        <asp:TemplateField HeaderText="Select">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Select" runat="server" ForeColor="blue" CssClass="mdi mdi-check-bold" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
                               <%--  <asp:LinkButton ID="Edit" runat="server" ForeColor="Green" CssClass="mdi mdi-pencil" CommandArgument='<%#Eval("ID")%>' CommandName="editRecord"></asp:LinkButton>

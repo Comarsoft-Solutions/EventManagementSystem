@@ -41,6 +41,16 @@ namespace AGMSystem.models
             string str = "select r.ID,FirstName,LastName,PensionFund,Email,PhoneNumber from RegistrationMembers r  where id in(select memberID from EventEvaluation where EventID=" + eventID + ") ";
             return ReturnDs(str);
         }
+        public DataSet GetMemberEventEvaluations(int memberID)
+        {
+            string str = "select ee.ID,eq.Question,ee.Response from EventEvaluation ee inner join EventQuestions eq on ee.QuestionID=eq.ID  where MemberID= " + memberID + " ";
+            return ReturnDs(str);
+        }
+        public DataSet GetMemberPresentationtEvaluations(int memberID)
+        {
+            string str = "select ee.ID,eq.Question,ee.Comment,ee.RatingID from PresentationEvaluation ee inner join PresentationQuestions eq on ee.QuestionID=eq.ID  where MemberID=" + memberID + " ";
+            return ReturnDs(str);
+        }
         public DataSet InsertPresenterEvaluation(int memberID, int questionID, int ratingID, string comment, int eventID)
         {
             string str = "insert into PresentationEvaluation(MemberID,QuestionID,RatingID,Comment,EventID) values("+ memberID + ","+ questionID + ","+ ratingID + ",'"+ comment + "',"+ eventID + ")";
