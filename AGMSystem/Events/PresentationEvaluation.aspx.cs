@@ -33,7 +33,6 @@ namespace AGMSystem.Events
                     txtMemberID.Value="0";
                 }
                 GetRatings();
-                //getEvents();
                 GetMemberDetails();
             }
         }
@@ -67,37 +66,6 @@ namespace AGMSystem.Events
         }
         #endregion
 
-        //private void getEvents()
-        //{
-
-        //    try
-        //    {
-        //        AGMEvents agm = new AGMEvents("cn", 1);
-        //        DataSet ds = agm.getAllEvents();
-        //        if (ds != null)
-        //        {
-        //            ListItem listItem = new ListItem("Select Event", "0");
-        //            txtEvents.DataSource = ds;
-        //            txtEvents.DataValueField = "ID";
-        //            txtEvents.DataTextField = "EventName";
-        //            txtEvents.DataBind();
-        //            txtEvents.Items.Insert(0, listItem);
-        //        }
-        //        else
-        //        {
-        //            ListItem li = new ListItem("No AGMS found", "0");
-        //            txtEvents.Items.Clear();
-        //            txtEvents.DataSource = null;
-        //            txtEvents.DataBind();
-        //            txtEvents.Items.Insert(0, li);
-        //        }
-        //    }
-        //    catch (Exception a)
-        //    {
-
-        //        RedAlert(a.Message);
-        //    }
-        //}
         private void GetRatings()
         {
             LookUp lk = new LookUp("cn",1);
@@ -315,11 +283,11 @@ namespace AGMSystem.Events
         private void GetMemberDetails()
         {
             RegistrationSave reg = new RegistrationSave("cn", 1);
-            //DataSet ds = reg.GetRegInfo(txtFullName.Text);
             if (reg.Retrieve(int.Parse(txtMemberID.Value)))
             {
                 txtname.Value = reg.FirstName;
-                SuccessAlert(txtname.Value + " Found");
+                txtCompany.Text = reg.PensionFund;
+                txtFullName.Text = reg.FirstName + " " + reg.LastName;
             }
             else
             {

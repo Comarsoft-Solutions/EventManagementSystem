@@ -309,6 +309,11 @@ namespace AGMSystem
             mMemberType = "";
 
         }
+        public DataSet CheckPresenter(int eventID, int memberID)
+        {
+            string str = "Select * from RegistrationMembers where ID in (select id from Presenter where EventID=" + eventID + " and MemberID =" + memberID + ")";
+            return ReturnDs(str);
+        }
 
         #region "Retrieve Overloads"
 

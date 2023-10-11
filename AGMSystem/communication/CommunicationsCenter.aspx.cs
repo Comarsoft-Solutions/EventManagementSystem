@@ -145,13 +145,20 @@ namespace AGMSystem.communication
         }
         private string PopulateBody(int MemberID)
         {
+            string memberName = string.Empty;
+            RegistrationSave reg = new RegistrationSave("cn", 1);
+            if (reg.Retrieve(MemberID))
+            {
+                memberName = reg.FirstName + " " + reg.LastName;
+            }
+
             string body = string.Empty;
             using (StreamReader reader = new StreamReader(Server.MapPath("~/communication/Templates/" + cboHtmlTemplate.SelectedItem.Text)))
             {
                 body = reader.ReadToEnd();
             }
             body = body.Replace("{MemberID}", MemberID.ToString());
-            //body = body.Replace("{PensionNo}", PensionNo.ToString());
+            body = body.Replace("{Member}", memberName);
             //body = body.Replace("{Subject}", Subject);
             //body = body.Replace("{Fund}", Fund);
             //body = body.Replace("{Description}", MsgBody);
@@ -251,6 +258,7 @@ namespace AGMSystem.communication
                 }
                 else
                 {
+
                     body = PopulateBody(MemberId);
                 }
 

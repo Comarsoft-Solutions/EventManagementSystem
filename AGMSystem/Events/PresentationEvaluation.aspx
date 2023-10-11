@@ -21,24 +21,18 @@
                                      <div class="mb-3">
     <label for=" Events" class="form-label">Select Presenter <span class="text-danger"></span></label>
     <asp:DropDownList ID="txtPresenter" OnTextChanged="txtPresenter_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server" ></asp:DropDownList>
-</div></asp:Panel>
-      <%-- member search  --%>
+</div></asp:Panel>                      
     <div class="row row-cols-2">
-
-      <div class="col-6">
-      <div class="mb-3">
-          <label for="Full Name" class="form-label">Full Name <span class="text-danger">*</span></label>
-          <asp:TextBox ID="txtFullName" CssClass="form-control" placeholder="Full Name" runat="server" ></asp:TextBox>
-      </div>
-  </div>
-
-         
-        <div class=" col-4 mb-3 mt-4">
-
-        <asp:Button ID="btnSearch" Width="50%" OnClick="btnSearch_Click" CssClass="btn btn-success" runat="server" Text="Search" Style="left: 0px; top: 0px" />
-
-    </div>
-        </div>
+<div class="col-4 mb-3">
+    <label for="fullname" class="form-label">Full Name</label>
+    <asp:TextBox ID="txtFullName" placeholder="Malcolm Mach" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+</div>
+<div class="col-4 mb-3">
+    <label for="Company" class="form-label">Company </label>
+    <asp:TextBox ID="txtCompany" placeholder="CUG" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+</div>
+          </div> 
+    <hr />
  <div class="mb-3">
      <%--<label for="Question1" class="form-label">1.	Purpose communicated clearly</label>--%>
      <span>

@@ -17,7 +17,17 @@
     <asp:HiddenField ID="txtname" runat="server" />
     <asp:HiddenField ID="txtEventID" runat="server" />
     
-                                         
+                       <div class="row row-cols-2">
+<div class="col-4 mb-3">
+    <label for="fullname" class="form-label">Full Name</label>
+    <asp:TextBox ID="txtFullName" placeholder="Malcolm Mach" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+</div>
+<div class="col-4 mb-3">
+    <label for="Company" class="form-label">Company </label>
+    <asp:TextBox ID="txtCompany" placeholder="CUG" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+</div>
+          </div>     
+    <hr />
     
       <asp:Panel ID="pnlEventDetails" Visible="false" runat="server">
           <div class="row row-cols-3">

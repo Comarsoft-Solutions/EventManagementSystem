@@ -67,59 +67,15 @@ namespace AGMSystem.Events
         }
         #endregion
 
-        //private void getEvents()
-        //{
-
-        //    try
-        //    {
-        //        AGMEvents agm = new AGMEvents("cn", 1);
-        //        DataSet ds = agm.getAllEvents();
-        //        if (ds != null)
-        //        {
-        //            ListItem listItem = new ListItem("Select Event", "0");
-        //            txtEvents.DataSource = ds;
-        //            txtEvents.DataValueField = "ID";
-        //            txtEvents.DataTextField = "EventName";
-        //            txtEvents.DataBind();
-        //            txtEvents.Items.Insert(0, listItem);
-        //        }
-        //        else
-        //        {
-        //            ListItem li = new ListItem("No Events found", "0");
-        //            txtEvents.Items.Clear();
-        //            txtEvents.DataSource = null;
-        //            txtEvents.DataBind();
-        //            txtEvents.Items.Insert(0, li);
-        //        }
-        //    }
-        //    catch (Exception a)
-        //    {
-
-        //        RedAlert(a.Message);
-        //    }
-        //}
-        //protected void btnSearch_Click(object sender, EventArgs e)
-        //{
-        //    RegistrationSave reg = new RegistrationSave("cn", 1);
-        //    DataSet ds = reg.GetRegInfo(txtFullName.Text);
-        //    if (ds != null)
-        //    {
-        //        DataRow rw = ds.Tables[0].Rows[0];
-        //        txtMemberID.Value = rw["ID"].ToString();
-        //        txtname.Value = rw["FirstName"].ToString();
-        //        SuccessAlert(txtname.Value + "Found");
-        //    }
-        //    else
-        //    {
-        //        AmberAlert("Not Found");
-        //    }
-        //}
+        
         protected void getRegInfo()
         {
             RegistrationSave reg = new RegistrationSave("cn", 1);
             if (reg.Retrieve(int.Parse(txtMemberID.Value)))
             {
                 txtname.Value = reg.FirstName;
+                txtFullName.Text = reg.FirstName + " " + reg.LastName;
+                txtCompany.Text = reg.PensionFund;
             }
             else
             {
@@ -181,7 +137,7 @@ namespace AGMSystem.Events
 
             Session["memberID"] = txtMemberID.Value;
             Session["eventID"] = txtEventID.Value;
-            Response.Redirect("PresentationEvaluation?eventID=" + txtEventID.Value + "&memberID=" + txtMemberID.Value + "");
+            //Response.Redirect("PresentationEvaluation?eventID=" + txtEventID.Value + "&memberID=" + txtMemberID.Value + "");
 
             ClearForm();
         }
@@ -196,7 +152,7 @@ namespace AGMSystem.Events
             txtEventName.Text = string.Empty;
             txtDate.Text = string.Empty;
             txtOrganiser.Text = string.Empty;
-            //txtFullName.Text = string.Empty;
+            txtFullName.Text = string.Empty;
         }
 
         protected void GetEventName()

@@ -265,6 +265,7 @@
     <Content Include="AGM\assets2\libs\simplebar\simplebar.min.js" />
     <Content Include="AGM\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="AGM\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="AGM\MemberVoting.aspx" />
     <Content Include="assets2\images\logo.png" />
     <Content Include="assets\images\logo.png" />
     <Content Include="communication\assets2\css\app.min.css" />
@@ -328,6 +329,7 @@
     <Content Include="communication\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="communication\CommunicationsCenter.aspx" />
     <Content Include="Activities\Activities.aspx" />
+    <Content Include="Events\AddPresenter.aspx" />
     <Content Include="Events\AGMEvent.aspx" />
     <Content Include="AGMLogin.aspx" />
     <Content Include="AGM\AGMResults.aspx" />
@@ -1270,6 +1272,13 @@
     <Compile Include="AGMSystem.Master.designer.cs">
       <DependentUpon>AGMSystem.Master</DependentUpon>
     </Compile>
+    <Compile Include="AGM\MemberVoting.aspx.cs">
+      <DependentUpon>MemberVoting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AGM\MemberVoting.aspx.designer.cs">
+      <DependentUpon>MemberVoting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="communication\CommunicationsCenter.aspx.cs">
       <DependentUpon>CommunicationsCenter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1288,6 +1297,13 @@
     </Compile>
     <Compile Include="Activities\Activities.aspx.designer.cs">
       <DependentUpon>Activities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\AddPresenter.aspx.cs">
+      <DependentUpon>AddPresenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\AddPresenter.aspx.designer.cs">
+      <DependentUpon>AddPresenter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\EventEvaluation.aspx.cs">
       <DependentUpon>EventEvaluation.aspx</DependentUpon>

@@ -47,6 +47,7 @@ namespace AGMSystem.models
                 return null;
             }
         }
+       
         public DataSet GetRatings()
         {
             string str = "Select * from PresentationRating";
