@@ -128,29 +128,31 @@
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
+ 
+         
+            
         <div class="main-content margin-bottom-0">
-                                            <div class="navbar-brand-box pull-right">
-                <!-- Dark Logo-->
-                <a  runat="server" id="lg" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="/assets2/images/logo.png" alt="ZAPF">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="/assets2/images/logo.png" alt="ZAPF">
-                    </span>
-                </a>
-                <!-- Light Logo-->
-                <a  runat="server" id="ln" class="logo logo-light">
-                    <span class="logo-sm">
-                        <img src="/assets2/images/logo.png" alt="ZAPF">
-                    </span>
-                    <span class="logo-lg  p-0 fs-20">
-                        <img src="/assets2/images/logo.png" alt="ZAPF" height="120">
-                    </span>
-                </a>
+                                                    <div class="navbar-brand-box ">
+    <!-- Dark Logo-->
+    <a  runat="server" id="lg" class="logo logo-dark">
+        <span class="logo-sm">
+            <img src="/assets2/images/logo.png" alt="ZAPF">
+        </span>
+        <span class="logo-lg">
+            <img src="/assets2/images/logo.png" alt="ZAPF">
+        </span>
+    </a>
+    <!-- Light Logo-->
+    <a  runat="server" id="ln" class="logo logo-light">
+        <span class="logo-sm">
+            <img src="/assets2/images/logo.png" alt="ZAPF">
+        </span>
+        <span class="logo-lg">
+            <img src="/assets2/images/logo.png" alt="ZAPF" height="120">
+        </span>
+    </a>
 
-            </div>
-            <div class="page-content padding-top-0">
+</div>
 
                 <div class="container-fluid">
 
@@ -164,7 +166,7 @@
 
                 </div>
                 <!-- container-fluid -->
-            </div>
+
             <!-- End Page-content -->
 
             <footer class="footer">

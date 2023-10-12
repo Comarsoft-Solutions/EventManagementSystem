@@ -492,6 +492,7 @@
     <Content Include="Events\assets2\images\logo-dark.png" />
     <Content Include="Events\assets2\images\logo-light.png" />
     <Content Include="Events\assets2\images\logo-sm.png" />
+    <Content Include="Events\assets2\images\logo.png" />
     <Content Include="Events\assets2\images\products\img-1.png" />
     <Content Include="Events\assets2\images\products\img-10.png" />
     <Content Include="Events\assets2\images\products\img-2.png" />
