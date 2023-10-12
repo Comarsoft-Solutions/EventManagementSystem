@@ -137,7 +137,7 @@ namespace AGMSystem.Events
 
             Session["memberID"] = txtMemberID.Value;
             Session["eventID"] = txtEventID.Value;
-            //Response.Redirect("PresentationEvaluation?eventID=" + txtEventID.Value + "&memberID=" + txtMemberID.Value + "");
+            Response.Redirect("PresentationEvaluation?eventID=" + txtEventID.Value + "&memberID=" + txtMemberID.Value + "");
 
             ClearForm();
         }

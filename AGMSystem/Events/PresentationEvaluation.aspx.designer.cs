@@ -42,24 +42,6 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.HiddenField txtEventID;
 
         /// <summary>
-        /// Panel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-
-        /// <summary>
-        /// txtPresenter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtPresenter;
-
-        /// <summary>
         /// txtFullName control.
         /// </summary>
         /// <remarks>
@@ -76,6 +58,24 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCompany;
+
+        /// <summary>
+        /// pnlPresenters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPresenters;
+
+        /// <summary>
+        /// txtPresenter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtPresenter;
 
         /// <summary>
         /// Question1 control.
@@ -96,15 +96,6 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.DropDownList cbo1;
 
         /// <summary>
-        /// rfvOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvOptions;
-
-        /// <summary>
         /// txt1 control.
         /// </summary>
         /// <remarks>
@@ -121,15 +112,6 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cbo2;
-
-        /// <summary>
-        /// rv2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv2;
 
         /// <summary>
         /// txt2 control.
@@ -150,15 +132,6 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.DropDownList cbo3;
 
         /// <summary>
-        /// rv3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv3;
-
-        /// <summary>
         /// txt3 control.
         /// </summary>
         /// <remarks>
@@ -175,15 +148,6 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cbo4;
-
-        /// <summary>
-        /// rv4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv4;
 
         /// <summary>
         /// txt4 control.
@@ -204,15 +168,6 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.DropDownList cbo5;
 
         /// <summary>
-        /// rv5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv5;
-
-        /// <summary>
         /// txt5 control.
         /// </summary>
         /// <remarks>
@@ -229,15 +184,6 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cbo6;
-
-        /// <summary>
-        /// rv6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv6;
 
         /// <summary>
         /// txt6 control.
@@ -258,15 +204,6 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.DropDownList cbo7;
 
         /// <summary>
-        /// rv7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv7;
-
-        /// <summary>
         /// txt7 control.
         /// </summary>
         /// <remarks>
@@ -283,15 +220,6 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cbo8;
-
-        /// <summary>
-        /// rv8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv8;
 
         /// <summary>
         /// txt8 control.
@@ -312,15 +240,6 @@ namespace AGMSystem.Events
         protected global::System.Web.UI.WebControls.DropDownList cbo9;
 
         /// <summary>
-        /// rv9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rv9;
-
-        /// <summary>
         /// txt9 control.
         /// </summary>
         /// <remarks>
@@ -337,5 +256,23 @@ namespace AGMSystem.Events
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// pnlEvaluated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlEvaluated;
+
+        /// <summary>
+        /// grdPresenters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdPresenters;
     }
 }

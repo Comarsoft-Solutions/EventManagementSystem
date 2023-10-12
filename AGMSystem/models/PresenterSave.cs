@@ -139,6 +139,16 @@ namespace AGMSystem.models
             string str = "Select * from Presenter where eventID="+ EventID +"";
             return ReturnDs(str);
         }
+        public DataSet GetPresenterUsingID(int EventID, int memberID)
+        {
+            string str = "Select * from Presenter where eventID=" + EventID + " and ID not in (select PresenterID from PresentationEvaluation where MemberID=" + memberID + " and EventID=" + EventID + ")";
+            return ReturnDs(str);
+        }
+        public DataSet GetEvaluatedPresenters(int EventID, int memberID)
+        {
+            string str = "Select * from Presenter where eventID=" + EventID + " and ID in (select PresenterID from PresentationEvaluation where MemberID=" + memberID + " and EventID=" + EventID + ")";
+            return ReturnDs(str);
+        }
         #endregion
         #endregion
     }

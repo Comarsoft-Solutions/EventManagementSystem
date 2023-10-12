@@ -34,7 +34,41 @@ namespace AGMSystem.Events
                 }
                 GetRatings();
                 GetMemberDetails();
+                GetPresenters();
+                GetEvaluatedPresenters();
             }
+        }
+
+        private void GetPresenters()
+        {
+            try
+            {
+                PresenterSave pre = new PresenterSave("cn", 1);
+                DataSet ds = pre.GetPresenterUsingID(int.Parse(txtEventID.Value), int.Parse(txtMemberID.Value));
+                if (ds != null)
+                {
+                    ListItem li = new ListItem("Select Presenter", "0");
+                    txtPresenter.DataSource = ds;
+                    txtPresenter.DataTextField = "Name";
+                    txtPresenter.DataValueField = "ID";
+                    txtPresenter.DataBind();
+                    txtPresenter.Items.Insert(0, li);
+                    pnlPresenters.Visible = true;
+                }
+                else
+                {
+                    ListItem li = new ListItem("No Presenters", "0");
+                    txtPresenter.DataSource = null;
+                    txtPresenter.DataBind();
+                    txtPresenter.Items.Insert(0, li);
+                }
+            }
+            catch (Exception x)
+            {
+
+                RedAlert(x.Message);
+            }
+            
         }
         #region alerts
 
@@ -240,8 +274,9 @@ namespace AGMSystem.Events
                 try
                 {
                     
-                    lk.InsertPresenterEvaluation(int.Parse(txtMemberID.Value), qn, Rating, comment,int.Parse(txtEventID.Value));
+                    lk.InsertPresenterEvaluation(int.Parse(txtMemberID.Value), qn, Rating, comment,int.Parse(txtEventID.Value),int.Parse(txtPresenter.SelectedValue));
                     SuccessAlert("Responses Submitted");
+                    GetEvaluatedPresenters();
                 }
                 catch (Exception x)
                 {
@@ -251,6 +286,33 @@ namespace AGMSystem.Events
 
             }
             ClearForm();
+        }
+
+        private void GetEvaluatedPresenters()
+        {
+            try
+            {
+                PresenterSave sv = new PresenterSave("cn", 1);
+                DataSet ds = sv.GetEvaluatedPresenters(int.Parse(txtEventID.Value), int.Parse(txtMemberID.Value));
+                if (ds != null)
+                {
+                    grdPresenters.DataSource = ds;
+                    grdPresenters.DataBind();
+                    pnlEvaluated.Visible = true;
+                }
+                else
+                {
+                    grdPresenters.DataSource= null;
+                    grdPresenters.DataBind();
+
+                }
+            }
+            catch (Exception s)
+            {
+
+                AmberAlert(s.Message);
+            }
+
         }
 
         private void ClearForm()
@@ -273,6 +335,7 @@ namespace AGMSystem.Events
             cbo7.SelectedIndex = 0;
             cbo8.SelectedIndex = 0;
             cbo9.SelectedIndex = 0;
+            txtPresenter.SelectedIndex = 0;
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -295,9 +358,47 @@ namespace AGMSystem.Events
             }
         }
 
-        protected void txtPresenter_TextChanged(object sender, EventArgs e)
+        protected void grdPresenters_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            grdPresenters.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
         }
+
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                PresenterSave sv = new PresenterSave("cn", 1);
+                DataSet ds = sv.GetEvaluatedPresenters(int.Parse(txtEventID.Value), int.Parse(txtMemberID.Value));
+                if (ds != null)
+                {
+                    int maxPageIndex = grdPresenters.PageCount;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        //navigate to last available
+                        page = maxPageIndex;
+                    }
+                    else
+                    {
+                        //empty
+                        page = 0;
+                    }
+                    grdPresenters.DataSource = ds;
+                    grdPresenters.PageIndex = page;
+                    grdPresenters.DataBind();
+                }
+                else
+                {
+                    grdPresenters.DataSource = null;
+                    grdPresenters.DataBind();
+                }
+            }
+            catch (Exception x)
+            {
+                RedAlert(x.Message);
+                throw;
+            }
+        }
+
     }
 }
