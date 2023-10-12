@@ -491,9 +491,10 @@ namespace AGMSystem
             mDesignation = ((object)rw["Designation"] == DBNull.Value) ? "" : rw["Designation"].ToString();
             mPhoneNumber = ((object)rw["PhoneNumber"] == DBNull.Value) ? "" : rw["PhoneNumber"].ToString();
             mEmail = ((object)rw["Email"] == DBNull.Value) ? "" : rw["Email"].ToString();
-            //mNationalID = ((object)rw["NationalID"] == DBNull.Value) ? "" : rw["NationalID"].ToString();
+            mNationalID = ((object)rw["NationalID"] == DBNull.Value) ? "" : rw["NationalID"].ToString();
             mMemberType = ((object)rw["MembershipType"] ==DBNull.Value)? "" : rw["MembershipType"].ToString() ;
             mCompanyID = ((object)rw["CompanyID"] == DBNull.Value) ? 0 : int.Parse( rw["CompanyID"].ToString());
+            mPensionFund = ((object)rw["PensionFund"] == DBNull.Value) ? "" : rw["PensionFund"].ToString();
 
         }
 

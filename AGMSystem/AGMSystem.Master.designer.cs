@@ -141,6 +141,15 @@ namespace AGMSystem
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ntp;
 
         /// <summary>
+        /// pre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor pre;
+
+        /// <summary>
         /// ee control.
         /// </summary>
         /// <remarks>

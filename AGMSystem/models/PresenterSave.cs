@@ -17,6 +17,7 @@ namespace AGMSystem.models
         protected long mObjectUserID;
 
         protected int mID;
+        protected int mMemberID;
         protected int mEventID;
         protected string mFullName;
         protected string mCompany;
@@ -32,6 +33,11 @@ namespace AGMSystem.models
         {
             get { return mID; }
             set { mID = value; }
+        }
+        public int MemberID
+        {
+            get { return mMemberID; }
+            set { mMemberID = value; }
         }
         public int EventID
         {
@@ -70,8 +76,9 @@ namespace AGMSystem.models
         {
             db.AddInParameter(cmd, "@ID", DbType.Int32, mID);
             db.AddInParameter(cmd, "@EventID", DbType.Int32, mEventID);
-            db.AddInParameter(cmd, "@FullName", DbType.Int32, mFullName);
+            db.AddInParameter(cmd, "@FullName", DbType.String, mFullName);
             db.AddInParameter(cmd, "@Company", DbType.String, mCompany);
+            db.AddInParameter(cmd, "@MemberID", DbType.Int32, mMemberID);
 
         }
 

@@ -229,6 +229,10 @@
                                             data-key="t-detached">Name Tag Printing </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="Events/AddPresenter.aspx" runat="server" id="pre"  class="nav-link"
+                                            data-key="t-detached">Event Presenters </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="Events/EventEvaluations.aspx" runat="server" id="ee"  class="nav-link"
                                             data-key="t-detached">Evaluations </a>
                                     </li>

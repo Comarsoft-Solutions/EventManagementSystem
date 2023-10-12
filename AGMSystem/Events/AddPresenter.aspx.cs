@@ -60,6 +60,7 @@ namespace AGMSystem.Events
             {
                 grdPresenters.DataSource = ds;
                 grdPresenters.DataBind();
+                pnlPresenters.Visible = true;
             }
             else
             {
@@ -110,6 +111,7 @@ namespace AGMSystem.Events
                     grdMemberEnquiries.DataSource = search.getEnquiriesBySearch(txtFnameSearch.Text, txtLnameSearch.Text, txtCompanySearch.Text);
                     grdMemberEnquiries.DataBind();
                     pnlEnquiries.Visible = true;
+                    ClearSearch();
                 }
                 else
                 {
@@ -124,6 +126,13 @@ namespace AGMSystem.Events
 
                 RedAlert(exx.Message);
             }
+        }
+
+        private void ClearSearch()
+        {
+            txtFnameSearch.Text=string.Empty;
+            txtLnameSearch.Text=string.Empty;
+            txtCompanySearch.Text=string.Empty;
         }
 
         protected void grdMemberEnquiries_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -142,9 +151,20 @@ namespace AGMSystem.Events
                     PresenterSave pre = new PresenterSave("cn", 1);
                     if (reg.Retrieve(memberID))
                     {
+                        pre.MemberID = memberID;
                         pre.FullName = reg.FirstName + " " + reg.LastName;
                         pre.Company = reg.PensionFund;
+                        pre.EventID = int.Parse(txtEvents.SelectedValue);
+                        if (pre.Save())
+                        {
+                            SuccessAlert("Added Successfully");
+                            GetPresenters();
 
+                        }
+                        else
+                        {
+                            RedAlert("Something happened");
+                        }
                     }
                 }
             }
@@ -153,6 +173,48 @@ namespace AGMSystem.Events
         protected void txtEvents_TextChanged(object sender, EventArgs e)
         {
             GetPresenters();
+        }
+
+        protected void grdPresenters_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdPresenters.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
+        }
+
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                PresenterSave sv = new PresenterSave("cn", 1);
+                DataSet ds = sv.GetPresenter(int.Parse(txtEvents.SelectedValue));
+                if (ds!=null)
+                {
+                    int maxPageIndex = grdPresenters.PageCount  ;
+                    if (page<0 || page>maxPageIndex)
+                    {
+                        //navigate to last available
+                        page= maxPageIndex;
+                    }
+                    else
+                    {
+                        //empty
+                        page= 0;
+                    }
+                    grdPresenters.DataSource = ds;
+                    grdPresenters.PageIndex=page;
+                    grdPresenters.DataBind();
+                }
+                else
+                {
+                    grdPresenters.DataSource= null;
+                    grdPresenters.DataBind();
+                }
+            }
+            catch (Exception x)
+            {
+                RedAlert(x.Message);
+                throw;
+            }
         }
     }
 }

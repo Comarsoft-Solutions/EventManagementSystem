@@ -3,11 +3,11 @@
     <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Event Evaluation</h4>
+            <h4 class="mb-sm-0">Presenters</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Events</a></li>
-                    <li class="breadcrumb-item active">Evaluation</li>
+                    <li class="breadcrumb-item active">Presenters</li>
                 </ol>
             </div>
         </div>
@@ -65,7 +65,7 @@
                     <asp:BoundField DataField="Email" HeaderText="Email"></asp:BoundField>
                     <asp:TemplateField HeaderText="Add">
                         <ItemTemplate>
-                            <asp:LinkButton ID="Attach" runat="server" ForeColor="Green" CssClass="mdi mdi-eye" CommandArgument='<%#Eval("ID")%>' CommandName="select"></asp:LinkButton>
+                            <asp:LinkButton ID="Attach" runat="server" ForeColor="Green" CssClass="mdi mdi-plus" CommandArgument='<%#Eval("ID")%>' CommandName="select"></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -75,36 +75,35 @@
 
 </div>
     </asp:Panel>
-    
+    <asp:Panel ID="pnlPresenters" Visible="false" runat="server">
+            <div class="card" >
+                <div class="card-header align-items-center d-flex">
+                    <h4 class="card-title mb-0 flex-grow-1">Added Presenters </h4>
+                    
+                </div>
+                
+</div>
         <div class="form-group row gutters">
 
-            <div class="form-group row gutters col-8">
+    <div class="form-group row gutters col-12">
 
-                <div class="col-sm-12 align-content-center">
-                    <asp:GridView ID="grdPresenters" Width="100%" runat="server"
-                        AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
-                        DataKeyNames="ID"
-                        CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
-                        Style="border-collapse: collapse !important"
-                        AllowPaging="True" AllowSorting="True" >
-                        <Columns>
-                            <asp:BoundField DataField="Name" HeaderText="Name"></asp:BoundField>
-                            <asp:BoundField DataField="Company" HeaderText="Company"></asp:BoundField>
-                            <%--<asp:BoundField DataField="EndDate" HeaderText="End Date"></asp:BoundField>--%>
-                            <asp:TemplateField HeaderText="Delete">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkRecSel" runat="server" ForeColor="red" Text="Edit" CommandName="selectrecord" CommandArgument="<%# Container.DataItemIndex %>">
-                                                      
-                                    </asp:LinkButton>
-
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-
-                        </Columns>
-                    </asp:GridView>
-                </div>
-            </div>
-
+        <div class="col-sm-12 align-content-center">
+            <asp:GridView ID="grdPresenters" Width="100%" runat="server"
+                AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
+                DataKeyNames="ID" OnPageIndexChanging="grdPresenters_PageIndexChanging"
+                CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
+                Style="border-collapse: collapse !important"
+                AllowPaging="True" AllowSorting="True" PageSize="10">
+                <Columns>
+                    <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
+                    <asp:BoundField DataField="Name" HeaderText="Full Name"></asp:BoundField>
+                    <asp:BoundField DataField="Company" HeaderText="Company"></asp:BoundField>
+                </Columns>
+            </asp:GridView>
         </div>
+    </div>
+
+</div>
+    </asp:Panel>
+    
 </asp:Content>
