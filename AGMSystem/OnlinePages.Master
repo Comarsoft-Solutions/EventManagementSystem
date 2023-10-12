@@ -128,11 +128,7 @@
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
- 
-         
-            
-        <div class="main-content margin-bottom-0">
-                                                    <div class="navbar-brand-box ">
+<div class="navbar-brand-box ">
     <!-- Dark Logo-->
     <a  runat="server" id="lg" class="logo logo-dark">
         <span class="logo-sm">
@@ -153,6 +149,10 @@
     </a>
 
 </div>
+         
+            
+        <div class="main-content mb-5 ">
+                                                    
 
                 <div class="container-fluid">
 
