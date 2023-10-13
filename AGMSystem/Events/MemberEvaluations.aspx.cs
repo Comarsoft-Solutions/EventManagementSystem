@@ -107,5 +107,50 @@ namespace AGMSystem.Events
                 AmberAlert("No Presentation Evaluations Found");
             }
         }
+
+        protected void grdPresentationEvaluation_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdPresentationEvaluation.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
+
+        }
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                LookUp lk = new LookUp("cn", 1);
+                DataSet c = lk.GetMemberPresentationtEvaluations(int.Parse(txtmemberID.Value));
+                if (c != null)
+                {
+                    int maxPageIndex = grdPresentationEvaluation.PageCount - 1;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        if (maxPageIndex >= 0)
+                        {
+                            // Navigate to the last available page
+                            page = maxPageIndex;
+                        }
+                        else
+                        {
+                            // No data available, reset to the first page
+                            page = 0;
+                        }
+                    }
+                    grdPresentationEvaluation.DataSource = c;
+                    grdPresentationEvaluation.PageIndex = page;
+                    grdPresentationEvaluation.DataBind();
+                }
+                else
+                {
+                    grdPresentationEvaluation.DataSource = null;
+                    grdPresentationEvaluation.DataBind();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                RedAlert("An error occured");
+            }
+        }
     }
 }

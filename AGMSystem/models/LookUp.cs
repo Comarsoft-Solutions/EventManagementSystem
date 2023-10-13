@@ -32,7 +32,6 @@ namespace AGMSystem.models
         #endregion
         #region methods
 
-
         public DataSet CheckEventValidations(int eventID, int memberID)
         {
             try
@@ -65,7 +64,7 @@ namespace AGMSystem.models
         }
         public DataSet GetMemberPresentationtEvaluations(int memberID)
         {
-            string str = "select ee.ID,eq.Question,ee.Comment,ee.RatingID from PresentationEvaluation ee inner join PresentationQuestions eq on ee.QuestionID=eq.ID  where MemberID=" + memberID + " ";
+            string str = "select ee.ID,eq.Question,ee.Comment,ee.RatingID,pr.Rating from PresentationEvaluation ee inner join PresentationQuestions eq on ee.QuestionID=eq.ID inner join PresentationRating pr on ee.RatingID=pr.ID where MemberID=" + memberID + " order by ee.ID  ";
             return ReturnDs(str);
         }
         public DataSet InsertPresenterEvaluation(int memberID, int questionID, int ratingID, string comment, int eventID, int presenterID)
@@ -118,11 +117,12 @@ namespace AGMSystem.models
                 return null;
             }
         }
-        public DataSet GetUploadedEmployee(int empid)
+        public DataSet GetUploadedEmployee(int empid=0)
         {
             try
             {
-                string str = "SELECT TOP 1 * from EmployeesUploadBatch where EmployerID='" + empid + "' order by id DESC";
+                //string str = "SELECT TOP 1 * from EmployeesUploadBatch where EmployerID='" + empid + "' order by id DESC";
+                string str = "SELECT TOP 1 * from EmployeesUploadBatch order by id DESC";
                 return ReturnDs(str);
             }
             catch (Exception ex)
@@ -135,7 +135,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "SELECT top 1 * FROM member where IdentityNo='" + IDNumber + "' ";
+                string str = "SELECT top 1 * FROM RegistrationMembers where NationalID='" + IDNumber + "' ";
                 if (ReturnDs(str) != null)
                 {
                     return true;
@@ -155,7 +155,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "SELECT [ID],[EmployerName],[Surname],[Forenames],[IDNumber],[Gender],[DateOfBirth] FROM ClientsFileUpload where UploadBatchID = '" + UploadID + "' and ProcessStatusID = 0 ";
+                string str = "SELECT [ID],[Company],[Surname],[FIrstName],[NationalID],[PhoneNumber],[Email] FROM ClientsFileUpload where UploadBatchID = '" + UploadID + "' and ProcessStatusID = 0 ";
                 return ReturnDs(str);
             }
             catch (Exception e)

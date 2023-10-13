@@ -87,80 +87,6 @@ namespace AGMSystem.Membership
                 RedAlert(ex.Message);
             }
         }
-        //protected void UploadFile()
-        //{
-        //    try
-        //    {
-        //        dsuld.Clear();
-        //        pnlComms.BackColor = System.Drawing.Color.Transparent;
-        //        lblComms.Text = "";
-        //        if ((flContributionsUpload.HasFile))
-        //        {
-        //            //Upload and save the file
-        //            string csvPath = Server.MapPath("~/FileUploads/") + Path.GetFileName(flContributionsUpload.PostedFile.FileName);
-        //            string finename = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
-        //            txtFileName.Text = finename;
-        //            flContributionsUpload.SaveAs(csvPath);
-
-        //            string filePath = "FileUploads/" + finename;
-
-
-
-        //            txtFilenames.Value = Path.GetFileName(flContributionsUpload.PostedFile.FileName);
-        //            contentType.Value = flContributionsUpload.PostedFile.ContentType;
-        //            HiddenField1.Value = flContributionsUpload.PostedFile.InputStream.ToString();
-        //            SaveDocument();
-
-        //            //save in UploadsTable 
-        //            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-        //            //Dim stream As FileStream = File.Open(csvPath, FileMode.Open, FileAccess.Read)
-        //            txtFilePath.Text = csvPath;
-        //            ExcelPackage pckage = new ExcelPackage(new FileInfo(csvPath));
-        //            //ExcelWorksheet wksheets = default(ExcelWorksheet);
-        //            List<string> wkBks = new List<string>();
-        //            foreach (ExcelWorksheet wksheets in pckage.Workbook.Worksheets)
-        //            {
-        //                wkBks.Add(wksheets.Name);
-        //            }
-        //            lstWrkSheets.DataSource = wkBks;
-        //            lstWrkSheets.DataBind();
-        //            if ((lstWrkSheets.Items.Count > 0))
-        //            {
-        //                SuccessAlert("File recorded, select a worksheet to continue");
-        //            }
-        //            else
-        //            {
-        //                RedAlert("There was a problem reading the worksheets of the file");
-        //                return;
-        //            }
-
-
-        //            if (lstWrkSheets.Items.Count >= 1)
-        //            {
-        //                lstWrkSheets.Visible = true;
-        //                lblWrkSheetPrompt.Visible = true;
-        //            }
-        //            else
-        //            {
-        //                lblWrkSheetPrompt.Visible = false;
-        //                lstWrkSheets.Visible = false;
-        //            }
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            WarningAlert("Please select a file for upload");
-        //            return;
-        //        }
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        RedAlert(ex.Message);
-        //        return;
-        //    }
-        //}
 
         protected void UploadFile()
         {
@@ -174,8 +100,7 @@ namespace AGMSystem.Membership
                 }
                 else
                 {
-                    lblComms.Text = "Please select a file for upload";
-                    pnlComms.BackColor = System.Drawing.Color.Red;
+                    WarningAlert("Please select a file for upload");
                     return;
                 }
 
@@ -203,6 +128,7 @@ namespace AGMSystem.Membership
                     //lblComms.Text = "File Uploaded, select a worksheet to continue";
                     //lblComms.Text = "select a worksheet to continue";
                     //pnlComms.BackColor = System.Drawing.Color.Green;
+
                 }
                 else
                 {
@@ -228,52 +154,6 @@ namespace AGMSystem.Membership
                 pnlComms.BackColor = System.Drawing.Color.Red;
             }
         }
-        //private void SaveDocument()
-        //{
-        //    try
-        //    {
-        //        //if (txtDateOfUpload.Text == "")
-        //        //{
-        //        //    txtDateOfUpload.Text = DateTime.Today.ToString();
-        //        //}
-        //        using (Stream fs = flContributionsUpload.PostedFile.InputStream)
-        //        {
-        //            using (BinaryReader br = new BinaryReader(fs))
-        //            {
-        //                byte[] bytes = br.ReadBytes((Int32)fs.Length);
-        //                string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-        //                using (SqlConnection con = new SqlConnection(constr))
-        //                {
-
-        //                    string query = "insert into [FileUploads] values (@Name,@ContentType,@Data,@UploadReason,@DateCreated,@UploadedBy,@CompanyID,@FundID)";
-        //                    using (SqlCommand cmd = new SqlCommand(query))
-        //                    {
-        //                        cmd.Connection = con;
-        //                        cmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = txtFilenames.Value;
-        //                        cmd.Parameters.Add("@ContentType", SqlDbType.VarChar).Value = contentType.Value;
-        //                        cmd.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
-        //                        //cmd.Parameters.Add("@MemberID", SqlDbType.Int).Value = txtMemberID.Value;
-        //                        cmd.Parameters.Add("@UploadReason", SqlDbType.VarChar).Value = "New Entrant";
-        //                        cmd.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = DateTime.Now;
-        //                        cmd.Parameters.Add("@UploadedBy", SqlDbType.Int).Value = int.Parse(Session["userid"].ToString());
-        //                        //cmd.Parameters.Add("@CompanyID", SqlDbType.Int).Value = int.Parse(cboCompany.SelectedValue);
-        //                        cmd.Parameters.Add("@FundID", SqlDbType.Int).Value = int.Parse(txtFundID.Value);
-        //                        con.Open();
-        //                        cmd.ExecuteNonQuery();
-        //                        con.Close();
-
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        RedAlert(ex.Message);
-        //        return;
-        //    }
-        //}s
 
         protected void lstWrkSheets_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -318,7 +198,7 @@ namespace AGMSystem.Membership
                 if ((ds != null) && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     dsuld = ds;
-                    //ProcessUploadData(dsuld, FileName, int.Parse(cboCompany.SelectedValue), cboCompany.SelectedItem.Text.ToString());
+                    ProcessUploadData(dsuld, FileName);
                     olecon.Close();
 
                 }
@@ -336,20 +216,20 @@ namespace AGMSystem.Membership
                 return;
             }
         }
-        protected void ProcessUploadData(DataSet Ds, string FileUploadName, int CompanyID, string CompanyName)
+        protected void ProcessUploadData(DataSet Ds, string FileUploadName)
         {
             try
             {
                 long BatchUploadID = 0;
-                List<double> CountSuccessArray = new List<double>();
-                List<double> CountFailedArray = new List<double>();
+                List<string> CountSuccessArray = new List<string>();
+                List<string> CountFailedArray = new List<string>();
                 if ((dsReady != null))
                 {
                     //We Create BatchUpload Record and Get Batch ID
                     //
                     string DatesCreated = DateTime.Now.ToString("yyyy-MM-dd");
                     myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                    cmd = new SqlCommand("insert into EmployeesUploadBatch(BulkUploadFile,DateCreated,DateUpload,UploadStatus) values('" + CompanyID + "','" + FileUploadName + "','" + DatesCreated + "','" + DatesCreated + "','1')", myConnection);
+                    cmd = new SqlCommand("insert into EmployeesUploadBatch(BulkUploadFile,DateCreated,UploadStatus) values('" + FileUploadName + "','" + DatesCreated + "','1')", myConnection);
 
                     if ((myConnection.State == ConnectionState.Open))
                         myConnection.Close();
@@ -359,7 +239,7 @@ namespace AGMSystem.Membership
 
 
                     LookUp ebu = new LookUp("cn", 1);
-                    DataSet y = ebu.GetUploadedEmployee(CompanyID);
+                    DataSet y = ebu.GetUploadedEmployee();
 
                     foreach (DataRow rwset in y.Tables[0].Rows)
                     {
@@ -376,147 +256,70 @@ namespace AGMSystem.Membership
                     foreach (DataRow rw in Ds.Tables[0].Rows)
                     {
 
-                        if (Int32.TryParse(rw[0].ToString(), out int vv))
+                        if (!rw[2].ToString().IsNullOrWhiteSpace())
                         {
-                            if (rw[6].ToString().Trim() != "")
+                            if (rw[2].ToString().Trim() != "")
                             {
-                                rw[6] = rw[6].ToString().Replace("-", "").Replace(" ", "");
+                                rw[2] = rw[2].ToString().Replace("-", "").Replace(" ", "");
                             }
-                            if (rw[6].ToString() == "")
+                            if (rw[2].ToString() == "")
                             {
                                 string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                string Msg = $"National ID is missing for LastName {rw[4].ToString()} ,FirstName: {rw[5].ToString()} ";
+                                string Msg = $"National ID is missing for LastName {rw[1]} ,FirstName: {rw[0]} ";
                                 myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated,CreatedBy) values('0','" + Msg + "','" + dt + "','" + userid + "')", myConnection);
+                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated) values('0','" + Msg + "','" + dt + "')", myConnection);
                                 if ((myConnection.State == ConnectionState.Open))
                                     myConnection.Close();
                                 myConnection.Open();
                                 cmd.ExecuteNonQuery();
                                 myConnection.Close();
-                                double branchcode = double.Parse(rw[0].ToString());
+                                string nationalID = rw[2].ToString();
 
                                 for (int runs = 0; runs < 1; runs++)
                                 {
-                                    CountFailedArray.Add(branchcode);
+                                    CountFailedArray.Add(nationalID);
                                 }
                                 continue;
 
                             }
-                            else if (rw[4].ToString() == "" || rw[5].ToString() == "")
+                            else if (rw[0].ToString() == "" || rw[1].ToString() == "")
                             {
                                 string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                string Msg = $"Specify both first name and surname for NationalID {rw[6].ToString()} of Branch: {rw[0].ToString()}";
+                                string Msg = $"Specify both first name and surname for NationalID {rw[2]} of Company: {rw[5]}";
                                 myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,RegNo,Description,BranchCode,DateCreated,CreatedBy) values('" + rw[6].ToString() + "','" + Msg + "','" + dt + "','" + userid + "')", myConnection);
+                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated) values('" + rw[2].ToString() + "','" + Msg + "','" + dt + "')", myConnection);
                                 if ((myConnection.State == ConnectionState.Open))
                                     myConnection.Close();
                                 myConnection.Open();
                                 cmd.ExecuteNonQuery();
                                 myConnection.Close();
-                                double branchcode = double.Parse(rw[0].ToString());
+                                string nationalID = rw[2].ToString();
 
                                 for (int runs = 0; runs < 1; runs++)
                                 {
-                                    CountFailedArray.Add(branchcode);
+                                    CountFailedArray.Add(nationalID);
                                 }
-                                continue;
-                            }
-                            else if (Convert.ToDateTime(rw[7].ToString()).ToString() == "")
-                            {
-                                string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                string Msg = $"Date of birth is missing for NationalID {rw[6].ToString()} of Branch: {rw[0].ToString()}";
-                                myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated,CreatedBy) values('" + rw[6].ToString() + "','" + Msg + "','" + dt + "','" + userid + "')", myConnection);
-                                if ((myConnection.State == ConnectionState.Open))
-                                    myConnection.Close();
-                                myConnection.Open();
-                                cmd.ExecuteNonQuery();
-                                myConnection.Close();
-                                double branchcode = double.Parse(rw[0].ToString());
-
-                                for (int runs = 0; runs < 1; runs++)
-                                {
-                                    CountFailedArray.Add(branchcode);
-                                }
-                                continue;
-                            }
-                            else if (Convert.ToDateTime(rw[9].ToString()).ToString() == "")
-                            {
-                                string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                string Msg = $"Specify Date of joining fund for NationalID {rw[6].ToString()} of Branch: {rw[0].ToString()}";
-                                myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated,CreatedBy) values('" + rw[6].ToString() + "','" + Msg + "','" + dt + "','" + userid + "')", myConnection);
-                                if ((myConnection.State == ConnectionState.Open))
-                                    myConnection.Close();
-                                myConnection.Open();
-                                cmd.ExecuteNonQuery();
-                                myConnection.Close();
-                                double branchcode = double.Parse(rw[0].ToString());
-
-                                for (int runs = 0; runs < 1; runs++)
-                                {
-                                    CountFailedArray.Add(branchcode);
-                                }
-                                continue;
-                            }
-                            else if (rw[0].ToString() == "")
-                            {
-                                string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                string Msg = $"Specify Branch code for NationalID {rw[6].ToString()}";
-                                myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated,CreatedBy) values('" + rw[6].ToString() + "','" + Msg + "','" + dt + "','" + userid + "')", myConnection);
-                                if ((myConnection.State == ConnectionState.Open))
-                                    myConnection.Close();
-                                myConnection.Open();
-                                cmd.ExecuteNonQuery();
-                                myConnection.Close();
-                                double branchcode = double.Parse(rw[0].ToString());
-
-                                for (int runs = 0; runs < 1; runs++)
-                                {
-                                    CountFailedArray.Add(branchcode);
-                                }
-                                continue;
-                            }
-                            else if (rw[8].ToString() == "")
-                            {
-                                string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                string Msg = $"Gender is missing for NationalID {rw[6].ToString()} of Branch: {rw[0].ToString()}";
-                                myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,BranchCode,DateCreated,CreatedBy) values('" + rw[6].ToString() + "','" + Msg + "','" + dt + "','" + userid + "')", myConnection);
-                                if ((myConnection.State == ConnectionState.Open))
-                                    myConnection.Close();
-                                myConnection.Open();
-                                cmd.ExecuteNonQuery();
-                                myConnection.Close();
-                                double branchcode = double.Parse(rw[0].ToString());
-
-                                for (int runs = 0; runs < 1; runs++)
-                                {
-                                    CountFailedArray.Add(branchcode);
-                                }
-
                                 continue;
                             }
                             else
                             {
-                                if (f.ValidateMemberIDNumber(rw[6].ToString()))
+                                if (f.ValidateMemberIDNumber(rw[2].ToString()))
                                 {
                                     string dt = DateTime.Now.ToString("yyyy-MM-dd");
-                                    string Msg = $"Duplicate National Identity number: {rw[6].ToString()}. ID already exists for member: {rw[4].ToString()} {rw[5].ToString()}";
+                                    string Msg = $"Duplicate National Identity number: {rw[2]}. ID already exists for member: {rw[0]} {rw[1]}";
                                     myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                    cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,BranchCode,DateCreated,CreatedBy) values('" + rw[6].ToString() + "','" + Msg + "','" + rw[0].ToString() + "','" + dt + "','" + userid + "')", myConnection);
+                                    cmd = new SqlCommand("insert into FailedMemberUploads(NationalID,Description,DateCreated) values('" + rw[2].ToString() + "','" + Msg + "','" + dt + "')", myConnection);
                                     if ((myConnection.State == ConnectionState.Open))
                                         myConnection.Close();
                                     myConnection.Open();
                                     cmd.ExecuteNonQuery();
                                     myConnection.Close();
 
-                                    double branchcode = double.Parse(rw[0].ToString());
+                                    string nationalID = rw[2].ToString();
 
                                     for (int runs = 0; runs < 1; runs++)
                                     {
-                                        CountFailedArray.Add(branchcode);
+                                        CountFailedArray.Add(nationalID);
                                     }
 
                                     continue;
@@ -528,35 +331,21 @@ namespace AGMSystem.Membership
                                     int AddNewMemberRecord = 1;
 
 
-                                    DateTime DJC = Convert.ToDateTime(rw[9].ToString());
-                                    DateTime PSD = Convert.ToDateTime(rw[10].ToString());
-                                    DateTime DOB = Convert.ToDateTime(rw[7].ToString());
                                     DateTime DC = DateTime.Now;
-                                    string DJCs = DJC.ToString("yyyy-MM-dd");
-                                    string DOBs = DOB.ToString("yyyy-MM-dd");
-                                    string PSDs = PSD.ToString("yyyy-MM-dd");
                                     string DCs = DC.ToString("yyyy-MM-dd");
-                                    if (rw[8].ToString() == "Male" || rw[8].ToString() == "MALE")
-                                    {
-                                        rw[8] = "M";
-                                    }
-                                    else if (rw[8].ToString() == "Female" || rw[8].ToString() == "FEMALE")
-                                    {
-                                        rw[8] = "F";
-                                    }
                                     myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                    cmd = new SqlCommand("insert into ClientsFileUpload(EmployerName,membershipcategory,Surname,Forenames,IDNumber,DateOfBirth,Gender,CompanyID,DateOfUpload,DateCreated,UploadBatchID,CreatedBy,ProcessStatusID,addnewclientrecord,addnewmeberrecord) values('" + rw[1].ToString() + "','" + Convert.ToInt32(rw[2].ToString()) + "','" + rw[4].ToString() + "','" + rw[5].ToString() + "','" + rw[6].ToString() + "','" + DOBs + "','" + rw[8].ToString() + "','" + CompanyID + "','" + DCs + "','" + DCs + "','" + Convert.ToInt32(txtbatchID.Value) + "','" + int.Parse(txtSystemRef.Value) + "','" + false + "','" + AddNewClientRecord + "','" + AddNewMemberRecord + "')", myConnection);
+                                    cmd = new SqlCommand("insert into ClientsFileUpload(Company,Surname,FirstName,NationalID,DateOfUpload,UploadBatchID,ProcessStatusID,addnewclientrecord,addnewmeberrecord,PhoneNumber,Email) values('" + rw[5].ToString() + "','" + rw[1].ToString() + "','" + rw[0].ToString() + "','" + rw[2].ToString() + "','" + DCs + "','" + Convert.ToInt32(txtbatchID.Value) + "','" + false + "','" + AddNewClientRecord + "','" + AddNewMemberRecord + "','" + rw[3].ToString() + "','" + rw[4].ToString() +"')", myConnection);
                                     if ((myConnection.State == ConnectionState.Open))
                                         myConnection.Close();
                                     myConnection.Open();
                                     cmd.ExecuteNonQuery();
                                     myConnection.Close();
 
-                                    double branchcode = double.Parse(rw[0].ToString());
+                                    string nationalID = (rw[2].ToString());
 
                                     for (int runs = 0; runs < 1; runs++)
                                     {
-                                        CountSuccessArray.Add(branchcode);
+                                        CountSuccessArray.Add(nationalID);
                                     }
                                 }
                             }
@@ -564,14 +353,15 @@ namespace AGMSystem.Membership
                         }
                         else
                         {
+                            
                             break;
                         }
 
                     }
-                    double[] totalSucessarray = CountSuccessArray.ToArray();
+                    string[] totalSucessarray = CountSuccessArray.ToArray();
                     countSuccess = totalSucessarray.Count();
 
-                    double[] totalFailedarray = CountFailedArray.ToArray();
+                    string[] totalFailedarray = CountFailedArray.ToArray();
                     countFailed = totalFailedarray.Count();
 
                     if (totalFailedarray.Count() > 0)
@@ -628,117 +418,102 @@ namespace AGMSystem.Membership
                 RedAlert(ex.Message);
             }
         }
+        protected void btnProcess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProcessNewEntrantsRecords();
 
-        //protected void ProcessNewEntrantsRecords()
-        //{
-        //    try
-        //    {
+            }
+            catch (Exception ex)
+            {
+                RedAlert(ex.Message);
+            }
+        }
 
-        //        LookUp f = new LookUp("cn", 1);
-        //        string RegNo = f.getRegNo(int.Parse(txtFundID.Value));
-        //        //string getusername = Session["username"].ToString();
-        //        int userid = 0;
-        //        int ids = int.Parse(txtbatchID.Value);
-        //        DataSet clientupload = f.GetUploads(false, ids);
-        //        long ClientID = int.Parse(txtSystemRef.Value);
+        protected void ProcessNewEntrantsRecords()
+        {
+            try
+            {
 
-        //        if (clientupload != null)
-        //        {
-        //            foreach (DataRow item in clientupload.Tables[0].Rows)
-        //            {
-        //                DataSet dsElig = new DataSet();
-        //                if (f.getFundEligibilityRequirements(RegNo) != null)
-        //                {
-        //                    int Title_Id = 0;
-        //                    Guid guid = Guid.NewGuid();
-        //                    dsElig = f.getFundEligibilityRequirements(RegNo);
-        //                    DataRow rwE = dsElig.Tables[0].Rows[0];
-        //                    string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-        //                    SqlConnection sqlCon = null;
-        //                    using (sqlCon = new SqlConnection(constr))
-        //                    {
-        //                        sqlCon.Open();
-        //                        SqlCommand sql_cmnd = new SqlCommand("MemberPortal_ins", sqlCon);
-        //                        sql_cmnd.CommandType = CommandType.StoredProcedure;
-        //                        if (item["BranchCode"].ToString() == "F")
-        //                        {
-        //                            Title_Id = 3;
+                LookUp f = new LookUp("cn", 1);
+                int ids = int.Parse(txtbatchID.Value);
+                DataSet clientupload = f.GetUploads(false, ids);
 
-        //                        }
-        //                        else
-        //                        {
+                if (clientupload != null)
+                {
+                    foreach (DataRow item in clientupload.Tables[0].Rows)
+                    {
+                        DataSet dsElig = new DataSet();
+                            Guid guid = Guid.NewGuid();
+                            string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+                            SqlConnection sqlCon = null;
+                            using (sqlCon = new SqlConnection(constr))
+                            {
+                                sqlCon.Open();
+                                SqlCommand sql_cmnd = new SqlCommand("BulkMember_ins", sqlCon);
+                                sql_cmnd.CommandType = CommandType.StoredProcedure;
+                                
+                                sql_cmnd.Parameters.AddWithValue("@ClientID", SqlDbType.Int).Value = int.Parse(txtSystemRef.Value);
+                                sql_cmnd.Parameters.AddWithValue("@Company", SqlDbType.NVarChar).Value = item["Company"].ToString();
+                                sql_cmnd.Parameters.AddWithValue("@DateUploaded", SqlDbType.DateTime).Value = Convert.ToDateTime(item["DateOfUpload"].ToString());
+                                sql_cmnd.Parameters.AddWithValue("@StatusID", SqlDbType.Int).Value = 1;
+                                sql_cmnd.Parameters.AddWithValue("@msrepl_tran_version", SqlDbType.UniqueIdentifier).Value = guid;
+                                sql_cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = item["Surname"].ToString();
+                                sql_cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = item["FirstName"].ToString();
+                                sql_cmnd.Parameters.AddWithValue("@NationalID", SqlDbType.NVarChar).Value = item["NationalID"].ToString();
+                                sql_cmnd.Parameters.AddWithValue("@PhoneNumber", SqlDbType.NVarChar).Value = item["PhoneNumber"].ToString();
+                                sql_cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = item["Email"].ToString();
+                                sql_cmnd.ExecuteNonQuery();
+                                sqlCon.Close();
+                            }
 
-        //                            Title_Id = 1;
-        //                        }
-        //                        sql_cmnd.Parameters.AddWithValue("@ClientID", SqlDbType.Int).Value = Convert.ToInt32(ClientID);
-        //                        sql_cmnd.Parameters.AddWithValue("@CompanyNo", SqlDbType.Int).Value = item["BranchCode"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@Company_ID", SqlDbType.Int).Value = item["CompanyID"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@BranchId", SqlDbType.Int).Value = item["BranchCode"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@FundCategory_ID", SqlDbType.Int).Value = item["membershipcategory"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@MaritalStatus_ID", SqlDbType.Int).Value = 1;
-        //                        sql_cmnd.Parameters.AddWithValue("@AuthorisedBy", SqlDbType.Int).Value = 1;
-        //                        sql_cmnd.Parameters.AddWithValue("@ModifiedBy", SqlDbType.Int).Value = int.Parse(txtSystemRef.Value);
-        //                        sql_cmnd.Parameters.AddWithValue("@UploadedBy", SqlDbType.Int).Value = int.Parse(txtSystemRef.Value);
-        //                        sql_cmnd.Parameters.AddWithValue("@SplittedID", SqlDbType.Int).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@AvcsTATUS", SqlDbType.Bit).Value = false;
-        //                        sql_cmnd.Parameters.AddWithValue("@AVCMonthly", SqlDbType.Decimal).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@SplittedCompanyNo", SqlDbType.Int).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@NormalRetAge", SqlDbType.Int).Value = int.Parse(rwE["NormalRetirementAge"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@Title_Id", SqlDbType.Int).Value = Title_Id;
-        //                        sql_cmnd.Parameters.AddWithValue("@MonthsWaiting", SqlDbType.Int).Value = int.Parse(rwE["WaitingPeriod"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@MonthsSuspended", SqlDbType.Int).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@IntExitCode", SqlDbType.Int).Value = 1;
-        //                        sql_cmnd.Parameters.AddWithValue("@ExitCode", SqlDbType.Int).Value = -1;
-        //                        sql_cmnd.Parameters.AddWithValue("@AnnualSalary", SqlDbType.Decimal).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@StartupMember", SqlDbType.Decimal).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@StartupEmployer", SqlDbType.Decimal).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@TotalStartup", SqlDbType.Decimal).Value = 0;
-        //                        sql_cmnd.Parameters.AddWithValue("@DateOfBirth", SqlDbType.DateTime).Value = Convert.ToDateTime(item["DateOfBirth"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@DateJoinedCompany", SqlDbType.DateTime).Value = Convert.ToDateTime(item["DateJoinedCompany"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@PensionableServiceDate", SqlDbType.DateTime).Value = Convert.ToDateTime(item["PensionableserviceDate"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@TranferInDate", SqlDbType.DateTime).Value = Convert.ToDateTime(item["PensionableserviceDate"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@NormalRetDate", SqlDbType.DateTime).Value = Convert.ToDateTime((DateTime.Parse(item["DateOfBirth"].ToString()).AddYears(int.Parse(rwE["NormalRetirementAge"].ToString())).ToString()));
-        //                        sql_cmnd.Parameters.AddWithValue("@DateModified", SqlDbType.DateTime).Value = Convert.ToDateTime(item["DateOfUpload"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@DateUploaded", SqlDbType.DateTime).Value = Convert.ToDateTime(item["DateOfUpload"].ToString());
-        //                        sql_cmnd.Parameters.AddWithValue("@DOBConfirmed", SqlDbType.Bit).Value = true;
-        //                        sql_cmnd.Parameters.AddWithValue("@StatusID", SqlDbType.Int).Value = 1;
-        //                        sql_cmnd.Parameters.AddWithValue("@Authorised", SqlDbType.Bit).Value = true;
-        //                        sql_cmnd.Parameters.AddWithValue("@Active", SqlDbType.Bit).Value = true;
-        //                        sql_cmnd.Parameters.AddWithValue("@IsDeferred", SqlDbType.Bit).Value = false;
-        //                        sql_cmnd.Parameters.AddWithValue("@msrepl_tran_version", SqlDbType.UniqueIdentifier).Value = guid;
-        //                        sql_cmnd.Parameters.AddWithValue("@RegNo", SqlDbType.NVarChar).Value = RegNo;
-        //                        sql_cmnd.Parameters.AddWithValue("@Gender_ID", SqlDbType.NVarChar).Value = item["Gender"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@EmployeeReferenceNumber", SqlDbType.NVarChar).Value = item["EmployeeNumber"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = item["Surname"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = item["Forenames"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@IdentityNo", SqlDbType.NVarChar).Value = item["IDNumber"].ToString();
-        //                        sql_cmnd.Parameters.AddWithValue("@FundID", SqlDbType.Int).Value = int.Parse(txtFundID.Value);
-        //                        sql_cmnd.ExecuteNonQuery();
-        //                        sqlCon.Close();
-        //                    }
+                            updateclientupload(Convert.ToInt32(item["UploadBatchID"].ToString()));
 
-        //                    updateclientupload(Convert.ToInt32(item["UploadBatchID"].ToString()));
+                    }
 
-        //                }
-        //                else
-        //                {
-        //                    lblWarning.Text = "Please Enter Eligibility Rules First";
-        //                    //msgbox("Please Enter Eligibility Rules First");
-        //                    return;
-        //                }
-        //            }
+                }
 
-        //        }
+                SuccessAlert("Details Processed Successfully and awaiting approval");
+               }
+            catch (Exception ex)
+            {
+                RedAlert(ex.Message);
 
-        //        SuccessAlert("Details Processed Successfully and awaiting approval");
-        //        //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Details Processed Successfully');window.location ='./Employees.aspx?FundID=" + int.Parse(txtFundID.Value) + "';", true);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //lblDanger.Text = ex.Message;
-        //        RedAlert(ex.Message);
+            }
+        }
+        private void updateclientupload(int tid)
+        {
+            try
+            {
+                myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+                cmd = new SqlCommand("update ClientsFileUpload set ProcessStatusID ='1'  where UploadBatchID ='" + tid + "' ", myConnection);
 
-        //    }
-        //}
+                if ((myConnection.State == ConnectionState.Open))
+                    myConnection.Close();
+                myConnection.Open();
+                cmd.ExecuteNonQuery();
+                myConnection.Close();
+            }
+            catch (Exception x)
+            {
+
+                RedAlert(x.Message);
+            }
+            
+        }
+        protected void btnDiscard_Click(object sender, EventArgs e)
+        {
+            LookUp f = new LookUp("cn", 1);
+            string RegNo = f.getRegNo(long.Parse(txtFundID.Value));
+            DeleteMemberupload(RegNo);
+            DeleteFailedMemberupload(RegNo);
+            Response.Redirect(string.Format("MembershipUploads?FundID={0}", txtFundID.Value));
+            grdClientsView.DataSource = null;
+            grdClientsView.DataBind();
+
+            grdUploadError.DataSource = null;
+            grdUploadError.DataBind();
+        }
     }
 }

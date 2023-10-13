@@ -101,7 +101,7 @@
                           <tr>
                               <td colspan="12" style="text-align: center">
                                   <%--<asp:Button ID="btnProcess" CssClass="btn btn-primary btn-clean" OnClick="btnProcess_Click" OnClientClick="return confirm('Are you sure want you want to upload these contributions?');" runat="server" Text="Process Upload" />--%>
-                                  <asp:Button ID="btnProcess" CssClass="btn btn-primary btn-clean"  OnClientClick="return confirm('Are you sure want you want to upload these contributions?');" runat="server" Text="Process Upload" />
+                                  <asp:Button ID="btnProcess" CssClass="btn btn-primary btn-clean" OnClick="btnProcess_Click"  OnClientClick="return confirm('Are you sure want you want to upload these contributions?');" runat="server" Text="Process Upload" />
                                   
                                                                               | 
                                   <%--<asp:Button ID="btnDiscard" CssClass="btn btn-primary btn-clean" OnClick="btnDiscard_Click" runat="server" Text="Discard Upload" />--%>
@@ -128,13 +128,13 @@
                                                                   Style="border-collapse: collapse !important"
                                                                   AllowPaging="True" AllowSorting="True" runat="server">
                                                                   <columns>
-                                                                      <asp:BoundField DataField="ID" HeaderText="UploadID"></asp:BoundField>
-                                                                      <asp:BoundField DataField="EmployerName" HeaderText="EmployerName"></asp:BoundField>
+                                                                      <asp:BoundField DataField="ID" HeaderText="UploadID" Visible="false"></asp:BoundField>
+                                                                      <asp:BoundField DataField="Company" HeaderText="Company"></asp:BoundField>
                                                                       <asp:BoundField DataField="Surname" HeaderText="Surname"></asp:BoundField>
-                                                                      <asp:BoundField DataField="Forenames" HeaderText="Forename(s)"></asp:BoundField>
-                                                                      <asp:BoundField DataField="IDNumber" HeaderText="IDNumber"></asp:BoundField>
-                                                                      <asp:BoundField DataField="Gender" HeaderText="Gender"></asp:BoundField>
-                                                                      <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth"></asp:BoundField>
+                                                                      <asp:BoundField DataField="Firstname" HeaderText="Forename(s)"></asp:BoundField>
+                                                                      <asp:BoundField DataField="NationalID" HeaderText="Identity Number"></asp:BoundField>
+                                                                      <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
+                                                                      <asp:BoundField DataField="Email" HeaderText="Email Address"></asp:BoundField>
                                                                   </columns>
                                                               </asp:GridView>
                                                           </div>
@@ -163,10 +163,9 @@
                                                                   AllowPaging="True" AllowSorting="True" runat="server">
                                                                   <columns>
                                                                       <asp:BoundField DataField="ID" HeaderText="ID" />
-                                                                      <asp:BoundField DataField="NationalID" HeaderText="NationalID" />
+                                                                      <asp:BoundField DataField="NationalID" HeaderText="National ID" />
                                                                       <asp:BoundField DataField="Description" HeaderText="Description" />
-                                                                      <asp:BoundField DataField="BranchCode" HeaderText="BranchCode" />
-                                                                      <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" />
+                                                                      <asp:BoundField DataField="DateCreated" HeaderText="Date Of Upload" />
                                                                   </columns>
                                                               </asp:GridView>
                                                           </div>
@@ -193,6 +192,5 @@
           </div>
       </div>
       <!-- END RECENT -->
-  </div>
   <!-- END PAGE CONTAINER -->
 </asp:Content>

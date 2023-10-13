@@ -67,14 +67,14 @@
         <div class="col-sm-12 align-content-center">
             <asp:GridView ID="grdPresentationEvaluation" Width="100%" runat="server"
                 AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
-                DataKeyNames="ID"
+                DataKeyNames="ID" OnPageIndexChanging="grdPresentationEvaluation_PageIndexChanging"
                 CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                 Style="border-collapse: collapse !important"
                 AllowPaging="True" AllowSorting="True" PageSize="10" >
                 <Columns>
                    <asp:BoundField Visible="false" DataField="ID" HeaderText=" ID"></asp:BoundField>
                                     <asp:BoundField DataField="Question" HeaderText="Question "></asp:BoundField>
-                                    <asp:BoundField DataField="RatingID" HeaderText="Rating"></asp:BoundField>
+                                    <asp:BoundField DataField="Rating" HeaderText="Rating"></asp:BoundField>
                                     <asp:BoundField DataField="Comment" HeaderText="Comment"></asp:BoundField>
                   <%--  <asp:TemplateField HeaderText="Confirm">
                         <ItemTemplate>

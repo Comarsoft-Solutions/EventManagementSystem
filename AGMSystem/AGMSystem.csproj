@@ -556,6 +556,7 @@
     <Content Include="Membership\assets2\images\logo-dark.png" />
     <Content Include="Membership\assets2\images\logo-light.png" />
     <Content Include="Membership\assets2\images\logo-sm.png" />
+    <Content Include="Membership\assets2\images\logo.png" />
     <Content Include="Membership\assets2\images\products\img-1.png" />
     <Content Include="Membership\assets2\images\products\img-10.png" />
     <Content Include="Membership\assets2\images\products\img-2.png" />
@@ -740,6 +741,7 @@
     <Content Include="Projects\assets2\images\logo-dark.png" />
     <Content Include="Projects\assets2\images\logo-light.png" />
     <Content Include="Projects\assets2\images\logo-sm.png" />
+    <Content Include="Projects\assets2\images\logo.png" />
     <Content Include="Projects\assets2\images\products\img-1.png" />
     <Content Include="Projects\assets2\images\products\img-10.png" />
     <Content Include="Projects\assets2\images\products\img-2.png" />
@@ -831,6 +833,7 @@
     <Content Include="QnAs\assets2\libs\simplebar\simplebar.min.js" />
     <Content Include="QnAs\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="QnAs\assets2\libs\swiper\swiper-bundle.min.js" />
+    <Content Include="QnAs\assets2\logo.png" />
     <Content Include="QnAs\QnASubmissions.aspx" />
     <Content Include="QnAs\QuestionLog.aspx" />
     <Content Include="Registration\assets2\css\app.min.css" />
@@ -861,6 +864,7 @@
     <Content Include="Registration\assets2\images\logo-dark.png" />
     <Content Include="Registration\assets2\images\logo-light.png" />
     <Content Include="Registration\assets2\images\logo-sm.png" />
+    <Content Include="Registration\assets2\images\logo.png" />
     <Content Include="Registration\assets2\images\products\img-1.png" />
     <Content Include="Registration\assets2\images\products\img-10.png" />
     <Content Include="Registration\assets2\images\products\img-2.png" />
@@ -1063,6 +1067,7 @@
     <Content Include="reportSelect\assets2\images\logo-dark.png" />
     <Content Include="reportSelect\assets2\images\logo-light.png" />
     <Content Include="reportSelect\assets2\images\logo-sm.png" />
+    <Content Include="reportSelect\assets2\images\logo.png" />
     <Content Include="reportSelect\assets2\images\products\img-1.png" />
     <Content Include="reportSelect\assets2\images\products\img-10.png" />
     <Content Include="reportSelect\assets2\images\products\img-2.png" />
