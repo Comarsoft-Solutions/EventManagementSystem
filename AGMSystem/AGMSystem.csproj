@@ -329,6 +329,20 @@
     <Content Include="communication\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="communication\CommunicationsCenter.aspx" />
     <Content Include="Activities\Activities.aspx" />
+    <Content Include="communication\Templates\2023Principal Officers and Chairpersons Convention.html" />
+    <Content Include="communication\Templates\COPInvitation.html" />
+    <Content Include="communication\Templates\Evaluations.html" />
+    <Content Include="communication\Templates\Principal Officers and Chairpersons Convention.html" />
+    <Content Include="communication\Templates\trialfiles\image.jpg" />
+    <Content Include="communication\Templates\trialfiles\logo.png" />
+    <Content Include="communication\Templates\trialfiles\meeting.html" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\colorschememapping.xml" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\filelist.xml" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\image001.jpg" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\image002.jpg" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\image003.png" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\image004.png" />
+    <Content Include="communication\Templates\trialfiles\trial.html" />
     <Content Include="Events\AddPresenter.aspx" />
     <Content Include="Events\AGMEvent.aspx" />
     <Content Include="AGMLogin.aspx" />
@@ -1201,6 +1215,7 @@
     <Content Include="Activities\assets2\fonts\materialdesignicons-webfont.eot" />
     <Content Include="Activities\assets2\fonts\materialdesignicons-webfont.woff" />
     <Content Include="Activities\assets2\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="communication\Templates\trialfiles\meeting_files\themedata.thmx" />
     <None Include="Datasets\NameTags.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
