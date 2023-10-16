@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OnlinePages.Master" AutoEventWireup="true" CodeBehind="ProjectRSVP.aspx.cs" Inherits="AGMSystem.Projects.ProjectRSVP" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AGMSystem.Master" AutoEventWireup="true" CodeBehind="ProjectRSVP.aspx.cs" Inherits="AGMSystem.Projects.ProjectRSVP" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <div class="row">
                             <div class="col-12">
@@ -25,11 +25,12 @@
         <asp:HiddenField ID="txtQueryID" runat="server" />
         <asp:HiddenField ID="txtVenue" runat="server" />
         <asp:HiddenField ID="txtExamDate" runat="server" />
+        <asp:HiddenField ID="txtmemberID" runat="server" />
         <div class="column">
     <div class="mb-3">
 
-        <label for="old ID Number" class="form-label">Old ID Number <span class="text-danger">*</span></label>
-        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="Eng Malcolm Munyaradzi Machi" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" ></asp:TextBox>
+        <label for=" ID Number" class="form-label"> ID Number <span class="text-danger">*</span></label>
+        <asp:TextBox ID="txtNatID" CssClass="form-control" placeholder="63292921287T75" runat="server" AutoPostBack="true" OnTextChanged="txtNatID_TextChanged" ></asp:TextBox>
     </div>
 </div>
             <%--    <div class="column">
@@ -143,7 +144,7 @@
         <%-- Membership --%>
                 <div class="col-2">
     <div class="mb-1 mt-5 margin-right-0">
-        <label for="Member" class="form-label">Do you want Online Study </label>
+        <label for="Member" class="form-label">Do You Want Online Study? </label>
             </div>
 </div>
 <div class="col-1">

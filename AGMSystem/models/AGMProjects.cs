@@ -534,4 +534,136 @@ namespace AGMSystem.models
         }
         #endregion
     }
+    //End class
+
+    public class ProjectRsvpSave
+    {
+
+        #region variables
+        protected int mID;
+        protected int mMemberID;
+        protected int mProjectID;
+        protected bool mIsMember;
+        protected bool mOnlineStudy;
+        protected byte[] mProofOfPayment;
+
+        protected string mConnectionName;
+        protected Database db;
+        protected long mObjectUserID;
+        protected string mMsgFlg;
+        #endregion
+        #region props
+        public string Msgflg
+        {
+            get { return mMsgFlg; }
+
+            set { mMsgFlg = value; }
+        }
+        public int ID { get { return mID; } set { mID = value; } }
+        public int MemberID { get { return mMemberID; } set { mMemberID = value; } }
+        public int ProjectID { get { return mProjectID; } set { mProjectID = value; } }
+        public bool IsMember { get { return mIsMember; } set { mIsMember = value; } }
+        public bool OnlineStudy { get { return mOnlineStudy; } set { mOnlineStudy = value; } }
+        public byte[] ProofOfPayment { get { return mProofOfPayment; } set { mProofOfPayment = value; } }
+        #endregion
+
+        #region constructor
+        public ProjectRsvpSave(string ConnectionName, long ObjectUserID)
+        {
+            mObjectUserID = ObjectUserID;
+            mConnectionName = ConnectionName;
+            db = new DatabaseProviderFactory().Create(ConnectionName);
+        }
+        #endregion
+
+        #region methods
+
+        protected DataSet ReturnDs(string str)
+        {
+            try
+            {
+                DataSet ds = db.ExecuteDataSet(CommandType.Text, str);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+
+                    return ds;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                mMsgFlg = ex.Message;
+                return null;
+            }
+        }
+        public virtual void GenerateSaveParameters(ref Database db, ref System.Data.Common.DbCommand cmd)
+        {
+            db.AddInParameter(cmd, "@Id", DbType.Int32, mID);
+            db.AddInParameter(cmd, "@MemberID", DbType.Int32, mMemberID);
+            db.AddInParameter(cmd, "@ProjectID", DbType.Int32, mProjectID);
+            db.AddInParameter(cmd, "@IsMember", DbType.Int32, mIsMember);
+            db.AddInParameter(cmd, "@OnlineStudy", DbType.Boolean, mOnlineStudy);
+            //db.AddInParameter(cmd, "@ProofOfPayment", DbType.Binary, mProofOfPayment);
+
+        }
+
+        public Boolean CheckForMember(int projectID, int memberID)
+        {
+            try
+            {
+                string str = "Select * from ProjectsRsvp where MemberID=" + memberID+" and ProjectID="+projectID+"";
+                if (ReturnDs(str)!=null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                 
+            }
+            catch (Exception ex)
+            {
+
+                Msgflg = ex.Message;
+                return false;
+            }
+        }
+        public virtual bool Save()
+        {
+
+            System.Data.Common.DbCommand cmd = db.GetStoredProcCommand("sp_Save_ProjectRsvp");
+
+            GenerateSaveParameters(ref db, ref cmd);
+
+
+            try
+            {
+                DataSet ds = db.ExecuteDataSet(cmd);
+
+
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    mID = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+
+                }
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                mMsgFlg = ex.Message;
+                return false;
+
+            }
+
+        }
+        #endregion
+    }
+
 }

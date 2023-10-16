@@ -194,6 +194,9 @@
                                     <li class="nav-item">
                                         <a href="Projects/ProjectEnquiries.aspx" runat="server" id="pe" class="nav-link" data-key="t-chat">Project Enquiries </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="Projects/ProjectRSVP.aspx" runat="server" id="prs" class="nav-link" data-key="t-chat">Registration </a>
+                                    </li>
                                                                           <%--  <li class="nav-item">
                                             <a href="ProjectMembershipEnquiries.aspc" class="nav-link" data-key="t-mailbox"> Projects Membership Enquiries</a>
                                         </li>--%>

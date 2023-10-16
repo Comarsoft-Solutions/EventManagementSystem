@@ -96,6 +96,15 @@ namespace AGMSystem
         protected global::System.Web.UI.HtmlControls.HtmlAnchor pe;
 
         /// <summary>
+        /// prs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor prs;
+
+        /// <summary>
         /// db control.
         /// </summary>
         /// <remarks>

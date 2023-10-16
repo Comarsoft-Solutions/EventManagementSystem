@@ -31,7 +31,7 @@ namespace AGMSystem.Projects
                 {
                     ListItem li = new ListItem("Select Highest Education Qualification", "0");
                     txtEducation.DataSource = ds;
-                    txtEducation.DataTextField = "Qualification";
+                    txtEducation.DataTextField = "Qualifications";
                     txtEducation.DataValueField = "ID";
                     txtEducation.DataBind();
                     txtEducation.Items.Insert(0, li);
@@ -95,12 +95,12 @@ namespace AGMSystem.Projects
 
                 DataRow row = ds.Tables[0].Rows[0];
 
-
+                txtmemberID.Value = row["ID"].ToString();
                 txtFirstname.Text = row["FirstName"].ToString();
                 txtLastName.Text = row["LastName"].ToString();
                 txtEmail.Text = row["Email"].ToString();
                 txtPhoneNumber.Text = row["PhoneNumber"].ToString();
-                txtEducation.Text = row["Education"].ToString();
+                //txtEducation.Text = row["Education"].ToString();
                 txtCompany.Text = row["Company"].ToString();
                 txtQuery.Text = query.Query;
                 txtQueryID.Value = query.ID.ToString();
@@ -152,6 +152,69 @@ namespace AGMSystem.Projects
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ProjectRsvpSave pro = new ProjectRsvpSave("cn", 1);
+                if (pro.CheckForMember(int.Parse(txtProjects.SelectedValue),int.Parse(txtmemberID.Value)))
+                {
+                    WarningAlert("Member already registered");
+                    ClearForm();
+                }
+                else
+                {
+                    pro.ProjectID = int.Parse(txtProjects.SelectedValue);
+                    pro.MemberID = int.Parse(txtmemberID.Value);
+                    if (chkMmber.Checked)
+                    {
+                        pro.IsMember = true;
+                    }
+                    else
+                    {
+                        pro.IsMember = false;
+                    }
+                    if (chkPrivate.Checked)
+                    {
+                        pro.OnlineStudy = true;
+                    }
+                    else
+                    {
+                        pro.OnlineStudy = false;
+                    }
+
+                    if (pro.Save())
+                    {
+                        SuccessAlert(txtFirstname.Text + " Registered");
+                        ClearForm();
+                    }
+                    else
+                    {
+                        WarningAlert("Something happened");
+                    }
+                }
+
+            }
+            catch (Exception sd)
+            {
+                RedAlert (sd.Message);
+                
+            }
+        }
+
+
+        private void ClearForm()
+        {
+            txtFirstname.Text=string.Empty;
+            txtLastName.Text=string.Empty;
+            txtNatID.Text=string.Empty;
+            txtPhoneNumber.Text=string.Empty;
+            txtPhoneNumber.Text=string.Empty;
+            txtEmail.Text=string.Empty;
+            txtEducation.SelectedValue="0";
+            txtCompany.Text=string.Empty;
+            txtQuery.Text=string.Empty;
+            txtPensionFund.Text=string.Empty;
+            chkMmber.Checked = false;
+            chkPrivate.Checked = false;
 
         }
     }

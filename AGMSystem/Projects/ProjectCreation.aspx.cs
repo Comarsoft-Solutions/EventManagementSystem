@@ -60,10 +60,6 @@ namespace AGMSystem
 
                         
                     }
-                    if (DateTime.Parse(txtMaturity.Text)< DateTime.Parse(txtStartDate.Text))
-                    {
-                        AmberAlert("Enter Valid End Date");
-                    }
                     else
                     {
                         AmberAlert("Enter Valid Date");
@@ -132,14 +128,5 @@ namespace AGMSystem
             txtVenue.Text = "";
         }
 
-        public void msgbox(string strMessage)
-        {
-            string strScript = "<script language=JavaScript>";
-            strScript += "window.alert(\"" + strMessage + "\");";
-            strScript += "</script>";
-            System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
-            lbl.Text = strScript;
-            Page.Controls.Add(lbl);
-        }
     }
 }
