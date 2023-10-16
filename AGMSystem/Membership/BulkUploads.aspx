@@ -68,7 +68,7 @@
                                   <asp:Button ID="btnUpload" OnClick="btnUpload_Click" CssClass="btn btn-primary" runat="server" Text="Upload" />
                               </td>
                               <td colspan="3">
-                                  <asp:Button ID="btnDownload" OnClick="btnUpload_Click" CssClass="btn btn-primary" runat="server" Text="Download Template" />
+                                  <asp:Button ID="btnDownload" OnClick="btnDownload_Click" CssClass="btn btn-primary" runat="server" Text="Download Template" />
                               </td>
                           </tr>
                           <tr>
