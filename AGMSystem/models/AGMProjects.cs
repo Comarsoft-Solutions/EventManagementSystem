@@ -195,6 +195,19 @@ namespace AGMSystem.models
 
             return ReturnDs(str);
         }
+        public Boolean Checkproject( string name, string startdate, string maturity, string examdate)
+        {
+            string str = "select * from AGMProjects where [Name]='"+name+"' and StartDate= '"+startdate+"' and MaturityDate='"+maturity+"' and ExamDate='"+examdate+"'";
+
+            if (ReturnDs(str) !=null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public DataSet GetAllProjects()
         {
             string str = "select * from AGMProjects";

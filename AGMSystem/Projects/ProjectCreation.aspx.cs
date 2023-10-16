@@ -2,6 +2,7 @@
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -37,47 +38,58 @@ namespace AGMSystem
                 else
                 {
                     AGMProjects proj = new AGMProjects("cn", 1);
-                    if (DateTime.TryParse(txtStartDate.Text, out DateTime dt))
+                    bool ds = proj.Checkproject(txtProjName.Text,txtStartDate.Text,txtMaturity.Text,txtExamDate.Text);
+                    if (ds)
                     {
-                        proj.StartDate = Convert.ToDateTime(txtStartDate.Text);
-                    }
-                    else
-                    {
-                        AmberAlert("Enter Valid Date");
-                    }
-                    if (DateTime.TryParse(txtExamDate.Text, out DateTime edt))
-                    {
-                        proj.ExamDate = Convert.ToDateTime(txtExamDate.Text);
-                    }
-                    else
-                    {
-                        AmberAlert("Enter Valid Date");
-                    }
-                    if (DateTime.TryParse(txtMaturity.Text, out DateTime dte))
-                    {
-
-                        proj.MaturityDate = Convert.ToDateTime(txtMaturity.Text);
-
-                        
-                    }
-                    else
-                    {
-                        AmberAlert("Enter Valid Date");
-                    }
-                    proj.Name = txtProjName.Text;
-                    proj.Description = txtDescription.Text;
-                    proj.StatusID = Convert.ToInt32(txtStatusID.Value);
-                    proj.ID = Convert.ToInt32(txtID.Value);
-                    proj.Venue = txtVenue.Text;
-                    if (proj.Save())
-                    {
-                        SuccessAlert(txtProjName.Text + " Saved Sucessfully");
+                        AmberAlert("Project Already Exists");
                         clearForm();
                     }
                     else
                     {
-                        AmberAlert("There was an error on saving" + txtProjName.Text + " details: " + proj.MsgFlg);
+                        if (DateTime.TryParse(txtStartDate.Text, out DateTime dt))
+                        {
+                            proj.StartDate = Convert.ToDateTime(txtStartDate.Text);
+                        }
+                        else
+                        {
+                            AmberAlert("Enter Valid Date");
+                        }
+                        if (DateTime.TryParse(txtExamDate.Text, out DateTime edt))
+                        {
+                            proj.ExamDate = Convert.ToDateTime(txtExamDate.Text);
+                        }
+                        else
+                        {
+                            AmberAlert("Enter Valid Date");
+                        }
+                        if (DateTime.TryParse(txtMaturity.Text, out DateTime dte))
+                        {
+
+                            proj.MaturityDate = Convert.ToDateTime(txtMaturity.Text);
+
+
+                        }
+                        else
+                        {
+                            AmberAlert("Enter Valid Date");
+                        }
+                        proj.Name = txtProjName.Text;
+                        proj.Description = txtDescription.Text;
+                        proj.StatusID = Convert.ToInt32(txtStatusID.Value);
+                        proj.ID = Convert.ToInt32(txtID.Value);
+                        proj.Venue = txtVenue.Text;
+                        if (proj.Save())
+                        {
+                            SuccessAlert(txtProjName.Text + " Saved Sucessfully");
+                            clearForm();
+                        }
+                        else
+                        {
+                            AmberAlert("There was an error on saving" + txtProjName.Text + " details: " + proj.MsgFlg);
+                        }
                     }
+
+                    
                 }
 
 
