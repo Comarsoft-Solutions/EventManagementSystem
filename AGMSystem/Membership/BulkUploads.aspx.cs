@@ -383,12 +383,15 @@ namespace AGMSystem.Membership
                         grdClientsView.DataBind();
 
                         grdClientsView.Visible = true;
+                        pnlClientsView.Visible = true;
+                        pnlerror.Visible = false;
                     }
                     else
                     {
                         grdClientsView.DataSource = null;
                         grdClientsView.DataBind();
                         grdClientsView.Visible = false;
+                        pnlClientsView.Visible = false;
 
                     }
                     if (getFailed != null)
@@ -397,6 +400,8 @@ namespace AGMSystem.Membership
                         grdUploadError.DataBind();
 
                         grdUploadError.Visible = true;
+                        pnlerror.Visible = true;
+                        pnlClientsView.Visible=false;
                     }
                     else
                     {
@@ -502,18 +507,85 @@ namespace AGMSystem.Membership
             }
             
         }
+        private void DeleteMemberupload()
+        {
+            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            cmd = new SqlCommand("Delete from ClientsFileUpload where ProcessStatusID=0 and UploadBatchID ='" + int.Parse(txtbatchID.Value) + "'", myConnection);
+            if ((myConnection.State == ConnectionState.Open))
+                myConnection.Close();
+            myConnection.Open();
+            cmd.ExecuteNonQuery();
+            myConnection.Close();
+        }
+
+        private void DeleteFailedMemberupload()
+        {
+            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            cmd = new SqlCommand("Truncate Table FailedMemberUploads ", myConnection);
+
+            if ((myConnection.State == ConnectionState.Open))
+                myConnection.Close();
+            myConnection.Open();
+            cmd.ExecuteNonQuery();
+            myConnection.Close();
+        }
         protected void btnDiscard_Click(object sender, EventArgs e)
         {
-            LookUp f = new LookUp("cn", 1);
-            string RegNo = f.getRegNo(long.Parse(txtFundID.Value));
-            DeleteMemberupload(RegNo);
-            DeleteFailedMemberupload(RegNo);
-            Response.Redirect(string.Format("MembershipUploads?FundID={0}", txtFundID.Value));
+            DeleteMemberupload();
+            DeleteFailedMemberupload();
+            Response.Redirect(string.Format("BulkUploads"));
             grdClientsView.DataSource = null;
             grdClientsView.DataBind();
+            pnlClientsView.Visible = false;
 
             grdUploadError.DataSource = null;
             grdUploadError.DataBind();
+            pnlerror.Visible = false;
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            byte[] bytes = null;
+            string fileName = null;
+            string contentType = null;
+            string constr = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT Name, Data,ContentType FROM EntrantUploadTemplate";
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        sdr.Read();
+                        if ((sdr.HasRows))
+                        {
+                            bytes = (byte[])sdr["Data"];
+                            contentType = sdr["ContentType"].ToString();
+                            fileName = sdr["Name"].ToString();
+                        }
+                        else
+                        {
+                            bytes = null;
+                            contentType = null;
+                            fileName = string.Empty;
+                        }
+
+                    }
+                    con.Close();
+                }
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.ContentType = contentType;
+                Response.AddHeader("content-disposition", "attachment;filename=\"" + fileName + "");
+                Response.BinaryWrite(bytes);
+                Response.Flush();
+                Response.End();
+            }
+
+
         }
     }
 }

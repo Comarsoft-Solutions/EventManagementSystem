@@ -774,6 +774,7 @@
     <Content Include="Projects\assets2\libs\swiper\swiper-bundle.min.css" />
     <Content Include="Projects\assets2\libs\swiper\swiper-bundle.min.js" />
     <Content Include="Projects\ProjectMembershipEnquiries.aspx" />
+    <Content Include="Projects\ProjectRSVP.aspx" />
     <Content Include="QnAs\assets2\css\app.min.css" />
     <Content Include="QnAs\assets2\css\bootstrap.min.css" />
     <Content Include="QnAs\assets2\css\custom.min.css" />
@@ -1417,6 +1418,13 @@
     </Compile>
     <Compile Include="Projects\ProjectMembershipEnquiries.aspx.designer.cs">
       <DependentUpon>ProjectMembershipEnquiries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\ProjectRSVP.aspx.cs">
+      <DependentUpon>ProjectRSVP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projects\ProjectRSVP.aspx.designer.cs">
+      <DependentUpon>ProjectRSVP.aspx</DependentUpon>
     </Compile>
     <Compile Include="QnAs\QnASubmissions.aspx.cs">
       <DependentUpon>QnASubmissions.aspx</DependentUpon>

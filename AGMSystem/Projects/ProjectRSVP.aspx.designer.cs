@@ -7,254 +7,191 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AGMSystem.Membership
+namespace AGMSystem.Projects
 {
 
 
-    public partial class BulkUploads
+    public partial class ProjectRSVP
     {
 
         /// <summary>
-        /// txtID control.
+        /// txtProjects control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtID;
+        protected global::System.Web.UI.WebControls.DropDownList txtProjects;
 
         /// <summary>
-        /// txtSystemRef control.
+        /// txtProjectID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtSystemRef;
+        protected global::System.Web.UI.WebControls.HiddenField txtProjectID;
 
         /// <summary>
-        /// txtFundID control.
+        /// txtQueryID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtFundID;
+        protected global::System.Web.UI.WebControls.HiddenField txtQueryID;
 
         /// <summary>
-        /// txtViewType control.
+        /// txtVenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtViewType;
+        protected global::System.Web.UI.WebControls.HiddenField txtVenue;
 
         /// <summary>
-        /// txtbatchID control.
+        /// txtExamDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtbatchID;
+        protected global::System.Web.UI.WebControls.HiddenField txtExamDate;
 
         /// <summary>
-        /// txtRegNo control.
+        /// txtNatID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtRegNo;
+        protected global::System.Web.UI.WebControls.TextBox txtNatID;
 
         /// <summary>
-        /// txtFilenames control.
+        /// txtFirstname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtFilenames;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstname;
 
         /// <summary>
-        /// contentType control.
+        /// txtLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField contentType;
+        protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// HiddenField1 control.
+        /// txtPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
 
         /// <summary>
-        /// pnlComms control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlComms;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// lblComms control.
+        /// txtEducation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComms;
+        protected global::System.Web.UI.WebControls.DropDownList txtEducation;
 
         /// <summary>
-        /// txtMemberID control.
+        /// txtPensionFund control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField txtMemberID;
+        protected global::System.Web.UI.WebControls.TextBox txtPensionFund;
 
         /// <summary>
-        /// lblCurrentMembers control.
+        /// txtCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentMembers;
+        protected global::System.Web.UI.WebControls.TextBox txtCompany;
 
         /// <summary>
-        /// lblFailedUploads control.
+        /// flRsvpUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFailedUploads;
+        protected global::System.Web.UI.WebControls.FileUpload flRsvpUpload;
 
         /// <summary>
-        /// flContributionsUpload control.
+        /// txtQuery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flContributionsUpload;
+        protected global::System.Web.UI.WebControls.TextBox txtQuery;
 
         /// <summary>
-        /// btnUpload control.
+        /// chkMmber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpload;
+        protected global::System.Web.UI.WebControls.CheckBox chkMmber;
 
         /// <summary>
-        /// btnDownload control.
+        /// chkPrivate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDownload;
+        protected global::System.Web.UI.WebControls.CheckBox chkPrivate;
 
         /// <summary>
-        /// lstWrkSheets control.
+        /// btnRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstWrkSheets;
+        protected global::System.Web.UI.WebControls.Button btnRegister;
 
         /// <summary>
-        /// lblWrkSheetPrompt control.
+        /// pnlConfirmed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWrkSheetPrompt;
+        protected global::System.Web.UI.WebControls.Panel pnlConfirmed;
 
         /// <summary>
-        /// txtFilePath control.
+        /// GrdRegisteredMembers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilePath;
-
-        /// <summary>
-        /// txtFileName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFileName;
-
-        /// <summary>
-        /// btnProcess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProcess;
-
-        /// <summary>
-        /// btnDiscard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDiscard;
-
-        /// <summary>
-        /// pnlClientsView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlClientsView;
-
-        /// <summary>
-        /// grdClientsView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdClientsView;
-
-        /// <summary>
-        /// pnlerror control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlerror;
-
-        /// <summary>
-        /// grdUploadError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdUploadError;
+        protected global::System.Web.UI.WebControls.GridView GrdRegisteredMembers;
     }
 }

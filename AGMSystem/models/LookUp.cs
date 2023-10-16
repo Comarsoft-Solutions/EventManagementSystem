@@ -47,6 +47,11 @@ namespace AGMSystem.models
             }
         }
        
+        public DataSet GetQualifications()
+        {
+            string str = "Select * from EducationQualifications";
+            return ReturnDs(str);
+        }
         public DataSet GetRatings()
         {
             string str = "Select * from PresentationRating";

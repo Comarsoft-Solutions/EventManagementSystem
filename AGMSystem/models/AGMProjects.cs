@@ -15,7 +15,9 @@ namespace AGMSystem.models
         protected int mID;
         protected string mName;
         protected string mDescription;
+        protected string mVenue;
         protected DateTime mStartDate;
+        protected DateTime mExamDate;
         protected DateTime mMaturityDate;
         protected DateTime mDateCreated;
         protected int mStatusID;
@@ -56,6 +58,11 @@ namespace AGMSystem.models
             get { return mMaturityDate; }
             set { mMaturityDate = value; }
         }
+        public DateTime ExamDate
+        {
+            get { return mExamDate; }
+            set { mExamDate = value; }
+        }
 
         public DateTime DateCreated
         {
@@ -73,6 +80,11 @@ namespace AGMSystem.models
         {
             get { return mName; }
             set { mName = value; }
+        }
+        public string Venue
+        {
+            get { return mVenue; }
+            set { mVenue = value; }
         }
 
         public string Description
@@ -194,9 +206,10 @@ namespace AGMSystem.models
             db.AddInParameter(cmd, "@ID", DbType.Int32, mID);
             db.AddInParameter(cmd, "@StartDate", DbType.DateTime, mStartDate);
             db.AddInParameter(cmd, "@MaturityDate", DbType.DateTime, mMaturityDate);
-            //db.AddInParameter(cmd, "@DateCreated", DbType.DateTime, mDateCreated);
+            db.AddInParameter(cmd, "@ExamDate", DbType.DateTime, mExamDate);
             db.AddInParameter(cmd, "@StatusID", DbType.Int32, mStatusID);
             db.AddInParameter(cmd, "@Name", DbType.String, mName);
+            db.AddInParameter(cmd, "@Venue", DbType.String, mVenue);
             db.AddInParameter(cmd, "@Description", DbType.String, mDescription);
 
         }

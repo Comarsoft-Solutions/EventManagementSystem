@@ -64,8 +64,11 @@
                               <td colspan="4">
                                   <asp:FileUpload ID="flContributionsUpload" runat="server" accept=".xls,.xlsx,.csv" />
                               </td>
-                              <td colspan="4">
-                                  <asp:Button ID="Button1" OnClick="btnUpload_Click" CssClass="btn btn-primary" runat="server" Text="Upload" />
+                              <td colspan="3">
+                                  <asp:Button ID="btnUpload" OnClick="btnUpload_Click" CssClass="btn btn-primary" runat="server" Text="Upload" />
+                              </td>
+                              <td colspan="3">
+                                  <asp:Button ID="btnDownload" OnClick="btnUpload_Click" CssClass="btn btn-primary" runat="server" Text="Download Template" />
                               </td>
                           </tr>
                           <tr>
@@ -105,11 +108,11 @@
                                   
                                                                               | 
                                   <%--<asp:Button ID="btnDiscard" CssClass="btn btn-primary btn-clean" OnClick="btnDiscard_Click" runat="server" Text="Discard Upload" />--%>
-                                  <asp:Button ID="btnDiscard" CssClass="btn btn-primary btn-clean"  runat="server" Text="Discard Upload" />
+                                  <asp:Button ID="btnDiscard" CssClass="btn btn-primary btn-clean" OnClick="btnDiscard_Click"  runat="server" Text="Discard Upload" />
                               </td>
                           </tr>
                           <tr>
-
+                              <asp:Panel ID="pnlClientsView" Visible="false" runat="server">
                               <td colspan="12" style="width: 100%;">
                                   <table style="max-width: 100vw">
 
@@ -148,7 +151,7 @@
                                           </td>
                                       </tr>
                                       <tr>
-
+                                          <asp:Panel ID="pnlerror" Visible="false" runat="server">
                                           <td colspan="12" style="width: 100%;">
                                               <table style="max-width: 100vw">
                                                   <tr>
@@ -177,9 +180,11 @@
 
 
                                           </td>
+                                          </asp:Panel>
                                       </tr>
                                   </table>
                               </td>
+                              </asp:Panel>
                           </tr>
                       </table>
                   </div>

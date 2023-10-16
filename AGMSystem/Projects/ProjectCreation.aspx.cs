@@ -45,6 +45,14 @@ namespace AGMSystem
                     {
                         AmberAlert("Enter Valid Date");
                     }
+                    if (DateTime.TryParse(txtExamDate.Text, out DateTime edt))
+                    {
+                        proj.ExamDate = Convert.ToDateTime(txtExamDate.Text);
+                    }
+                    else
+                    {
+                        AmberAlert("Enter Valid Date");
+                    }
                     if (DateTime.TryParse(txtMaturity.Text, out DateTime dte))
                     {
 
@@ -64,6 +72,7 @@ namespace AGMSystem
                     proj.Description = txtDescription.Text;
                     proj.StatusID = Convert.ToInt32(txtStatusID.Value);
                     proj.ID = Convert.ToInt32(txtID.Value);
+                    proj.Venue = txtVenue.Text;
                     if (proj.Save())
                     {
                         SuccessAlert(txtProjName.Text + " Saved Sucessfully");
@@ -118,7 +127,9 @@ namespace AGMSystem
             txtProjName.Text="";
             txtStartDate.Text = "";
             txtMaturity.Text = "";
+            txtExamDate.Text = "";
             txtDescription.Text = "";
+            txtVenue.Text = "";
         }
 
         public void msgbox(string strMessage)

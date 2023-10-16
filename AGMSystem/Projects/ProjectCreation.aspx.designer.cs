@@ -60,6 +60,24 @@ namespace AGMSystem
         protected global::System.Web.UI.WebControls.TextBox txtMaturity;
 
         /// <summary>
+        /// txtExamDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExamDate;
+
+        /// <summary>
+        /// txtVenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtVenue;
+
+        /// <summary>
         /// txtDescription control.
         /// </summary>
         /// <remarks>
