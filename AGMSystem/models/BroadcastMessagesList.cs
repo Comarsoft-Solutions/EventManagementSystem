@@ -86,8 +86,6 @@ namespace AGMSystem.models
 
         #endregion
 
-        #region "Methods"
-
         #region "Constructors"
 
 
@@ -100,6 +98,9 @@ namespace AGMSystem.models
         }
 
         #endregion
+
+        #region "Methods"
+
 
 
         public void Clear()

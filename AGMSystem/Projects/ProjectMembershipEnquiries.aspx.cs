@@ -29,11 +29,11 @@ namespace AGMSystem.Projects
         }
         private void GetAllMembers(int ProjectID)
         {
-            RegistrationSave mem = new RegistrationSave("cn", 1);
+            ProjectRsvpSave mem = new ProjectRsvpSave("cn", 1);
             //AGMQueries mem = new AGMQueries("cn", 1);
-            if (mem.GetSomeMembers(int.Parse(txtProjectID.Value)) != null)
+            if (mem.GetRegistered(int.Parse(txtProjectID.Value)) != null)
             {
-                grdProjectMembership.DataSource = mem.GetSomeMembers(int.Parse(txtProjectID.Value));
+                grdProjectMembership.DataSource = mem.GetRegistered(int.Parse(txtProjectID.Value));
                 grdProjectMembership.DataBind();
 
             }

@@ -60,8 +60,11 @@
                         <asp:CheckBoxField />
                         <asp:BoundField DataField="FirstName" HeaderText="First Name"></asp:BoundField>
                         <asp:BoundField DataField="LastName" HeaderText="Last Name"></asp:BoundField>
-                        <asp:BoundField DataField="PensionFund" HeaderText="Pension Fund"></asp:BoundField>
+                        <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
+                        <asp:BoundField DataField="Email" HeaderText="Email "></asp:BoundField>
                         <asp:BoundField DataField="Company" HeaderText="Company Name"></asp:BoundField>
+                        <asp:BoundField DataField="IsMember" HeaderText="Member"></asp:BoundField>
+                        <asp:BoundField DataField="OnlineStudy" HeaderText="Online Study"></asp:BoundField>
                         <%--<asp:BoundField DataField="Status" HeaderText="Status"></asp:BoundField>--%>
                         <%--<asp:TemplateField HeaderText="Action">
                             <ItemTemplate>

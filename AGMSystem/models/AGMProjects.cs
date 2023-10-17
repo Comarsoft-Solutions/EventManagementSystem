@@ -590,7 +590,11 @@ namespace AGMSystem.models
         #endregion
 
         #region methods
-
+        public DataSet GetRegistered(int projectID)
+        {
+            string str = "Select pr.ID,FirstName,LastName,Company,Email,PhoneNumber,case IsMember when 1 then 'Yes' else 'No' end as IsMember, case OnlineStudy when 1 then'Yes' else'no' end as OnlineStudy from ProjectsRsvp pr inner join RegistrationMembers rm on pr.MemberID=rm.Id where ProjectID="+projectID+"";
+            return ReturnDs(str);
+        }
         protected DataSet ReturnDs(string str)
         {
             try
