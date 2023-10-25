@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/AGMSystem/FileUploads/zapf responses.xlsx
+/AGMSystem/FileUploads/NewEntrantsUploadTemplate (1).xlsx
+/AGMSystem/communication/Attachments/NewEntrantsUploadTemplate (1).xlsx
+/AGMSystem/communication/Attachments/Assets_0.xls
