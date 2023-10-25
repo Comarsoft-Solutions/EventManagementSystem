@@ -334,7 +334,7 @@ namespace AGMSystem.Membership
                                     DateTime DC = DateTime.Now;
                                     string DCs = DC.ToString("yyyy-MM-dd");
                                     myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-                                    cmd = new SqlCommand("insert into ClientsFileUpload(Company,Surname,FirstName,NationalID,DateOfUpload,UploadBatchID,ProcessStatusID,addnewclientrecord,addnewmeberrecord,PhoneNumber,Email) values('" + rw[5].ToString() + "','" + rw[1].ToString() + "','" + rw[0].ToString() + "','" + rw[2].ToString() + "','" + DCs + "','" + Convert.ToInt32(txtbatchID.Value) + "','" + false + "','" + AddNewClientRecord + "','" + AddNewMemberRecord + "','" + rw[3].ToString() + "','" + rw[4].ToString() +"')", myConnection);
+                                    cmd = new SqlCommand("insert into ClientsFileUpload(Company,Surname,FirstName,NationalID,DateOfUpload,UploadBatchID,ProcessStatusID,addnewclientrecord,addnewmeberrecord,PensionFund,Email) values('" + rw[5].ToString() + "','" + rw[1].ToString() + "','" + rw[0].ToString() + "','" + rw[2].ToString() + "','" + DCs + "','" + Convert.ToInt32(txtbatchID.Value) + "','" + false + "','" + AddNewClientRecord + "','" + AddNewMemberRecord + "','" + rw[3].ToString() + "','" + rw[4].ToString() +"')", myConnection);
                                     if ((myConnection.State == ConnectionState.Open))
                                         myConnection.Close();
                                     myConnection.Open();
@@ -467,7 +467,7 @@ namespace AGMSystem.Membership
                                 sql_cmnd.Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = item["Surname"].ToString();
                                 sql_cmnd.Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = item["FirstName"].ToString();
                                 sql_cmnd.Parameters.AddWithValue("@NationalID", SqlDbType.NVarChar).Value = item["NationalID"].ToString();
-                                sql_cmnd.Parameters.AddWithValue("@PhoneNumber", SqlDbType.NVarChar).Value = item["PhoneNumber"].ToString();
+                                sql_cmnd.Parameters.AddWithValue("@PensionFund", SqlDbType.NVarChar).Value = item["PensionFund"].ToString();
                                 sql_cmnd.Parameters.AddWithValue("@Email", SqlDbType.NVarChar).Value = item["Email"].ToString();
                                 sql_cmnd.ExecuteNonQuery();
                                 sqlCon.Close();

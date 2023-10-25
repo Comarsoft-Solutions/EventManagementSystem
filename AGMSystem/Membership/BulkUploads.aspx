@@ -104,7 +104,7 @@
                           <tr>
                               <td colspan="12" style="text-align: center">
                                   <%--<asp:Button ID="btnProcess" CssClass="btn btn-primary btn-clean" OnClick="btnProcess_Click" OnClientClick="return confirm('Are you sure want you want to upload these contributions?');" runat="server" Text="Process Upload" />--%>
-                                  <asp:Button ID="btnProcess" CssClass="btn btn-primary btn-clean" OnClick="btnProcess_Click"  OnClientClick="return confirm('Are you sure want you want to upload these contributions?');" runat="server" Text="Process Upload" />
+                                  <asp:Button ID="btnProcess" CssClass="btn btn-primary btn-clean" OnClick="btnProcess_Click"  OnClientClick="return confirm('Are you sure want you want to upload these Members?');" runat="server" Text="Process Upload" />
                                   
                                                                               | 
                                   <%--<asp:Button ID="btnDiscard" CssClass="btn btn-primary btn-clean" OnClick="btnDiscard_Click" runat="server" Text="Discard Upload" />--%>
@@ -136,7 +136,7 @@
                                                                       <asp:BoundField DataField="Surname" HeaderText="Surname"></asp:BoundField>
                                                                       <asp:BoundField DataField="Firstname" HeaderText="Forename(s)"></asp:BoundField>
                                                                       <asp:BoundField DataField="NationalID" HeaderText="Identity Number"></asp:BoundField>
-                                                                      <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
+                                                                      <asp:BoundField DataField="PensionFund" HeaderText="Pension Scheme"></asp:BoundField>
                                                                       <asp:BoundField DataField="Email" HeaderText="Email Address"></asp:BoundField>
                                                                   </columns>
                                                               </asp:GridView>
