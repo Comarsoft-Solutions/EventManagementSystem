@@ -112,13 +112,14 @@
                               </td>
                           </tr>
                           <tr>
-                              <asp:Panel ID="pnlClientsView" Visible="false" runat="server">
                               <td colspan="12" style="width: 100%;">
                                   <table style="max-width: 100vw">
 
                                       <tr>
 
                                           <td colspan="12" style="width: 100%;">
+                                              
+                              <asp:Panel ID="pnlClientsView" Visible="false" runat="server">
                                               <table style="max-width: 100vw">
                                                   <tr>
                                                       <td colspan="12">Pending Members Upload</td>
@@ -146,9 +147,11 @@
                                               </table>
 
 
-
+                                  
+                              </asp:Panel>
 
                                           </td>
+
                                       </tr>
                                       <tr>
                                           <asp:Panel ID="pnlerror" Visible="false" runat="server">
@@ -162,7 +165,7 @@
                                                           <div style="display: block; overflow: scroll; height: 40vh; display: grid;">
                                                               <%--<asp:GridView ID="grdUploadError" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" AutoGenerateColumns="false" CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"--%>
                                                               <asp:GridView ID="grdUploadError"  PageSize="10" AutoGenerateColumns="false" CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
-                                                                  Style="border-collapse: collapse !important"
+                                                                  Style="border-collapse: collapse !important" OnPageIndexChanging="grdUploadError_PageIndexChanging"
                                                                   AllowPaging="True" AllowSorting="True" runat="server">
                                                                   <columns>
                                                                       <asp:BoundField DataField="ID" HeaderText="ID" />
@@ -184,7 +187,6 @@
                                       </tr>
                                   </table>
                               </td>
-                              </asp:Panel>
                           </tr>
                       </table>
                   </div>

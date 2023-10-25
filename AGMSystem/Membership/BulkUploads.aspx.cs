@@ -255,6 +255,7 @@ namespace AGMSystem.Membership
                     int userid = int.Parse(txtSystemRef.Value);
                     foreach (DataRow rw in Ds.Tables[0].Rows)
                     {
+                        pnlerror.Visible = true;
 
                         if (!rw[2].ToString().IsNullOrWhiteSpace())
                         {
@@ -279,6 +280,7 @@ namespace AGMSystem.Membership
                                 {
                                     CountFailedArray.Add(nationalID);
                                 }
+                                pnlerror.Visible = true;
                                 continue;
 
                             }
@@ -299,6 +301,7 @@ namespace AGMSystem.Membership
                                 {
                                     CountFailedArray.Add(nationalID);
                                 }
+                                pnlerror.Visible = true;
                                 continue;
                             }
                             else
@@ -321,7 +324,7 @@ namespace AGMSystem.Membership
                                     {
                                         CountFailedArray.Add(nationalID);
                                     }
-
+                                    pnlerror.Visible = true;
                                     continue;
                                 }
                                 else
@@ -585,6 +588,11 @@ namespace AGMSystem.Membership
                 Response.End();
             }
 
+
+        }
+
+        protected void grdUploadError_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
 
         }
     }
