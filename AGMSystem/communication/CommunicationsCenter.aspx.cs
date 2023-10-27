@@ -230,6 +230,7 @@ namespace AGMSystem.communication
 
                         <p>Dear Member,</p>
                         <p>{MessageBody}</p>
+                        <p>Looking forward to your submissions.</p>
                         <p>Regards,</p>
                         <p>ZAPF </p>
                     </body>

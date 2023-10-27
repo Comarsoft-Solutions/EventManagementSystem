@@ -593,7 +593,91 @@ namespace AGMSystem.Membership
 
         protected void grdUploadError_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            grdUploadError.PageIndex = e.NewPageIndex;
+            this.BindGridError(e.NewPageIndex);
+        }
+        private void BindGridError(int page = 0)
+        {
+            try
+            {
+                LookUp r = new LookUp("cn", 1);
+                DataSet c = r.GetFailedMemberUploads();
+                if (c != null)
+                {
+                    int maxPageIndex = grdClientsView.PageCount - 1;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        if (maxPageIndex >= 0)
+                        {
+                            // Navigate to the last available page
+                            page = maxPageIndex;
+                        }
+                        else
+                        {
+                            // No data available, reset to the first page
+                            page = 0;
+                        }
+                    }
+                    grdUploadError.DataSource = c;
+                    grdUploadError.PageIndex = page;
+                    grdUploadError.DataBind();
+                }
+                else
+                {
+                    grdUploadError.DataSource = null;
+                    grdUploadError.DataBind();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                WarningAlert("An error occured");
+            }
+        }
+
+        protected void grdClientsView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdClientsView.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
+        }
+
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                LookUp r = new LookUp("cn", 1);
+                DataSet c = r.getclientuploaded(long.Parse(txtbatchID.Value)); ;
+                if (c != null)
+                {
+                    int maxPageIndex = grdClientsView.PageCount - 1;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        if (maxPageIndex >= 0)
+                        {
+                            // Navigate to the last available page
+                            page = maxPageIndex;
+                        }
+                        else
+                        {
+                            // No data available, reset to the first page
+                            page = 0;
+                        }
+                    }
+                    grdClientsView.DataSource = c;
+                    grdClientsView.PageIndex = page;
+                    grdClientsView.DataBind();
+                }
+                else
+                {
+                    grdClientsView.DataSource = null;
+                    grdClientsView.DataBind();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                WarningAlert("An error occured");
+            }
         }
     }
 }

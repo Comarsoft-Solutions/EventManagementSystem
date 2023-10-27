@@ -127,9 +127,9 @@
                                                   <tr>
                                                       <td>
                                                           <div style="display: block; overflow: scroll; height: 40vh; display: grid;">
-                                                            <%--  <asp:GridView ID="grdClientsView" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"--%>
+                                                         
                                                               <asp:GridView ID="grdClientsView"  PageSize="10" AutoGenerateColumns="false" DataKeyNames="ID" CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
-                                                                  Style="border-collapse: collapse !important"
+                                                                  Style="border-collapse: collapse !important" OnPageIndexChanging="grdClientsView_PageIndexChanging"
                                                                   AllowPaging="True" AllowSorting="True" runat="server">
                                                                   <columns>
                                                                       <asp:BoundField DataField="ID" HeaderText="UploadID" Visible="false"></asp:BoundField>

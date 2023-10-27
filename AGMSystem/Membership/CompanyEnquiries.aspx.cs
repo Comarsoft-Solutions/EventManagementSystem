@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AGMSystem.models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,15 +19,25 @@ namespace AGMSystem.Membership
                 GetCompanies();
             }
         }
-        public void msgbox(string strMessage)
+        #region alerts
+        protected void RedAlert(string MsgFlg)
         {
-            string strScript = "<script language=JavaScript>";
-            strScript += "window.alert(" + strMessage + ");";
-            strScript += "</script>";
-            Label lbl = new System.Web.UI.WebControls.Label();
-            lbl.Text = strScript;
-            Page.Controls.Add(lbl);
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
+
         }
+
+        protected void WarningAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
+
+        }
+
+        protected void SuccessAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
 
         private void GetCompanies()
         {
@@ -41,15 +52,53 @@ namespace AGMSystem.Membership
             {
                 grdCompanyEnquiries.DataSource = null;
                 grdCompanyEnquiries.DataBind();
-                msgbox("No Companies Found");
+                WarningAlert("No Companies Found");
             }
         }
 
         protected void grdMemberEnquiries_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            grdCompanyEnquiries.PageIndex = e.NewPageIndex;
+            this.BindGrid(e.NewPageIndex);
         }
+        private void BindGrid(int page = 0)
+        {
+            try
+            {
+                CompanyRegistration cr = new CompanyRegistration("cn", 1);
+                DataSet c = cr.getSavedCompanies();
+                if (c != null)
+                {
+                    int maxPageIndex = grdCompanyEnquiries.PageCount - 1;
+                    if (page < 0 || page > maxPageIndex)
+                    {
+                        if (maxPageIndex >= 0)
+                        {
+                            // Navigate to the last available page
+                            page = maxPageIndex;
+                        }
+                        else
+                        {
+                            // No data available, reset to the first page
+                            page = 0;
+                        }
+                    }
+                    grdCompanyEnquiries.DataSource = c;
+                    grdCompanyEnquiries.PageIndex = page;
+                    grdCompanyEnquiries.DataBind();
+                }
+                else
+                {
+                    grdCompanyEnquiries.DataSource = null;
+                    grdCompanyEnquiries.DataBind();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                WarningAlert("An error occured");
+            }
+        }
         protected void btnSearch_Click(object sender, EventArgs e)
         {
 

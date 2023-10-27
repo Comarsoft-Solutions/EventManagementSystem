@@ -317,6 +317,11 @@ namespace AGMSystem
 
         #region "Retrieve Overloads"
 
+        public DataSet  GetSavedCompanies(string name)
+        {
+            string sql = "select * from Company  WHERE [Name} = '" + name + "'";
+            return ReturnDs(sql);
+        }
         public DataSet  GetRegInfo(string mNationalID)
         {
             string sql = "select * from RegistrationMembers  WHERE NationalID = '" + mNationalID+"'";

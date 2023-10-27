@@ -134,6 +134,7 @@ namespace AGMSystem
                 }
                 else
                 {
+                    CheckForCompany();
                     CompanyRegistration cr = new CompanyRegistration("cn", 1);
                     cr.ID = int.Parse(txtCompanyID.Value);
                     cr.Name = txtCompanyReg.Text;
@@ -319,6 +320,20 @@ namespace AGMSystem
             }
         }
 
+        private void CheckForCompany()
+        {
+            RegistrationSave reg = new RegistrationSave("cn", 1);
+
+            DataSet ds = reg.GetSavedCompanies(txtCompanyName.Text);
+
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+
+                DataRow row = ds.Tables[0].Rows[0];
+                WarningAlert(row["Name"].ToString() + " ALREADY EXISTS");
+                clearFields();
+            }
+        }
         private void CheckForMember()
         {
             RegistrationSave reg = new RegistrationSave("cn", 1);

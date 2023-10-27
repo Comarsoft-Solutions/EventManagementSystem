@@ -55,6 +55,9 @@ namespace AGMSystem
             {
 
                 lblComms.Text = "License has been suspended. Please contact your administrator";
+                txtPassword.Enabled = false;
+                txtUsername.Enabled = false;
+                btnLogin.Enabled = false;
                 //logins log = new logins("cn", 1);
                 //AGMAccessUsers agm = new AGMAccessUsers("cn", 1);
                 //if (agm.ValidateUserLogin(txtUsername.Text, txtPassword.Text))
