@@ -71,7 +71,7 @@ namespace AGMSystem.communication
         {
             try
             {
-                if (flRsvpUpload.HasFile)
+                if (flRsvpUpload.HasFiles)
                 {
 
                                        

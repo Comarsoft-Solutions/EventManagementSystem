@@ -5,6 +5,17 @@
     <div class="text-center mt-2">
         <h5 class="text-primary">Welcome!</h5>
     </div>
+    
+            <div class="row">
+                <table style="width:100%">
+                    <tr>
+                        <td colspan="12">
+                            <asp:Panel ID="pnlComms" Width="100%" runat="server">
+                                <asp:Label ID="lblComms" ForeColor="Red" runat="server" Text=""></asp:Label></asp:Panel>
+                        </td>
+                    </tr>
+                </table>
+            </div>
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <asp:TextBox ID="txtUsername" CssClass="form-control" placeholder="Enter Username" runat="server"></asp:TextBox>
