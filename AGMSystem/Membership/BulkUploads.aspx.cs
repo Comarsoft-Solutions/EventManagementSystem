@@ -255,7 +255,7 @@ namespace AGMSystem.Membership
                     int userid = int.Parse(txtSystemRef.Value);
                     foreach (DataRow rw in Ds.Tables[0].Rows)
                     {
-                        pnlerror.Visible = true;
+                        
 
                         if (!rw[2].ToString().IsNullOrWhiteSpace())
                         {
@@ -333,7 +333,7 @@ namespace AGMSystem.Membership
                                     int AddNewClientRecord = 1;
                                     int AddNewMemberRecord = 1;
 
-
+                                    pnlClientsView.Visible = true;
                                     DateTime DC = DateTime.Now;
                                     string DCs = DC.ToString("yyyy-MM-dd");
                                     myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;

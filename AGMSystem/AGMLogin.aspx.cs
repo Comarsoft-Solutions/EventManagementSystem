@@ -55,12 +55,13 @@ namespace AGMSystem
             {
 
                 lblComms.Text = "License has been suspended. Please contact your administrator";
-                //logins log = new logins("cn",1);
+                //logins log = new logins("cn", 1);
                 //AGMAccessUsers agm = new AGMAccessUsers("cn", 1);
-                //if(agm.ValidateUserLogin(txtUsername.Text, txtPassword.Text))
+                //if (agm.ValidateUserLogin(txtUsername.Text, txtPassword.Text))
                 //{
                 //    Session["ID"] = agm.SystemRef;
                 //    Session["LoginCode"] = agm.Code;
+
 
                 //    if (agm.RoleType != null)
                 //    {
@@ -79,11 +80,11 @@ namespace AGMSystem
                 //}
                 //else
                 //{
-                //    log.UserAction = "Attempted Login";
-                //    log.Message = agm.MsgFlg;
-                //    log.UserName = txtUsername.Text;
-                //    log.IpAddress = HttpContext.Current.Request.UserHostAddress;
-                //    log.Save();
+                //    //log.UserAction = "Attempted Login";
+                //    //log.Message = agm.MsgFlg;
+                //    //log.UserName = txtUsername.Text;
+                //    //log.IpAddress = HttpContext.Current.Request.UserHostAddress;
+                //    //log.Save();
                 //    AmberAlert("Failed to Login");
                 //}
             }
@@ -91,7 +92,7 @@ namespace AGMSystem
             {
                 logins log = new logins("cn", 1);
                 log.UserAction = "Attempted Login";
-                log.Message = log.MsgFlg;
+                log.Message = ex.Message;
                 log.UserName = txtUsername.Text;
                 log.IpAddress = HttpContext.Current.Request.UserHostAddress;
                 log.Save();
