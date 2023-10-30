@@ -49,12 +49,18 @@
                         <asp:BoundField DataField="Address" HeaderText="Address"></asp:BoundField>
                         <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number"></asp:BoundField>
                         <asp:BoundField DataField="EmailAddress" HeaderText="Email Address"></asp:BoundField>
-                       <%-- <asp:TemplateField HeaderText="Edit">
+                        <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="mdi mdi-pencil" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
                                
                             </ItemTemplate>
-                        </asp:TemplateField>--%>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Delete">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="Edit" runat="server" ForeColor="red" CssClass="mdi mdi-delete-forever" CommandArgument='<%#Eval("ID")%>' CommandName="deleteRecord"></asp:LinkButton>
+                               
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </div>

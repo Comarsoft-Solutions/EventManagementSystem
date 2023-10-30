@@ -324,7 +324,7 @@ namespace AGMSystem
         {
             RegistrationSave reg = new RegistrationSave("cn", 1);
 
-            DataSet ds = reg.GetSavedCompanies(txtCompanyName.Text);
+            DataSet ds = reg.GetSavedCompanies(txtCompanyReg.Text);
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -352,6 +352,11 @@ namespace AGMSystem
         protected void txtNationalID_TextChanged(object sender, EventArgs e)
         {
             CheckForMember();
+        }
+
+        protected void txtCompanyName_TextChanged(object sender, EventArgs e)
+        {
+            CheckForCompany();
         }
     }
 }

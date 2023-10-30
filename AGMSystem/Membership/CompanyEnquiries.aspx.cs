@@ -106,7 +106,22 @@ namespace AGMSystem.Membership
 
         protected void grdCompanyEnquiries_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int companyID = int.Parse(e.CommandArgument.ToString());
 
+            if (e.CommandName == "deleteRecord")
+            {
+                try
+                {
+                    CompanyRegistration delete = new CompanyRegistration("cn", 1);
+                    delete.Delete(companyID);
+                    GetCompanies();
+                }
+                catch (Exception x)
+                {
+
+                    WarningAlert("Oops  something went wrong");
+                }
+            }
         }
     }
 }

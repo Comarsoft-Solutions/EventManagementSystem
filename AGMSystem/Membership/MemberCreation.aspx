@@ -129,7 +129,7 @@
         <div class="col-6">
             <div class="mb-3">
                 <label for="CompanyName" class="form-label">Company Name</label>
-                <asp:TextBox ID="txtCompanyReg" placeholder="Comarsoft Solutions" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCompanyReg" placeholder="Comarsoft Solutions" OnTextChanged="txtCompanyName_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
         </div>
         <!--end col-->

@@ -319,7 +319,7 @@ namespace AGMSystem
 
         public DataSet  GetSavedCompanies(string name)
         {
-            string sql = "select * from Company  WHERE [Name} = '" + name + "'";
+            string sql = "select * from Company  WHERE [Name] = '" + name + "'";
             return ReturnDs(sql);
         }
         public DataSet  GetRegInfo(string mNationalID)
@@ -919,6 +919,11 @@ namespace AGMSystem
             mCity = ((object)rw["City"] == DBNull.Value) ? "" : (rw["City"].ToString());
             mZipCode = ((object)rw["ZipCode"] == DBNull.Value) ? "" : rw["ZipCode"].ToString();
 
+        }
+        public DataSet Delete(int companyID)
+        {
+            string str = "Delete from Company where ID=" + companyID + "";
+            return ReturnDs(str);
         }
 
         #region "Save"

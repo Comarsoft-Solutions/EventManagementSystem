@@ -54,42 +54,42 @@ namespace AGMSystem
             try
             {
 
-                lblComms.Text = "License has been suspended. Please contact your administrator";
-                txtPassword.Enabled = false;
-                txtUsername.Enabled = false;
-                btnLogin.Enabled = false;
-                //logins log = new logins("cn", 1);
-                //AGMAccessUsers agm = new AGMAccessUsers("cn", 1);
-                //if (agm.ValidateUserLogin(txtUsername.Text, txtPassword.Text))
-                //{
-                //    Session["ID"] = agm.SystemRef;
-                //    Session["LoginCode"] = agm.Code;
+                //lblComms.Text = "License has been suspended. Please contact your administrator";
+                //txtPassword.Enabled = false;
+                //txtUsername.Enabled = false;
+                //btnLogin.Enabled = false;
+                logins log = new logins("cn", 1);
+                AGMAccessUsers agm = new AGMAccessUsers("cn", 1);
+                if (agm.ValidateUserLogin(txtUsername.Text, txtPassword.Text))
+                {
+                    Session["ID"] = agm.SystemRef;
+                    Session["LoginCode"] = agm.Code;
 
 
-                //    if (agm.RoleType != null)
-                //    {
+                    if (agm.RoleType != null)
+                    {
 
-                //        log.UserAction = "Logged In";
-                //        log.Message = agm.MsgFlg;
-                //        log.UserName = txtUsername.Text;
-                //        log.IpAddress = HttpContext.Current.Request.UserHostAddress;
-                //        log.Save();
-                //        //Response.Redirect("Dashboard?SystemRef=" + agm.SystemRef + "");
-                //        Response.Redirect("Dashboard");
+                        log.UserAction = "Logged In";
+                        log.Message = agm.MsgFlg;
+                        log.UserName = txtUsername.Text;
+                        log.IpAddress = HttpContext.Current.Request.UserHostAddress;
+                        log.Save();
+                        //Response.Redirect("Dashboard?SystemRef=" + agm.SystemRef + "");
+                        Response.Redirect("Dashboard");
 
-                //    }
-                //    SuccessAlert("Success");
+                    }
+                    SuccessAlert("Success");
 
-                //}
-                //else
-                //{
-                //    //log.UserAction = "Attempted Login";
-                //    //log.Message = agm.MsgFlg;
-                //    //log.UserName = txtUsername.Text;
-                //    //log.IpAddress = HttpContext.Current.Request.UserHostAddress;
-                //    //log.Save();
-                //    AmberAlert("Failed to Login");
-                //}
+                }
+                else
+                {
+                    log.UserAction = "Attempted Login";
+                    log.Message = agm.MsgFlg;
+                    log.UserName = txtUsername.Text;
+                    log.IpAddress = HttpContext.Current.Request.UserHostAddress;
+                    log.Save();
+                    AmberAlert("Failed to Login");
+                }
             }
             catch (Exception ex)
             {
