@@ -19,6 +19,9 @@ namespace AGMSystem.models
         protected long mStatusID;
         protected string mDateCreated;
         protected string mBroadcastMessgeTitle;
+        protected string mTemplate;
+        protected int mFormat;
+        protected string mMessage;
 
         protected string mMessageType;
         protected Database db;
@@ -82,6 +85,21 @@ namespace AGMSystem.models
         {
             get { return mMessageType; }
             set { mMessageType = value; }
+        }
+        public string Template
+        {
+            get { return mTemplate; }
+            set { mTemplate = value; }
+        }
+        public int Format
+        {
+            get { return mFormat; }
+            set { mFormat = value; }
+        }
+        public string Message
+        {
+            get { return mMessage; }
+            set { mMessage = value; }
         }
 
         #endregion
@@ -276,34 +294,6 @@ namespace AGMSystem.models
             }
         }
 
-        //public DataSet getassignedContacts(int BroadcastListID)
-        //{
-        //    try
-        //    {
-        //        string str = "select pp.Id,pp.LastName + ' ' + pp.FirstName + ' ' + pp.Email as Member ,pp.Email from RegistrationMembers pp  where Email like '%@%' and pp.Id in (select distinct(MemberID) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + ") order by pp.Id ";
-        //        return ReturnDs(str);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        mMsgFlg = ex.Message;
-        //        return null;
-        //    }
-        //}
-        //public DataSet getassignedContacts(int BroadcastListID)
-        //{
-        //    try
-        //    {
-        //        string str = "select pp.Id,pp.LastName + ' ' + pp.FirstName + ' ' + pp.Email as Member ,pp.Email from RegistrationMembers pp  where Email like '%@%' and pp.Id in (select distinct(MemberID) from BroadcastListContacts where BroadCastListID = " + BroadcastListID + ") order by pp.Id ";
-        //        return ReturnDs(str);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        mMsgFlg = ex.Message;
-        //        return null;
-        //    }
-        //}
         public DataSet getassignedContacts(int BroadcastListID)
         {
             try
@@ -329,6 +319,9 @@ namespace AGMSystem.models
             db.AddInParameter(cmd, "@DateCreated", DbType.String, mDateCreated);
             db.AddInParameter(cmd, "@BroadcastMessgeTitle", DbType.String, mBroadcastMessgeTitle);
             db.AddInParameter(cmd, "@MessageType", DbType.String, mMessageType);
+            db.AddInParameter(cmd, "@Template", DbType.String, mTemplate);
+            db.AddInParameter(cmd, "@Format", DbType.Int32, mFormat);
+            db.AddInParameter(cmd, "@Message", DbType.String, mMessage);
 
         }
         public DataSet getMessageTypes()

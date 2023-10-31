@@ -143,6 +143,26 @@ namespace AGMSystem.communication
                 RedAlert(ex.Message);
             }
         }
+        private string PopulateBody(int MemberID,string Template)
+        {
+            string memberName = string.Empty;
+            RegistrationSave reg = new RegistrationSave("cn", 1);
+            if (reg.Retrieve(MemberID))
+            {
+                memberName = reg.FirstName + " " + reg.LastName;
+            }
+
+            string body = string.Empty;
+            using (StreamReader reader = new StreamReader(Server.MapPath("~/communication/Templates/" + Template)))
+            {
+                body = reader.ReadToEnd();
+            }
+            body = body.Replace("{BODY}", txtMessageBody.Text);
+            body = body.Replace("{MEMBER}", memberName);
+            return body;
+
+
+        }
         private string PopulateBody(int MemberID)
         {
             string memberName = string.Empty;
@@ -225,37 +245,7 @@ namespace AGMSystem.communication
 
                 if (cboFormatType.SelectedValue == "1")
                 {
-                    body = $@"<html>
-                    <body>
-
-                        <p>Dear Member,</p>
-                        <p>{MessageBody}</p>
-                        <p>Looking forward to your submissions.</p>
-                        <p>Regards,</p>
-                        <p>ZAPF </p>
-                    </body>
-                      <footer>
-                        <footer>
-                            <div class = ""row"">
-                                <div class = ""column"">
-                                    <img src = ""https://zapf.co.zw/assets/images/logo.png"">
-                                </div>
-                                <div class = ""column"">
-                                    <p class = ""details"" >
-
-                                        Zimbabwe Association of Pension Funds (ZAPF)<br> 
-                                        3 Penn Place Close<br>
-                                        Strathaven<br>
-                                        Harare<br>
-                                        +263 242 333341<br>
-                                        +263 774 000 040 / 715 000 040 / 776 174 138<br>
-                                </div>
-            
-                            </div>
-        
-                        </footer>
-                        </footer>
-                </html>";
+                    body = PopulateBody(MemberId, "001_ZAPF_General_Template.html");
                 }
                 else
                 {
@@ -370,6 +360,10 @@ namespace AGMSystem.communication
                 b.StatusID = 1;
                 b.BroadcastMessgeTitle = txtHeader.Text;
                 b.MessageType = cboMessageType.SelectedItem.Text;
+                b.Format = int.Parse(cboFormatType.SelectedValue);
+                b.Template = (cboFormatType.SelectedValue == "1") ? "001_ZAPF_General_Template.html" : cboHtmlTemplate.SelectedItem.Text;
+
+                b.Message = txtMessageBody.Text;
                 if (b.Save())
                 {
                     txtID.Value = b.ID.ToString();

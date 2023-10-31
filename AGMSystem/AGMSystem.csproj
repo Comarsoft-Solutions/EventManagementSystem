@@ -343,6 +343,7 @@
     <Content Include="communication\Templates\trialfiles\meeting_files\image003.png" />
     <Content Include="communication\Templates\trialfiles\meeting_files\image004.png" />
     <Content Include="communication\Templates\trialfiles\trial.html" />
+    <Content Include="communication\Templates\001_ZAPF_General_Template.html" />
     <Content Include="Events\AddPresenter.aspx" />
     <Content Include="Events\AGMEvent.aspx" />
     <Content Include="AGMLogin.aspx" />
