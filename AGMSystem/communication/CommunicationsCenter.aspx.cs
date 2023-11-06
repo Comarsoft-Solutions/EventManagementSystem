@@ -243,15 +243,8 @@ namespace AGMSystem.communication
 
                 //// Set the HTML body of the email
 
-                if (cboFormatType.SelectedValue == "1")
-                {
-                    body = PopulateBody(MemberId, "001_ZAPF_General_Template.html");
-                }
-                else
-                {
-
-                    body = PopulateBody(MemberId);
-                }
+                body = (cboFormatType.SelectedValue == "1") ? PopulateBody(MemberId, "001_ZAPF_General_Template.html") : body = PopulateBody(MemberId);
+                
 
                 // Create an alternate view with the HTML body
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body, null, "text/html");

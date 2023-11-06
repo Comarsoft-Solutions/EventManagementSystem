@@ -227,6 +227,11 @@ namespace AGMSystem.models
             string str = "select EventName,format(StartDate,'dd/MM/yyyy')as StartDate,format(EndDate,'dd/MM/yyyy')as EndDate ,ID,AttendanceFee,Venue from AGMEvents where StartDate>= GETDATE() order by StartDate ";
             return ReturnDs(str);
         }
+        public DataSet GetConcludedEvents()
+        {
+            string str = "select EventName,format(StartDate,'dd/MM/yyyy')as StartDate,format(EndDate,'dd/MM/yyyy')as EndDate ,ID,AttendanceFee,Venue from AGMEvents where StartDate < GETDATE() order by StartDate ";
+            return ReturnDs(str);
+        }
         public DataSet GetProjectCount()
         {
             string str = "Select Count(ID)as count from AGMProjects";

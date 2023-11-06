@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static Microsoft.IO.RecyclableMemoryStreamManager;
+using CrystalDecisions.Shared;
 
 namespace AGMSystem.Reports
 {
@@ -56,9 +57,9 @@ namespace AGMSystem.Reports
                 string DbUser = ConfigurationManager.AppSettings["DbUser"].ToString();
 
                 myReport.SetDatabaseLogon(DbUser, ReportPass, servername, DBName);
-                CrystalDecisions.Shared.ParameterFields myParameterFields = new CrystalDecisions.Shared.ParameterFields();
-                CrystalDecisions.Shared.ParameterField myParameterField = new CrystalDecisions.Shared.ParameterField();
-                CrystalDecisions.Shared.ParameterDiscreteValue myDiscreteValue = new CrystalDecisions.Shared.ParameterDiscreteValue();
+                ParameterFields myParameterFields = new ParameterFields();
+                ParameterField myParameterField = new ParameterField();
+                ParameterDiscreteValue myDiscreteValue = new ParameterDiscreteValue();
                 myParameterField.ParameterFieldName = "eventID";
                 myDiscreteValue.Value = eventID;
                 myParameterField.CurrentValues.Add(myDiscreteValue);

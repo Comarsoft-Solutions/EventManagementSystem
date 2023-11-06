@@ -19,6 +19,7 @@ namespace AGMSystem
                 GetStatistics();
                 GetEvents();
                 GetOngoingEvents();
+                GetConcludedEvents();
             }
         }
 
@@ -100,6 +101,27 @@ namespace AGMSystem
                 grdEvents.DataSource = null;
                 grdEvents.DataBind();
                 pnlUpcomming.Visible = false;
+                ////msgbox("There are no members");
+
+            }
+
+        }
+        private void GetConcludedEvents()
+        {
+            RSVP eg = new RSVP("cn", 1);
+            DataSet eve = eg.GetConcludedEvents();
+
+            if (eve != null)
+            {
+                grdConcludedEvents.DataSource = eve;
+                grdConcludedEvents.DataBind();
+                pnlConcluded.Visible = true;
+            }
+            else
+            {
+                grdConcludedEvents.DataSource = null;
+                grdConcludedEvents.DataBind();
+                pnlConcluded.Visible = false;
                 ////msgbox("There are no members");
 
             }
