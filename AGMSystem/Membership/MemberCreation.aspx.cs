@@ -26,7 +26,6 @@ namespace AGMSystem
                 getCompanies();
                 GetRegType();
                 GetDesignations();
-                ClearAlert();
                 //GetDesignation();
             }
 
@@ -64,18 +63,6 @@ namespace AGMSystem
             }
         }
 
-        protected void ClearAlert()
-        {
-            //pnlDanger.Visible = false;
-            //lblDanger.Text = "";
-
-            //pnlSuccess.Visible = false;
-            //lblSuccess.Text = "";
-
-            //pnlWarning.Visible = false;
-            //lblWarning.Text = "";
-        }
-        
 
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -109,6 +96,9 @@ namespace AGMSystem
             txtEmail.Text = "";
             txtNationalID.Text = "";
             txtTshirt.Text = "";
+            txtDesignation.SelectedValue = "0";
+            txtPensionFund.Text = string.Empty;
+            txtAddress.Text = string.Empty;
             
         }
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -164,7 +154,6 @@ namespace AGMSystem
             txtCompanyReg.Text = "";
             txtAddress.Text = "";
             txtCity.Text = "";
-            //txtZip.Text = "";
         }
 
         protected void GetRegType()
@@ -300,7 +289,6 @@ namespace AGMSystem
 
         protected void txtRegType_TextChanged(object sender, EventArgs e)
         {
-            ClearAlert();
             try
             {
                 if (txtRegType.Text == "1")

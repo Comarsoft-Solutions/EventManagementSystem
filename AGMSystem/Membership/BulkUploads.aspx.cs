@@ -356,7 +356,7 @@ namespace AGMSystem.Membership
                         }
                         else
                         {
-                            
+                            WarningAlert("There are null or empty required fields in your uploaded file");
                             break;
                         }
 
