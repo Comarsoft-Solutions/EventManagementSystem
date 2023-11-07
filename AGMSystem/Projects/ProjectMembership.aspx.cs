@@ -132,28 +132,77 @@ namespace AGMSystem
         {
             try
             {
-
-                ProjectMembers pm = new ProjectMembers("cn", 1);
-                txtMemberID.Value = index.ToString();
-                pm.MemberId = int.Parse(txtMemberID.Value);
-                pm.ProjectID = int.Parse(txtProjectID.Value);
-                pm.Id = int.Parse(txtID.Value);
-                if (pm.Save())
+                ProjectRsvpSave pro = new ProjectRsvpSave("cn", 1);
+                if (pro.CheckForMember(int.Parse(txtProjectID.Value), index))
                 {
-                    SuccessAlert("Member added to project");
+                    AmberAlert("Member already registered");
+                    //ClearForm();
                 }
                 else
                 {
-                    AmberAlert("failed to add Member");
+                    pro.ProjectID = int.Parse(txtProjectID.Value);
+                    pro.MemberID = index;
+                    //if (chkMmber.Checked)
+                    //{
+                    //    pro.IsMember = true;
+                    //}
+                    //else
+                    //{
+                    //    pro.IsMember = false;
+                    //}
+                    //if (chkPrivate.Checked)
+                    //{
+                    //    pro.OnlineStudy = true;
+                    //}
+                    //else
+                    //{
+                    //    pro.OnlineStudy = false;
+                    //}
+
+                    if (pro.Save())
+                    {
+                        SuccessAlert( " Registered");
+                        //ClearForm();
+                    }
+                    else
+                    {
+                        //WarningAlert("Something happened");
+                    }
                 }
 
             }
-            catch (Exception c)
+            catch (Exception sd)
             {
+                RedAlert(sd.Message);
 
-                RedAlert(c.Message);
             }
         }
+        //protected void AddMembers(int index)
+        //{
+        //    try
+        //    {
+
+        //        ProjectMembers pm = new ProjectMembers("cn", 1);
+        //        txtMemberID.Value = index.ToString();
+        //        pm.MemberId = int.Parse(txtMemberID.Value);
+        //        pm.ProjectID = int.Parse(txtProjectID.Value);
+        //        pm.Id = int.Parse(txtID.Value);
+        //        if (pm.Save())
+        //        {
+        //            SuccessAlert("Member added to project");
+        //        }
+        //        else
+        //        {
+        //            AmberAlert("failed to add Member");
+        //        }
+
+        //    }
+        //    catch (Exception c)
+        //    {
+
+        //        RedAlert(c.Message);
+        //    }
+        //}
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
