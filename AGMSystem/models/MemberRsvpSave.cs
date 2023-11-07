@@ -144,7 +144,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "Select * from MemberRSVP where id="+memberID+"";
+                string str = "Select * from RegistrationMembers where id=" + memberID+"";
                 return ReturnDs(str);
             }
             catch (Exception xc)
@@ -154,6 +154,20 @@ namespace AGMSystem.models
                 return null;
             }
         }
+        //public DataSet GetMemberInfo(int memberID)
+        //{
+        //    try
+        //    {
+        //        string str = "Select * from MemberRSVP where id="+memberID+"";
+        //        return ReturnDs(str);
+        //    }
+        //    catch (Exception xc)
+        //    {
+
+        //        Msgflg=xc.Message;
+        //        return null;
+        //    }
+        //}
         public DataSet UpdateMember(string firstName, string lastname, string email, string phonenumber, string company, string accomodation, string transport, string designation, int memberID )
         {
             try
@@ -306,9 +320,14 @@ namespace AGMSystem.models
             return GetRegistration(sql);
 
         }
+        //public DataSet DeleteRecord(int memberID)
+        //{
+        //    string str = "delete from MemberRSVP where ID=" + memberID + "";
+        //    return ReturnDs(str);
+        //}
         public DataSet DeleteRecord(int memberID)
         {
-            string str = "delete from MemberRSVP where ID=" + memberID + "";
+            string str = "update RegistrationMembers set EventID=null, RsvpStatus=0 where id=" + memberID + "";
             return ReturnDs(str);
         }
         //public DataSet GetRsvps(int eventID)
@@ -506,11 +525,24 @@ namespace AGMSystem.models
                 }
             }
         }
+        //public void updateRsvp( int id, bool paymentStatus )
+        //{
+        //    using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+        //    {
+        //        string query = "Update MemberRSVP set PaymentStatus='" + paymentStatus + "' WHERE ID ='"+ id+"'";
+        //        using (SqlCommand cmd = new SqlCommand(query, myConnection))
+        //        {
+        //            myConnection.Open();
+        //            cmd.ExecuteNonQuery();
+        //            myConnection.Close();
+        //        }
+        //    }
+        //}
         public void updateRsvp( int id, bool paymentStatus )
         {
             using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
-                string query = "Update MemberRSVP set PaymentStatus='" + paymentStatus + "' WHERE ID ='"+ id+"'";
+                string query = "Update RegistrationMembers set PaymentStatus='" + paymentStatus + "' WHERE ID ='"+ id+"'";
                 using (SqlCommand cmd = new SqlCommand(query, myConnection))
                 {
                     myConnection.Open();

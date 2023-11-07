@@ -494,9 +494,36 @@ namespace AGMSystem.communication
                 {
                     foreach (DataRow rw in b.getBroadCastContactDetails(int.Parse(txtID.Value)).Tables[0].Rows)
                     {
-                      //  string msgbdy = PopulateBody();
-                        string msgbdy ="";
-                        SendHtmlFormattedEmail(rw["Email"].ToString(), txtHeader.Text, msgbdy, txtMessageBody.Text, int.Parse(rw["MemberID"].ToString()));
+
+                        //  string msgbdy = PopulateBody();
+
+                        if (b.checkContantsStatus(int.Parse(txtID.Value)))
+                        {
+                            if (b.updateContantsStatustoReadySend(int.Parse(txtID.Value)))
+                            {
+                                if (b.checkMessageStatus(int.Parse(txtID.Value)))
+                                {
+                                    if (b.updateMessageStatustoReadySend(int.Parse(txtID.Value)))
+                                    {
+                                        SuccessAlert("Message Sent");
+                                    }
+                                }
+                                else
+                                {
+                                    WarningAlert("Already Sent");
+                                }
+                                
+                            }
+                            else
+                            {
+                                RedAlert("Couldnt Send");
+                            }
+                        }
+                        else
+                        {
+                            WarningAlert("Email Already Sent");
+                        }
+                        
 
                     }
 

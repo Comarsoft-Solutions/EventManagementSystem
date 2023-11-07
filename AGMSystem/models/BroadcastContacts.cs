@@ -99,7 +99,84 @@ namespace AGMSystem.models
         }
 
         #endregion
+        public bool updateMessageStatustoReadySend(int BroadCastID)
+        {
 
+            string str = "update BroadcastMessagesList set StatusID=2 where ID=" + BroadCastID + "";
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, str);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
+        public bool checkMessageStatus(int BroadCastID)
+        {
+            try
+            {
+                string str = "select ID from BroadcastMessagesList where ID=" + BroadCastID + "and StatusID=2";
+                if (ReturnDs(str) == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                mMsgFlg = ex.Message;
+                return false;
+            }
+        }
+        public bool checkContantsStatus(int BroadCastID)
+        {
+            try
+            {
+                string str = "select ID from BroadcastListContacts where BroadcastListID=" + BroadCastID + " and StatusID=2";
+                if (ReturnDs(str) == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                mMsgFlg = ex.Message;
+                return false;
+            }
+        }
+        public bool updateContantsStatustoReadySend(int BroadCastID)
+        {
+
+            string str = "update BroadcastListContacts set StatusID=2 where BroadcastListID=" + BroadCastID + "";
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, str);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
 
         public void Clear()
         {

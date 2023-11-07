@@ -65,7 +65,15 @@
                         <asp:TemplateField HeaderText="Confirm">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Select" runat="server" ForeColor="blue" CssClass="mdi mdi-check-bold" CommandArgument='<%#Eval("ID")%>' CommandName="selectRecord"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Edit">
+                            <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="Green" CssClass="mdi mdi-pencil" CommandArgument='<%#Eval("ID")%>' CommandName="editRecord"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Delete">
+                            <ItemTemplate>
                                 <asp:LinkButton ID="Delete" runat="server" ForeColor="Red" CssClass="mdi mdi-delete" CommandArgument='<%#Eval("ID")%>' CommandName="deleteRecord"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
