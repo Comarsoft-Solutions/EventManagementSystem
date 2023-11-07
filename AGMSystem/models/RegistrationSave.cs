@@ -713,7 +713,8 @@ namespace AGMSystem
         protected string mName;
         protected string mAddress;
         protected string mCity;
-        protected string mZipCode;
+        protected string mPhoneNumber;
+        protected string mEmail;
 
         #endregion
 
@@ -746,7 +747,8 @@ namespace AGMSystem
         public string Name { get { return mName; } set { mName = value; } }
         public string Address { get { return mAddress; } set { mAddress = value; } }
         public string City { get { return mCity; } set { mCity = value; } }
-        public string ZipCode { get { return mZipCode; } set { mZipCode = value; } }
+        public string PhoneNumber { get { return mPhoneNumber; } set { mPhoneNumber = value; } }
+        public string Email { get { return mEmail; } set { mEmail = value; } }
 
         #endregion
 
@@ -917,7 +919,7 @@ namespace AGMSystem
             mName = ((object)rw["Name"] == DBNull.Value) ? "" : (rw["Name"].ToString());
             mAddress = ((object)rw["Address"] == DBNull.Value) ? "" : (rw["Address"].ToString());
             mCity = ((object)rw["City"] == DBNull.Value) ? "" : (rw["City"].ToString());
-            mZipCode = ((object)rw["ZipCode"] == DBNull.Value) ? "" : rw["ZipCode"].ToString();
+            mPhoneNumber = ((object)rw["mPhoneNumber"] == DBNull.Value) ? "" : rw["mPhoneNumber"].ToString();
 
         }
         public DataSet Delete(int companyID)
@@ -935,7 +937,8 @@ namespace AGMSystem
             db.AddInParameter(cmd, "@Name", DbType.String, mName);
             db.AddInParameter(cmd, "@Address", DbType.String, mAddress);
             db.AddInParameter(cmd, "@City", DbType.String, mCity);
-            //db.AddInParameter(cmd, "@ZipCode", DbType.String, mZipCode);
+            db.AddInParameter(cmd, "@PhoneNumber", DbType.String, mPhoneNumber);
+            db.AddInParameter(cmd, "@Email", DbType.String, Email);
 
         }
 

@@ -46,7 +46,7 @@ namespace AGMSystem
             else
             {
                 //lblUsername.Text = "Taflo";
-                Response.Redirect("AGMLogin.aspx");
+                Response.Redirect("../AGMLogin.aspx");
             }
 
 

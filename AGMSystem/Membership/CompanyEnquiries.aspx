@@ -57,7 +57,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Delete">
                             <ItemTemplate>
-                                <asp:LinkButton ID="Edit" runat="server" ForeColor="red" CssClass="mdi mdi-delete-forever" CommandArgument='<%#Eval("ID")%>' CommandName="deleteRecord"></asp:LinkButton>
+                                <asp:LinkButton ID="Delete" runat="server" ForeColor="red" CssClass="mdi mdi-delete-forever" CommandArgument='<%#Eval("ID")%>' CommandName="deleteRecord"></asp:LinkButton>
                                
                             </ItemTemplate>
                         </asp:TemplateField>

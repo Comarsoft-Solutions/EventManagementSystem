@@ -311,25 +311,11 @@ namespace AGMSystem.models
             string str = "delete from MemberRSVP where ID=" + memberID + "";
             return ReturnDs(str);
         }
-        public DataSet GetRsvps(int eventID)
-        {
-            try
-            {
-                string str = "select * from MemberRSVP  where EventID=" + eventID + " AND (PaymentStatus IS NULL OR PaymentStatus =0)";
-                return ReturnDs(str);
-            }
-            catch (Exception ex)
-            {
-                Msgflg = ex.Message;
-                return null;
-            }
-            
-        }
         //public DataSet GetRsvps(int eventID)
         //{
         //    try
         //    {
-        //        string str = "select lc.Price,lc.Combo,r.TShirtSize,case r.Golf when 1 then'Yes' else'No' end as Golf,* from RegistrationMembers r left join Logistics_Combos lc on r.EventID=lc.ID  where r.EventID=" + eventID + " and RsvpStatus=1 and PaymentStatus is null";
+        //        string str = "select * from MemberRSVP  where EventID=" + eventID + " AND (PaymentStatus IS NULL OR PaymentStatus =0)";
         //        return ReturnDs(str);
         //    }
         //    catch (Exception ex)
@@ -339,6 +325,57 @@ namespace AGMSystem.models
         //    }
             
         //}
+        public DataSet GetRsvps(int eventID)
+        {
+            try
+            {
+                string str = "select lc.Price,lc.Combo,r.TShirtSize,case r.Golf when 1 then'Yes' else'No' end as Golf,* from RegistrationMembers r left join Logistics_Combos lc on r.EventID=lc.ID  where r.EventID=" + eventID + " and RsvpStatus=1 and PaymentStatus is null";
+                return ReturnDs(str);
+            }
+            catch (Exception ex)
+            {
+                Msgflg = ex.Message;
+                return null;
+            }
+
+        }
+        public DataSet GetRSVPSList(int eventID, string names = "", string surname = "", string pension = "")
+        {
+            try
+            {
+                string str = "";
+                if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
+                {
+                    str = "select * from RegistrationMembers where FirstName like '%" + names + "%'";
+                }
+                if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
+                {
+                    str = "select * from RegistrationMembers where LastName like '%" + surname + "%'";
+                }
+                if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
+                {
+                    str = "select * from RegistrationMembers where PensionFund like '%" + pension + "%'";
+                }
+                if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
+                {
+                    str = "select * from RegistrationMembers where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'";
+                }
+                if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
+                {
+                    str = "select * from RegistrationMembers where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'";
+                }
+                if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
+                {
+                    GetCheckin(eventID);
+                }
+                return ReturnDs(str);
+            }
+            catch (Exception x)
+            {
+                Msgflg = x.Message;
+                return null;
+            }
+        }
         //public DataSet GetRSVPSList(int eventID,string names = "", string surname = "", string pension = "")
         //{
         //    try
@@ -346,23 +383,23 @@ namespace AGMSystem.models
         //        string str = "";
         //        if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
         //        {
-        //            str = "select * from RegistrationMembers where FirstName like '%" + names + "%'";
+        //            str = "select * from MemberRSVP where FirstName like '%"+names+"%' and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
         //        }
         //        if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
         //        {
-        //            str = "select * from RegistrationMembers where LastName like '%" + surname + "%'";
+        //            str = "select * from MemberRSVP where LastName like '%" + surname + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
         //        }
         //        if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
         //        {
-        //            str = "select * from RegistrationMembers where PensionFund like '%" + pension + "%'";
+        //            str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
         //        }
         //        if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
         //        {
-        //            str = "select * from RegistrationMembers where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'";
+        //            str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
         //        }
         //        if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
         //        {
-        //            str = "select * from RegistrationMembers where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'";
+        //            str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
         //        }
         //        if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
         //        {
@@ -376,43 +413,6 @@ namespace AGMSystem.models
         //        return null;
         //    }
         //}
-        public DataSet GetRSVPSList(int eventID,string names = "", string surname = "", string pension = "")
-        {
-            try
-            {
-                string str = "";
-                if (names.Length > 0 && surname.Length <= 0 && pension.Length <= 0)
-                {
-                    str = "select * from MemberRSVP where FirstName like '%"+names+"%' and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
-                }
-                if (names.Length <= 0 && surname.Length > 0 && pension.Length <= 0)
-                {
-                    str = "select * from MemberRSVP where LastName like '%" + surname + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
-                }
-                if (names.Length <= 0 && surname.Length <= 0 && pension.Length > 0)
-                {
-                    str = "select * from MemberRSVP where PensionFund like '%" + pension + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
-                }
-                if (names.Length > 0 && surname.Length > 0 && pension.Length <= 0)
-                {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
-                }
-                if (names.Length > 0 && surname.Length > 0 && pension.Length > 0)
-                {
-                    str = "select * from MemberRSVP where FirstName like '%" + names + "%' and LastName like '%" + surname + "%' and PensionFund like '%" + pension + "%'and eventID="+eventID+ " and (PaymentStatus IS NULL OR PaymentStatus =0)";
-                }
-                if (names.IsNullOrWhiteSpace() && surname.IsNullOrWhiteSpace() && pension.IsNullOrWhiteSpace())
-                {
-                    GetCheckin( eventID);
-                }
-                return ReturnDs(str);
-            }
-            catch (Exception x)
-            {
-                Msgflg = x.Message;
-                return null;
-            }
-        }
         public DataSet GetCheckin(int eventID,string names = "", string surname = "", string pension = "")
         {
             try

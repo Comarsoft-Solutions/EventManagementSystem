@@ -122,7 +122,7 @@
         <!--end col-->
     </div>
     </asp:Panel>
-
+    <%-- Company reg start --%>
     <asp:Panel ID="pnlCompany" runat="server">
         <asp:HiddenField ID="txtCompanyID" runat="server" />
     <div class="row">
@@ -145,6 +145,23 @@
             <div class="mb-3">
                 <label for="city" class="form-label">City</label>
                 <asp:TextBox ID="txtCity" placeholder="Harare" CssClass="form-control" runat="server" ></asp:TextBox>
+            </div>
+        </div>
+        
+        <!--end col-->
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="city" class="form-label">Email</label>
+                <asp:TextBox ID="txtCompEmail" placeholder="enquiries@comarsoft.co.zw" CssClass="form-control" runat="server" ></asp:TextBox>
+            </div>
+        </div>
+        
+        <!--end col-->
+        <!--end col-->
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="city" class="form-label">Phone Number</label>
+                <asp:TextBox ID="txtCompPhone" placeholder="26377585945" CssClass="form-control" runat="server" ></asp:TextBox>
             </div>
         </div>
         

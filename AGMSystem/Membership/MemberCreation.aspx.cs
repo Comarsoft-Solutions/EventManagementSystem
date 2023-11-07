@@ -130,7 +130,8 @@ namespace AGMSystem
                     cr.Name = txtCompanyReg.Text;
                     cr.Address = txtAddress.Text;
                     cr.City = txtCity.Text;
-                    //cr.ZipCode = txtZip.Text;
+                    cr.Email = txtCompEmail.Text;
+                    cr.PhoneNumber = txtCompPhone.Text;
                     if (cr.Save())
                     {
                         SuccessAlert("Company Saved Successfully!");
@@ -210,7 +211,7 @@ namespace AGMSystem
                     reg.LastName = txtLname.Text.ToUpper();
                     reg.Email = txtEmail.Text.ToLower();
                     reg.PhoneNumber = txtPhoneNumber.Text;
-                    reg.Designation = txtDesignation.Text;
+                    reg.Designation = txtDesignation.SelectedItem.Text;
                     reg.Company = txtCompanyName.SelectedItem.Text;
                     reg.MemberType = txtRegType.SelectedItem.Text;
                     reg.CompanyID = int.Parse( txtCompanyName.SelectedValue);

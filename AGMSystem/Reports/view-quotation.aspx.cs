@@ -83,7 +83,7 @@ namespace AGMSystem.Reports
         public void msgbox(string strMessage)
         {
             string strScript = "<script language=JavaScript>";
-            strScript += "window.alert(\"" + strMessage + "\");";
+            strScript += "window.alert(" + strMessage + ");";
             strScript += "</script>";
             System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
             lbl.Text = strScript;

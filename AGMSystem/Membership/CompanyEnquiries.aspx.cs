@@ -114,6 +114,7 @@ namespace AGMSystem.Membership
                 {
                     CompanyRegistration delete = new CompanyRegistration("cn", 1);
                     delete.Delete(companyID);
+                    SuccessAlert("Company Deleted");
                     GetCompanies();
                 }
                 catch (Exception x)
