@@ -26,7 +26,7 @@
   <div class="col-6">
       <%-- name --%>
       <div class="mb-3">
-          <label for="First Name" class="form-label">First Name <span class="text-danger">*</span></label>
+          <label for="First Name" class="form-label">Activity Name  <span class="text-danger">*</span></label>
           <asp:TextBox ID="txtName" CssClass="form-control" placeholder="Name" runat="server"></asp:TextBox>
       </div>
    
@@ -35,7 +35,7 @@
   <div class="col-6">
       <%-- Start Date  --%>
       <div class="mb-3">
-          <label for="Last Name" class="form-label">Last Name <span class="text-danger">*</span></label>
+          <label for="Last Name" class="form-label">Date <span class="text-danger">*</span></label>
           <asp:TextBox ID="txtStartDate" CssClass="form-control" placeholder="Surname" runat="server" TextMode="Date"></asp:TextBox>
       </div>
   </div>
