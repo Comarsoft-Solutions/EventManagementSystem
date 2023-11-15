@@ -81,7 +81,7 @@
                                                  <div class="col-6">
    
     <div class="mb-3">
-        <label for="Barcode " class="form-label">Barcode <span class="text-danger">*</span></label>
+        <label for="Barcode " class="form-label">Scan Name Tag <span class="text-danger">*</span></label>
         <asp:TextBox ID="txtBarcode" CssClass="form-control" placeholder="Full Name as on tag" runat="server"></asp:TextBox>
     </div>
  
