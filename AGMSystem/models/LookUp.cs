@@ -160,7 +160,7 @@ namespace AGMSystem.models
         {
             try
             {
-                string str = "SELECT [ID],[Company],[Surname],[FIrstName],[NationalID],[PhoneNumber],[Email] FROM ClientsFileUpload where UploadBatchID = '" + UploadID + "' and ProcessStatusID = 0 ";
+                string str = "SELECT [ID],[Company],[Surname],[FirstName],[NationalID],[PhoneNumber],[Email] FROM ClientsFileUpload where UploadBatchID = '" + UploadID + "' and ProcessStatusID = 0 ";
                 return ReturnDs(str);
             }
             catch (Exception e)

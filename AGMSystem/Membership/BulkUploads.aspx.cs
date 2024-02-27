@@ -97,6 +97,7 @@ namespace AGMSystem.Membership
                 lblComms.Text = "";
                 if ((flContributionsUpload.HasFile))
                 {
+
                 }
                 else
                 {
@@ -256,7 +257,7 @@ namespace AGMSystem.Membership
                     foreach (DataRow rw in Ds.Tables[0].Rows)
                     {
                         
-
+                        //national id rw[2]
                         if (!rw[2].ToString().IsNullOrWhiteSpace())
                         {
                             if (rw[2].ToString().Trim() != "")
@@ -284,6 +285,7 @@ namespace AGMSystem.Membership
                                 continue;
 
                             }
+                            //firstname(s) rw[0]
                             else if (rw[0].ToString() == "" || rw[1].ToString() == "")
                             {
                                 string dt = DateTime.Now.ToString("yyyy-MM-dd");
@@ -483,6 +485,7 @@ namespace AGMSystem.Membership
                 }
 
                 SuccessAlert("Details Processed Successfully and awaiting approval");
+                Response.Redirect("/MemberEnquiries");
                }
             catch (Exception ex)
             {
