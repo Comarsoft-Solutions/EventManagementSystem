@@ -94,31 +94,25 @@
                 <div class="card-body">
                     <div class="table-responsive table-card">
                         
-                               <div class="form-group row gutters">
 
-    <div class="form-group row gutters col-12">
-
-        <div class="col-sm-12 align-content-center">
-            <asp:GridView ID="grdOngoingEvents" Width="100%" runat="server"
-                AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
-                DataKeyNames="ID"
-                CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
-                Style="border-collapse: collapse !important"
-                AllowPaging="True" AllowSorting="True" PageSize="10" >
-                <Columns>
-                    <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                    <asp:BoundField DataField="EventName" HeaderText="Event Name"></asp:BoundField>
-                    <asp:BoundField DataField="StartDate" HeaderText="Start Date"></asp:BoundField>
-                    <asp:BoundField DataField="EndDate" HeaderText="End Date"></asp:BoundField>
-                    <asp:BoundField DataField="AttendanceFee" HeaderText="Attendance Fee"></asp:BoundField>
+                <div class="col-sm-12 align-content-center">
+                    <asp:GridView ID="grdOngoingEvents" Width="100%" runat="server"
+                        AutoGenerateColumns="False" AutoGenerateSelectButton="false" 
+                        DataKeyNames="ID"
+                        CssClass="table table-condensed" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
+                        Style="border-collapse: collapse !important"
+                        AllowPaging="True" AllowSorting="True" PageSize="10" >
+                        <Columns>
+                            <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
+                            <asp:BoundField DataField="EventName" HeaderText="Event Name"></asp:BoundField>
+                            <asp:BoundField DataField="StartDate" HeaderText="Start Date"></asp:BoundField>
+                            <asp:BoundField DataField="EndDate" HeaderText="End Date"></asp:BoundField>
+                            <asp:BoundField DataField="AttendanceFee" HeaderText="Attendance Fee"></asp:BoundField>
                  
                    
-                </Columns>
-            </asp:GridView>
-        </div>
-    </div>
-
-</div>
+                        </Columns>
+                    </asp:GridView>
+                </div>
                            
                         <!-- end table -->
                     </div>
@@ -148,9 +142,9 @@
                 <div class="card-body">
                     <div class="table-responsive table-card">
                         
-                               <div class="form-group row gutters">
+                               <div class="form-group ">
 
-    <div class="form-group row gutters col-12">
+    <div class="form-group  col-12">
 
         <div class="col-sm-12 align-content-center">
             <asp:GridView ID="grdEvents" Width="100%" runat="server"
@@ -207,9 +201,9 @@
                 <div class="card-body">
                     <div class="table-responsive table-card">
                         
-                               <div class="form-group row gutters">
+                               <div class="form-group ">
 
-    <div class="form-group row gutters col-12">
+    <div class="form-group  col-12">
 
         <div class="col-sm-12 align-content-center">
             <asp:GridView ID="grdConcludedEvents" Width="100%" runat="server"
