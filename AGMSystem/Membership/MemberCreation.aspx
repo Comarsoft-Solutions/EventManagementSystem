@@ -192,7 +192,7 @@
     <%-- end company panel --%>
     <div class="col-lg-12">
         <div class="text-end">
-            <asp:Button ID="btnCreate" OnClick="btnCreate_Click" CssClass="btn btn-primary" runat="server" Text="Create" />
+            <asp:Button ID="btnCreate" OnClick="btnCreate_Click" CssClass="btn btn-primary" runat="server" Text="Create" Visible="false" />
         </div>
     </div>
     <!--end col-->

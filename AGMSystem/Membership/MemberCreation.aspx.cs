@@ -290,6 +290,7 @@ namespace AGMSystem
 
         protected void txtRegType_TextChanged(object sender, EventArgs e)
         {
+            btnCreate.Visible = true;
             try
             {
                 if (txtRegType.Text == "1")
