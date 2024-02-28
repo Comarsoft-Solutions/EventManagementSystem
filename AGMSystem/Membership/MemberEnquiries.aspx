@@ -15,6 +15,7 @@
         </div>
     </div>
     <div class="table-responsive table-card">
+        <div class="col-xl-11" style="margin: 0 auto; text-align: center;">
         <table style="width: 100%">
 
             <tr>
@@ -37,10 +38,19 @@
                 </td>
             </tr>
         </table>
+            </div>
+        <br />
 
-        <div class="form-group row gutters">
+        
+        <div class="col-xl-11" style="margin: 0 auto; text-align: center;">
+            <div class="card" >
+                <div class="card-header align-items-center d-flex">
+                    <h2 class="card-title mb-0 flex-grow-1" >Members</h2>
+                    
+                </div>
+                <!-- end card header -->
 
-            <div class="form-group row gutters col-12">
+                <div class="card-body">
 
                 <div class="col-sm-12 align-content-center">
                     <asp:GridView ID="grdMemberEnquiries" Width="100%" runat="server"
@@ -75,6 +85,7 @@
                 </div>
             </div>
 
+        </div>
         </div>
     </div>
 </asp:Content>
