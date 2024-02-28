@@ -147,7 +147,7 @@ namespace AGMSystem.Projects
         }
         protected void txtProjects_TextChanged(object sender, EventArgs e)
         {
-
+            txtProjectID.Value = txtProjects.SelectedValue.ToString();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
